@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+
+<% else %>
+
+<div class="hero-unit">
+	<h1>Welcome to Podium!</h1>
+	<p>
+		A presentation enhancement and collaboration tool.
+	</p>
+	<p>
+		<%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-primary btn-large" %>
+	</p>
+</div>
+<% end %>

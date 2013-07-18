@@ -1,0 +1,35 @@
+	<div class="box">
+		
+		<div class="project_container">
+			<%= image_tag project.image (:thumb) %>
+				<span class="project_tools">
+					<%= link_to(project) do %>
+			  			<span class="show"><i class="icon-youtube-play"></i></span>
+					<% end %>
+			    	 
+			        <% if current_user == project.user %>
+			        <%= link_to(edit_project_path(project)) do %>
+						<span class="edit"><i class="icon-edit-sign"></i></span>
+			        <% end %>
+
+			        <%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+						<span class="delete"><i class="icon-remove"></i></span>
+			        <% end %>
+					<% end %>
+				</span>
+
+		</div>
+
+		<div class="project_info"
+	      	<p class="description">
+	        	<%= project.description %>
+	    	
+	    	<p>
+	    		<strong>
+	    		  	Posted by <%= link_to project.user.name, project.user %>
+	    		</strong>
+	    	</p>
+    	</div>
+    
+    </div>
+ 
