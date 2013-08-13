@@ -88,17 +88,20 @@ form {
 	line-height: 0;
 }
 
+/*Customize Alert Notifications*/
+
 .alert {
 	padding: 8px 35px 8px 14px;
 	margin-bottom: 18px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	background-color: #fcf8e3;
-	border: 1px solid #fbeed5;
+	background-color: rgba(252, 248, 227, 0);
+	border: 1px dashed #474747;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	color: #c09853;
+	color: #6B6B6B;
+	text-shadow: 0 0px 0 rgba(255, 255, 255, 0.5);
 }
+
 .alert-heading {
   color: inherit;
 }
@@ -172,6 +175,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	vertical-align: middle;
 }
 
+
 .btn {
 	display: inline-block;
 	padding: 8px 102px;
@@ -186,7 +190,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	text-shadow: 0 0px 0px rgba(255, 255, 255, 0.75);
 	background-color: rgb(0, 118, 211);
 	background-repeat: repeat-x;
-	border-top: 1px groove rgb(4, 157, 230);
+	border-top: 1px groove #00FFA3;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -202,36 +206,6 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	background-image: none;
 	background-image: none;
 	background-image: none;
-}
-
-.btn-primary:active, .btn-primary.active {
-	background-color: none;
-}
-
-.btn-primary:hover {
-	color: white;
-	background-color: none;
-	opacity: .5;
-	cursor: pointer;
-}
-
-
-.btn.active, .btn:active {
-	background-image: none;
-	outline: 0;
-	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.15), 0 0px 0px rgba(0, 0, 0, 0.05);
-	-moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.15), 0 0px 0px rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.15), 0 0px 0px rgba(0, 0, 0, 0.05);
-}
-
-.btn:focus {
-	color: white;
-	text-decoration: none;
-	background-position: 0 0;
-	-webkit-transition: background-position 0.5s linear;
-	-moz-transition: background-position 0.5s linear;
-	-o-transition: background-position 0.5s linear;
-	transition: background-position 0.5s linear;
 }
 
 /*Login Form*/
@@ -351,7 +325,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	margin-left: -140px;
 	float: left;
 	margin-top: 60px;
-
+	border: none;
 
 }
 
@@ -655,3 +629,11 @@ video {
 	-webkit-transform: translateY(140px);
 
 }
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
