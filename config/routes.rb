@@ -8,6 +8,10 @@ Omrails::Application.routes.draw do
 
   get 'faq' => 'pages#faq'
 
-  root :to => 'projects#index'
+  authenticated :user do
+    root :to => "projects#index"
+  end
+
+  root :to => 'pages#home'
 
 end

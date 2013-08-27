@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :redirect_if_not_signed_in
 
-   # GET /projects
+  # GET /projects
   # GET /projects.json
   def index
     @projects = Project.order("created_at desc").page(params[:page]).per_page(8)
@@ -82,6 +82,14 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def redirect_if_not_signed_in
+    unless user_signed_in?
+      redirect_to root_path
     end
   end
 end
