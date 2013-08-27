@@ -10,7 +10,8 @@
  *
  *= require_self
  *= require font-awesome
- *= require flat-ui
+ *= require foundation_and_overrides
  *= require_tree .
  */
+
 

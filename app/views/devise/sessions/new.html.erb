@@ -1,18 +1,28 @@
 <!-- <h2>Sign in</h2> -->
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form'}) do |f| %>
 
+<%= f.error_notification :class => "error" %>
 
-<div class="email"><span class="icon-envelope"></div><%= f.input :email, label: false,:placeholder => "E-mail"%>
-<div class="password"><span class="icon-lock"></div><%= f.input :password, label: false,:placeholder => "Password"%>
+<div class="row collapse">
+	<div class="small-1 columns"><span class="prefix"><span class="icon-envelope"></div>
+	<div class="small-11 columns">
+			<%= f.input :email, label: false, :placeholder => "E-mail"%>
+	</div>
 
-<div class="remember_me">
-	<%= f.input :remember_me, as: :boolean %>
-</div>
+	<div class="small-1 columns"><span class="prefix"><span class="icon-lock"></div>
+		<div class="small-11 columns">
+		<%= f.input :password, label: false, :placeholder => "Password"%>
+	</div>
 
-<div class="sign_in">
-  	<%= f.submit "SIGN IN", class: "btn btn-primary" %>
+	<div class="small-12 columns">
+		<%= f.input :remember_me, as: :boolean %>
+	</div>
+
+	<div class="large-12 columns ">
+  	<%= f.submit "SIGN IN", class: "button prefix" %>
   </div>
+</div>
 
 
 

@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
-  # GET /projects
+   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.order("created_at desc").page(params[:page]).per_page(8)

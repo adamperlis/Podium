@@ -6,7 +6,6 @@ source 'https://rubygems.org'
 	gem 'simple_form'
 	gem 'font-awesome-sass-rails'
 	gem 'font-awesome-rails'
-	gem 'paperclip', '~> 3.0'
 	gem 'aws-sdk'
 	gem 'faker', '1.1.2'
 	gem 'will_paginate', '3.0.3'
@@ -21,10 +20,11 @@ group :development, :test do
 end
 
 group :assets do
-	gem 'bootstrap-sass', '~> 2.3.2.0'
-	gem "flat-ui-rails"
 	gem 'sass-rails',   '~> 3.2.3'
-	gem 'jquery-fileupload-rails'
+	gem 'compass-rails' # you need this or you get an err
+  gem 'zurb-foundation', '~> 4.0.0'
+ 	gem 'carrierwave'
+ 	gem 'rmagick'
 	gem 'coffee-rails', '~> 3.2.1'
 	gem 'uglifier', '>= 1.0.3'
 end

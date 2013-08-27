@@ -1,40 +1,47 @@
-
-
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
+<nav class="top-bar">
+<% if user_signed_in? %>
     <div class="container">
- 
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
- 
-      <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to image_tag("podium_logo.png"), root_path, class: "logo" %>
- 
-      <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse">
-    	<ul class="nav">
-    		<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "About", about_path %></li>
-		</ul>
-
-    		<ul class="nav pull-right">
-          <% if user_signed_in? %>
-
-          <li id="signed_in_notification"><strong><%= current_user.email %></strong></li>
-          <li><%= link_to "Add +", new_project_path %></li>
-          <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>  
-          <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
-          <% end %> 
-
-          
-    		</ul>
-      </div>
+        <ul id="gn-menu" class="gn-menu-main">
+          <li class="gn-trigger">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+              <div class="gn-scroller">
+                <ul class="gn-menu">
+               <!--    <li class="gn-search-item">
+                    <input placeholder="Search" type="search" class="gn-search">
+                    <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                  </li> -->
+                  <li>
+                    <%= link_to "Add New Deck", new_project_path, :class => 'gn-icon gn-icon-plus' %>
+                  </li>
+                  <li>
+                    <%= link_to "Decks", root_path, :class =>"gn-icon gn-icon-folder-open" %>
+                  </li>
+                  <li><%= link_to "Settings", edit_user_registration_path, :class => 'gn-icon gn-icon-cog' %></li>
+                  <li> <%= link_to "FAQ", faq_path, :class =>"gn-icon gn-icon-question" %></li>
+                  <li><%= button_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'gn-icon gn-icon-unlock-alt' %></li>
+                </ul>
+              </div><!-- /gn-scroller -->
+            </nav>
+          </li>
+            <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
+            <li class= "current-user"><%= current_user.email %></li>
+        </ul>
     </div>
-  </div>
-</div>
+
+
+<% else %>
+
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+          <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
+          <li class= "current-user"><%= link_to "Login", new_user_session_path %></li>
+        </ul>
+    </div>
+
+<% end %>
+</nav>
+
+
+ 
+     

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719181404) do
+ActiveRecord::Schema.define(:version => 20130816155559) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130719181404) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
+    t.string   "image"
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"

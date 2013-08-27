@@ -34,15 +34,14 @@ GEM
       nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.2.0)
-      sass (~> 3.2)
     bootstrap-will_paginate (0.0.6)
       will_paginate
     builder (3.0.4)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.1)
-      climate_control (>= 0.0.3, < 1.0)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+    chunky_png (1.2.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -50,6 +49,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -60,18 +65,15 @@ GEM
       multi_json (~> 1.0)
     faker (1.1.2)
       i18n (~> 0.5)
-    flat-ui-rails (0.0.2)
     font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
     font-awesome-sass-rails (3.0.2.2)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.4)
     journey (1.0.4)
-    jquery-fileupload-rails (0.4.1)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -84,12 +86,6 @@ GEM
     multi_json (1.7.7)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
-    paperclip (3.4.2)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.0)
-      mime-types
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -117,6 +113,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -144,27 +141,29 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.3)
+    zurb-foundation (4.0.9)
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   aws-sdk
-  bootstrap-sass (~> 2.3.2.0)
   bootstrap-will_paginate (= 0.0.6)
+  carrierwave
   coffee-rails (~> 3.2.1)
+  compass-rails
   devise
   faker (= 1.1.2)
-  flat-ui-rails
   font-awesome-rails
   font-awesome-sass-rails
-  jquery-fileupload-rails
   jquery-rails
-  paperclip (~> 3.0)
   pg
   rails (= 3.2.12)
+  rmagick
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
   uglifier (>= 1.0.3)
   will_paginate (= 3.0.3)
+  zurb-foundation (~> 4.0.0)

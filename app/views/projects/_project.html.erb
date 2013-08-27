@@ -1,7 +1,7 @@
-	<div class="box">
+
 		
-		<div class="project_container">
-			<%= image_tag project.image (:thumb) %>
+		<li class="projects_container">
+
 				<span class="project_tools">
 					<%= link_to(project) do %>
 			  			<span class="show"><i class="icon-youtube-play"></i></span>
@@ -18,8 +18,6 @@
 					<% end %>
 				</span>
 
-		</div>
-
 		<div class="project_info"
 	      	<p class="description">
 	        	<%= project.description %>
@@ -30,6 +28,4 @@
 	    		</strong>
 	    	</p>
     	</div>
-    
-    </div>
- 
+    </li>

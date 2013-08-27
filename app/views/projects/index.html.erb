@@ -1,8 +1,120 @@
 <% if user_signed_in? %>
 
-<div id="projects">
-	<%= render @projects %>
-</div>
+<!-- sample Decks -->
+
+<ul class="small-block-grid-2 large-block-grid-4">
+	<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/state-of-social-media-2012-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>Social Media Report</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+	</li>
+
+	<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/rails-girls-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>Rails Girls</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+</li>
+
+<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/future-friendly-web-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>A Future Friendly Web</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+</li>
+
+<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/design-how-it-works-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>Design Is How It Works</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+</li>
+
+<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/hyperkat-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>Teach: Rebranding Teachers</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+	</li>
+
+	<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/charity-water-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>Charity Water</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+</li>
+
+<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/CMSs-for-designers-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"> <img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>CMS for Designers</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+</li>
+
+<li>
+	<div class="sample-deck">
+		<span>
+			<a href="#" class="sample-img"><img src="http://noteandpoint.com/presimages/little-things-colbow-full.jpg"></a>
+		</span>
+		<div class="info-box">
+			<a href="#" class="sample-profile"><img src="assets/profile_pic.png"></a>
+			<a href="#"><h3>It's The Little Things</h3></a>
+			<a href="#"><p><%= current_user.name %></p></a>
+		</div>
+	</div>
+</li>
+
+
+</ul>
+
+<!-- sample Decks END -->
+
+  <!-- <ul class="large-block-grid-4">
+    	<%= render @projects %>
+	</ul>
 
 <%= will_paginate @projects %>
 
@@ -10,4 +122,4 @@
 
 <%= render 'pages/home' %>
 
-<% end %>
+<% end %> -->
