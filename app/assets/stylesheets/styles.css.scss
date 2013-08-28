@@ -518,8 +518,8 @@ input.gn-search:focus {
 
 .sample-deck {
 	background: white;
-  border-radius: 5px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  border-radius: 2px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
  	width: 234px;
 	height: 290px;
   margin: 0 auto;
@@ -527,8 +527,8 @@ input.gn-search:focus {
 
 .sample-img img {
 	margin-bottom: 40px;
-	border-radius: 5px 5px 0 0;
 	opacity: 1;
+	border-radius: 2px;
 	-moz-transition:width .5s, height .5s, opacity .5s, -moz-transform .5s;
 	-webkit-transition:width .5s, height .5s, opacity .5s, -webkit-transform .5s;
 	-o-transition:width .5s, height .5s, opacity .5s, -o-transform .5s;

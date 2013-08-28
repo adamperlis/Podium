@@ -1,31 +1,29 @@
 
 		
-		<li class="projects_container">
-
-				<span class="project_tools">
-					<%= link_to(project) do %>
-			  			<span class="show"><i class="icon-youtube-play"></i></span>
-					<% end %>
-			    	 
-			        <% if current_user == project.user %>
-			        <%= link_to(edit_project_path(project)) do %>
-						<span class="edit"><i class="icon-edit-sign"></i></span>
-			        <% end %>
-
-			        <%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-						<span class="delete"><i class="icon-remove"></i></span>
-			        <% end %>
-					<% end %>
+		<li>
+			<div class="sample-deck">
+				<span>
+				   <%= link_to (image_tag project.image (:thumb)), project, :class => 'sample-img' %>
 				</span>
+		
+			<div class="info-box">
+				<%= link_to (image_tag "profile_pic.png"), project, :class => 'sample-profile' %>
+		    <a href="#"><h3><%= project.description %></h3></a>
+		    <a href="#"><p><%= current_user.name %></p></a>
+	    </div>
 
-		<div class="project_info"
-	      	<p class="description">
-	        	<%= project.description %>
-	    	
-	    	<p>
-	    		<strong>
-	    		  	Posted by <%= link_to project.user.name, project.user %>
-	    		</strong>
-	    	</p>
-    	</div>
-    </li>
+	    <% if current_user == project.user %>
+
+				<div class="project-tools">
+					<%= link_to(edit_project_path(project)) do %>
+					<span><i class="icon-edit-sign"></i></span>
+					<% end %>
+
+					<%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+					<span><i class="icon-remove"></i></span>
+					<% end %>
+        </div>
+				<% end %>
+	
+    </div>
+   </li>

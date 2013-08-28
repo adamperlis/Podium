@@ -1,10 +1,11 @@
 $boxes = $('<%= j render(@projects) %>')
  
 $('#projects').append( $boxes ).imagesLoaded( function(){
-        $('#projects').masonry( 'reload');
+        $('#projects').masonry('reload');
 });
 <% if @projects.next_page %>
         $('.pagination').replaceWith('<%= j will_paginate(@projects) %>');
 <% else %>
         $('.pagination').remove();
 <% end %>
+<% sleep 1 %> 

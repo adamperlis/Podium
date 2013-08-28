@@ -14,8 +14,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require masonry.pkgd.min.js
-//= require imagesloaded.js
 //= require gnmenu.js
 //= require classie.js
 //= require_tree .
