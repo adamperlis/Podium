@@ -11,6 +11,7 @@ source 'https://rubygems.org'
 	gem 'faker', '1.1.2'
 	gem 'will_paginate', '3.0.3'
 	gem 'bootstrap-will_paginate', '0.0.6'
+	gem 'jquery-ui-rails'
 
 group :production do
 	gem 'pg'

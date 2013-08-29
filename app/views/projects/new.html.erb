@@ -1,6 +1,52 @@
-<h1>New Deck</h1>
 
-		<%= render 'form' %>
+<div class='row'>
+	<div class='large-12 columns'>
+		<div class='large-3 columns'>
+			<div class='slide-organizer'>
+				<p>Slides</p>
 
-		<%= link_to 'Back', projects_path %>
+				<script>
+				$(function() {
+				  $( "#sortable" ).sortable();
+				  $( "#sortable" ).disableSelection();
+				});
+				</script>
+
+				<ul class="sortable">
+					<li class="slide"></li>
+					<li class="slide"></li>
+					<li class="slide"></li>
+					<li class="dropzone2"><i class="icon-plus"></i>   Add New Slide</li>
+				</ul>
+			</div>
+		</div>
+		<div class='large-7 columns'>
+			<div class="dropzone-container">
+				<div class="dropzone">Drag Files Here   <i class="icon-dropbox"></i></div>
+			</div>
+		</div>
+				<div class='large-2 columns'>
+					<div class="right-menu">
+						<div class="section-container accordion" data-section="accordion">
+						  <section>
+						    <p class="title" data-section-title><a href="#">Section 1</a></p>
+						    <div class="content" data-section-content>
+						      <p>Content of section 1.</p>
+						    </div>
+						  </section>
+						  <section>
+						    <p class="title" data-section-title><a href="#">Section 2</a></p>
+						    <div class="content" data-section-content>
+						      <p>Content of section 2.</p>
+						    </div>
+						  </section>
+						</div>
+					<%= render 'form' %>
+					<%= link_to 'Back', projects_path %>
+					</div>
+				</div>
+
+</div>
+
+
 	

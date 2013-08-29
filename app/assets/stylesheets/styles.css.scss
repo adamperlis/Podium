@@ -39,6 +39,23 @@
   font-style: normal;
 }
 
+body {
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	height: 9px;
+	width: 9px;
+	background: #ACACAC;
+
+}
+::-webkit-scrollbar-thumb {
+	background: #3A3A3A; 
+}
+::-webkit-scrollbar-corner {
+	background: #ACACAC;
+}
+
 .container > header,
 .codrops-top {
 	color: #fff;
@@ -577,6 +594,101 @@ input.gn-search:focus {
 
 .sample-profile img:hover {
 	border: 3px dotted #c6d0da;
+}
+
+.right-menu {
+	height: 849px;
+	width: 120%;
+	padding: 40px;
+	margin-top: -14px;
+	background: lightGrey;
+}
+
+.slide-organizer {
+	height: 849px;
+	overflow-y: scroll;
+	background: rgb(75, 75, 75);
+	float: left;
+	width: 394px;
+	position: relative;
+	left: -128px;
+	top: -20px;	
+	-moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+}
+
+.slide-organizer p {
+color: white;
+margin-left: 57%;
+margin-top: 20px;
+font-weight: 300;
+font-family: 'Lato', Arial, sans-serif;
+}
+
+.slide {
+	background: rgb(143, 143, 143);
+	border-radius: 2px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	width: 234px;
+	height: 164px;
+	margin-left: 124px;
+	margin-top: 10px;
+}
+
+.slide:hover {
+	border: 2px solid yellow ;
+}
+
+.slide:focus {
+	border: 2px solid yellow ;
+}
+
+.dropzone-container {
+	position: relative;
+	width: 95%;
+	padding-bottom: 62%;
+	float: left;
+	height: 0;
+}
+
+.dropzone {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: -50px;
+	border: 1px dashed gray;
+	top: 80px;
+	text-align: center;
+	font-size: 28px;
+	line-height: 550px;
+	font-weight: 300;
+	font-family: 'Lato', Arial, sans-serif;
+}
+
+.dropzone2 {
+	background: rgba(255, 255, 255, 0);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+	width: 234px;
+	height: 164px;
+	margin-left: 124px;
+	margin-top: 10px;
+	border: 1px dashed gray;
+	text-align: center;
+	font-size: 16px;
+	line-height: 156px;
+	font-weight: 300;
+	font-family: 'Lato', Arial, sans-serif;
+	color: white;
+	-moz-transition:background .3s;
+	-webkit-transition:background .3s;
+	-o-transition:background .3s;
+	transition:background .3s;
+}
+
+.dropzone2:hover {
+	background: rgb(143, 143, 143);
+	cursor: pointer;
 }
 
 @import "foundation_and_overrides";

@@ -1,8 +1,11 @@
 
-  <ul class="small-block-grid-2 large-block-grid-4">
-    	<%= render @projects %>
-	</ul>
-
+		<div class="row">
+			<div class='large-12 columns'>
+			  <ul class="small-block-grid-2 large-block-grid-4">
+			    	<%= render @projects %>
+				</ul>
+				<div class="large-3 pull-9 columns">...</div>
+			</div>
 <%= will_paginate @projects %>
 
 
