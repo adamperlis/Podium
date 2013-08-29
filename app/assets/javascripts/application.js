@@ -13,7 +13,11 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery.ui.draggable
+//= require jquery.ui.droppable
+//= require jquery.ui.resizable
+//= require jquery.ui.selectable
+//= require jquery.ui.sortable
 //= require foundation
 //= require gnmenu.js
 //= require classie.js

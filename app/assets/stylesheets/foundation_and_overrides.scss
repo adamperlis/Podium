@@ -28,13 +28,13 @@ $body-font-color: #34495e;
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-// $primary-color: #8DF5AE;
+$primary-color: #5f6f81;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 3px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -218,9 +218,9 @@ $label-font-color: #34495e;
 // $legend-padding: 0 emCalc(3px);
 
 // We use these to style the prefix and postfix input elements
-// $input-prefix-bg: darken(#fff, 5%);
+$input-prefix-bg: darken(#5f6f81, 5%);
 // $input-prefix-border-color: darken(#fff, 20%);
-// $input-prefix-border-size: 1px;
+$input-prefix-border-size: 0px;
 // $input-prefix-border-type: solid;
 // $input-prefix-overflow: hidden;
 // $input-prefix-font-color: #333;
@@ -259,7 +259,7 @@ $label-font-color: #34495e;
 // $button-function-factor: 10%;
 
 // We use these to control button border styles.
-// $button-border-width: 1px;
+$button-border-width: 0px;
 // $button-border-style: solid;
 // $button-border-color: darken($primary-color, $button-function-factor);
 

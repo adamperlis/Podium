@@ -17,7 +17,7 @@
                   <li>
                     <%= link_to "Decks", root_path, :class =>"gn-icon gn-icon-folder-open" %>
                   </li>
-                  <li><%= link_to "Settings", edit_user_registration_path, :class => 'gn-icon gn-icon-cog' %></li>
+                  <li><%= link_to "Profile", edit_user_registration_path, :class => 'gn-icon gn-icon-user' %></li>
                   <li> <%= link_to "FAQ", faq_path, :class =>"gn-icon gn-icon-question" %></li>
                   <li><%= button_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'gn-icon gn-icon-unlock-alt' %></li>
                 </ul>

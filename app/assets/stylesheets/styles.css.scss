@@ -473,6 +473,10 @@ input.gn-search:focus {
   content: "\f07c";
 }
 
+.gn-icon-user:before {
+  content: "\f007";
+}
+
 /* if an icon anchor has a span, hide the span */
 
 .gn-icon span {
@@ -597,15 +601,43 @@ input.gn-search:focus {
 }
 
 .right-menu {
-	height: 849px;
-	width: 120%;
-	padding: 40px;
+	height: 559px;
+	width: 100%;
+	padding: 20px;
 	margin-top: -14px;
+	margin-left: 30px;
 	background: lightGrey;
+	-webkit-box-shadow: inset 10px 0px 10px -13px black;
+	-moz-box-shadow:    inset 10px 0px 10px -13px black;
+  box-shadow:         inset 10px 0px 10px -13px black;
+}
+
+.right-menu p {
+line-height: 1.6;
+margin-bottom: 1.25em;
+text-rendering: optimizeLegibility;
+font-weight: 300;
+font-family: 'Lato', Arial, sans-serif;
+font-size: 20px;
+
+}
+
+.right-menu p span {
+padding-left: 17px;
+color: #5f6f81;
+}
+
+.right-menu i {
+padding: 12px;
+color: #5f6f81;
+}
+
+.bar {
+	border-top: 5px solid #5f6f81;
 }
 
 .slide-organizer {
-	height: 849px;
+	height: 559px;
 	overflow-y: scroll;
 	background: rgb(75, 75, 75);
 	float: left;
@@ -624,6 +656,7 @@ margin-left: 57%;
 margin-top: 20px;
 font-weight: 300;
 font-family: 'Lato', Arial, sans-serif;
+font-size: 20px;
 }
 
 .slide {
@@ -690,6 +723,8 @@ font-family: 'Lato', Arial, sans-serif;
 	background: rgb(143, 143, 143);
 	cursor: pointer;
 }
+
+
 
 @import "foundation_and_overrides";
 @import "foundation";

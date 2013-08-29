@@ -4,12 +4,42 @@
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-  <%= f.input :description, label: "Title" %>
-  <%= f.file_field :image, label: "Upload an image" %>
-  <%= f.input :image_remote_url, label: "or enter a URL" %>
+<div class="section-container accordion" data-section="accordion">
+  <section>
+    <div class="bar"></div>
+    <p class="title" data-section-title><a href="#"><i class="icon-cog"></i><span>Settings</span></a></p>
+    <div class="content" data-section-content>
+      <p><%= f.input :description, label: "Title" %></p>
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-unlock-alt"></i><span>Make Private<span></a></p>
+    <div class="content" data-section-content>
+      <p>Password Protect</p>
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-refresh"></i><span>Slide Transitions<span></a></p>
+    <div class="content" data-section-content>
+      <p>Dropdown List of CSS3 Transitions</p>
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-music"></i><span>Music</span></a></p>
+    <div class="content" data-section-content>
+      <p>Add a Music File</p>
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-group"></i><span>Share</span></a></p>
+    <div class="content" data-section-content>
+      <p>Embed</p>
+    </div>
+  </section>
+</div>
   
   <div class="form-actions">
-    <%= f.button :submit, class: "button prefix" %>
+    <%= f.button :submit, class: "medium button prefix" %>
   </div>
 <% end %>
 

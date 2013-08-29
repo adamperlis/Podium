@@ -10,7 +10,8 @@
  *
  *= require_self
  *= require font-awesome
- *= require jquery.ui.all
+ *= require jquery.ui.resizable
+ *= require jquery.ui.selectable
  *= require foundation_and_overrides
  *= require_tree .
  */
