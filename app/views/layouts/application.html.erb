@@ -18,7 +18,12 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <link rel="icon" type="image/png" href="assets/favicon.png">
-
+    <script>
+    $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+    });
+    </script>
   </head>
 
   <body>
@@ -33,6 +38,7 @@
 			<% flash.each do |name, msg| %>
 			 	<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
       <% end %>
+
 			<%= yield %> 
 
   </body>

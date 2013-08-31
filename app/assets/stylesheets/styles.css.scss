@@ -56,6 +56,19 @@ body {
 	background: #ACACAC;
 }
 
+.button {
+	letter-spacing: 1px;
+	font-size: 11px;
+}
+
+.button.prefix {
+	letter-spacing: 1px;
+	font-size: 11px;
+	text-transform: uppercase;
+	height: 50px;
+
+}
+
 .container > header,
 .codrops-top {
 	color: #fff;
@@ -598,6 +611,10 @@ input.gn-search:focus {
 
 .sample-profile img:hover {
 	border: 3px dotted #c6d0da;
+}
+
+.project-tools {
+	margin: auto;
 }
 
 .right-menu {

@@ -17,8 +17,8 @@
 // We use these to control various global styles
 $body-bg: #E2E2E2;
 $body-font-color: #34495e;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
+$body-font-family: 'Lato', Arial, sans-serif;
+$body-font-weight: 300;
 // $body-font-style: normal;
 
 // We use this to control font-smoothing
@@ -85,8 +85,8 @@ $row-width: 120em;
 //
 
 // We use these to control header font styles
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
+$header-font-family: 'Lato', Arial, sans-serif;
+$header-font-weight: 300;
 // $header-font-style: normal;
 $header-font-color: #34495e;;
 // $header-line-height: 1.4;
@@ -251,7 +251,7 @@ $input-prefix-border-size: 0px;
 // $button-font-med: emCalc(16px);
 // $button-font-tny: emCalc(11px);
 // $button-font-sml: emCalc(13px);
-// $button-font-lrg: emCalc(20px);
+$button-font-lrg: emCalc(11px);
 // $button-font-weight: bold;
 // $button-font-align: center;
 

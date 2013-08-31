@@ -16,11 +16,11 @@
 
 				<div class="project-tools">
 					<%= link_to(edit_project_path(project)) do %>
-					<span><i class="icon-edit-sign"></i></span>
+					<span class="edit"><i class="icon-edit-sign"></i>Edit</span>
 					<% end %>
 
 					<%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-					<span><i class="icon-remove"></i></span>
+					<span class="delete"><i class="icon-remove"></i>Delete</span>
 					<% end %>
         </div>
 				<% end %>
