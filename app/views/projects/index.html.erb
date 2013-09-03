@@ -5,8 +5,10 @@
 			    	<%= render @projects %>
 				</ul>
 				<div class="large-3 pull-9 columns">...</div>
+				<%= will_paginate @projects %>
 			</div>
-<%= will_paginate @projects %>
+
+<%= filepicker_image_tag @upload.filepicker_url, w: 160, h: 160, fit: 'clip' %>
 
 
 

@@ -12,6 +12,8 @@ Omrails::Application.routes.draw do
     root :to => "projects#index"
   end
 
+ 	resources :uploads, only: [:index, :new, :create]
+
   root :to => 'pages#home'
 
 end

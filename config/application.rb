@@ -63,5 +63,7 @@ module Omrails
     #Required for Devise on Heroku
     config.assets.initialize_on_precompile = false
 
+    config.filepicker_rails.api_key = "ALcB7Geq4Qi6nBYBnH5s2z"
+
   end
 end

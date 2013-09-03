@@ -16,6 +16,7 @@
   	<%= stylesheet_link_tag    "application", :media => "all" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "application" %>
+    <%= filepicker_js_include_tag %>
     <%= csrf_meta_tags %>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <script>
@@ -34,10 +35,15 @@
       new gnMenu( document.getElementById( 'gn-menu' ) );
     </script>
 
-
-			<% flash.each do |name, msg| %>
-			 	<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+<div class='row'>
+  <div class='large-12 columns'>
+			 <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert-box secondary-#{name}") %>
+<!--         <%= link_to 'x', '#', { :class => "close" } %> -->
       <% end %>
+  </div>
+</div>
+
 
 			<%= yield %> 
 

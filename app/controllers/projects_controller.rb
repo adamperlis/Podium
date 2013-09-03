@@ -85,6 +85,7 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   private
 
   def redirect_if_not_signed_in

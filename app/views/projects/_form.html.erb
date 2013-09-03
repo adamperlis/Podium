@@ -13,15 +13,15 @@
     </div>
   </section>
   <section>
-    <p class="title" data-section-title><a href="#"><i class="icon-unlock-alt"></i><span>Make Private<span></a></p>
+    <p class="title" data-section-title><a href="#"><i class="icon-group"></i><span>Share</span></a></p>
     <div class="content" data-section-content>
-      <p>Password Protect</p>
+      <p>Embed</p>
     </div>
   </section>
   <section>
-    <p class="title" data-section-title><a href="#"><i class="icon-refresh"></i><span>Slide Transitions<span></a></p>
+    <p class="title" data-section-title><a href="#"><i class="icon-play-circle"></i><span>Autoplay<span></a></p>
     <div class="content" data-section-content>
-      <p>Dropdown List of CSS3 Transitions</p>
+      <p>Autoplay</p>
     </div>
   </section>
   <section>
@@ -30,12 +30,20 @@
       <p>Add a Music File</p>
     </div>
   </section>
-  <section>
-    <p class="title" data-section-title><a href="#"><i class="icon-group"></i><span>Share</span></a></p>
+   <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-exchange"></i><span>Slide Transitions<span></a></p>
     <div class="content" data-section-content>
-      <p>Embed</p>
+      <p>Dropdown List of CSS3 Transitions</p>
     </div>
   </section>
+   <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-unlock-alt"></i><span>Make Private<span></a></p>
+    <div class="content" data-section-content>
+      <p>Password Protect</p>
+    </div>
+  </section>
+ 
+   
 </div>
   
   <div class="form-actions">
@@ -43,7 +51,14 @@
   </div>
 <% end %>
 
+<%= form_for @upload do |f| %>
+  <div>
+    <%= f.label :filepicker_url, "Upload Your Avatar:" %>
+    <%= f.filepicker_field :filepicker_url %> <!-- User#filepicker_url is a regular string column -->
+  </div>
 
+  <%= f.submit %>
+<% end %>
 
 
   
