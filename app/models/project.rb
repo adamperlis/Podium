@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-attr_accessible :description, :image, :image_remote_url, :filepicker_url
+attr_accessible :description, :image, :image_remote_url
 
   validates :description, presence: true
   validates :user_id, presence: true
@@ -8,7 +8,7 @@ attr_accessible :description, :image, :image_remote_url, :filepicker_url
   belongs_to :user
   has_attached_file :image, styles: { thumb: "260x260>"}
 
-  has_many :uploads
+  has_many :slides
 
   def image_remote_url=(url_value)
   	self.image = URI.parse(url_value) unless url_value.blank?
