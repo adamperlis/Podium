@@ -1,5 +1,9 @@
 class UploadsController < ApplicationController
 
+  def index
+    @uploads = Upload.all
+  end
+
   def new
     @upload = Upload.new
   end
@@ -9,8 +13,5 @@ class UploadsController < ApplicationController
     redirect_to filepicker_url
   end
 
-  def index
-    @uploads = Upload.all
-  end
 
 end
