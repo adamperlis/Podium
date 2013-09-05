@@ -5,7 +5,8 @@
 				<p>Slides</p>
 
 				<ol class="sortable">
-					<%= render "slides/index" %>
+					<%= render partial: "slides/slide", collection: @slides %>
+					<li class="dropzone2"><i class="icon-plus"></i>   Add New Slide</li>
 			
 				</ol>
 			</div>

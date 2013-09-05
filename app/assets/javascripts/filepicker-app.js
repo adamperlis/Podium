@@ -1,5 +1,6 @@
 $(function (){
   filepicker.setKey('ALcB7Geq4Qi6nBYBnH5s2z');
+  
   filepicker.makeDropPane($('#dropzone')[0], {
     multiple: true,
     dragEnter: function() {
