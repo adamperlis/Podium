@@ -2,6 +2,13 @@
 		<div class="row">
 			<div class="small-10 large-centered columns">
 			  <ul class="small-block-grid-1 large-block-grid-4">
+			  	<li>
+			  		<div class="add-project">
+			  	  	<%= link_to new_project_path do %>
+			  	  	<p><i class='icon-plus'></i> Add New Deck</p>
+			  	  	<% end %>
+			  	 	</div> 
+			  	</li>
 			    	<%= render @projects %>
 				</ul>
 				<div class="large-3 pull-9 columns">...</div>

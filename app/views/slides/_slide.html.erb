@@ -1,0 +1,15 @@
+
+			<li class="slide">
+				<span>
+				   <%= filepicker_image_tag @slide.filepicker_url, w: 160, h: 160, fit: 'clip' %>
+				</span>
+	    
+	    <% if current_user == slide.user %>
+
+				<div class="slide-tools">
+					<%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+					<span class="delete"><i class="icon-remove"></i></span>
+					<% end %>
+        </div>
+				<% end %>
+	 		</li>

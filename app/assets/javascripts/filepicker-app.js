@@ -5,7 +5,7 @@ $(function (){
     dragEnter: function() {
         $("#dropzone").html("Drop to upload").css({
             'backgroundColor': "#E0E0E0",
-            'border': "1px solid #000"
+            'border': "1px dashed gray"
         });
     },
     dragLeave: function() {
@@ -15,10 +15,13 @@ $(function (){
         });
     },
     onSuccess: function(InkBlobs) {
-        $("#dropzone").text("Done, see result below");
-        $.post("/slides", { slide: { filepicker_url: InkBlobs[0].url}, project_id:101}, function(data) {
-        alert(data);
+        
+        var project_id = parseInt($("#dropzone").data("id"));
+        var url = InkBlobs[0].url;
+        $.post("/slides", { slide: { filepicker_url: InkBlobs[0].url}, project_id:project_id}, function(data){
+          $("#dropzone").html($("<img>").attr('src', url));
         });
+
     },
     onError: function(type, message) {
         $("#localDropResult").text('('+type+') '+ message);

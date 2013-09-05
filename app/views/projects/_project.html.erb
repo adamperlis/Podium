@@ -3,7 +3,7 @@
 		<li>
 			<div class="sample-deck">
 				<span>
-				   <%= link_to (image_tag project.image (:thumb)), project, :class => 'sample-img' %>
+				   <%= link_to (image_tag project.image (:thumb)), project, :class => 'sample-img' %> 
 				</span>
 		
 			<div class="info-box">
@@ -14,15 +14,16 @@
 
 	    <% if current_user == project.user %>
 
-				<div class="project-tools">
-					<%= link_to(edit_project_path(project)) do %>
+				<a href="#" data-dropdown="drop2" class="small secondary radius button dropdown"><i class="icon-wrench"></i></a>	
+				    
+				<ul id="drop2" data-dropdown-content="" class="f-dropdown open" style="position: absolute; top: 67px; left: 15px;">
+          <li><%= link_to(edit_project_path(project)) do %>
 					<span class="edit"><i class="icon-pencil"></i>Edit</span>
-					<% end %>
-
-					<%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+					<% end %></li>
+          <li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
 					<span class="delete"><i class="icon-remove"></i>Delete</span>
-					<% end %>
-        </div>
+					<% end %></li>
+        </ul>
 				<% end %>
 	
     </div>
