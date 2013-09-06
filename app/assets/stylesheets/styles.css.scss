@@ -735,20 +735,31 @@ font-size: 20px;
 }
 
 .slide {
-	background: rgb(143, 143, 143);
-	border-radius: 2px;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 	width: 234px;
 	height: 164px;
 	margin-left: 124px;
 	margin-top: 10px;
 }
 
-.slide:hover {
+.sortable {
+	list-style-type:decimal;
+	list-style-position: outside;
+}
+
+.slide img {
+	width: 234px;
+	height: 164px;
+	border-radius: 2px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slide img:hover {
+	border-radius: 2px;
 	border: 2px solid yellow ;
 }
 
-.slide:focus {
+.slide img:focus {
+	border-radius: 2px;
 	border: 2px solid yellow ;
 }
 

@@ -1,15 +1,14 @@
 
 			<li class="slide">
-				<span>
-				   <%= filepicker_image_tag @slide.filepicker_url, w: 160, h: 160, fit: 'clip' %>
-				</span>
-	    
-	    <% if current_user == slide.user %>
-
-				<div class="slide-tools">
-					<%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-					<span class="delete"><i class="icon-remove"></i></span>
-					<% end %>
-        </div>
-				<% end %>
+				   <%= filepicker_image_tag slide.filepicker_url, width: 234, height: 164, fit: 'clip' %>
+		    <ul class="project-tools">
+		      <li>
+						<button data-dropdown="drop2" class="small secondary radius button dropdown"><i class="icon-wrench"></i></button>	
+		     	</li>
+		    </ul>
+      	<ul id="drop2" data-dropdown-content="" class="f-dropdown open" style="position: absolute; top: 67px; left: 15px;">
+	          	<li><%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+							<span class="delete"><i class="icon-remove"></i></span>
+							<% end %></li>
+	      </ul>
 	 		</li>

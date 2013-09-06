@@ -11,8 +11,6 @@
 		    <a href="#"><h3><%= project.description %></h3></a>
 		    <a href="#"><p><%= current_user.name %></p></a>
 	    </div>
-
-	    <% if current_user == project.user %>
 	    <div class="row">
 			  <div class="large-6 columns">
 			    <ul class="project-tools">
@@ -30,7 +28,5 @@
 							<span class="delete"><i class="icon-remove"></i>Delete</span>
 							<% end %></li>
 		        </ul>
-					<% end %>
-	
     </div>
    </li>
