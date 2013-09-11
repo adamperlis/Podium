@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130831210450) do
+ActiveRecord::Schema.define(:version => 20130903233407) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20130831210450) do
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
+
+  create_table "slides", :force => true do |t|
+    t.string   "filepicker_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "project_id"
+  end
+
+  add_index "slides", ["project_id"], :name => "index_slides_on_project_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

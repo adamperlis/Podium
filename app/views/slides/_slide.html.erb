@@ -1,0 +1,9 @@
+
+			<li class="slide" data-id="<%= slide.id %>">
+				  <%= filepicker_image_tag slide.filepicker_url, width: 234, height: 164, fit: 'clip' %>
+		    <ul class="slide-tools">
+	          	<li><%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+							<span class="delete"><i class="icon-remove"></i></span>
+							<% end %></li>
+	      </ul>
+	 		</li>

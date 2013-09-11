@@ -3,18 +3,15 @@
 		<div class='large-3 columns'>
 			<div class='slide-organizer'>
 				<p>Slides</p>
-
 				<ol class="sortable">
-					<li class="slide"></li>
-					<li class="slide"></li>
-					<li class="slide"></li>
+					<%= render partial: "slides/slide", collection: @slides %>
 					<li class="dropzone2"><i class="icon-plus"></i>   Add New Slide</li>
 				</ol>
 			</div>
 		</div>
 		<div class='large-6 columns'>
 			<div class="dropzone-container">
-				<div class="dropzone">Drag Files Here   <i class="icon-dropbox"></i></div>
+				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>">Drag Files Here   <i class="icon-dropbox"></i></div>
 			</div>
 		</div>
 				<div class='large-3 columns'>
@@ -25,7 +22,7 @@
 					</div>
 				</div>
 
-<%= link_to 'Show', @project %> 
+<%= link_to 'Preview', @project %> 
 </div>
 
 
