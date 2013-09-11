@@ -636,7 +636,38 @@ input.gn-search:focus {
 }
 
 .project-tools {
-	display:inline;
+	position: relative;
+	top: 140px;
+	width: 110px;
+	height: 50px;
+	margin: 0 auto;
+	left: 50px;
+}
+
+.project-tools li {
+	display: inline;
+	float: right;
+	padding: 10px;
+}
+
+.slide-tools {
+	position: relative;
+	top: 140px;
+	width: 110px;
+	height: 50px;
+	margin: 0 auto;
+	left: 50px;
+}
+
+.slide-tools li {
+	display: inline;
+	float: right;
+	padding: 10px;
+	color: white;
+}
+
+.slide-tools i {
+	color: white;
 }
 
 .add-project {
@@ -815,7 +846,49 @@ font-size: 20px;
 	cursor: pointer;
 }
 
+/*Testing some Stuff*/
+.slideshow {
+	width: 640px;
+	height: 360px;
+	position: relative;
+	background: gray;
+	border-radius: 2px;
+}
 
+.slideshow img {
+	height: 360px;
+	width:100%;
+}
+
+.player {
+margin-left: 226px;
+margin-top: -33px;
+	opacity: 0;
+	-moz-transition:opacity .3s;
+  -webkit-transition:opacity .3s;
+  -o-transition:opacity .3s;
+  transition:opacity .3s;
+}
+
+.player i {
+	display:inline;
+	padding:5px;
+	padding: 25px;
+	color:white;
+}
+
+.player:hover {
+	opacity: 1;
+}
+
+.player i:hover {
+	color:lightgray;
+	cursor: pointer;
+}
+
+.divider {
+	border-bottom: 1px solid lightgray;
+}
 
 @import "foundation_and_overrides";
 @import "foundation";
