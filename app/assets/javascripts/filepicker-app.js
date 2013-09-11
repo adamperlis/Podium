@@ -19,9 +19,12 @@ $(function (){
         
         InkBlobs.forEach(function(InkBlob){
             var project_id = parseInt($("#current-slide").data("project-id"));
+            var id = parseInt($("#current-slide").data("id"));
             var url = InkBlob.url;
+            var org = $('.slide-organizer ol');
             $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id:project_id}, function(data){
               $("#current-slide").html($("<img>").attr('src', url));
+              $(org).append('<li class="slide" data-id='+ id + '><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/'+ id +'" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
             });
         });
 
@@ -34,14 +37,17 @@ $(function (){
     }
   });
 
-    var addslide = $('li.dropzone2');
+    var addslide = $('.dropzone2');
     addslide.click(function(e){
         e.preventDefault();
-        filepicker.pick(function(InkBlob){
+        filepicker.pickMultiple(function(InkBlob){
             var project_id = parseInt($("#current-slide").data("project-id"));
+            var id = parseInt($("#current-slide").data("id"));
             var url = InkBlob.url;
+            var org = $('.slide-organizer ol');
             $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id:project_id}, function(data){
               $("#current-slide").html($("<img>").attr('src', url));
+              $(org).append('<li class="slide" data-id='+ id + '><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/'+ id +'" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
             });
         });
 
