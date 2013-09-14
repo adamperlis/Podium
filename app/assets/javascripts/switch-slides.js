@@ -10,35 +10,25 @@ $(function (){
     });
   });
 
-		var li = $('.slide img');
-		var liSelected;
-		$(window).keydown(function(e){
-		    if(e.which === 40){
-		    	console.log( "down pressed" );
-		        if(liSelected){
-		            liSelected.removeClass('selected');
-		            next = liSelected.next();
-		            if(next.length > 0){
-		                liSelected = next.addClass('selected');
-		            }else{
-		                liSelected = li.eq(0).addClass('selected');
-		            }
-		        }else{
-		            liSelected = li.eq(0).addClass('selected');
-		        }
-		    }else if(e.which === 38){
-		    	console.log( "up pressed" );
-		        if(liSelected){
-		            liSelected.removeClass('selected');
-		            next = liSelected.prev();
-		            if(next.length > 0){
-		                liSelected = next.addClass('selected');
-		            }else{
-		                liSelected = li.last().addClass('selected');
-		            }
-		        }else{
-		            liSelected = li.last().addClass('selected');
-		        }
-		    }
-		});
+	$('.slide img').click(function() {
+	  $(this).parent().siblings().children().removeClass('active');
+	  $(this).toggleClass('active');
+	}); 
+
+	// $(document).keyup(function(e) {
+	//     var $slide = $('.slide img'), $img = $('img');
+	//     if (e.keyCode == 40) {
+	//     	console.log("down")
+	//         $slide.removeClass('active').next().addClass('active');
+	//         if ($slide.next().length == 0) {
+	//             $img.eq(0).addClass('active')
+	//         }
+	//     } else if (e.keyCode === 38) {
+	//     		console.log("up")
+	//         $slide.removeClass('active').prev().addClass('active');
+	//         if ($slide.prev().length == 0) {
+	//             $img.eq(-1).addClass('active')
+	//         }
+	//     }
+	// });
 });

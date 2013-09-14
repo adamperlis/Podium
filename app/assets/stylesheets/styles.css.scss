@@ -799,11 +799,15 @@ font-size: 20px;
   cursor: pointer;
 }
 
-.slide img:active {
+.active {
   border: 2px solid yellow !important;
 }
 
-.slide img.selected {
+.slide img:focus {
+  border: 2px solid yellow !important;
+}
+
+.selected {
 	border: 2px solid yellow !important;
 }
 
