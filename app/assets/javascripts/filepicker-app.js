@@ -19,12 +19,12 @@ $(function (){
         
         InkBlobs.forEach(function(InkBlob){
             var project_id = parseInt($("#current-slide").data("project-id"));
-            var id = parseInt($("#current-slide").data("id"));
             var url = InkBlob.url;
             var org = $('.slide-organizer ol');
-            $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id:project_id}, function(data){
+            $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id: project_id}, function(data){      
               $("#current-slide").html($("<img>").attr('src', url));
-              $(org).append('<li class="slide" data-id='+ id + '><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/'+ id +'" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              $(org).append('<li class="slide" data-id=' + data.status.id +'><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/' + data.status.id + 'data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+            console.log(data)
             });
         });
 
@@ -40,17 +40,18 @@ $(function (){
     var addslide = $('.dropzone2');
     addslide.click(function(e){
         e.preventDefault();
-        filepicker.pickMultiple(function(InkBlob){
+        filepicker.pickMultiple({
+          services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'URL', 'FACEBOOK', 'INSTAGRAM'],
+          },
+          function(InkBlobs){
             var project_id = parseInt($("#current-slide").data("project-id"));
-            var id = parseInt($("#current-slide").data("id"));
             var url = InkBlob.url;
             var org = $('.slide-organizer ol');
-            $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id:project_id}, function(data){
+            $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id: project_id}, function(data){
               $("#current-slide").html($("<img>").attr('src', url));
-              $(org).append('<li class="slide" data-id='+ id + '><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/'+ id +'" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+                 $(org).append('<li class="slide" data-id=' + data.status.id +'><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/' + data.status.id + 'data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+            console.log(data)
             });
         });
-
-
     });
 });

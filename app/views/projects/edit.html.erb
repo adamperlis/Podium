@@ -4,8 +4,8 @@
 			<div class='slide-organizer'>
 				<p>Slides</p>
 				<ol class="sortable">
-					<%= render partial: "slides/slide", collection: @slides %>
 					<li class="dropzone2"><i class="icon-plus"></i>   Add New Slide</li>
+					<%= render partial: "slides/slide", collection: @slides %>
 				</ol>
 			</div>
 		</div>
@@ -18,11 +18,11 @@
 					<div class="right-menu">
 
 					<%= render 'form' %>
-
+					<%= link_to 'Preview', @project, class: 'button medium button prefix preview' %> 
 					</div>
 				</div>
 
-<%= link_to 'Preview', @project %> 
+
 </div>
 
 

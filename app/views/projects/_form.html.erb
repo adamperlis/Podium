@@ -13,6 +13,24 @@
     </div>
   </section>
   <section>
+    <p class="title" data-section-title><a href="#"><i class="icon-exchange"></i><span>Slide Transitions<span></a></p>
+    <div class="content" data-section-content>
+      <div class="example-slide"></div>
+      <form class="custom">
+        <div class="row">
+          <div class="small-8 columns">
+              <select id="customDropdown" class="medium">
+                <option DISABLED>Select a Transition</option>
+                <option>Default</option>
+                <option>This is another option too</option>
+                <option>Look, a third option</option>
+              </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section>
     <p class="title" data-section-title><a href="#"><i class="icon-group"></i><span>Share</span></a></p>
     <div class="content" data-section-content>
       <p>Embed</p>
@@ -21,25 +39,28 @@
   <section>
     <p class="title" data-section-title><a href="#"><i class="icon-play-circle"></i><span>Autoplay<span></a></p>
     <div class="content" data-section-content>
-      <p>Autoplay</p>
+      <div class="small-3 switch small">
+      <input id="x" name="switch-x" type="radio" checked>
+      <label for="x" onclick="">Off</label>
+
+      <input id="x1" name="switch-x" type="radio">
+      <label for="x1" onclick="">On</label>
+
+      <span></span>
     </div>
-  </section>
-  <section>
-    <p class="title" data-section-title><a href="#"><i class="icon-music"></i><span>Music</span></a></p>
-    <div class="content" data-section-content>
-      <p>Add a Music File</p>
-    </div>
-  </section>
-   <section>
-    <p class="title" data-section-title><a href="#"><i class="icon-exchange"></i><span>Slide Transitions<span></a></p>
-    <div class="content" data-section-content>
-      <p>Dropdown List of CSS3 Transitions</p>
     </div>
   </section>
    <section>
     <p class="title" data-section-title><a href="#"><i class="icon-unlock-alt"></i><span>Make Private<span></a></p>
     <div class="content" data-section-content>
-      <p>Password Protect</p>
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <input type="text" placeholder="Password">
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix radius"><i class="icon-lock"></i></span>
+        </div>
+      </div>
     </div>
   </section>
  
@@ -47,7 +68,7 @@
 </div>
   
   <div class="form-actions">
-    <%= f.button :submit, class: "medium button prefix" %>
+    <%= f.button :submit, class: "medium button prefix success" %>
   </div>
 <% end %>
 

@@ -24,7 +24,7 @@ class SlidesController < ApplicationController
 		@project = Project.find(params[:project_id])
 		@slide = @project.slides.new(params[:slide])
 		if @slide.save
-			render json: {status:"ok"}
+			render json: {status: @slide }
 		else
 			render json: {status:"error"}
 		end
