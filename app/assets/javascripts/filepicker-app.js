@@ -44,13 +44,23 @@ $(function (){
           services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'URL', 'FACEBOOK', 'INSTAGRAM'],
           },
           function(InkBlobs){
-            var project_id = parseInt($("#current-slide").data("project-id"));
-            var url = InkBlob.url;
-            var org = $('.slide-organizer ol');
-            $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id: project_id}, function(data){
-              $("#current-slide").html($("<img>").attr('src', url));
-                 $(org).append('<li class="slide" data-id=' + data.status.id +'><img src=' + url + '><ul class="slide-tools"><li><a href="/slides/' + data.status.id + 'data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-            console.log(data)
+              InkBlobs.forEach(function(InkBlob){
+                console.log(JSON.stringify(InkBlobs));
+                var project_id = parseInt($("#current-slide").data("project-id"));
+                var url = InkBlob.url;
+                var org = $('.slide-organizer ol');
+                $.post("/slides", { slide: { filepicker_url: InkBlob.url}, project_id: project_id}, function(data){
+                  $("#current-slide").html($("<img>").attr('src', url));
+                  // console.log("Converting...");
+                  // var result = document.getElementById("filepicker_url_thumbnail");
+                  //   filepicker.convert(InkBlob, {width: 200, height: 200},
+                  //       function(new_InkBlob){
+                  //           console.log(new_InkBlob.url);
+                  //           result.src = new_InkBlob.url;
+                  //       });
+                  $(org).append('<li class="slide" data-id=' + data.status.id +'><img src=' + url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + 'data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+                console.log(data);
+                });
             });
         });
     });
