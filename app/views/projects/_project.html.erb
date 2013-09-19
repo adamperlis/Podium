@@ -7,12 +7,15 @@
 					 <%= link_to (filepicker_image_tag project.slides.first.filepicker_url), project, :class => 'sample-img' %> 
 				  <!--  <%= link_to (image_tag project.image (:thumb)), project, :class => 'sample-img' %>  -->
 				  <% else %>
-				  	<i class="icon-folder-open" id="untitled-project"></i>
-				  <% end %>
+					  <div class="untitled-project">
+					  	<i class="icon-folder-open" id="untitled-icon"></i>
+					  </div>
+					<% end %>
 				</span>
 		
 			<div class="info-box">
 				<%= link_to (image_tag "profile_pic.png"), project, :class => 'sample-profile' %>
+
 		    <a href="#"><h3><%= project.description %></h3></a>
 		    <a href="#"><p><%= current_user.name %></p></a>
 	    </div>

@@ -58,7 +58,7 @@ $(function (){
                   //           console.log(new_InkBlob.url);
                   //           result.src = new_InkBlob.url;
                   //       });
-                  $(org).append('<li class="slide" data-id=' + data.status.id +'><img src=' + url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + 'data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+                  $(org).append('<li class="slide" data-id=' + data.status.id +'><img src=' + url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + 'data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>').trigger(".slide");
                 console.log(data);
                 });
             });
