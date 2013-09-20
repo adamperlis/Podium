@@ -1,19 +1,17 @@
 $(function (){
 
-		/*trying to get newly uploaded slides to display in #current-slide*/
+
+
+		/*newly uploaded slides to display in #current-slide- no refresh*/
 
 	$(".slide-organizer ol").on("click", "li.slide", function(e){
-	    //event after append the element into DOM, do anything
-	
 		  e.preventDefault();
-
 	    var id = $(e.target).parent(".slide").data("id");
-	    $.get("/slides/" + id, function(data){
-	    	 	console.log(data);
-	        $("#current-slide").html("<img src='" + data.status.filepicker_url + "'/>"); 
-			});
-		});
-
+	  $.getJSON("/slides/" + id, function(data){
+	  	console.log(data);
+      $("#current-slide").html("<img src='" + data.filepicker_url + "'/>");
+    });
+  });
 
 	  var slides = $('li.slide');
 	  slides.click(function(e){
@@ -25,8 +23,6 @@ $(function (){
 	        console.log(data);
 	    });
 	  });
-
-
 
 		$('.slide img').click(function() {
 		  $(this).parent().siblings().children().removeClass('selected');

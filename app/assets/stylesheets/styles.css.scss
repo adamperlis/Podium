@@ -693,6 +693,24 @@ input.gn-search:focus {
 	left: 70px;
 }
 
+.stats {
+	display: block;
+	margin: 0 auto;
+	padding-bottom: 68px;
+	padding-left: 26px;
+}
+
+.stats li {
+	display: inline;
+	float: left;
+	padding-left: 34px;
+	padding-right: 35px;
+	padding-top: 8px;
+	border: 1px solid lightgray;
+	background: rgb(233, 233, 233);
+	text-align: center;
+}
+
 .slide-tools li {
 	display: inline;
 	float: right;
@@ -740,10 +758,17 @@ input.gn-search:focus {
 	cursor: pointer;
 }
 
+.profile-info{
+	padding-top: 40px;
+}
+
 .right-menu {
 	height: 100%;
 	width: 320px;
-	padding: 20px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 100%;
 	margin-top: -14px;
 	margin-left: 30px;
 	background: lightGrey;
@@ -798,6 +823,17 @@ color: #5f6f81;
 	font-family: 'Lato', Arial, sans-serif;
 	font-size: 18px;
 	text-align: center;
+}
+
+.slide-drag {
+	width: 234px;
+	height: 164px;
+	margin-left: 124px;
+	margin-top: 10px;
+	background: rgba(255, 255, 0, 0.25);
+	border: 2px solid rgba(255, 255, 0, 0.5);
+	border-radius: 2px;
+
 }
 
 .slide {

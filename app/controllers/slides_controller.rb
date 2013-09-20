@@ -1,13 +1,17 @@
 class SlidesController < ApplicationController
 
-	def index
-		@slides = Slide.all
+	# def index
+	# 	@slides = Slide.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @slides }
-      format.js
-    end
+ #    respond_to do |format|
+ #      format.html # index.html.erb
+ #      format.json { render json: @slides }
+ #      format.js
+ #    end
+ #  end
+
+  def index
+    @slides = Slide.order("position")
   end
 
   def show
@@ -39,5 +43,12 @@ class SlidesController < ApplicationController
       format.html { redirect_to edit_project_url(@project) }
       format.json { head :no_content }
     end
+  end
+
+  def sort
+    params[:slide].each_with_index do |id, index|
+      Slide.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
   end
 end

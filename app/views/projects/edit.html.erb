@@ -3,7 +3,7 @@
 		<div class='large-3 columns'>
 			<div class='slide-organizer'>
 				<p>Slides</p>
-				<ol class="sortable">
+				<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
 					<li class="dropzone2"><i class="icon-plus"></i>   Add New Slide</li>
 					<%= render partial: "slides/slide", collection: @slides %>
 				</ol>
