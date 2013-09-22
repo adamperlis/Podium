@@ -24,7 +24,19 @@
 						    	<li><span>Leads</span><p>20</p></li>
 						    </ul> -->
 				    	</div>
-						</div>					
+						</div>
+			      <div class="row collapse">
+			        <div class="small-10 columns">
+			          <%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
+								    <%= text_field_tag :search, params[:search] %>
+			        </div>
+			       	<div class="small-2 columns">
+			       		<button class='button prefix' style='width:52px;height:2.9em;'>
+								  <i class='icon-search'></i>
+								</button>
+			        	<% end %>
+			        </div>
+	      		</div>					
 					<%= will_paginate @projects %>
 				</div>
 			</div>

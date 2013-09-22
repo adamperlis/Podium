@@ -19,4 +19,12 @@ attr_accessible :description, :image, :image_remote_url, :filepicker_url, :avata
   def set_default_description
     self.description = "Untitled Project" if description.blank?
   end
+
+  def self.search(search)
+  if search
+    where('name LIKE ?', "%#{search}%")
+  else
+    scoped
+  end
+  end
 end

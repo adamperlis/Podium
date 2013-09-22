@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.order("created_at desc").page(params[:page]).per_page(8)
+    @projects = current_user.projects.search(params[:search]).order("created_at desc").page(params[:page]).per_page(8)
     # @user = current_user.avatar.url
   # Project.order ("created_at desc") ---> this will pull all the projects on the server and allow you to view them.
   # current_user.projects.order("created_at desc").page(params[:page]).per_page(8) ---> this will pull only current users projects
