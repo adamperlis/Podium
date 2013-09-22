@@ -22,7 +22,7 @@ attr_accessible :description, :image, :image_remote_url, :filepicker_url, :avata
 
   def self.search(search)
   if search
-    where('name LIKE ?', "%#{search}%")
+    where('description LIKE ?', "%#{search}%")
   else
     scoped
   end
