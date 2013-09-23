@@ -24,9 +24,9 @@ $(function (){
 	    });
 	  });
 
-		$('.slide img').click(function() {
+	$(".slide-organizer ol").on("click", "li.slide img", function(e){
 		  $(this).parent().siblings().children().removeClass('selected');
-		  $(this).toggleClass('selected');
+		  $(this).addClass('selected');
 		});
 	});
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917084738) do
+ActiveRecord::Schema.define(:version => 20130923121450) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -40,11 +40,14 @@ ActiveRecord::Schema.define(:version => 20130917084738) do
 
   create_table "slides", :force => true do |t|
     t.string   "filepicker_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "project_id"
+    t.integer  "position"
+    t.string   "filepicker_url_thumb"
   end
 
+  add_index "slides", ["filepicker_url_thumb"], :name => "index_slides_on_filepicker_url_thumb"
   add_index "slides", ["project_id"], :name => "index_slides_on_project_id"
 
   create_table "users", :force => true do |t|

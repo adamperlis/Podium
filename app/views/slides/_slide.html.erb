@@ -1,7 +1,7 @@
 
 			<!-- <li class="slide" data-id="<%= slide.id %>"> -->
-			<%= content_tag_for :li, slide do %>
-				  <%= filepicker_image_tag slide.filepicker_url, width: 234, height: 164, fit: 'clip' %>
+			<%= content_tag_for :li, slide, data: { id: slide.id } do %>
+				  <%= filepicker_image_tag slide.filepicker_url_thumb, width: 234, height: 164, fit: 'clip' %>
 		    <ul class="slide-tools">
 	          	<li><%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
 							<span class="delete"><i class="icon-remove"></i></span>
