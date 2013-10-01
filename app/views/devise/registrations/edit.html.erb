@@ -9,14 +9,14 @@
 <div class="row collapse">
  	<div class="small-1 columns avatar-container">
  	<% if @user.filepicker_url_avatar %>
-		<%= filepicker_image_tag @user.filepicker_url_avatar, w: 40, h: 40, fit: 'clip', :class => "avatar" %>
+		<%= filepicker_image_tag @user.filepicker_url_avatar, w: 55, h: 55, fit: 'clip', :class => "avatar" %>
 	<% else %>
 		<i class="icon-camera"></i>
 	<% end %>
 	</div>
 
 	<div class="small-11 columns"> 
-			<button type="button" class="avatar-button button success" data-user-id="<%= @user.id %>" >Pick File</button> 
+			<button type="button" class="avatar-button button success" data-user-id="<%= @user.id %>" >Upload a Picture</button> 
 	</div>
 
 	<div class="small-1 columns"><span class="prefix"><span class="icon-user"></div>

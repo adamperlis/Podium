@@ -3,7 +3,7 @@ $(function (){
   var filepicker_avatar = function(InkBlob){
     console.log(JSON.stringify(InkBlob));
     var user_id = parseInt($(".avatar-button").data("user-id"));
-    filepicker.convert(InkBlob, {width: 40, height: 40, fit: 'scale'}, function(avatar_InkBlob){
+    filepicker.convert(InkBlob, {width: 55, height: 55, fit: 'scale'}, function(avatar_InkBlob){
       
       $.ajax({
         url: '/users/' + user_id,

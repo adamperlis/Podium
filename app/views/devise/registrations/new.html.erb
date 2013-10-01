@@ -12,14 +12,16 @@
 
 <div class="row collapse">
 
-	<% if @user.filepicker_url_avatar %>
-		<div class="small-1 columns"><%= filepicker_image_tag @user.filepicker_url_avatar, w: 40, h: 40, fit: 'clip', crop: '10,20,200,250', :class => "avatar" %></div>
+ 	<div class="small-1 columns avatar-container">
+ 	<% if @user.filepicker_url_avatar %>
+		<%= filepicker_image_tag @user.filepicker_url_avatar, w: 55, h: 55, fit: 'clip', :class => "avatar" %>
 	<% else %>
-		<div class="small-1 columns"><i class="icon-user"></i></div>
+		<i class="icon-camera"></i>
 	<% end %>
-	
+	</div>
+
 	<div class="small-11 columns"> 
-			<%= f.filepicker_field :filepicker_url_avatar, :class => "button success" %> 
+			<button type="button" class="avatar-button button success" data-user-id="<%= @user.id %>" >Upload a Picture</button> 
 	</div>
 	<div class="small-1 columns"><span class="prefix"><span class="icon-user"></div>
 

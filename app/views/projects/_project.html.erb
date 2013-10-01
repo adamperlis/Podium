@@ -14,10 +14,10 @@
 				</span>
 		
 			<div class="info-box">
-	
+				<%= link_to (filepicker_image_tag project.user.filepicker_url_avatar), project.user, :class => "sample-profile" %>
 
 		    <a href="#"><h3><%= project.description %></h3></a>
-		    <a href="#"><p><%= User.name %></p></a>
+		    <a href="#"><p><%= project.user.name %></p></a>
 	    </div>
 			    <ul class="project-tools">
 			    		<li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
