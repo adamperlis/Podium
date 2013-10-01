@@ -7,10 +7,6 @@
             <nav class="gn-menu-wrapper">
               <div class="gn-scroller">
                 <ul class="gn-menu">
-               <!--    <li class="gn-search-item">
-                    <input placeholder="Search" type="search" class="gn-search">
-                    <a class="gn-icon gn-icon-search"><span>Search</span></a>
-                  </li> -->
                   <li>
                     <%= link_to "Add New Deck", new_project_path, :class => 'gn-icon gn-icon-plus' %>
                   </li>
@@ -18,14 +14,15 @@
                     <%= link_to "Decks", root_path, :class =>"gn-icon gn-icon-folder-open" %>
                   </li>
                   <li><%= link_to "Profile", edit_user_registration_path, :class => 'gn-icon gn-icon-user' %></li>
-                  <li> <%= link_to "FAQ", faq_path, :class =>"gn-icon gn-icon-question" %></li>
+                  <li><%= link_to "FAQ", faq_path, :class =>"gn-icon gn-icon-question" %></li>
+                  <li><%= link_to "Browse Projects", browse_projects_path, :class =>"gn-icon gn-icon-browse" %></li>
                   <li><%= button_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'gn-icon gn-icon-unlock-alt' %></li>
                 </ul>
               </div><!-- /gn-scroller -->
             </nav>
           </li>
             <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
-            <li class= "current-user"><%= current_user.email %></li>
+            <li class= "current-user"><%= link_to (image_tag "profile_pic.png"), "#", :class => 'sample-profile' %><%= current_user.name %></li>
         </ul>
     </div>
 

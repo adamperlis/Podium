@@ -1,13 +1,15 @@
 Omrails::Application.routes.draw do
-  get "users/show"
 
-  resources :projects
+  resources :projects do
+  get 'browse', :on => :collection
+  end
+  
   resources :slides do 
     collection {post :sort}
   end
 
   devise_for :users
-  match 'users/:id' => 'users#show', as: :user
+  resources :users, only: [:show, :update]
 
   get 'faq' => 'pages#faq'
 

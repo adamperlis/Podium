@@ -30,30 +30,26 @@ $(function (){
 		});
 	});
 
-
-	// $('.slide img').keydown(function(e) {
-	//   if(e.keyCode === 40) {
-	//       if($('.active').next().length) {
-	//           $('.active').removeClass('active')
-	//           .next().addClass('active');
-	//       }
-	//       else {
-	//           $('.active').removeClass('active');
-	//           var d = $('.slide img');
-	//           d.length = 1;
-	//           d.addClass('active');
-	//       }
-	//   }
-	//   if(e.keyCode === 38) {
-	//       if($('.active').prev().length) {
-	//           $('.active').removeClass('active')
-	//           .prev().addClass('active');
-	//       }
-	//       else {
-	//           $('.active').removeClass('active');
-	//           var d = $('.slide img');
-	//           d = $(d[d.length - 1]);
-	//           d.addClass('active');
-	//       }
-	//   }
-	// });
+	// var chosen = "";
+	// $(".slide-organizer ol").keydown(function(e){ // 38-up, 40-down
+	//     if (e.keyCode == 40) { 
+	//         if(chosen === "") {
+	//             chosen = 0;
+	//         } else if((chosen+1) < $('li.slide img').length) {
+	//             chosen++; 
+	//         }
+	//         $('li.slide img').removeClass('selected');
+	//         $('li.slide img:eq('+chosen+')').addClass('selected');
+	//         return false;
+	//     }
+	//     if (e.keyCode == 38) { 
+	//         if(chosen === "") {
+	//             chosen = 0;
+	//         } else if(chosen > 0) {
+	//             chosen--;            
+	//         }
+	//         $('li.slide img').removeClass('selected');
+	//         $('li.slide img:eq('+chosen+')').addClass('selected');
+	//         return false;
+	//     }
+// });

@@ -1,9 +1,10 @@
 class AddNameOfAttrForFilepickerUrlToUser < ActiveRecord::Migration
 
-  def change
-    create_table :uploads do |t|
-      t.string :filepicker_url
-      t.timestamps
-    end
+  def up
+    add_column :user, :filepicker_url_avatar, :string
+  end
+
+  def down
+    remove_column :user, :filepicker_url_avatar
   end
 end

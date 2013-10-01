@@ -7,7 +7,7 @@ $(function (){
       var project_id = parseInt($("#current-slide").data("project-id"));
       var url = InkBlob.url;
       var org = $('.slide-organizer ol');
-      filepicker.convert(InkBlob, {width: 200, height: 200, fit: 'scale'}, function(new_InkBlob){
+      filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
         $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: new_InkBlob.url}, project_id: project_id}, function(data){
           $("#current-slide").html($("<img>").attr('src', url));
 
@@ -19,30 +19,31 @@ $(function (){
     });
   };
 
+  if($('#current-slide').length) {
+    filepicker.makeDropPane($('#current-slide')[0], {
+      multiple: true,
+      dragEnter: function() {
+        $("#current-slide").html("Drop to upload").css({
+          'backgroundColor': "#E0E0E0",
+          'border': "1px dashed gray"
+        });
+      },
+      dragLeave: function() {
+        $("#current-slide").html("Drop files here").css({
+          'backgroundColor': "#F6F6F6",
+          'border': "1px dashed #666"
+        });
+      },
+      onSuccess: filepicker_cb,
 
-  filepicker.makeDropPane($('#current-slide')[0], {
-    multiple: true,
-    dragEnter: function() {
-      $("#current-slide").html("Drop to upload").css({
-        'backgroundColor': "#E0E0E0",
-        'border': "1px dashed gray"
-      });
-    },
-    dragLeave: function() {
-      $("#current-slide").html("Drop files here").css({
-        'backgroundColor': "#F6F6F6",
-        'border': "1px dashed #666"
-      });
-    },
-    onSuccess: filepicker_cb,
-
-    onError: function(type, message) {
-      $("#localDropResult").text('('+type+') '+ message);
-    },
-    onProgress: function(percentage) {
-      $("#current-slide").text("Uploading ("+percentage+"%)");
-    }
-  });
+      onError: function(type, message) {
+        $("#localDropResult").text('('+type+') '+ message);
+      },
+      onProgress: function(percentage) {
+        $("#current-slide").text("Uploading ("+percentage+"%)");
+      }
+    });
+  }
 
   var addslide = $('.dropzone2');
   addslide.click(function(e){

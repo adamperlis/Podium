@@ -1,11 +1,9 @@
 class AddAttachmentAvatarToUsers < ActiveRecord::Migration
-  def self.up
-    change_table :users do |t|
-      t.attachment :avatar
-    end
+  def up
+    add_column :user, :filepicker_url_avatar, :string
   end
 
-  def self.down
-    drop_attached_file :users, :avatar
+  def down
+    remove_column :user, :filepicker_url_avatar
   end
 end

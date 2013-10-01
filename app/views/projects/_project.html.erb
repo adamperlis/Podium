@@ -4,8 +4,8 @@
 			<div class="sample-deck">
 				<span>
 					<% if project.slides.first %>
-					 <%= link_to (filepicker_image_tag project.slides.first.filepicker_url), project, :class => 'sample-img' %> 
-				  <!--  <%= link_to (image_tag project.image (:thumb)), project, :class => 'sample-img' %>  -->
+					 <%= link_to (filepicker_image_tag project.slides.first.filepicker_url_thumb), project, :class => 'sample-img' %> 
+					
 				  <% else %>
 					  <div class="untitled-project">
 					  	<i class="icon-folder-open" id="untitled-icon"></i>
@@ -14,10 +14,10 @@
 				</span>
 		
 			<div class="info-box">
-				<%= link_to (image_tag "profile_pic.png"), project, :class => 'sample-profile' %>
+	
 
 		    <a href="#"><h3><%= project.description %></h3></a>
-		    <a href="#"><p><%= current_user.name %></p></a>
+		    <a href="#"><p><%= User.name %></p></a>
 	    </div>
 			    <ul class="project-tools">
 			    		<li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>

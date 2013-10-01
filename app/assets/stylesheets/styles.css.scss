@@ -361,6 +361,7 @@ body {
 .gn-submenu li {
 		overflow: hidden;
 		height: 0;
+		-webkit-backface-visibility: hidden;
 		-webkit-transition: height 0.3s;
 		-moz-transition: height 0.3s;
 		transition: height 0.3s;
@@ -523,6 +524,10 @@ input.gn-search:focus {
 
 .gn-icon-user:before {
   content: "\f007";
+}
+
+.gn-icon-browse:before {
+  content: "\f002";
 }
 
 /* if an icon anchor has a span, hide the span */
@@ -693,8 +698,21 @@ input.gn-search:focus {
 	width: 110px;
 	height: 50px;
 	margin: 0 auto;
-	left: 70px;
+	left: 30px;
 }
+
+
+.slide-tools li {
+	display: inline;
+	float: right;
+	padding: 4px;
+	color: white;
+}
+
+.slide-tools i {
+	color: white;
+}
+
 
 .stats {
 	display: block;
@@ -712,17 +730,6 @@ input.gn-search:focus {
 	border: 1px solid lightgray;
 	background: rgb(233, 233, 233);
 	text-align: center;
-}
-
-.slide-tools li {
-	display: inline;
-	float: right;
-	padding: 10px;
-	color: white;
-}
-
-.slide-tools i {
-	color: white;
 }
 
 .add-project {
@@ -809,7 +816,7 @@ color: #5f6f81;
 	overflow-y: scroll;
 	background: rgb(75, 75, 75);
 	float: left;
-	width: 394px;
+	width: 324px;
 	position: relative;
 	left: -128px;
 	top: -20px;	
@@ -820,7 +827,7 @@ color: #5f6f81;
 
 .slide-organizer p {
 	color: white;
-	margin-left: 26%;
+	margin-left: 34%;
 	margin-top: 27px;
 	font-weight: 200;
 	font-family: 'Lato', Arial, sans-serif;
@@ -829,27 +836,27 @@ color: #5f6f81;
 }
 
 .slide-drag {
-	width: 234px;
-	height: 164px;
+	width: 167px;
+	height: 122px;
 	margin-left: 124px;
 	margin-top: 10px;
 	background: rgba(255, 255, 0, 0.25);
-	border: 2px solid rgba(255, 255, 0, 0.5);
+	border: 1px dashed rgba(255, 255, 0, 0.5);
 	border-radius: 2px;
 
 }
 
 .slide {
-	width: 234px;
-	height: 164px;
+	width: 167px;
+	height: 122px;
 	margin-left: 124px;
-	margin-top: 10px;
+	margin-top: 30px;
 }
 
 
 .slide img {
-	width: 234px;
-	height: 164px;
+	width: 167px;
+	height: 122px;
 	border-radius: 2px;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 	opacity: 1;
@@ -871,10 +878,6 @@ color: #5f6f81;
 
 .slide img:focus {
   border: 2px solid yellow !important;
-}
-
-.selected {
-	border: 2px solid yellow !important;
 }
 
 .dropzone-container {
@@ -908,8 +911,8 @@ color: #5f6f81;
 	border-radius: 2px;
 	border: 1px dashed gray;
 	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
-	width: 234px;
-	height: 164px;
+	width: 167px;
+	height: 122px;
 	margin-left: 124px;
 	color: white;
 	opacity: 1;
@@ -921,19 +924,19 @@ color: #5f6f81;
 }
 
 .dropzone2 i {
-	font-size: 60px;
+	font-size: 40px;
 	display: block;
 	color: white;
 	margin-left: 1px;
-	margin-top: 37px;
+	margin-top: 30px;
 }
 
 .dropzone2 p {
-	color: #34495e;
+	color: white;
 	opacity: 50%;
-	font-size: 11px;
+	font-size: 12px;
 	font-family: 'Lato', Arial, sans-serif;
-	margin-top: 86px;
+	margin: 0 auto;
 	line-height: 30px;
 	text-align: center;
 }

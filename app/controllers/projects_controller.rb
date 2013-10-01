@@ -5,9 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects.search(params[:search]).order("created_at desc").page(params[:page]).per_page(8)
-    # @user = current_user.avatar.url
-  # Project.order ("created_at desc") ---> this will pull all the projects on the server and allow you to view them.
-  # current_user.projects.order("created_at desc").page(params[:page]).per_page(8) ---> this will pull only current users projects
+    # @user = User.find(params[:id])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -49,7 +48,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to edit_project_path, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -67,6 +66,16 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :no_content }
+    end
+  end
+
+  def browse
+    @projects = Project.where("private != 't'").search(params[:search]).order("created_at desc").page(params[:page]).per_page(8)
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @projects }
+      format.js
     end
   end
 
