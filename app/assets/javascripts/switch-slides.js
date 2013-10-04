@@ -9,7 +9,7 @@ $(function (){
 	    var id = $(e.target).parent(".slide").data("id");
 	  $.getJSON("/slides/" + id, function(data){
 	  	console.log(data);
-      $("#current-slide").html("<img src='" + data.filepicker_url + "'/>");
+      $("#current-slide").html("<img src=" + data.filepicker_url + ">");
     });
   });
 
@@ -19,7 +19,7 @@ $(function (){
 
 	    var id = $(e.target).parent("li").data("id");
 	    $.getJSON("/slides/" + id, function(data){
-	        $("#current-slide").html("<img src='" + data.filepicker_url + "'/>");
+	        $("#current-slide").html("<img src=" + data.filepicker_url + ">");
 	        console.log(data);
 	    });
 	  });

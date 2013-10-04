@@ -25,14 +25,14 @@
     
 
 		<%= render 'layouts/header'%>
-     <script>
-      new gnMenu( document.getElementById( 'gn-menu' ) );
-    </script>
+      <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+      </script>
 
 <div class='row'>
   <div class='large-12 columns'>
 			 <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "alert-box secondary-#{name}") %>
+        <%= content_tag(:span, msg, class: "alert-box secondary-#{name}") %>
 <!--         <%= link_to 'x', '#', { :class => "close" } %> -->
       <% end %>
   </div>

@@ -17,7 +17,7 @@
     <div class="content" data-section-content>
 
         <div class="row">
-          <div class="small-8 columns">
+          <div class="small-8 centered columns">
               <div id="example-slide">
               </div>
               <select id="customDropdown" class="medium">
@@ -55,11 +55,11 @@
     <p class="title" data-section-title><a href="#"><i class="icon-unlock-alt"></i><span>Make Private</span><span class="pro">PRO</span></a></p>
     <div class="content" data-section-content>
       <div class="row collapse">
+        <%= f.input :private %>
         <div class="small-9 columns">
-           <%= f.input :private %>
-        <!--   <input type="text" placeholder="Password"> -->
+          <%= f.input :accesskey, label: false, :placeholder => "Password" %>
         </div>
-        <div class="small-3 columns">
+        <div class="small-3 columns password">
           <span class="postfix radius"><i class="icon-lock"></i></span>
         </div>
       </div>

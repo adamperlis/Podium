@@ -1,26 +1,30 @@
-<div class: "row">
-	<div class="slideshow">
+<div class='row'>
+	<div class='large-12 columns'>
+		<% if @project.private == false %>
+			<div class="slideshow">
+					<%= filepicker_image_tag @project.slides.first.filepicker_url_thumb, width: 1920, height: 1080, fit: 'clip' %>
+					<p>
+						<%= @project.description %>
+					</p>
+			</div>
+			<% else %>
+					<div class="small-4 large-centered columns">
 
-			<%= image_tag @project.image (:thumb).to_s %>
-			<p>
-				<%= @project.description %>
-			</p>
-			<p>
-				<%= @project.user.name %>
-			</p>
-			<% if current_user == @project.user %>
+						<p>This is a private presentation. Do you have permission to see it? If so please provide the correct password.</p>
 
-	<div id="controls">
-		<form id="formControls">
-			<input type="button" class="button" id="previous" value="PREVIOUS"/>
-			<input type="button" class="button" id="next" value="NEXT"/>
-		</form><!-- #formControls -->
-		<%= image_tag("podium_logo.png", class: "logo_white") %>
-	</div><!-- #controls -->
-			
-		<%= link_to 'Edit', edit_project_path(@project) %> |
-		<% end %>
-		<%= link_to 'Back', projects_path %>
+						<%= simple_form_for @project, :html => {:multipart => true, class: 'form'} do |f| %>
+
+						<%= f.error_notification :class => "error" %>
+
+						<div class="row collapse">
+							<div class="small-9 columns">
+				        <%= f.input :accesskey, label: false, :placeholder => "Password"%>
+				      </div>
+				      <div class="small-3 columns">
+				        <%= f.submit "ACCESS", class: "button prefix access" %>
+				      </div>
+				    <% end %>
+			<% end %>
 	</div>
 </div>
 

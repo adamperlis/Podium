@@ -24,14 +24,16 @@ $(function (){
       multiple: true,
       dragEnter: function() {
         $("#current-slide").html("Drop to upload").css({
-          'backgroundColor': "#E0E0E0",
-          'border': "1px dashed gray"
+          'backgroundColor': "rgb(111, 111, 111)",
+          'border': "",
+          'line-height': "403px"
         });
       },
       dragLeave: function() {
         $("#current-slide").html("Drop files here").css({
           'backgroundColor': "#F6F6F6",
-          'border': "1px dashed #666"
+          'border': "",
+          'line-height': "403px"
         });
       },
       onSuccess: filepicker_cb,
@@ -40,7 +42,10 @@ $(function (){
         $("#localDropResult").text('('+type+') '+ message);
       },
       onProgress: function(percentage) {
-        $("#current-slide").text("Uploading ("+percentage+"%)");
+        // $("#current-slide").text("Uploading ("+percentage+"%)");
+        $("#current-slide").html('<div class="nice secondary progress small-6"><span class="meter" style="width:'+ percentage +'%"></span>Uploading</div>').css({
+           'line-height': "403px"
+        });
       }
     });
   }

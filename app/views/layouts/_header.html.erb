@@ -11,11 +11,11 @@
                     <%= link_to "Add New Deck", new_project_path, :class => 'gn-icon gn-icon-plus' %>
                   </li>
                   <li>
-                    <%= link_to "Decks", root_path, :class =>"gn-icon gn-icon-folder-open" %>
+                    <%= link_to "My Decks", root_path, :class =>"gn-icon gn-icon-folder-open" %>
                   </li>
-                  <li><%= link_to "Profile", edit_user_registration_path, :class => 'gn-icon gn-icon-user' %></li>
+                  <li><%= link_to "Account Settings", edit_user_registration_path, :class => 'gn-icon gn-icon-user' %></li>
                   <li><%= link_to "FAQ", faq_path, :class =>"gn-icon gn-icon-question" %></li>
-                  <li><%= link_to "Browse Projects", browse_projects_path, :class =>"gn-icon gn-icon-browse" %></li>
+                  <li><%= link_to "Browse Decks", browse_projects_path, :class =>"gn-icon gn-icon-browse" %></li>
                   <li><%= button_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'gn-icon gn-icon-unlock-alt' %></li>
                 </ul>
               </div><!-- /gn-scroller -->
@@ -23,7 +23,8 @@
           </li>
             <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
             <li class= "current-user">
-              <%= current_user.name %>
+              <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), current_user, :class => "profile-header" %>
+              <p><%= current_user.name %></p>
             </li>
         </ul>
     </div>

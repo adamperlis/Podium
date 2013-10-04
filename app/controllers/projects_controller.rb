@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.search(params[:search]).order("created_at desc").page(params[:page]).per_page(8)
+    @projects = current_user.projects.search(params[:search]).order("created_at asc").page(params[:page]).per_page(8)
     
 
     respond_to do |format|
@@ -18,6 +18,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @project.increment! :clicks
+    @project.save
 
     respond_to do |format|
       format.html # show.html.erb
@@ -71,7 +73,8 @@ class ProjectsController < ApplicationController
 
   def browse
     @projects = Project.where("private != 't'").search(params[:search]).order("created_at desc").page(params[:page]).per_page(8)
-    
+    @project = Project.where("accesskey == accesskey")
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }

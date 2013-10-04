@@ -1,6 +1,35 @@
-<h1><%= @user.name %></h1>
 
-<div id="projects">
-	<%= render @projects %>
-</div>
+
+<div class="row">
+			<div class='large-12 centered columns'>
+				<div class="large-3 columns">
+					<div class="panel">
+						<div class="stats">
+							<h1><%= @user.name %></h1>
+							<li><i class="icon-eye-open"></i>1,200 <small>Views</small></li>
+							<li><i class="icon-group"></i>800 <small>Shares</small></li>
+			    	</div>
+					</div>
+		      <div class="row collapse">
+		        <div class="small-10 columns">
+		          <%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
+							    <%= text_field_tag :search, params[:search], :placeholder => 'Search Decks' %>
+		        </div>
+		       	<div class="small-2 columns">
+		       		<button class='button prefix' style='width:52px;height:2.9em;'>
+							  <i class='icon-search'></i>
+							</button>
+		        	<% end %>
+		        </div>
+      		</div>		
+	      </div>		
+				<div class="large-9 columns">
+				  <ul class="small-block-grid-1 large-block-grid-4">
+				    	<%= render @projects %>
+					</ul>
+				</div>			
+					<%= will_paginate @projects %>
+				</div>
+			</div>
+		</div>
 
