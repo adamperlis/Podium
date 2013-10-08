@@ -1,5 +1,5 @@
 class AddPasswordToProject < ActiveRecord::Migration
 	change_table :projects do |t|
-		t.remove:password
+		t.add:password
   end
 end
