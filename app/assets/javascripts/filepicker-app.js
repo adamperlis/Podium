@@ -7,15 +7,27 @@ $(function (){
       var project_id = parseInt($("#current-slide").data("project-id"));
       var url = InkBlob.url;
       var org = $('.slide-organizer ol');
-      filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
-        $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: new_InkBlob.url}, project_id: project_id}, function(data){
-          $("#current-slide").html($("<img>").attr('src', url));
 
-          $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+      if(InkBlob.mimetype == "video/mp4"){
+        $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+
+          $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
+
+          $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><video src=' + InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
           console.log(data);
+        }); 
+      }else{
 
+        filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
+          $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: new_InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+            
+              $("#current-slide").html($("<img>").attr('src', url));
+
+              $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              console.log(data);
+          });
         });
-      });
+      }
     });
   };
 

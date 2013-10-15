@@ -5,7 +5,6 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects.search(params[:search]).order("created_at asc").page(params[:page]).per_page(8)
-    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -39,6 +38,7 @@ class ProjectsController < ApplicationController
   def edit
     @project = current_user.projects.find(params[:id])
     @slides = @project.slides.order("position")
+    # @user = User.project.slide.find(params[:id])
     
   end
   

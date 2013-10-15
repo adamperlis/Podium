@@ -1,30 +1,20 @@
+
 <div class='row'>
 	<div class='large-12 columns'>
-		<% if @project.private == false %>
-			<div class="slideshow">
-					<%= filepicker_image_tag @project.slides.first.filepicker_url_thumb, width: 1920, height: 1080, fit: 'clip' %>
-					<p>
-						<%= @project.description %>
-					</p>
-			</div>
-			<% else %>
-					<div class="small-4 large-centered columns">
-
-						<p>This is a private presentation. Do you have permission to see it? If so please provide the correct password.</p>
-
-						<%= simple_form_for @project, :html => {:multipart => true, class: 'form'} do |f| %>
-
-						<%= f.error_notification :class => "error" %>
-
-						<div class="row collapse">
-							<div class="small-9 columns">
-				        <%= f.input :accesskey, label: false, :placeholder => "Password"%>
-				      </div>
-				      <div class="small-3 columns">
-				        <%= f.submit "ACCESS", class: "button prefix access" %>
-				      </div>
-				    <% end %>
+		<!-- <a class="lines-icon"></a> -->
+		<div id="pt-main" class="pt-perspective">
+			<% @project.slides.each do |slide| %>
+				<div class="pt-page">
+					<% if slide.mimetype == "video/mp4" %>
+						<video width='100%' height='100%'>
+							<source src="<%= slide.filepicker_url %>">
+						</video>
+					<% else %>
+					<img src="<%= slide.filepicker_url %>/convert?w=1920&h=1080&fit=scale" data-transition="<%= @project.transition %>">
+					<% end %>
+				</div>
 			<% end %>
+		</div>
 	</div>
 </div>
 

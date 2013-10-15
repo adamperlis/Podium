@@ -1167,5 +1167,28 @@ margin-top: -33px;
 	padding-top: 20px;
 }
 
+.lines-icon{
+	left: 50%;
+	z-index: 999;
+	top: 30px;
+	vertical-align: -2px;
+	width: 30px;
+	height: 3px;
+	float: left;
+	position: relative;
+	background: #5f6f81;
+	box-shadow: 0 3px rgba(255, 255, 255, 0), 0 -6px #5f6f81, 0 -9px rgba(255, 255, 255, 0), 0 -12px #5f6f81;
+	opacity: 1;
+	cursor: pointer;
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.lines-icon:hover{
+	opacity:.5;
+
+}
+
 @import "foundation_and_overrides";
 @import "foundation";
