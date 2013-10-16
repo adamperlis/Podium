@@ -30,15 +30,15 @@ $(document).ready(function() {
 
 			$pages.eq( current ).addClass( 'pt-page-current' );
 
-			var transition = $(".pt-page img").data('transition');
+			var transition = parseInt($(".pt-page").data('transition'));
 
 			$(document).keydown(function(e){
 		    if (e.keyCode == 39) { 
-		       nextPage(1, false);
+		       nextPage(transition, false);
 		       return false;
 			    }
 		    if (e.keyCode == 37) { 
-	       nextPage(2, true);
+	       nextPage(transition + 1, true);
 	       return false;
 		    }
 			});

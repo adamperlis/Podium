@@ -46,6 +46,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
+    puts params
     @project = current_user.projects.find(params[:id])
 
     respond_to do |format|

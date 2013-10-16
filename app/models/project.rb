@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  attr_accessible :description, :image, :image_remote_url, :filepicker_url, :filepicker_url_thumb, :filepicker_url_avatar, :private, :accesskey
+  attr_accessible :description, :image, :image_remote_url, :filepicker_url, :filepicker_url_thumb, :filepicker_url_avatar, :private, :accesskey, :transition
 
   validates :description, presence: true
   validates :user_id, presence: true

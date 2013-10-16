@@ -22,7 +22,7 @@
               </div>
 
 
-              <!-- <select id="customDropdown1" class="medium">
+              <select name="project[transition]" id="customDropdown1" class="medium">
                 <option DISABLED>Select a Transition</option>
                 <option>NONE</option>
                 <option DISABLED>MOVE</option>
@@ -92,7 +92,13 @@
                 <option value="65">Carousel to bottom</option>
                 <option value="66">Sides</option>
                 <option value="67">Slide</option>
-              </select> -->
+              </select>
+              
+              <script> 
+                $(document).ready(function(){
+                  $("#customDropdown1 option[value='<%= @project.transition %>']").attr("selected", "selected")
+                })
+              </script>
           </div>
         </div>
 
