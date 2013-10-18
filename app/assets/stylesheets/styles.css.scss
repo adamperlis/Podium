@@ -35,6 +35,30 @@ body {
 	overflow-y: scroll;
 }
 
+/* Preloader */
+
+#preloader {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(58, 58, 58, 0.5); /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:50%; /* centers the loading animation horizontally one the screen */
+    top:50%; /* centers the loading animation vertically one the screen */
+    background-image:url(../assets/status.gif); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+
 ::-webkit-scrollbar {
 	height: 9px;
 	width: 9px;
@@ -455,7 +479,7 @@ input.gn-search:focus {
 }
 
 .current-user {
-	width: 217px;
+	width: 307px;
 }
 
 
@@ -465,7 +489,7 @@ input.gn-search:focus {
 	font-family: 'Lato', Arial, sans-serif;
 	font-size: 11px;
 	float: left;
-	margin-left: -16px;
+	margin-left: 4%;
 	margin-top: 20px;
 	letter-spacing: 2px;
 }

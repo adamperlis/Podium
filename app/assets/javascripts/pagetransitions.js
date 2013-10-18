@@ -353,6 +353,10 @@ $(document).ready(function() {
 					outClass = 'pt-page-rotateSlideOut';
 					inClass = 'pt-page-rotateSlideIn';
 					break;
+				case 68:
+					outClass = 'pt-page-rotateSlideOutReverse';
+					inClass = 'pt-page-rotateSlideInReverse';
+					break;
 
 			}
 
