@@ -1,13 +1,17 @@
 
 <!-- Preloader -->
-<div id="preloader">
+<!-- <div id="preloader">
   <div id="status">&nbsp;</div>
-</div>
+</div> -->
 
 <div class='row'>
 	<div class='large-12 columns'>
 		<!-- <a class="lines-icon"></a> -->
 		<div id="pt-main" class="pt-perspective">
+			
+			<div class="controls">
+			</div>
+
 			<% @project.slides.each do |slide| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">
 					<% if slide.mimetype == "video/mp4" %>
@@ -31,6 +35,8 @@
           $("#preloader").delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
       })
     //]]>
+
+    $(".top-bar").hide();
 		</script>
 
 

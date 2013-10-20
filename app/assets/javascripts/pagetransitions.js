@@ -34,12 +34,26 @@ $(document).ready(function() {
 
 			$(document).keydown(function(e){
 		    if (e.keyCode == 39) { 
-		       nextPage(transition, false);
-		       return false;
-			    }
+					nextPage(transition, false);
+					return false;
+		    }
 		    if (e.keyCode == 37) { 
-	       nextPage(transition + 1, true);
-	       return false;
+					nextPage(transition + 1, true);
+					return false;
+		    }
+			});
+
+			$(".icon-chevron-right").click(function(e){
+		    if ($(".icon-chevron-right")) { 
+					nextPage(transition, false);
+					return false;
+				}
+			});
+
+			$(".icon-chevron-left").click(function(e){
+		    if ($(".icon-chevron-left")) { 
+					nextPage(transition + 1, true);
+					return false;
 		    }
 			});
 
