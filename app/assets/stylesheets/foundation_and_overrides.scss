@@ -541,7 +541,7 @@ $button-border-width: 0px;
 //
 
 // Controlling default Joyride styles
-// $joyride-tip-bg: rgb(0,0,0);
+$joyride-tip-bg: white;
 // $joyride-tip-default-width: 300px;
 // $joyride-tip-padding: emCalc(18px) emCalc(20px) emCalc(24px);
 // $joyride-tip-border: solid 1px #555;
@@ -549,7 +549,7 @@ $button-border-width: 0px;
 // $joyride-tip-position-offset: 22px;
 
 // Here, we're setting the tip dont styles
-// $joyride-tip-font-color: #fff;
+$joyride-tip-font-color: black;
 // $joyride-tip-font-size: emCalc(14px);
 // $joyride-tip-header-weight: bold;
 
@@ -562,7 +562,8 @@ $button-border-width: 0px;
 // $joyride-tip-timer-color: #666;
 
 // This changes up the styles for the close button
-// $joyride-tip-close-color: #777;
+
+$joyride-tip-close-color: gray;
 // $joyride-tip-close-size: 30px;
 // $joyride-tip-close-weight: normal;
 

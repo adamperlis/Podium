@@ -1,7 +1,5 @@
 $(function (){
 
-	$(".controls").html("<div class='player'><i class='icon-chevron-left'></i><i class='icon-play'></i><i class='icon-chevron-right'></i><i class='icon-code'></i><i class='icon-share-alt'></i><i class='icon-download'></i></div>");
-
 	$(".controls").hide();
 		var i = null;
 		$(document).mousemove(function() {
@@ -15,7 +13,7 @@ $(function (){
 
 		if($.support.fullscreen){
 
-    var fullScreenButton = $("<i class='icon-resize-full'></i>").appendTo('.player');
+    var fullScreenButton = $("<i class='icon-resize-full'></i>").appendTo('.expand');
 
     fullScreenButton.click(function(e){
         e.preventDefault();

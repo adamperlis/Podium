@@ -8,7 +8,7 @@
 			<% else %>
 				 <%= filepicker_image_tag slide.filepicker_url_thumb, width: 234, height: 164, fit: 'clip' %>
 			<% end %>
-		    <ul class="slide-tools">
+		    <ul class="slide-tools" id="2">
 	          	<li><%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
 							<span class="delete"><i class="icon-remove"></i></span>
 							<% end %></li>

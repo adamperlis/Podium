@@ -8,8 +8,20 @@
 	<div class='large-12 columns'>
 		<!-- <a class="lines-icon"></a> -->
 		<div id="pt-main" class="pt-perspective">
-			
+
 			<div class="controls">
+				<div class='player'>
+					<i class='icon-chevron-left'></i>
+					<i class='icon-play'></i>
+					<i class='icon-chevron-right'></i>
+					<div class="back"><input action="action" type="button" value="Back" onclick="history.go(-1);" /></div>
+					<div class="vertical-menu">
+						<i class='icon-code'></i>
+						<i class='icon-download'></i>
+						<i class='icon-share-alt'></i>
+					</div>
+					<div class="expand"></div>
+				</div>
 			</div>
 
 			<% @project.slides.each do |slide| %>

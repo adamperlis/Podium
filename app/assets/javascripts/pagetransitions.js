@@ -32,6 +32,7 @@ $(document).ready(function() {
 
 			var transition = parseInt($(".pt-page").data('transition'));
 
+			//LEFT AND RIGHT ARROW NAVIGATION
 			$(document).keydown(function(e){
 		    if (e.keyCode == 39) { 
 					nextPage(transition, false);
@@ -43,6 +44,19 @@ $(document).ready(function() {
 		    }
 			});
 
+			//PRESENTATION CLICKER NAVIGATION
+			$(document).keydown(function(e){
+		    if (e.keyCode == 34) { 
+					nextPage(transition, false);
+					return false;
+		    }
+		    if (e.keyCode == 33) { 
+					nextPage(transition + 1, true);
+					return false;
+		    }
+			});
+
+			//LEFT AND RIGHT VISUAL NAVIGATION WITH CONTROLS
 			$(".icon-chevron-right").click(function(e){
 		    if ($(".icon-chevron-right")) { 
 					nextPage(transition, false);
@@ -370,6 +384,22 @@ $(document).ready(function() {
 				case 68:
 					outClass = 'pt-page-rotateSlideOutReverse';
 					inClass = 'pt-page-rotateSlideInReverse';
+					break;
+				case 69:
+					outClass = 'pt-page-none';
+					inClass = 'pt-page-none2';
+					break;
+				case 70:
+					outClass = 'pt-page-none2';
+					inClass = 'pt-page-none';
+					break;
+				case 71:
+					outClass = 'pt-page-fadeIn';
+					inClass = 'pt-page-fadeOut';
+					break;
+				case 72:
+					outClass = 'pt-page-fadeOut';
+					inClass = 'pt-page-fadeIn';
 					break;
 
 			}

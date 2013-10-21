@@ -15,6 +15,10 @@ html, body { height: 100%; }
     margin-top: 3%;
 }
 
+.expand {
+ margin-left: 660px;
+}
+
 .pt-page {
 	/* Set rules to fill background */
   min-height: 100%;

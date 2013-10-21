@@ -1,5 +1,17 @@
 /* animation sets */
 
+.pt-page-none {
+	-webkit-animation: fade .1s ease both;
+	-moz-animation: fade .1s ease both;
+	animation: fade .1s ease both;
+}
+
+.pt-page-none2 {
+	-webkit-animation: fade .1s ease both;
+	-moz-animation: fade .1s ease both;
+	animation: fade .1s ease both;
+}
+
 /* move from / to  */
 
 .pt-page-moveToLeft {
@@ -51,6 +63,18 @@
 }
 
 /* fade */
+
+.pt-page-fadeIn {
+	-webkit-animation: fade .7s ease both;
+	-moz-animation: fade .7s ease both;
+	animation: fade .7s ease both;
+}
+
+.pt-page-fadeOut {
+	-webkit-animation: fade .7s ease both;
+	-moz-animation: fade .7s ease both;
+	animation: fade .7s ease both;
+}
 
 .pt-page-fade {
 	-webkit-animation: fade .7s ease both;

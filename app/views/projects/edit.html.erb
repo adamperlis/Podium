@@ -4,7 +4,7 @@
 			<div class='slide-organizer'>
 				<p>Slides</p>
 				<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
-					<li class="dropzone2"><i class="icon-plus"></i><p>Add New Slide</p></li>
+					<li class="dropzone2" id="1"><i class="icon-plus"></i><p>Add New Slide</p></li>
 					<%= render partial: "slides/slide", collection: @slides %>
 				</ol>
 			</div>
@@ -14,16 +14,39 @@
 				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" data-filepicker-url="<%= @project.slides.first.filepicker_url %>"><p>Drag Files Here   <i class="icon-dropbox"></i></p></div>
 			</div>
 		</div>
-				<div class='large-3 columns'>
-					<div class="right-menu">
+		<div class='large-3 columns'>
+			<div class="right-menu">
 
-					<%= render 'form' %>
-					<%= link_to 'Preview', @project, class: 'button medium button prefix preview' %> 
-					</div>
-				</div>
-
-
+			<%= render 'form' %>
+			<%= link_to 'Preview', @project, class: 'button medium button prefix preview' %> 
+			</div>
+		</div>
+	</div>
 </div>
+
+<ol class="joyride-list" data-joyride>
+  <li data-id="1" data-text="NEXT">
+  	<h4>Great!</h4>
+    <p>You created your first deck, now lets add some slides. Go ahead and click <strong>Add New Slide</strong> and choose a PPT, PDF or a collection of JPG's, PNG's or even MP4's.</p>
+  </li>
+  <li data-id="2" data-text="NEXT">
+  	<h4>Nice!</h4>
+    <p>Now that you have added some slides you can organize them by clicking and dragging them into the right order.</p>
+  </li>
+  <li data-id="3" data-button="NEXT" data-options="tipLocation:top;tipAnimation:fade">
+    <h4>Almost Done!</h4>
+    <p>Go ahead and confirm your settings, choose a transition, set autoplay, or protect your presentation from public view.</p>
+  </li>
+  <li data-button="END">
+    <h4>Your Done!</h4>
+    <p>Now click SAVE and then click PREVIEW to see your presentation.</p>
+  </li>
+</ol>
+
+
+<script type="text/javascript">
+	$(document).foundation('joyride', 'start');
+</script>
 
 
 

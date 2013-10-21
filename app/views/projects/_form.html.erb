@@ -4,7 +4,7 @@
   <%= f.full_error :image_file_size, class: "alert alert-error" %>
   <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-<div class="section-container accordion" data-section="accordion">
+<div class="section-container accordion" id="3" data-section="accordion">
   <section>
     <div class="bar"></div>
     <p class="title" data-section-title><a href="#"><i class="icon-cog"></i><span>Settings</span></a></p>
@@ -24,13 +24,14 @@
 
               <select name="project[transition]" id="customDropdown1" class="medium">
                 <option DISABLED>Select a Transition</option>
-                <option>NONE</option>
+                <option value="69">None</option>
                 <option DISABLED>MOVE</option>
                 <option value="1">Move to left/ from right</option>
                 <!-- <option value="2">Move to right/ from left</option> -->
                 <option value="3">Move to top/ from bottom</option>
                 <!-- <option value="4">Move to bottom/ from top</option> -->
                 <option DISABLED>FADE</option>
+                <option value="71">Fade</option>
                 <option value="5">Fade / from right</option>
                 <!-- <option value="6">Fade / from left</option> -->
                 <option value="7">Fade / from bottom</option>
