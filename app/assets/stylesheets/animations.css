@@ -1,15 +1,15 @@
 /* animation sets */
 
-.pt-page-none {
-	-webkit-animation: fade .1s ease both;
-	-moz-animation: fade .1s ease both;
-	animation: fade .1s ease both;
+.pt-page-none1 {
+	-webkit-animation: none1 .1s ease both;
+	-moz-animation: none1 .1s ease both;
+	animation: none1 .1s ease both;
 }
 
 .pt-page-none2 {
-	-webkit-animation: fade .1s ease both;
-	-moz-animation: fade .1s ease both;
-	animation: fade .1s ease both;
+	-webkit-animation: none2 .1s ease both;
+	-moz-animation: none2 .1s ease both;
+	animation: none2 .1s ease both;
 }
 
 /* move from / to  */
@@ -65,21 +65,15 @@
 /* fade */
 
 .pt-page-fadeIn {
-	-webkit-animation: fade .7s ease both;
-	-moz-animation: fade .7s ease both;
-	animation: fade .7s ease both;
+	-webkit-animation: fadeIn .7s ease both;
+	-moz-animation: fadeIn .7s ease both;
+	animation: fadeIn .7s ease both;
 }
 
 .pt-page-fadeOut {
-	-webkit-animation: fade .7s ease both;
-	-moz-animation: fade .7s ease both;
-	animation: fade .7s ease both;
-}
-
-.pt-page-fade {
-	-webkit-animation: fade .7s ease both;
-	-moz-animation: fade .7s ease both;
-	animation: fade .7s ease both;
+	-webkit-animation: fadeOut .7s both ease ;
+	-moz-animation: fadeOut .7s both ease;
+	animation: fadeOut .7s both ease;
 }
 
 /* move from / to and fade */
@@ -250,6 +244,60 @@
 @keyframes fade {
 	to { opacity: 0.3; }
 }
+
+@-webkit-keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+		0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes fadeIn {
+		0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+		0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes fadeOut {
+		0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes fadeOut {
+		0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+/* none */
+@-webkit-keyframes none1 {
+		0% { opacity: 1; }
+	100% { opacity: 1; }
+}
+@-moz-keyframes none1 {
+		0% { opacity: 1; }
+	100% { opacity: 1; }
+}
+@keyframes none1 {
+		0% { opacity: 1; }
+	100% { opacity: 1; }
+}
+
+@-webkit-keyframes none2 {
+		0% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes none2 {
+		0% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes none2 {
+		0% { opacity: 0; }
+	100% { opacity: 0; }
+}
+
 
 /* move from / to and fade */
 

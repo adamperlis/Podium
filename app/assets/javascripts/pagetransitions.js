@@ -30,6 +30,17 @@ $(document).ready(function() {
 
 			$pages.eq( current ).addClass( 'pt-page-current' );
 
+			$iterate.on( 'click', function() {
+					if( isAnimating ) {
+						return false;
+					}
+					if( animcursor > 72 ) {
+						animcursor = 1;
+					}
+					nextPage( animcursor );
+					++animcursor;
+				} );
+
 			var transition = parseInt($(".pt-page").data('transition'));
 
 			//LEFT AND RIGHT ARROW NAVIGATION
@@ -386,16 +397,16 @@ $(document).ready(function() {
 					inClass = 'pt-page-rotateSlideInReverse';
 					break;
 				case 69:
-					outClass = 'pt-page-none';
-					inClass = 'pt-page-none2';
+					outClass = 'pt-page-none2';
+					inClass = 'pt-page-none1';
 					break;
 				case 70:
 					outClass = 'pt-page-none2';
-					inClass = 'pt-page-none';
+					inClass = 'pt-page-none1';
 					break;
 				case 71:
-					outClass = 'pt-page-fadeIn';
-					inClass = 'pt-page-fadeOut';
+					outClass = 'pt-page-fadeOut';
+					inClass = 'pt-page-fadeIn';
 					break;
 				case 72:
 					outClass = 'pt-page-fadeOut';
