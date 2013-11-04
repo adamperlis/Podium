@@ -31,7 +31,11 @@
 							<source src="<%= slide.filepicker_url %>">
 						</video>
 					<% else %>
-					<img src="<%= slide.filepicker_url %>/convert?w=1920&h=1080&fit=scale">
+						<% unless slide.filepicker_url.blank? %>
+							<img src="<%= slide.filepicker_url %>/convert?w=1920&h=1080&fit=scale">
+						<% else %>
+							<div class="blank"></div>
+						<% end %>
 					<% end %>
 				</div>
 			<% end %>

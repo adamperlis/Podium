@@ -63,7 +63,7 @@ $(function (){
     });
   }
 
-  var addslide = $('.dropzone2');
+  var addslide = $('.filepicker');
   addslide.click(function(e){
     e.preventDefault();
     filepicker.pickMultiple({

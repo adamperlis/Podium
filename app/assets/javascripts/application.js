@@ -22,5 +22,3 @@
 //= require gnmenu.js
 //= require classie.js
 //= require_tree .
-
-$(function(){ $(document).foundation(); });

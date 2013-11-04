@@ -6,7 +6,11 @@
 					<source src="<%= slide.filepicker_url_thumb %>">
 				</video>
 			<% else %>
-				 <%= filepicker_image_tag slide.filepicker_url_thumb, width: 234, height: 164, fit: 'clip' %>
+				<% unless slide.filepicker_url.blank? %>
+					<%= filepicker_image_tag slide.filepicker_url_thumb, width: 234, height: 164, fit: 'clip' %>
+				<% else %>
+					<div class="blank"></div>
+				<% end %>
 			<% end %>
 		    <ul class="slide-tools" id="2">
 	          	<li><%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>

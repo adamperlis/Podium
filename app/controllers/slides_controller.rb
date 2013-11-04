@@ -15,7 +15,7 @@ class SlidesController < ApplicationController
   end
 
   def show
-  	@slide = Slide.find(params[:id]).order("position")
+  	@slide = Slide.find(params[:id])
 
   	respond_to do |format|
       format.html # index.html.erb
