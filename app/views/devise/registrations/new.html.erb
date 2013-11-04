@@ -6,7 +6,7 @@
 
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form'}) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form', id: 'register'}) do |f| %>
 
 <%= f.error_notification :class => "error" %>
 
@@ -21,7 +21,8 @@
 	</div>
 
 	<div class="small-11 columns"> 
-			<button class="avatar-button button success"><input id="avatar-url" type="hidden" name="user[filepicker_url_avatar]" value=""></input>Upload a Picture</button> 
+			<button class="avatar-button button success">Upload a Picture</button>
+			<input id="avatar-url" type="hidden" name="user[filepicker_url_avatar]" value="<%= @user.filepicker_url_avatar %>"/>
 	</div>
 	<div class="small-1 columns"><span class="prefix"><span class="icon-user"></div>
 
