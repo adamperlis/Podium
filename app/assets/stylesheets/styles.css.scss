@@ -1231,11 +1231,64 @@ video {
 	background: white;
 	width: 100%;
 	height: 100%;
+	opacity: 1;
+	-moz-transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+	-o-transition: opacity .5s;
+	transition: opacity .5s;
+}
+
+.blank:hover{
+	cursor: pointer;
+	opacity: .60;
+
+}
+
+.blank-slide {
+	background: white;
+	width: 100%;
+	height: 100%;
+}
+
+.vid {
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+	-moz-transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+	-o-transition: opacity .5s;
+	transition: opacity .5s;
+}
+
+.vid:hover{
+	cursor: pointer;
+	opacity: .60;
+
 }
 
 .slide .blank {
 	display: inline-block;
 }
+
+.wysiwig {
+	float: left;
+	position: relative;
+	margin-left: -49px;
+	top:98px;
+	text-align: center;
+	z-index: 998;
+}
+
+.editor {
+	font-size: 15px !important;
+	text-align: center !important;
+	padding-top: 1em !important;
+	padding-right: 1.5em!important;
+	padding-bottom: 1.0625em !important;
+	padding-left: 1.5em !important;
+}
+
+
 
 @import "foundation_and_overrides";
 @import "foundation";

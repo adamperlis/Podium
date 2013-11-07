@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131015213741) do
+ActiveRecord::Schema.define(:version => 20131104234352) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20131015213741) do
     t.string   "filepicker_url_thumb"
     t.integer  "transition"
     t.string   "mimetype"
+    t.string   "embed_code"
   end
 
   add_index "slides", ["project_id"], :name => "index_slides_on_project_id"

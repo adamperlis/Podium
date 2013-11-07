@@ -1,7 +1,7 @@
 class Slide < ActiveRecord::Base
 	acts_as_list
 
-  attr_accessible :filepicker_url, :filepicker_url_thumb, :mimetype
+  attr_accessible :filepicker_url, :filepicker_url_thumb, :mimetype, :embed_code
 
   belongs_to :project
 end

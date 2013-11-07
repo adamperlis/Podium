@@ -34,6 +34,15 @@ class SlidesController < ApplicationController
 		end
 	end
 
+  def update
+    @slide = Slide.find(params[:id])
+    if @slide.update_attributes(params[:slide])
+      render json: {status: @slide }
+    else
+      render json: {status:"error"}
+    end
+  end
+
 	def destroy
     @slide = Slide.find(params[:id])
     @project = @slide.project
