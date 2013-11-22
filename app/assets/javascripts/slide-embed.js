@@ -1,18 +1,22 @@
 $(document).ready(function(){
-	$(".editor").on("click", ".icon-code", function(e){
+	$(".button-group").on("click", ".code", function(e){
 		e.preventDefault();
-			var code = prompt("Enter the code you would like to embed:", "");
-			console.log(code);
+		var code = prompt("Add a YouTube or Vimeo link to your presentation:", $("#current-slide").data("embed_code"));
+		console.log(code);
 
-			var slide_id = parseInt($("#current-slide").data("project-id"));
+		var slide_id = parseInt($("#current-slide").data("slide-id"));
+
+		if (code != null){
 
 			$.ajax({
-			  url: '/echo/html/',
+			  url: '/slides/' + slide_id,
 			  type: 'PUT',
-			  data: "name=John&location=Boston",
+			  data: { slide: { embed_code: code }},
 			  success: function(data) {
-			    alert('Load was performed.');
+			  	$("#current-slide .blank-slide").html( data.slide.embed_code );
+			   console.log(data)
 			  }
 			});
+		}
 	});
 });

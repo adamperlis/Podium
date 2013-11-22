@@ -122,6 +122,7 @@ $(document).ready(function() {
 				$("video", $nextPage)[0].play()
 			}
 
+
 			switch( animation ) {
 
 				case 1:
@@ -442,6 +443,7 @@ $(document).ready(function() {
 			endNextPage = false;
 			resetPage( $outpage, $inpage );
 			isAnimating = false;
+			$( "body" ).trigger( "change-slide" );
 		}
 
 		function resetPage( $outpage, $inpage ) {

@@ -4,12 +4,7 @@
   <div id="status">&nbsp;</div>
 </div>
 
-<div class='row'>
-	<div class='large-12 columns'>
-		<!-- <a class="lines-icon"></a> -->
-		<div id="pt-main" class="pt-perspective">
-
-			<div class="controls">
+<div class="controls">
 				<div class='player'>
 					<i class='icon-chevron-left'></i>
 					<i class='icon-play'></i>
@@ -24,6 +19,11 @@
 				</div>
 			</div>
 
+<div class='row'>
+	<div class='large-12 columns'>
+		<!-- <a class="lines-icon"></a> -->
+		<div id="pt-main" class="pt-perspective">
+
 			<% @project.slides.order("position").each do |slide| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">
 					<% if slide.mimetype == "video/mp4" %>
@@ -34,7 +34,32 @@
 						<% unless slide.filepicker_url.blank? %>
 							<img src="<%= slide.filepicker_url %>/convert?w=1920&h=1080&fit=scale">
 						<% else %>
-							<div class="blank"></div>
+							<div class="blank" id="slide-<%= slide.id -%>"></div>
+							<script>
+							$(document).ready(function() {
+						    var pop = Popcorn.smart( "#slide-<%= slide.id -%>", "<%= slide.embed_code %>" );
+						  
+						     var playing = false;
+						     $( "body" ).on( "change-slide", function() {
+						     	console.log("VALue: " + $("#slide-<%= slide.id -%>").parent(".pt-page").hasClass('pt-page-current'))
+						     	if($("#slide-<%= slide.id -%>").parent(".pt-page").hasClass('pt-page-current')) { 
+						     		playing = true;
+						     		console.log("playing")
+						     	 	pop.play(); //Autoplay on slide reveal.
+							     } else {
+							     	console.log("trying to pause")
+							     	if(playing) { //pause and reset current time to 0 if you switch slides.
+							     	  pop.pause();
+							     	  pop.currentTime(0);
+							     	  console.log("paused")
+							     	  playing = false;
+							     	}
+							     }
+
+						     });
+						     
+						   });
+							</script>
 						<% end %>
 					<% end %>
 				</div>
@@ -42,16 +67,16 @@
 		</div>
 	</div>
 </div>
-
+ 		
             <!-- Preloader -->
     <script type="text/javascript">
     //<![CDATA[
       $(window).load(function() { // makes sure the whole site is loaded
           $("#status").fadeOut(); // will first fade out the loading animation
           $("#preloader").delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
+
       })
     //]]>
-
     $(".top-bar").hide();
 		</script>
 

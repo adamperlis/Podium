@@ -37,9 +37,9 @@ class SlidesController < ApplicationController
   def update
     @slide = Slide.find(params[:id])
     if @slide.update_attributes(params[:slide])
-      render json: {status: @slide }
+      render json: {status: "OK", slide: @slide }
     else
-      render json: {status:"error"}
+      render json: {status: "error"}
     end
   end
 
