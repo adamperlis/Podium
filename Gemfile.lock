@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.12)
       actionpack (= 3.2.12)
@@ -51,6 +51,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    columnize (0.3.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -59,6 +60,12 @@ GEM
       compass (>= 0.10)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    debugger (1.6.2)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -170,6 +177,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-52-plugin
   compass-rails
+  debugger
   devise
   faker (= 1.1.2)
   filepicker-rails
