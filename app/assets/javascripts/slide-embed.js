@@ -13,10 +13,17 @@ $(document).ready(function(){
 			  type: 'PUT',
 			  data: { slide: { embed_code: code }},
 			  success: function(data) {
-			  	$("#current-slide .blank-slide").html( data.slide.embed_code );
+			  	setupEmbed(data.slide.embed_code);
 			   console.log(data)
 			  }
 			});
 		}
 	});
 });
+
+function setupEmbed(url) {
+	$('#current-slide').html("<div class='blank-slide'></div>");
+	if (url) {
+		var pop = Popcorn.smart( "#current-slide .blank-slide", url );
+	}
+}

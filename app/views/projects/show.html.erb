@@ -41,13 +41,12 @@
 						  
 						     var playing = false;
 						     $( "body" ).on( "change-slide", function() {
-						     	console.log("VALue: " + $("#slide-<%= slide.id -%>").parent(".pt-page").hasClass('pt-page-current'))
+						    
 						     	if($("#slide-<%= slide.id -%>").parent(".pt-page").hasClass('pt-page-current')) { 
 						     		playing = true;
-						     		console.log("playing")
 						     	 	pop.play(); //Autoplay on slide reveal.
 							     } else {
-							     	console.log("trying to pause")
+							     	
 							     	if(playing) { //pause and reset current time to 0 if you switch slides.
 							     	  pop.pause();
 							     	  pop.currentTime(0);

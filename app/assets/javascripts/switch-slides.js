@@ -17,8 +17,8 @@ $(document).ready(function(){
 				$("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', data.filepicker_url));
 				$(wysiwig).hide();
 	  	}else{
-	  		if (!data.filepicker_url) {
-	  			$("#current-slide").html("<div class='blank-slide'>" + data.embed_code + "</div>");
+	  		if (!data.filepicker_url) { 
+	  				setupEmbed(data.embed_code);
 					$(wysiwig).show();
 	  		} else {
       		$("#current-slide").html("<img src=" + data.filepicker_url + ">");
