@@ -13,6 +13,7 @@
  *= require jquery.ui.resizable
  *= require jquery.ui.selectable
  *= require foundation_and_overrides
+ *= require social-share-button
  *= require_tree .
  */
 

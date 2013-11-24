@@ -1150,6 +1150,27 @@ color: #5f6f81;
 	cursor: pointer;
 }
 
+.social-share-button-twitter {
+display: inline-block;
+width: 63px;
+height: 63px;
+background: url("/assets/social-share-buttons.png") -135px -200px no-repeat;
+}
+
+.social-share-button-google_plus {
+display: inline-block;
+width: 63px;
+height: 63px;
+background: url("/assets/social-share-buttons.png") -70px -134px no-repeat;
+}
+
+.social-share-button-facebook {
+display: inline-block;
+width: 63px;
+height: 63px;
+background: url("/assets/social-share-buttons.png") -134px -6px no-repeat;
+}
+
 .divider {
 	border-bottom: 1px solid #c6d0da;
 	padding-top:27px;

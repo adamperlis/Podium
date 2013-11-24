@@ -14,6 +14,7 @@ source 'http://rubygems.org'
 	gem 'bootstrap-will_paginate', '0.0.6'
 	gem 'jquery-ui-rails'
 	gem 'acts_as_list'
+	gem 'social-share-button'
 
 	
 

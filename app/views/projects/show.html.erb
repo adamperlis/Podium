@@ -3,14 +3,18 @@
 <div id="preloader">
   <div id="status">&nbsp;</div>
 </div>
-
-
+	
+	<div id="myModal" class="reveal-modal" data-reveal>
+	  <h2>Share your presentation:</h2>
+	  <%= social_share_button_tag(@project, :url => request.original_url) %>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
 
 	<div class="controls">
 		<div class="vertical-menu">
 			<i class='icon-code'></i>
 			<i class='icon-download'></i>
-			<i class='icon-share-alt'></i>
+			<a href="#" data-reveal-id="myModal"><i class='icon-share-alt'></i></a>
 		</div>
 		<div class='player'>
 			<i class='icon-chevron-left'></i>
@@ -103,5 +107,7 @@
     //]]>
     $(".top-bar").hide();
 		</script>
+
+
 
 
