@@ -16,9 +16,8 @@
 			</div>
 		</div>
 		<div class='large-6 columns'>
-			<div class="wysiwig">
-				<ul class='button-group'><li><a href='#' class='editor large button divide'>T</a></li><li><a href='#' class='editor large button'><i class='icon-font'></i></a></li><li><a href='#' class='editor large button'><i class='icon-bold'></i></a></li><li><a href='#' class='editor large button'><i class='icon-italic'></i></a></li><li><a href='#' class='editor large button'><i class='icon-underline'></i></a></li><li><a href='#' class='editor large button'><i class='icon-align-left'></i></a></li><li><a href='#' class='editor large button'><i class='icon-align-center'></i></a></li><li><a href='#' class='editor large button'><i class='icon-align-right'></i></a></li><li><a href='#' class='filepicker editor large button'><i class='icon-picture'></i></a></li><li><a href='#' class='filepicker editor large button'><i class='icon-film'></i></a></li><li><a href='#' class='code editor large button'><i class='icon-code'></i></a></li></ul>
-			</div>
+
+			<%= render partial: "slides/wysiwig" %>
 
 			<div class="dropzone-container">
 				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here   <i class="icon-dropbox"></i></p></div>

@@ -4,25 +4,26 @@
   <div id="status">&nbsp;</div>
 </div>
 
-<div class="controls">
-				<div class='player'>
-					<i class='icon-chevron-left'></i>
-					<i class='icon-play'></i>
-					<i class='icon-chevron-right'></i>
-					<div class="back"><input action="action" type="button" value="Back" onclick="history.go(-1);" /></div>
-					<div class="vertical-menu">
-						<i class='icon-code'></i>
-						<i class='icon-download'></i>
-						<i class='icon-share-alt'></i>
-					</div>
-					<div class="expand"></div>
-				</div>
-			</div>
 
-<div class='row'>
-	<div class='large-12 columns'>
+
+	<div class="controls">
+		<div class="vertical-menu">
+			<i class='icon-code'></i>
+			<i class='icon-download'></i>
+			<i class='icon-share-alt'></i>
+		</div>
+		<div class='player'>
+			<i class='icon-chevron-left'></i>
+			<i class='icon-play'></i>
+			<i class='icon-chevron-right'></i>
+			<div class="expand"></div>
+		</div>
+	</div>
+
+<div class='row' >
+	<div>
 		<!-- <a class="lines-icon"></a> -->
-		<div id="pt-main" class="pt-perspective">
+		<div id="pt-main" style="display:none; background-color: black;" class="pt-perspective">
 
 			<% @project.slides.order("position").each do |slide| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">
@@ -35,30 +36,32 @@
 							<img src="<%= slide.filepicker_url %>/convert?w=1920&h=1080&fit=scale">
 						<% else %>
 							<div class="blank" id="slide-<%= slide.id -%>"></div>
-							<script>
-							$(document).ready(function() {
-						    var pop = Popcorn.smart( "#slide-<%= slide.id -%>", "<%= slide.embed_code %>" );
-						  
-						     var playing = false;
-						     $( "body" ).on( "change-slide", function() {
-						    
-						     	if($("#slide-<%= slide.id -%>").parent(".pt-page").hasClass('pt-page-current')) { 
-						     		playing = true;
-						     	 	pop.play(); //Autoplay on slide reveal.
-							     } else {
-							     	
-							     	if(playing) { //pause and reset current time to 0 if you switch slides.
-							     	  pop.pause();
-							     	  pop.currentTime(0);
-							     	  console.log("paused")
-							     	  playing = false;
-							     	}
-							     }
 
-						     });
-						     
-						   });
-							</script>
+							<% if slide.embed_code =~ /^#{URI::regexp}$/%>
+						
+								<script>
+								$(document).ready(function() {
+							    var pop = Popcorn.smart( "#slide-<%= slide.id -%>", "<%= slide.embed_code %>" );
+							  
+							     var playing = false;
+							     $( "body" ).on( "change-slide", function() {
+							    
+							     	if($("#slide-<%= slide.id -%>").parent(".pt-page").hasClass('pt-page-current')) { 
+							     		playing = true;
+							     	 	pop.play(); //Autoplay on slide reveal.
+								     } else {
+								     	
+								     	if(playing) { //pause and reset current time to 0 if you switch slides.
+								     	  pop.pause();
+								     	  pop.currentTime(0);
+								     	  console.log("paused")
+								     	  playing = false;
+								     	}
+								     }
+							     });
+							   });
+								</script>
+							<% end %>
 						<% end %>
 					<% end %>
 				</div>
@@ -71,9 +74,31 @@
     <script type="text/javascript">
     //<![CDATA[
       $(window).load(function() { // makes sure the whole site is loaded
-          $("#status").fadeOut(); // will first fade out the loading animation
-          $("#preloader").delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
 
+				$("#status").fadeOut(); // will first fade out the loading animation
+				var opts = {
+				lines: 13, // The number of lines to draw
+				length: 1, // The length of each line
+				width: 5, // The line thickness
+				radius: 13, // The radius of the inner circle
+				corners: 1, // Corner roundness (0..1)
+				rotate: 0, // The rotation offset
+				direction: 1, // 1: clockwise, -1: counterclockwise
+				color: 'white', // #rgb or #rrggbb or array of colors
+				speed: 1, // Rounds per second
+				trail: 60, // Afterglow percentage
+				shadow: false, // Whether to render a shadow
+				hwaccel: false, // Whether to use hardware acceleration
+				className: 'spinner', // The CSS class to assign to the spinner
+				zIndex: 2e9, // The z-index (defaults to 2000000000)
+				top: 'auto', // Top position relative to parent in px
+				left: 'auto' // Left position relative to parent in px
+				};
+				var target = document.getElementById('status');
+				var spinner = new Spinner(opts).spin(target);
+				$("#preloader").delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
+				$("#pt-main").fadeIn('slow');
+  
       })
     //]]>
     $(".top-bar").hide();

@@ -23,7 +23,11 @@
           </li>
             <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
             <li class= "current-user">
-              <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), current_user, :class => "profile-header" %>
+                <% if !current_user.filepicker_url_avatar %>
+                <%= link_to "<i class='icon-user'></i>".html_safe, current_user, :class => "profile-header" %>
+              <% else %>
+                <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), current_user, :class => "profile-header" %>
+               <% end %>
               <p><%= current_user.name %></p>
             </li>
         </ul>
@@ -35,9 +39,9 @@
     <div class="container">
         <ul id="gn-menu" class="gn-menu-main">
           <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
-          <li class="homepage-nav"><a href="#">features</a></li>
+       <!--    <li class="homepage-nav"><a href="#">features</a></li>
           <li class="homepage-nav"><a href="#">browse</a></li>
-          <li class="homepage-nav"><%= link_to "pricing", pricing_path %></li>
+          <li class="homepage-nav"><%= link_to "pricing", pricing_path %></li> -->
           <li class= "current-user"><%= link_to "Login", new_user_session_path %></li>
         </ul>
     </div>

@@ -31,5 +31,8 @@ $(document).ready(function(){
 	$(".slide-organizer ol").on("click", "li.slide img, li.slide video, li.slide div.blank", function(e){
 		  $(this).parent().siblings().children().removeClass('selected');
 		  $(this).addClass('selected');
+		
 	});
 });
+
+ 
