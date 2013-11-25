@@ -109,6 +109,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    pdfkit (0.5.4)
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -187,6 +188,7 @@ DEPENDENCIES
   jquery-rails (~> 2.1)
   jquery-ui-rails
   paperclip (~> 3.0)
+  pdfkit
   pg
   rails (= 3.2.12)
   rmagick

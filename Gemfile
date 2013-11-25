@@ -15,6 +15,7 @@ source 'http://rubygems.org'
 	gem 'jquery-ui-rails'
 	gem 'acts_as_list'
 	gem 'social-share-button'
+	gem 'pdfkit'
 
 	
 
