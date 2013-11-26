@@ -27,6 +27,17 @@ function setupEmbed(url) {
 		var contains = url;
 			
 		var pop = Popcorn.smart( "#current-slide .blank-slide", url );
-		var pop = Popcorn.smart( "#empty .blank", url ); //trying to get embeded videos to show up in slide organizer
+	
 	}
+}
+
+function generateThumb(url, slide_id) {
+
+		var res = url.match(/(?:http|https|)(?::\/\/|)(?:www.|)(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[a-z0-9;:@?&%=+\/\$_.-]*/);
+		
+		if (res) {
+
+			var img_url = "http://img.youtube.com/vi/" + res[1] + "/0.jpg";
+			$("#slide_" + slide_id + " .blank").html("<img src='" + img_url + "'/>");
+		}
 }

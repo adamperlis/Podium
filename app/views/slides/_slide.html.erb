@@ -10,6 +10,11 @@
 					<%= filepicker_image_tag slide.filepicker_url_thumb, width: 234, height: 164, fit: 'clip' %>
 				<% else %>
 					<div class="blank" id="empty"></div>
+					<script> 
+					$(document).ready(function(){
+						generateThumb("<%= slide.embed_code -%>", "<%= slide.id -%>")
+					});
+					</script>
 				<% end %>
 			<% end %>
 		    <ul class="slide-tools" id="2">
