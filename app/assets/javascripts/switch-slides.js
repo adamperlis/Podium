@@ -19,6 +19,7 @@ $(document).ready(function(){
 	  	}else{
 	  		if (!data.filepicker_url) { 
 	  				setupEmbed(data.embed_code);
+
 					$(wysiwig).show();
 	  		} else {
       		$("#current-slide").html("<img src=" + data.filepicker_url + ">");
@@ -28,7 +29,7 @@ $(document).ready(function(){
     });
   });
 
-	$(".slide-organizer ol").on("click", "li.slide img, li.slide video, li.slide div.blank", function(e){
+	$(".slide-organizer ol").on("click", "li.slide img, li.slide video, #empty ", function(e){
 		  $(this).parent().siblings().children().removeClass('selected');
 		  $(this).addClass('selected');
 		

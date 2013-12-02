@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :redirect_if_not_signed_in
+  before_filter :redirect_if_not_signed_in, except: [:show,:authorize]
 
   # GET /projects
   # GET /projects.json
@@ -17,12 +17,41 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-    @project.increment! :clicks
-    @project.save
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @project }
+    if @project.private && !is_owner?(@project)
+      return redirect_to authorize_project_path(@project)
+    else
+      @project.increment! :clicks
+      @project.save
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @project }
+      end
+    end
+  end
+
+  def authorize
+    @project = Project.find(params[:id])
+
+    if !@project.private || is_owner?(@project)
+      return redirect_to project_path(@project)
+    end
+
+    if params[:accesskey] == @project.accesskey
+
+      @project.increment! :clicks
+      @project.save
+
+      respond_to do |format|
+        format.html { render action: "show" }
+        format.json { render json: @project }
+      end
+    else
+      respond_to do |format|
+      format.html { render action: "password" }
+      format.json { head :no_content }
+      end
     end
   end
 
@@ -91,4 +120,10 @@ class ProjectsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def is_owner?(project)
+    signed_in? && current_user == project.user
+  end
 end
+
+
