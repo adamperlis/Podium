@@ -14,6 +14,7 @@ $(document).ready(function(){
 			  data: { slide: { embed_code: code }},
 			  success: function(data) {
 			  	setupEmbed(data.slide.embed_code);
+			  	generateThumb(data.slide.embed_code, slide_id);
 			   console.log(data)
 			  }
 			});
