@@ -24,6 +24,8 @@ $(document).ready(function(){
 
 function setupEmbed(url) {
 	$('#current-slide').html("<div class='blank-slide'></div>");
+	$('#current-slide').css("background", "none");
+
 	if (url) {
 		var contains = url;
 			

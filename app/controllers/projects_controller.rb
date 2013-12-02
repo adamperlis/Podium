@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.search(params[:search]).order("created_at asc").page(params[:page]).per_page(8)
+    @projects = current_user.projects.search(params[:search]).order("created_at desc").page(params[:page]).per_page(8)
 
     respond_to do |format|
       format.html # index.html.erb

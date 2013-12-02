@@ -4,8 +4,22 @@
 			<div class="sample-deck">
 				<span>
 					<% if project.slides.first %>
-					 <%= link_to (filepicker_image_tag project.slides.first.filepicker_url_thumb), project, :class => 'sample-img' %> 
-					
+						<% if project.slides.first.mimetype == "video/mp4" %>
+							<video width='100%' height='100%'>
+								<source src="<%= project.slides.first.filepicker_url_thumb %>">
+							</video>
+						<% else %>
+							<% unless project.slides.first.filepicker_url.blank? %>
+								<%= link_to (filepicker_image_tag project.slides.first.filepicker_url_thumb), project, :class => 'sample-img' %> 
+							<% else %>
+								<div class="blank" id="empty"></div>
+								<script> 
+								$(document).ready(function(){
+									generateThumb("<%= project.slides.first.embed_code -%>", "<%= project.slides.first.id -%>")
+								});
+								</script>
+							<% end %>
+						<% end %>
 				  <% else %>
 					  <div class="untitled-project">
 					  	<i class="icon-folder-open" id="untitled-icon"></i>

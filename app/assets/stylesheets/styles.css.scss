@@ -1370,8 +1370,19 @@ video {
 }
 
 iframe {
-	width:100%;
-	height:100%;
+	width:95%;
+	height:95%;
+	float: left;
+	left: 2%;
+	position: relative;
+}
+
+#current-slide iframe {
+	width: 100%;
+	height: 100%;
+	float: left;
+	left: 0%;
+	position: relative;
 }
 
 
