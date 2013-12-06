@@ -47,6 +47,7 @@ html, body { height: 100%; }
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	cursor:-webkit-grab;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */

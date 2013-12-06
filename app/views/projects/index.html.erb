@@ -2,7 +2,7 @@
 		<div class="row">
 			<div class='large-12 centered columns'>
 				<div class="large-9 columns">
-				  <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+				  <ul class="small-block-grid-3 large-block-grid-4">
 				  	<li>
 				  		<div class="add-project">
 				  	  	<%= link_to new_project_path do %>
@@ -13,7 +13,7 @@
 				    	<%= render @projects %>
 					</ul>
 				</div>
-					<div class="large-3 columns">
+					<div class="small-1 large-3 columns">
 						<div class="panel">
 							<div class="stats">
 								<li><i class="icon-eye-open"></i><%= Project.sum('clicks') %> <small>Views</small></li>
