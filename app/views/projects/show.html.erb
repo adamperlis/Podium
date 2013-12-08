@@ -1,20 +1,16 @@
 
 <!-- Hide Safari Browser bar on iOS -->
-<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<link rel="apple-touch-icon" href="apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" />
-<link rel="apple-touch-startup-image" href="apple-touch-startup-image-320x460.png" />
-<link rel="apple-touch-startup-image" sizes="768x1004" href="apple-touch-startup-image-768x1004.png" />
+<link href="assets/favicon.png" sizes="72x72" rel="apple-touch-icon">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
 <!-- Preloader -->
 <div id="preloader">
   <div id="status">&nbsp;</div>
 </div>
 	
-	<div id="myModal" class="reveal-modal" data-reveal>
+	<div id="myModal2" class="reveal-modal" data-reveal>
 	  <h2>Share your presentation:</h2>
 	  <%= social_share_button_tag(@project.description, :url => request.original_url) %><br />
 
@@ -25,11 +21,21 @@
 	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 
+	<div id="myModal" class="reveal-modal" data-reveal>
+	  <h2>Embed your presentation:</h2>
+
+	  <%= form_for "#" do |f| %>
+		  <%= f.label 'Embed Code:' %>
+		  <%= f.text_field '', :value => "<iframe src='" + request.original_url + "' height='100%' width='100%' seamless='seamless'></iframe>", disabled: true %>
+		<% end %>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
 	<div class="controls">
 		<div class="vertical-menu">
-			<i class='icon-code'></i>
+			<a href="#" data-reveal-id="myModal"><i class='icon-code'></i></a>
 		<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %>
-			<a href="#" data-reveal-id="myModal"><i class='icon-share-alt'></i></a>
+			<a href="#" data-reveal-id="myModal2"><i class='icon-share-alt'></i></a>
 		</div>
 		<div class='player'>
 			<i class='icon-chevron-left'></i>
@@ -67,7 +73,7 @@
 
 	<div>
 		<!-- <a class="lines-icon"></a> -->
-		<div id="pt-main" style="display:none; background-color: black;" class="pt-perspective">
+		<div id="pt-main" style="display:none; background-color: #272727;" class="pt-perspective">
 
 			<% @project.slides.order("position").each do |slide| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">

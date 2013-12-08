@@ -1,7 +1,7 @@
 html, body { height: 100%; }
 
 .pt-perspective {
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	-webkit-perspective: 1200px;
@@ -33,7 +33,7 @@ html, body { height: 100%; }
   height: auto;
 	
   /* Set up positioning */
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
 	visibility: hidden;
