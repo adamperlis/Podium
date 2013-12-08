@@ -34,7 +34,7 @@
 	<div class="controls">
 		<div class="vertical-menu">
 			<a href="#" data-reveal-id="myModal"><i class='icon-code'></i></a>
-		<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %>
+	<!-- 	<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %> -->
 			<a href="#" data-reveal-id="myModal2"><i class='icon-share-alt'></i></a>
 		</div>
 		<div class='player'>
@@ -73,7 +73,7 @@
 
 	<div>
 		<!-- <a class="lines-icon"></a> -->
-		<div id="pt-main" style="display:none; background-color: #272727;" class="pt-perspective">
+		<div id="pt-main" style="display:none;" class="pt-perspective">
 
 			<% @project.slides.order("position").each do |slide| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">
