@@ -187,7 +187,7 @@ html, body { height: 100%; }
 }
 
 .cbp-so-section {
-	margin-bottom: 15em;
+	margin-bottom: 2em;
 }
 
 /* Clear floats of children */
@@ -215,7 +215,7 @@ html, body { height: 100%; }
 
 /* Sides */
 .cbp-so-side {
-	width: 50%;
+	width: 46%;
 	float: left;
 	margin: 0;
 	padding: 3em 4%;
@@ -278,6 +278,15 @@ html, body { height: 100%; }
 	-moz-transform: translateX(0px);
 	transform: translateX(0px);
 	opacity: 1;
+}
+
+.extra-padding1 {
+	padding-top: 50px;
+}
+
+.extra-padding2 {
+	padding-top: 100px;
+	padding-bottom: 140px;
 }
 
 /* For example, add a delay for the right side:

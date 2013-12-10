@@ -1,40 +1,37 @@
 
 		<div class="row">
-			<div class='large-12 centered columns'>
-				<div class="large-9 columns">
-				  <ul class="small-block-grid-3 large-block-grid-4">
-				  	<li>
-				  		<div class="add-project">
-				  	  	<%= link_to new_project_path do %>
-				  	  	<p><i class='icon-plus'></i> Add New Deck</p>
-				  	  	<% end %>
-				  		</div> 
-						</li>
-				    	<%= render @projects %>
-					</ul>
-				</div>
-					<div class="small-1 large-3 columns">
-						<!-- <div class="panel">
-							<div class="stats">
-								<li><i class="icon-eye-open"></i><%= Project.sum('clicks') %> <small>Views</small></li>
-								<li><i class="icon-group"></i>800 <small>Shares</small></li>
-				    	</div>
-						</div> -->
-			      <div class="row collapse">
-			        <div class="small-10 columns">
-			          <%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
-								    <%= text_field_tag :search, params[:search], :placeholder => 'Search Decks' %>
-			        </div>
-			       	<div class="small-2 columns">
-			       		<button class='button prefix' style='width:52px;height:2.9em;'>
-								  <i class='icon-search'></i>
-								</button>
-			        	<% end %>
-			        </div>
-	      		</div>					
-					<%= will_paginate @projects %>
-				</div>
+			<div class="small-9 columns">
+			  <ul class="small-block-grid-3">
+			  	<li>
+			  		<div class="add-project">
+			  	  	<%= link_to new_project_path do %>
+			  	  	<p><i class='icon-plus'></i> Add New Deck</p>
+			  	  	<% end %>
+			  		</div> 
+					</li>
+			    	<%= render @projects %>
+				</ul>
 			</div>
+			<div class="small-3 columns">
+				<!-- <div class="panel">
+					<div class="stats">
+						<li><i class="icon-eye-open"></i><%= Project.sum('clicks') %> <small>Views</small></li>
+						<li><i class="icon-group"></i>800 <small>Shares</small></li>
+		    	</div>
+				</div> -->
+	      <div class="row collapse">
+	        <div class="small-9 columns">
+	          <%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
+						    <%= text_field_tag :search, params[:search], :placeholder => 'Search Decks' %>
+	        </div>
+	       	<div class="small-3 columns">
+	       		<button class='button prefix' style='width:52px;height:2.9em;'>
+						  <i class='icon-search'></i>
+						</button>
+	        	<% end %>
+	        </div>
+    		</div>					
+			<%= will_paginate @projects %>
 		</div>
 		<!-- TUTORIAL -->
 	

@@ -1,34 +1,32 @@
 <div class='row'>
-	<div class='large-12 columns'>
-		<div class='large-3 columns'>
-			<div class='slide-organizer'>
-				<p>Slides</p>
-				<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
-					<li class="dropzone2" data-dropdown="drop2" id="1"><i class="icon-plus"></i><p>Add New Slide</p></li>
-						<ul id="drop2" class="f-dropdown content" data-dropdown-content>
-							<%= link_to "#" do %>
-				  	  	 <li class="blank-slide"><i class="icon-file-alt"></i>  Blank Slide</li>
-				  	  <% end %>
-						  <li><a class="filepicker" href="#"><i class="icon-file"></i>  Slide from File</a></li>
-						</ul>
-					<%= render partial: "slides/slide", collection: @slides %>
-				</ol>
-			</div>
+	<div class='small-3 columns'>
+		<div class='slide-organizer'>
+			<p>Slides</p>
+			<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
+				<li class="dropzone2" data-dropdown="drop2" id="1"><i class="icon-plus"></i><p>Add New Slide</p></li>
+					<ul id="drop2" class="f-dropdown content" data-dropdown-content>
+						<%= link_to "#" do %>
+			  	  	 <li class="blank-slide"><i class="icon-file-alt"></i>  Blank Slide</li>
+			  	  <% end %>
+					  <li><a class="filepicker" href="#"><i class="icon-file"></i>  Slide from File</a></li>
+					</ul>
+				<%= render partial: "slides/slide", collection: @slides %>
+			</ol>
 		</div>
-		<div class='large-6 columns'>
+	</div>
+	<div class='small-6 columns'>
 
-			<%= render partial: "slides/wysiwig" %>
+		<%= render partial: "slides/wysiwig" %>
 
-			<div class="dropzone-container">
-				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here   <i class="icon-dropbox"></i></p></div>
-			</div>
+		<div class="dropzone-container">
+			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here   <i class="icon-dropbox"></i></p></div>
 		</div>
-		<div class='large-3 columns'>
-			<div class="right-menu">
+	</div>
+	<div class='small-3 columns'>
+		<div class="right-menu">
 
-			<%= render 'form' %>
-			<%= link_to 'Preview', @project, class: 'button medium button prefix preview' %> 
-			</div>
+		<%= render 'form' %>
+		<%= link_to 'Preview', @project, class: 'button medium button prefix preview' %> 
 		</div>
 	</div>
 </div>
