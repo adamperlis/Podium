@@ -3,37 +3,34 @@
 		
 		<div class="small-6 large-centered columns">
 
-<h2>Login</h2>
+		<h2>Login</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form'}) do |f| %>
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form'}) do |f| %>
 
-<%= f.error_notification :class => "error" %>
+		<%= f.error_notification :class => "error" %>
 
-<div class="row collapse">
-	<div class="small-1 columns"><span class="prefix"><span class="icon-envelope"></div>
-	<div class="small-11 columns">
-			<%= f.input :email, label: false, :placeholder => "E-mail"%>
+		<div class="row collapse">
+			<div class="small-1 columns"><span class="prefix"><span class="icon-envelope"></div>
+			<div class="small-11 columns">
+					<%= f.input :email, label: false, :placeholder => "E-mail"%>
+			</div>
+
+			<div class="small-1 columns"><span class="prefix"><span class="icon-lock"></div>
+				<div class="small-11 columns">
+				<%= f.input :password, label: false, :placeholder => "Password"%>
+			</div>
+
+			<div class="small-12 columns">
+				<%= f.input :remember_me, as: :boolean %>
+			</div>
+
+			<div class="large-12 columns ">
+		  	<%= f.submit "SIGN IN", class: "button prefix" %>
+		  	<%= link_to "Forgot your password?", new_password_path(resource_name) %>
+		  </div>
+		</div>
+		<% end %>
+
+		</div>
 	</div>
-
-	<div class="small-1 columns"><span class="prefix"><span class="icon-lock"></div>
-		<div class="small-11 columns">
-		<%= f.input :password, label: false, :placeholder => "Password"%>
-	</div>
-
-	<div class="small-12 columns">
-		<%= f.input :remember_me, as: :boolean %>
-	</div>
-
-	<div class="large-12 columns ">
-  	<%= f.submit "SIGN IN", class: "button prefix" %>
-  </div>
-</div>
-
-
-
-
-<% end %>
-
-</div>
-</div>
 </div>
