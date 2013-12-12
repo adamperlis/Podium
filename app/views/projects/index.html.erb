@@ -10,6 +10,7 @@
 			  		</div> 
 					</li>
 			    	<%= render @projects %>
+			    	<%= will_paginate @projects %>
 				</ul>
 			</div>
 			<div class="small-3 columns">
@@ -31,7 +32,6 @@
 	        	<% end %>
 	        </div>
     		</div>					
-			<%= will_paginate @projects %>
 		</div>
 		<!-- TUTORIAL -->
 	
