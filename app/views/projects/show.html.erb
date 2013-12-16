@@ -50,9 +50,9 @@
 
 		<script>
 			$(function(){
-				$(document).on('dragstart', function(event) { event.preventDefault(); });
+				$("#pt-main").on('dragstart', function(event) { event.preventDefault(); });
 
-				$( document ).on( "swipeleft", swipeleftHandler );
+				$( "#pt-main" ).on( "swipeleft", swipeleftHandler );
 	 			
 			  // Callback function references the event target and adds the 'swipeleft' class to it
 			  function swipeleftHandler( event ){
@@ -62,17 +62,30 @@
 			});
 
 			$(function(){
-			  $( document ).on( "swiperight", swiperightHandler );
+			  $( ".slide-nav" ).on( "swiperight", swiperightHandler );
 			 
 			  // Callback function references the event target and adds the 'swipeleft' class to it
 			  function swiperightHandler( event ){
 			    $(".icon-chevron-left").click();
 			  }
 			});
+
 		</script>
 
+				<!-- 	<ul class="slide-nav">
+						<% @project.slides.order("position").each do |slide| %>
+						 	<li>
+								<% if slide.mimetype == "video/mp4" %>
+									<video width='240px' height='135px' autoplay="autoplay">
+										<source src="<%= slide.filepicker_url %>">
+									</video>
+								<% else %>
+									<img src="<%= slide.filepicker_url %>/convert?w=240&h=135&fit=scale">
+								<% end %>
+							</li>
+						<% end %>					 
+					</ul> -->
 
-		<!-- <a class="lines-icon"></a> -->
 		<div id="pt-main" style="display:none;" class="pt-perspective">
 
 			<% @project.slides.order("position").each do |slide| %>
@@ -153,6 +166,9 @@
 		</script>
 
 		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+
+
 
 
 
