@@ -81,7 +81,7 @@ $(document).ready(function() {
 					return false;
 		    }
 			});
-
+	
 		}
 
 		function nextPage( animation, backwards ) {
