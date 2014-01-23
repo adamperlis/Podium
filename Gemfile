@@ -16,6 +16,7 @@ source 'http://rubygems.org'
 	gem 'acts_as_list'
 	gem 'social-share-button'
 	gem 'pdfkit'
+	gem 'rmagick'
 
 	
 

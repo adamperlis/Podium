@@ -9,6 +9,7 @@ Omrails::Application.routes.draw do
   
   resources :slides do 
     collection {post :sort}
+    collection {post :convert}
   end
 
   devise_for :users
