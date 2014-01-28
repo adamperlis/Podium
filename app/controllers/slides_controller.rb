@@ -65,6 +65,7 @@ class SlidesController < ApplicationController
     image = Magick::ImageList.new
     urlpdf = open(params[:pdf_url])
     image.from_blob(urlpdf.read)
+    urls_array = []
     s3 = AWS::S3.new({
       :access_key_id => 'AKIAJ4B3SNYXFWRSCVMQ', 
       :secret_access_key => '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'
@@ -73,7 +74,10 @@ class SlidesController < ApplicationController
     filename = params[:pdf_url].split("/")[-1].split(".pdf")[0]
 
     (0..(image.length - 1)).each do |i| 
-      bucket.objects["#{filename}-#{i}.png"].write(image[i].to_blob)
+      obj = bucket.objects["#{filename}-#{i}.png"]
+      obj.write(image[i].to_blob)
+      urls_array<<obj.url_for(:read, :expires => 60*60*24*365*20).to_s
     end
+    render json: {urls: urls_array}
   end
 end

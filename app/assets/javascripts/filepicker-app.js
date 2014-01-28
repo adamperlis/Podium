@@ -17,6 +17,12 @@ $(function (){
           console.log(data);
         });
 
+      }else if(InkBlob.mimetype == "application/pdf"){
+        
+        $.post('/slides/convert', {  pdf_url: InkBlob.url, mimetype: InkBlob.mimetype, project_id: project_id}, function(data){  
+          debugger
+        });
+
       }else{
 
         filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
