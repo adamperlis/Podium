@@ -16,9 +16,8 @@ source 'http://rubygems.org'
 	gem 'acts_as_list'
 	gem 'social-share-button'
 	gem 'pdfkit'
-	gem 'rmagick'
+	gem 'rmagick', :require => 'RMagick'
 
-	
 
 group :production do
 	gem 'pg'
@@ -34,7 +33,6 @@ group :assets do
 	gem 'compass-rails' # you need this or you get an err
 	gem 'compass-52-plugin'
   gem 'zurb-foundation', '~> 4.0.0'
- 	gem 'rmagick'
 	gem 'coffee-rails', '~> 3.2.1'
 	gem 'uglifier', '>= 1.0.3'
 end
