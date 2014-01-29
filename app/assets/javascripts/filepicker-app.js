@@ -20,7 +20,7 @@ $(function (){
       }else if(InkBlob.mimetype == "application/pdf"){
         
         $.post('/slides/convert', {  pdf_url: InkBlob.url, mimetype: InkBlob.mimetype, project_id: project_id}, function(data){  
-          debugger
+         //to do fill in loop of images appending to DOM copy below make loop
         });
 
       }else{
