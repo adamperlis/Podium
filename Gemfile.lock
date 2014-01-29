@@ -85,6 +85,7 @@ GEM
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
     fssm (0.2.10)
+    google-analytics-rails (0.0.4)
     hike (1.2.3)
     i18n (0.6.4)
     journey (1.0.4)
@@ -185,6 +186,7 @@ DEPENDENCIES
   filepicker-rails
   font-awesome-rails
   font-awesome-sass-rails
+  google-analytics-rails
   jquery-rails (~> 2.1)
   jquery-ui-rails
   paperclip (~> 3.0)

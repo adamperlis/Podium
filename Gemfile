@@ -17,6 +17,7 @@ source 'http://rubygems.org'
 	gem 'social-share-button'
 	gem 'pdfkit'
 	gem 'rmagick', :require => 'RMagick'
+	gem 'google-analytics-rails'
 
 
 group :production do

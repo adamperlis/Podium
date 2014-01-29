@@ -17,6 +17,7 @@
     <%= javascript_include_tag "application" %>
     <%= filepicker_js_include_tag %>
     <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
     <link rel="icon" type="image/png" href="assets/favicon.png">
   </head>
 
