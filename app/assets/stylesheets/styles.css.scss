@@ -658,6 +658,8 @@ input.gn-search:focus {
 	-webkit-transition: opacity .5s;
 	-o-transition: opacity .5s;
 	transition:opacity .5s;
+	height: 100%;
+	width: 100%;
 }
 
 .sample-img img:hover {

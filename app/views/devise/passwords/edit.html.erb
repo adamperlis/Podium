@@ -1,16 +1,30 @@
-<h2>Change your password</h2>
+<div class='row'>
+	<div class='large-12 columns'>
+		
+		<div class="small-6 large-centered columns">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+		<h2>Change your password</h2>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+		<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { :method => :put, :multipart => true, class: 'form'}) do |f| %>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+			<div class="row collapse">
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+		  <%= f.hidden_field :reset_password_token %>
 
-<%= render "devise/shared/links" %>
+		  <div class="small-1 columns"><span class="prefix"><span class="icon-lock"></div>
+				<div class="small-11 columns">
+				<%= f.input :password, label: false,:placeholder => "New Password", autocomplete: "off"%>
+			</div>
+
+			<div class="small-1 columns"><span class="prefix"><span class="icon-lock"></div>
+				<div class="small-11 columns">
+				<%= f.input :password, label: false,:placeholder => "Password Confirmation", autocomplete: "off"%>
+			</div>
+
+		  <div class="large-12 columns">
+		  	<%= f.submit "SUBMIT", class: "button prefix" %>
+		  </div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -84,7 +84,7 @@
 									<source src="<%= slide.filepicker_url %>">
 								</video>
 							<% else %>
-								<img src="<%= slide.filepicker_url %>/convert?w=240&h=135&fit=scale">
+								<img src="<%= slide.filepicker_url %>">
 							<% end %>
 						</li>
 					<% end %>					 
@@ -102,7 +102,7 @@
 						</video>
 					<% else %>
 						<% unless slide.filepicker_url.blank? %>
-							<img src="<%= slide.filepicker_url %>/convert?w=1920&h=1080&fit=scale">
+							<img src="<%= slide.filepicker_url %>">
 						<% else %>
 							<div class="blank" id="slide-<%= slide.id -%>"></div>
 
