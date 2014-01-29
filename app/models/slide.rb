@@ -11,8 +11,8 @@ class Slide < ActiveRecord::Base
     image.from_blob(urlpdf.read)
     slides_array = []
     s3 = AWS::S3.new({
-      :access_key_id => 'AKIAJ4B3SNYXFWRSCVMQ', 
-      :secret_access_key => '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'
+      :access_key_id     => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
     })
     bucket = s3.buckets['getpodium-media']
     filename = pdf_url.split("/")[-1].split(".pdf")[0]
