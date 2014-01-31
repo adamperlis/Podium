@@ -1,4 +1,5 @@
 require 'aws'
+require 'aws-sdk'
 
 AWS.config({
   :access_key_id     => ENV['S3_KEY'],
