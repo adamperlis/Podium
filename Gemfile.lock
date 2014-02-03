@@ -175,7 +175,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
-  aws-sdk (~> 1.0)
+  aws-sdk
   bootstrap-will_paginate (= 0.0.6)
   coffee-rails (~> 3.2.1)
   compass-52-plugin
