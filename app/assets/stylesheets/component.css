@@ -50,6 +50,10 @@ html, body { height: 100%; }
 	cursor:-webkit-grab;
 }
 
+.pt-page-current img {
+	width:100%;
+}
+
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
  .pt-page {
     left: 50%;
