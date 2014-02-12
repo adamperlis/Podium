@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+        gem 'webrick'
 	gem 'rails', '3.2.12'
 	gem 'jquery-rails', '~> 2.1'
 	gem 'devise'
