@@ -68,5 +68,6 @@ Omrails::Application.configure do
   #In production the host should be set to the host of your application.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  GA.tracker = "UA-xxxxxx-x"
+  GA.tracker = "UA-41705142-1"
+
 end
