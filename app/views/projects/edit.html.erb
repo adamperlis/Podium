@@ -18,6 +18,22 @@
 
 		<%= render partial: "slides/wysiwig" %>
 
+		<div id="myModal" class="reveal-modal large" data-reveal>
+	  	<iframe seamless="seamless" title="preview" width="960" height="540" src="http://localhost:3000/projects/<%= @project.id %>"></iframe>
+		  <a class="close-reveal-modal">&#215;</a>
+		</div>
+
+		<div id="myModal2" class="reveal-modal" data-reveal>
+		  <h2>Share your presentation:</h2>
+		  <%= social_share_button_tag(@project.description, :url => "http://localhost:3000/projects/" + @project.id.to_s) %><br />
+
+		  <%= form_for "#" do |f| %>
+			  <%= f.label 'Link:' %>
+			  <%= f.text_field '', :value => "http://localhost:3000/projects/" + @project.id.to_s, disabled: true %>
+			<% end %>
+		  <a class="close-reveal-modal">&#215;</a>
+		</div>
+
 		<div class="dropzone-container">
 			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here   <i class="icon-dropbox"></i></p></div>
 		</div>
@@ -26,7 +42,9 @@
 		<div class="right-menu">
 
 		<%= render 'form' %>
-		<%= link_to 'Preview', @project, class: 'button medium button prefix preview' %> 
+
+		<%= link_to('Preview', '#', class: 'button medium button prefix preview', :'data-reveal-id' => 'myModal') %> 
+		<%= link_to('Share', '#', class: 'medium button prefix preview success', :'data-reveal-id' => 'myModal2') %> 
 		</div>
 	</div>
 </div>

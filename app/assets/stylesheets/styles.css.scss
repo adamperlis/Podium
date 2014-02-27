@@ -102,6 +102,17 @@ body {
 	padding: 4px;
 }
 
+.button.secondary {
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+
+.button.secondary:hover {
+	background-color:#999999 !important;
+}
+
 .red.button.prefix {
 	letter-spacing: 2px;
 	font-size: 11px;
@@ -144,6 +155,17 @@ body {
 	float:initial;
 	top:-9px;
 	z-index: 10;
+}
+
+.reveal-modal.large {
+	margin-left: -30%;
+	width: 160% !important;
+	height: 160% !important;
+	top:20px;
+}
+
+.button.secondary:focus {
+	outline:none;
 }
 
 .container > header,
