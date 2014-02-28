@@ -1,6 +1,10 @@
 $(function (){
   filepicker.setKey('ALcB7Geq4Qi6nBYBnH5s2z');
 
+  window.onload = function(){
+    document.getElementById("filepicker").click();
+  }
+
   var filepicker_cb = function(InkBlobs){
     InkBlobs.forEach(function(InkBlob){
       console.log(JSON.stringify(InkBlobs));
@@ -97,6 +101,7 @@ $(function (){
     });
   }
 
+  
   var addslide = $('.filepicker');
   addslide.click(function(e){
     e.preventDefault();

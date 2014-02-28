@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(".button-group").on("click", ".code", function(e){
+	$("#drop2").on("click", ".code", function(e){
 		e.preventDefault();
 		var code = prompt("Add a YouTube or Vimeo link to your presentation:", $("#current-slide").data("embed_code"));
 		console.log(code);

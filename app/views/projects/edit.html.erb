@@ -3,17 +3,20 @@
 		<div class='slide-organizer'>
 			<p>Slides</p>
 			<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
-				<li class="dropzone2" data-dropdown="drop2" id="1"><i class="icon-plus"></i><p>Add New Slide</p></li>
+				<li class="dropzone2" data-dropdown="drop2" id="1"><i class="icon-plus"></i><p>Add Media</p></li>
 					<ul id="drop2" class="f-dropdown content" data-dropdown-content>
 						<%= link_to "#" do %>
-			  	  	 <li class="blank-slide"><i class="icon-file-alt"></i>  Blank Slide</li>
+			  	  	 <!-- <li class="blank-slide"><i class="icon-file-alt"></i>  Blank Slide</li> -->
 			  	  <% end %>
-					  <li><a class="filepicker" href="#"><i class="icon-file"></i>  Slide from File</a></li>
+			  	  <li><a class="code" id="code" href="#"><i class="icon-code"></i>  Embed a Video</a></li>
+			  	  <li><a class="filepicker" id="filepicker" href="#"><i class="icon-film"></i>  Add a Video</a></li>
+					  <li><a class="filepicker" id="filepicker" href="#"><i class="icon-picture"></i>  Add an Image</a></li>
 					</ul>
 				<%= render partial: "slides/slide", collection: @slides %>
 			</ol>
 		</div>
 	</div>
+
 	<div class='small-6 columns'>
 
 		<%= render partial: "slides/wysiwig" %>
