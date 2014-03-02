@@ -1,9 +1,17 @@
 $(function (){
   filepicker.setKey('ALcB7Geq4Qi6nBYBnH5s2z');
 
-  window.onload = function(){
-    document.getElementById("filepicker").click();
+
+  // CHECKING IF SLIDES EXIST IF THEY DO THEN DONT DO ANYTHING IF THEY DONT EXIST PROMPT UPLOAD
+  var project_id = parseInt($("#current-slide").data("project-id"));
+
+  if ($(".slide")[0]){
+  }else{
+    window.onload = function(){
+      document.getElementById("filepicker").click();
+    }
   }
+  //END
 
   var filepicker_cb = function(InkBlobs){
     InkBlobs.forEach(function(InkBlob){
@@ -68,6 +76,7 @@ $(function (){
         });
       }
     });
+    $(".share").click();
   };
 
   if($('#current-slide').length) {
