@@ -76,7 +76,7 @@ $(function (){
         });
       }
     });
-    $(".share").click();
+    $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
   };
 
   if($('#current-slide').length) {
