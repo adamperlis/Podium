@@ -34,6 +34,7 @@
 			  <%= f.label 'Link:' %>
 			  <%= f.text_field '', :value => "http://localhost:3000/projects/" + @project.id.to_s, disabled: true %>
 			<% end %>
+			
 		  <a class="close-reveal-modal">&#215;</a>
 		</div>
 
@@ -47,7 +48,7 @@
 		<%= render 'form' %>
 
 		<%= link_to('Preview', '#', class: 'button medium button prefix preview', :'data-reveal-id' => 'myModal') %> 
-		<%= link_to('Share', '#', class: 'medium button prefix preview success', :'data-reveal-id' => 'myModal2') %> 
+		<%= link_to('Share', '#', class: 'share medium button prefix preview success', :'data-reveal-id' => 'myModal2') %> 
 		</div>
 	</div>
 </div>
