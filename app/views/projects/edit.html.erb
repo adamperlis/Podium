@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="dropzone-container">
-			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here   <i class="icon-dropbox"></i></p></div>
+			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here</p></div>
 		</div>
 	</div>
 	<div class='small-3 columns'>
@@ -51,6 +51,7 @@
 
 		<%= link_to('Preview', '#', class: 'button medium button prefix preview', :'data-reveal-id' => 'myModal') %> 
 		<%= link_to('Share', '#', class: 'share medium button prefix preview success', :'data-reveal-id' => 'myModal2') %> 
+		<%= link_to 'Present', @project, class: 'button medium button prefix present' %> 
 		</div>
 	</div>
 </div>
