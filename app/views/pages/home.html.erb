@@ -2,46 +2,55 @@
 
 <div class='row'>
   <div class="small-12 small-centered columns">
-<!-- <div class="slideshow">
-  	<div id="pt-main" class="pt-perspective">
-			<div class="pt-page pt-page-1"><video width="100%" height="100%" autoplay='true'><source src="/assets/PODIUM_SLIDE1.mp4" type="video/mp4"></video></div>
-			<div class="pt-page pt-page-2"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
-			<div class="pt-page pt-page-3"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
-			<div class="pt-page pt-page-4"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
-			<div class="pt-page pt-page-5"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
-			<div class="pt-page pt-page-6"><h1><span>A collection of</span><strong>Page</strong> Transitions</h1></div>
-		</div>  -->
-
-	<!-- <iframe src='http://localhost:3000/projects/150' height='100%' width='100%'></iframe> -->
-
-  <div id="scroll-top" class="homepage">
-  	<!-- <div class= "hero">
-  		<img src="assets/Podium_Logo_beta.png"></img>
-  		<h2>A Presentation Platform</h2>
-  	</div> -->
-  		<h2>SHARE YOUR PRESENTATIONS WITH A LINK</h2>
-  		<img src="assets/crossscreen.png">
-			
-			<a class="button medium button prefix preview">UPLOAD</a> 
-			
-  		<ul class="button-group">
-  			<li><%= link_to "HOW IT WORKS", "#first", class: "large button divide scroll", :"data-speed" => "500", :"data-easing" => "easeInOutCubic" %></li>
-  			<li><%= link_to "SIGN UP", new_user_registration_path, class: "large button" %></li>
-  		</ul>
-  	</div>
-  </div>
+		<article class="hero-left animated fadeInUp">
+			<h2>SHARE YOUR PRESENTATIONS WITH A LINK</h2>
+			<div class="dropzone-home"></div>
+		</article>
+		<figure class="hero-right animated fadeInUp">
+			<img src="assets/crossscreen.png">
+		</figure>
+		<ul class="button-group animated fadeInUp">
+			<li><%= link_to "HOW IT WORKS", "#first", class: "large button divide scroll", :"data-speed" => "500", :"data-easing" => "easeInOutCubic" %></li>
+			<li><%= link_to "SIGN UP", new_user_registration_path, class: "large button" %></li>
+		</ul>
+	</div>
 </div>
 
+
+<div class="divider"></div></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
+
+<div class='row steps'>
+	<div class="small-2 large-4 columns"><span class="show-for-small"></span>
+		<span class="hide-for-small">
+			<span class="entypo-up-circled"></span>
+			<h3>STEP 1: UPLOAD</h3>
+			<p>Simply upload your presentation to Podium.</p>
+		</span>
+	</div>
+	<div class="small-4 large-4 columns">
+		<span class="entypo-cog"></span>
+		<h3>STEP 2: SETTINGS</h3>
+		<p>Give your project a title, embed a YouTube or Vimeo video, choose from 30+ slides transitions and adjust your privacy settings.</p>
+	</div>
+	<div class="small-6 large-4 columns"><span class="show-for-small"></span>
+		<span class="hide-for-small">
+			<span class="entypo-share"></span>
+			<h3>STEP 3: SHARE & PRESENT</h3>
+			<p>Easily share your presentation via e-mail, Facebook, Twitter or Google+ and present right from your browser.</p>
+		</span>
+	</div>
+</div>
+
+
 <div class='row'>
-	<div id="first" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
+	<div id="first"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
 	<div class='large-10 centered columns'>
 		<div id="cbp-so-scroller" class="cbp-so-scroller">
 		<section class="cbp-so-section">
 			<article class="cbp-so-side cbp-so-side-left">
-				<h2>UPLOAD & SHARE</h2>
-				<p class="scrollTo"> Upload your presentations and share them with a link that opens your presentation in the browser. No more large email files, no more wasting time downloading drop links. Click the link and see your presenation as it was meant to be shown. 
-
-					Create presentations using the tools you know best, then use Podium to present them. Simply upload a PDF, JPG, PNG, MP4 or embed a video from Youtube, Vimeo or an iFrame of a site to Podium. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
+				<h2>UPLOAD</h2>
+				<p class="scrollTo">
+					Create presentations using the tools you know best, then use Podium to present them. Simply upload a PDF, JPG, PNG, MP4 or embed a video from Youtube, Vimeo or an iFrame of a site to Podium.We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
 			</article>
 			<figure class="cbp-so-side cbp-so-side-right">
 				<img src="assets/1.png" alt="img01">
@@ -50,7 +59,7 @@
     <div id="second" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#second'><div class="carrot"><i class="icon-chevron-down"></i></div></a>
 		<section class="cbp-so-section extra-padding1">
 			<figure class="cbp-so-side cbp-so-side-left">
-				<img src="assets/2.png" alt="img01">
+					<img src="assets/crossscreen.png">
 			</figure>
 			<article class="cbp-so-side cbp-so-side-right">
 				<h2>PRESENT</h2>
@@ -74,6 +83,7 @@
 	</script>				
   </div>
 </div>
+
 
 
 
