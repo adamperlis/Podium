@@ -123,6 +123,10 @@ body {
 	font-size: 13px;
 }
 
+.steps i{
+font-size: 36px;
+}
+
 .already-visible {
   animation: none;
 }
@@ -1141,8 +1145,7 @@ color: #5f6f81;
 	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
 	width: 228px;
 	height: 171px;
-	margin-left: 290px;
-	margin-top: -51px;
+	margin-left: 100px;
 	opacity: 1;
   -moz-transition: background .5s;
 	-webkit-transition: background .5s;
