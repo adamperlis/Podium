@@ -1,14 +1,23 @@
 
 
-<div class='row'>
-  <div class="small-12 small-centered columns">
+<div class="row">
+  <div class="large-6 columns">
 		<article class="hero-left animated fadeInUp">
 			<h2>SHARE YOUR PRESENTATIONS WITH A LINK</h2>
-			<div class="dropzone-home"></div>
+			<div class="dropzone-home">
+				<p><i class='icon-plus'></i><strong>Drag & Drop</strong><br>or <u>pick files from your computer</u></p>
+			</div>
 		</article>
-		<figure class="hero-right animated fadeInUp">
+  </div>
+  <div class="large-6 columns">
+  	<figure class="hero-right animated fadeInUp">
 			<img src="assets/crossscreen.png">
 		</figure>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-3 small-centered columns">
 		<ul class="button-group animated fadeInUp">
 			<li><%= link_to "HOW IT WORKS", "#first", class: "large button divide scroll", :"data-speed" => "500", :"data-easing" => "easeInOutCubic" %></li>
 			<li><%= link_to "SIGN UP", new_user_registration_path, class: "large button" %></li>
@@ -20,23 +29,23 @@
 <div class="divider"></div></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
 
 <div class='row steps'>
-	<div class="small-2 large-4 columns"><span class="show-for-small"></span>
+	<div class="small-2 large-4 columns vertical-divider"><span class="show-for-small"></span>
 		<span class="hide-for-small">
-			<span class="entypo-up-circled"></span>
-			<h3>STEP 1: UPLOAD</h3>
-			<p>Simply upload your presentation to Podium.</p>
+			<span class="entypo-window"></span>
+			<h3>WORKS IN BROWSER</h3>
+			<p>No more large email attachments, no more lengthy downloads from droplinks. Just click a link and view your presentation.</p>
 		</span>
 	</div>
-	<div class="small-4 large-4 columns">
-		<span class="entypo-cog"></span>
-		<h3>STEP 2: SETTINGS</h3>
-		<p>Give your project a title, embed a YouTube or Vimeo video, choose from 30+ slides transitions and adjust your privacy settings.</p>
+	<div class="small-4 large-4 columns vertical-divider">
+		<span class="icon-youtube"> + </span><span class="entypo-vimeo"></span>
+		<h3>EMBEDED VIDEOS</h3>
+		<p>Add videos from YouTube and Vimeo into your presentation by just pasting a link.</p>
 	</div>
 	<div class="small-6 large-4 columns"><span class="show-for-small"></span>
 		<span class="hide-for-small">
-			<span class="entypo-share"></span>
-			<h3>STEP 3: SHARE & PRESENT</h3>
-			<p>Easily share your presentation via e-mail, Facebook, Twitter or Google+ and present right from your browser.</p>
+			<span class="entypo-switch"></span>
+			<h3>BEAUTIFUL TRANSITIONS</h3>
+			<p>Choose from 30+ slide transitions to present your slide deck. </p>
 		</span>
 	</div>
 </div>
@@ -44,7 +53,7 @@
 
 <div class='row'>
 	<div id="first"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
-	<div class='large-10 centered columns'>
+	<div class='small-11 small-centered columns'>
 		<div id="cbp-so-scroller" class="cbp-so-scroller">
 		<section class="cbp-so-section">
 			<article class="cbp-so-side cbp-so-side-left">
@@ -57,23 +66,23 @@
 			</figure>
 		</section>
     <div id="second" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#second'><div class="carrot"><i class="icon-chevron-down"></i></div></a>
-		<section class="cbp-so-section extra-padding1">
-			<figure class="cbp-so-side cbp-so-side-left">
-					<img src="assets/crossscreen.png">
-			</figure>
-			<article class="cbp-so-side cbp-so-side-right">
-				<h2>PRESENT</h2>
-				<p>Choose from 30+ slide transitions to present your slide deck. Podium works cross-platform so you can present it on your computer, tablet or phone. It also works with most modern presentation clickers, so you can navigate your presentation hands free.</p>
-			</article>
-		</section>
-    <div id="third" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#third'><div class="carrot"><i class="icon-chevron-down"></i></div></a>
-		<section class="cbp-so-section extra-padding2">
+    	<section class="cbp-so-section extra-padding2">
 			<article class="cbp-so-side cbp-so-side-left">
 				<h2>SHARE</h2>
 				<p>	Easily share your presentation with clients, friends and colleagues using a shortend link or through social media. You can even embed them into your blog or website.</p>
 			</article>
 			<figure class="cbp-so-side cbp-so-side-right">
 				<img src="assets/3.png" alt="img01">
+			</figure>
+		</section>
+    <div id="third" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#third'><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+    <section class="cbp-so-section extra-padding1">
+					<article class="cbp-so-side cbp-so-side-left">
+				<h2>PRESENT</h2>
+				<p>Choose from 30+ slide transitions to present your slide deck. Podium works cross-platform so you can present it on your computer, tablet or phone. It also works with most modern presentation clickers, so you can navigate your presentation hands free.</p>
+			</article>
+			<figure class="cbp-so-side cbp-so-side-right">
+					<img src="assets/crossscreen.png">
 			</figure>
 		</section>
     <div class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#scroll-top'><div class="carrot"><i class="icon-chevron-up"></i></div></a>
