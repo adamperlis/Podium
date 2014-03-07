@@ -31,13 +31,17 @@
 	font-style: normal;
 }
 
-@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontelico);
 
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
 }
 
+/* fontelico */
+[class*="fontelico-"]:before {
+  font-family: 'fontelico', sans-serif;
+}
 
 body {
 	overflow-y: scroll;
@@ -1131,37 +1135,42 @@ color: #5f6f81;
 }
 
 .dropzone-home {
-	width: 400px;
-	height: 250px;
-	max-width: 1920px;
-	max-height: 1080px;
-	position: absolute;
-	left: 0%;
+	background: lightgray;
+	border-radius: 2px;
 	border: 1px dashed gray;
-	top: 80px;
+	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
+	width: 228px;
+	height: 171px;
+	margin-left: 290px;
+	margin-top: -51px;
+	opacity: 1;
+  -moz-transition: background .5s;
+	-webkit-transition: background .5s;
+	-o-transition: background .5s;
+	transition: background .5s;
+}
+
+.dropzone-home i {
+	font-size: 60px;
+	display: block;
 	text-align: center;
-	font-size: 28px;
-	font-weight: 300;
-	font-family: 'Lato', Arial, sans-serif;
-	background-color:inherit;
-	-webkit-transition: background-color 300ms linear;
-	-moz-transition: background-color 300ms linear;
-	-o-transition: background-color 300ms linear;
-	-ms-transition: background-color 300ms linear;
-	transition: background-color 300ms linear;
 }
 
 .dropzone-home p {
-	line-height: 403px;
-	font-weight: lighter;
+	color: #34495e;
+	opacity: 50%;
+	font-size: 12px;
+	font-family: 'Lato', Arial, sans-serif;
+	margin-top: 46px;
+	line-height: 30px;
+	text-align: center;
 }
 
-.dropzone-home img {
-	width: 100%;
-	height: 100%;
-	border:1px solid #e2e2e2;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, .2); 
+.dropzone-home:hover {
+	background: rgb(143, 143, 143);;
+	cursor: pointer;
 }
+
 
 .dropzone2 {
 	border-radius: 2px;
@@ -1378,7 +1387,7 @@ background: url("/assets/social-share-buttons.png") -134px -6px no-repeat;
 }
 
 .button-group {
-	left: 41%;
+	left: 11%;
 	position: relative;
 }
 
@@ -1520,15 +1529,23 @@ iframe {
 }
 
 .hero-right {
-	width: 60%;
-	left: 41%;
-	position: relative;
+	
 }
 
 .hero-left {
-	width: 60%;
-	left: 5%;
-	position: relative;
+
+}
+
+
+.hero-left h2 {
+	letter-spacing: 8px;
+	font-weight: bolder;
+	margin-left: 99px;
+	margin-top: 47px;
+}
+
+.vertical-divider {
+	border-right: 1px solid rgb(190, 190, 190);
 }
 
 #wrapper {
