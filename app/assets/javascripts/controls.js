@@ -21,4 +21,9 @@ $(function (){
 			$('.pt-perspective').fullScreen();
 		});
 	}
+
+	$(".top-left").click(function(event) {
+    event.preventDefault();
+    history.back(1);
+});
 });

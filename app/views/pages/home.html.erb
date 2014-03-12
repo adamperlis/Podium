@@ -2,31 +2,51 @@
 
 <div class="row">
   <div class="large-6 columns">
-		<article class="hero-left animated fadeInUp">
-			<h2>SHARE YOUR PRESENTATIONS IN THE BROWSER</h2>
-			<div class="dropzone-home">
-				<p><i class='icon-plus'></i><strong>Drag & Drop</strong><br>or <u>pick files from your computer</u></p>
-			</div>
-		</article>
-  </div>
-  <div class="large-6 columns">
-  	<figure class="hero-right animated fadeInUp">
-			<img src="assets/crossscreen.png">
+		<figure class="hero-right animated fadeInUp">
+			<div class="iphone iphone--light">
+      <div class="iphone-camera"></div>
+      <div class="iphone-sensor"></div>
+      <div class="iphone-earpiece"></div>
+      <div class="iphone-content" style="">
+        <img src="assets/Slide2.jpg"></img>
+      </div>
+      <div class="iphone-home"></div>
+    </div>
+
+    <div class="ipad">
+      <div class="ipad-camera"></div>
+      <div class="ipad-content" style="">
+        <img src="assets/Slide2.jpg"></img>
+      </div>
+    	<div class="ipad-home"></div>
+    </div>
+
+			<div class="browser">
+        <div class="browser-bar">
+          <div class="browser-button"></div>
+          <div class="browser-button"></div>
+          <div class="browser-button"></div>
+        </div>
+        <div class="browser-content">
+          <img src="assets/Slide2.jpg"></img>
+      	</div>
+      </div>
 		</figure>
   </div>
+  <div class="large-6 columns">
+  	<article class="hero-left animated fadeInUp">
+			<!-- <img src="assets/crossscreen.png"> -->
+			<h2>SHARE YOUR PRESENTATIONS IN A BEAUTIFUL & EASY WAY</h2>
+			<a href="#" class="upload large button secondary">UPLOAD TO TRY</a>
+    </article>
+  </div>
 </div>
 
-<div class="row">
-  <div class="small-3 small-centered columns">
-		<ul class="button-group animated fadeInUp">
-			<li><%= link_to "HOW IT WORKS", "#first", class: "large button divide scroll", :"data-speed" => "500", :"data-easing" => "easeInOutCubic" %></li>
-			<li><%= link_to "SIGN UP", new_user_registration_path, class: "large button" %></li>
-		</ul>
+<div class='row'>
+	<div class="small-3 small-centered columns">
+		<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up large button success" %>
 	</div>
 </div>
-
-
-<div class="divider"></div></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
 
 <div class='row steps'>
 	<div class="small-2 large-4 columns vertical-divider"><span class="show-for-small"></span>
@@ -52,7 +72,7 @@
 
 
 <div class='row'>
-	<div id="first"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#first'><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
+	<div id="first"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
 	<div class='small-11 small-centered columns'>
 		<div id="cbp-so-scroller" class="cbp-so-scroller">
 		<section class="cbp-so-section">
@@ -65,7 +85,7 @@
 				<img src="assets/1.png" alt="img01">
 			</figure>
 		</section>
-    <div id="second" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#second'><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+    <div id="second" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
     	<section class="cbp-so-section extra-padding2">
 			<article class="cbp-so-side cbp-so-side-left">
 				<h2>SHARE</h2>
@@ -75,7 +95,7 @@
 				<img src="assets/3.png" alt="img01">
 			</figure>
 		</section>
-    <div id="third" class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#third'><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+    <div id="third" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
     <section class="cbp-so-section extra-padding1">
 					<article class="cbp-so-side cbp-so-side-left">
 				<h2>PRESENT</h2>
@@ -85,7 +105,7 @@
 					<img src="assets/crossscreen.png">
 			</figure>
 		</section>
-    <div class="divider"></div><a class="scroll" data-speed="500" data-easing="easeInOutCubic" href='#scroll-top'><div class="carrot"><i class="icon-chevron-up"></i></div></a>
+    <div class="divider"></div><div class="carrot"><i class="icon-chevron-up"></i></div></a>
   	</div>
 	<script>
 		new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );

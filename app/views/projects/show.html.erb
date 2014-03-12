@@ -42,6 +42,7 @@
 
 	<div class="controls">
 		<div class="vertical-menu">
+
 			<a href="#" data-reveal-id="myModal"><i class='icon-code'></i></a>
 	<!-- 	<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %> -->
 			<a href="#" data-reveal-id="myModal2"><i class='icon-share-alt'></i></a>
@@ -50,9 +51,14 @@
 
 		</div>
 
+		<div class='top-left'>
+			<% if current_user.present? %>
+				<i class=' icon-arrow-left'></i>
+			<% end %>
+		</div>
+
 		<div class='player'>
 			<i class='icon-chevron-left'></i>
-			
 			<i class='icon-chevron-right'></i>
 			<div class="expand"></div>
 		</div>
