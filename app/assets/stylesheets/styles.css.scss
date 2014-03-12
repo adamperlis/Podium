@@ -229,6 +229,10 @@ font-size: 36px;
 	top:20px;
 }
 
+#myModal2 {
+	margin-left: 12%;
+}
+
 .button.secondary:focus {
 	outline:none;
 }
@@ -1276,6 +1280,31 @@ color: #5f6f81;
 	cursor: pointer;
 }
 
+.top-left {
+	display: block;
+	float: left;
+	z-index: 999999999;
+	position: fixed;
+	left: 4%;
+	top: 4%;
+	width: 80px;
+	height: 110px;
+}
+
+.top-left i {
+	font-size: 30px;
+	color: white;
+	-moz-transition: color .3s;
+	-webkit-transition: color .3s;
+	-o-transition: color .3s;
+	transition: color .3s;
+ }
+
+ .top-left i:hover {
+	color: #5f6f81;
+	cursor: pointer;
+}
+
 .social-share-button-twitter {
 display: inline-block;
 width: 63px;
@@ -1321,11 +1350,6 @@ background: url("/assets/social-share-buttons.png") -134px -6px no-repeat;
   -webkit-transition: background .3s;
   -o-transition:  background .3s;
   transition: background .3s;
-}
-
-.carrot:hover {
-	background: #5f6f81;
-	color:white;
 }
 
 .content {
@@ -1532,19 +1556,26 @@ iframe {
 }
 
 .hero-right {
-	
+
 }
 
 .hero-left {
-
+	padding-left: 200px;
+	padding-top: 70px;
 }
 
 
 .hero-left h2 {
 	letter-spacing: 8px;
-	font-weight: bolder;
-	margin-left: 99px;
-	margin-top: 47px;
+	margin-top: 90px;
+	width: 400px;
+	font-size: 27px;
+}
+
+.sign-up {
+	left: 98px;
+	float: left;
+	top: 30px;
 }
 
 .vertical-divider {
@@ -1626,7 +1657,6 @@ iframe {
 	position:absolute;
 	z-index:100;
 	width:100%;
-
 	/* The following is probably what you want to customize */
 	background:#ACACAC;
 	border:1px solid #3A3A3A;
@@ -1636,6 +1666,179 @@ iframe {
 	-webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,0.5);
 }
 
+/* Device CSS */
+
+.browser {
+	padding-top: 10px;
+	padding-bottom: 80px;
+}
+
+.browser-bar {
+	border-radius: 3px 3px 0 0;
+	height: 21px;
+	font-size: 1px;
+	background-color: #3D3D3D;
+	line-height: 26px;
+}
+
+.browser-button {
+	display: inline-block;
+	height: 21px;
+	font-size: inherit;
+	margin-left: 6px;
+}
+
+.browser-button:first-child {
+	margin-left: 8px;
+}
+
+.browser-button:before {
+	content: "\25cf";
+	font-size: 9px;
+	line-height: 20px;
+	color: #F0E8E8;
+}
+
+.browser-content {
+	position: relative;
+	width: 100%;
+	height: 385px;
+}
+
+.browser-content iframe {
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.marketing-tour figure .iphone:not(:only-child) {
+	position: absolute;
+	bottom: -15%;
+	right: 0;
+	z-index: 1;
+	-ms-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	-moz-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	-webkit-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+}
+
+
+.iphone {
+	display: block;
+	width: 228px;
+	height: 480px;
+	border-radius: 28px;
+	overflow: hidden;
+	background-color: #3B3B3B;
+	-webkit-transform: rotate(90deg) scale(.75);
+	z-index: 100;
+	position: absolute;
+	float: left;
+	top: 167px;
+	left: 197px;
+	border: 1px solid rgb(158, 158, 158);
+}
+
+.iphone-camera {
+	height: 1.9%;
+	width: 4%;
+	border-radius: 100%;
+	margin: 6% auto 4%;
+	background-color: #181818;
+}
+
+.iphone-sensor {
+	display: inline-block;
+	height: 1.5%;
+	width: 3.1%;
+	border-radius: 100%;
+	float: left;
+	background: black;
+	position: relative;
+	left: 35%;
+	top: 1px;
+}
+
+
+.iphone-earpiece {
+	position: relative;
+	width: 18.4%;
+	margin: 1% auto 6.5%;
+	height: 1.7%;
+	border-radius: 15px;
+	background: black;
+}
+
+.iphone-content {
+	-webkit-backface-visibility: hidden;
+}
+
+.iphone-content {
+	position: relative;
+	width: 88%;
+	height: 75%;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #222;
+}
+
+.iphone-home {
+	width: 18.4%;
+	height: 8.75%;
+	margin: 5.3% auto 0;
+	background-color: black;
+	border-radius: 100%;
+	border-radius: 999px;
+	-webkit-border-radius: 999px;
+}
+
+.ipad {
+	display: block;
+	width: 526px;
+	height: 684px;
+	border-radius: 28px;
+	overflow: hidden;
+	background-color: #3B3B3B;
+	-webkit-transform: rotate(90deg) scale(.75);
+	z-index: 99;
+	position: absolute;
+	float: left;
+	top: -73px;
+	left: 237px;
+	border: 1px solid rgb(158, 158, 158);
+}
+
+.ipad-camera {
+	height: 1.9%;
+	width: 2.1%;
+	border-radius: 100%;
+	margin: 6% auto 4%;
+	background-color: #181818;
+}
+
+.ipad-content {
+	-webkit-backface-visibility: hidden;
+}
+
+.ipad-content {
+	position: relative;
+	width: 78%;
+	height: 81%;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #222;
+}
+
+.ipad-home {
+	width: 8.4%;
+	height: 6.75%;
+	margin: 1.7% auto 0;
+	background-color: black;
+	border-radius: 100%;
+	border-radius: 999px;
+	-webkit-border-radius: 999px;
+}
 
 
 @import "foundation_and_overrides";
