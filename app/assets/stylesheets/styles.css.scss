@@ -1673,6 +1673,11 @@ iframe {
 	padding-bottom: 80px;
 }
 
+.browser-small {
+	padding-top: 10px;
+	padding-bottom: 80px;
+}
+
 .browser-bar {
 	border-radius: 3px 3px 0 0;
 	height: 21px;
@@ -1740,6 +1745,22 @@ iframe {
 	border: 1px solid rgb(158, 158, 158);
 }
 
+.iphone-small {
+	display: block;
+	width: 228px;
+	height: 480px;
+	border-radius: 28px;
+	overflow: hidden;
+	background-color: #3B3B3B;
+	-webkit-transform: rotate(90deg) scale(0.5);
+	z-index: 100;
+	position: absolute;
+	float: left;
+	top: 117px;
+	left: 117px;
+	border: 1px solid #9e9e9e;
+}
+
 .iphone-camera {
 	height: 1.9%;
 	width: 4%;
@@ -1800,13 +1821,29 @@ iframe {
 	border-radius: 28px;
 	overflow: hidden;
 	background-color: #3B3B3B;
-	-webkit-transform: rotate(90deg) scale(.75);
+	-webkit-transform: rotate(90deg) scale(0.5);
 	z-index: 99;
 	position: absolute;
 	float: left;
 	top: -73px;
-	left: 237px;
-	border: 1px solid rgb(158, 158, 158);
+	left: 130px;
+	border: 1px solid #9e9e9e;
+}
+
+.ipad-small {
+	display: block;
+	width: 526px;
+	height: 684px;
+	border-radius: 28px;
+	overflow: hidden;
+	background-color: #3B3B3B;
+	-webkit-transform: rotate(90deg) scale(0.5);
+	z-index: 99;
+	position: absolute;
+	float: left;
+	top: -67px;
+	left: 107px;
+	border: 1px solid #9e9e9e;
 }
 
 .ipad-camera {
