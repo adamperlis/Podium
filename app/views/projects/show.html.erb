@@ -110,10 +110,19 @@
 			</div>
 		</div> -->
 
+		<canvas id="myChart" width="50" height="50">
+		</canvas>
+
+
 		<div id="pt-main" style="display:none;" class="pt-perspective">
 
-			<% @project.slides.order("position").each do |slide| %>
+			<% @project.slides.order("position").to_enum.with_index(1).each do |slide, index| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">
+
+					<!-- Slide Numbers -->
+				  <div id='slide-number' data-slidenumber='<%= index %>' data-slidecount='<%= @project.slides.count %>'><%= index %></div>
+				  
+  				
 					<% if slide.mimetype == "video/mp4" %>
 						<video width='100%' height='100%' autoplay="autoplay">
 							<source src="<%= slide.filepicker_url %>">
@@ -154,6 +163,61 @@
 				</div>
 			<% end %>
 		</div>
+
+		<script>
+			var slide = document.getElementById('slide-number');
+      var slidenumber = slide.getAttribute('data-slidenumber');
+      var slidecount = slide.getAttribute('data-slidecount');
+
+			var data = [
+				{
+					value : (7/8)*100,//slidecount,
+					color : "#69D2E7"
+				},
+				{
+					value : 100,//slidenumber
+					color : "#FFF"
+				}			
+			];
+
+		  var options = {
+			//Boolean - Whether we should show a stroke on each segment
+			segmentShowStroke : false,
+			
+			//String - The colour of each segment stroke
+			segmentStrokeColor : "#fff",
+			
+			//Number - The width of each segment stroke
+			segmentStrokeWidth : 2,
+			
+			//The percentage of the chart that we cut out of the middle.
+			percentageInnerCutout : 75,
+			
+			//Boolean - Whether we should animate the chart	
+			animation : true,
+			
+			//Number - Amount of animation steps
+			animationSteps : 50,
+			
+			//String - Animation easing effect
+			animationEasing : "easeOutSine",
+			
+			//Boolean - Whether we animate the rotation of the Doughnut
+			animateRotate : true,
+
+			//Boolean - Whether we animate scaling the Doughnut from the centre
+			animateScale : false,
+			
+			//Function - Will fire on animation completion.
+			onAnimationComplete : null
+			}
+
+			//Get the context of the canvas element we want to select
+			var ctx = document.getElementById("myChart").getContext("2d");
+			var myNewChart = new Chart(ctx).Doughnut(data, options);
+
+			
+		</script>
  		
             <!-- Preloader -->
     <script type="text/javascript">
