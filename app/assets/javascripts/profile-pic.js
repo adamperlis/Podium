@@ -19,13 +19,4 @@ $(function (){
     }, filepicker_avatar);
   });
 
-  //Validates the profile picture URL is present.
-  $("#register").submit(function(e){
-    if (!$("input[id=avatar-url]").val()) {
-      $("#register").prepend("<div class='alert-box alert error'>Please upload a profile picture</div>");
-      return false
-    }
-   
-  });
-
 });
