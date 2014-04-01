@@ -16,11 +16,9 @@
 					});
 					</script>
 				<% end %>
+			<% end %>  
+		  <%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+				<span class="delete"><i class="icon-remove"></i></span>
 			<% end %>
-		    <ul class="slide-tools" id="2">
-	          	<li><%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-							<span class="delete"><i class="icon-remove"></i></span>
-							<% end %></li>
-	      </ul>
-	    <% end %>
+	  <% end %>
 	<!--  		</li> -->
