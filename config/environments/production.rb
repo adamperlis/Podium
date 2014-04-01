@@ -66,7 +66,7 @@ Omrails::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   #In production the host should be set to the host of your application.
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'getpodium.com' }
 
   GA.tracker = "UA-41705142-1"
 
