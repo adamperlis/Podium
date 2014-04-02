@@ -798,6 +798,8 @@ input.gn-search:focus {
 	margin-left: 110px;
 }
 
+.sample-deck > li { clear: none !important; }
+
 .untitled-project {
 	background: white;
 	width: 100%;
@@ -827,8 +829,26 @@ input.gn-search:focus {
 	transition: border 0.2s;
 }
 
-.sample-profile img:hover {
-	border: 3px dotted #c6d0da;
+.sample-profile i {
+	height: 50px;
+	float: left;
+	margin-left: 43px;
+	margin-top: -23px;
+	border: 1px solid #c6d0da;
+	padding: 16px;
+	border-radius: 100px;
+	opacity: 1;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+	font-size: 18px;
+	background-color: #E0E0E0;
+	color:#5f6f81;
+}
+
+.sample-profile i:hover {
+	color:white;
+	background:#5f6f81;
 }
 
 .profile-header {
@@ -842,39 +862,33 @@ input.gn-search:focus {
 	border-radius: 100px;
 	opacity: 1;
 	margin-top: 4px;
-	-webkit-transition: border 0.2s;
-	-moz-transition: border 0.2s;
-	transition: border 0.2s;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .profile-header img a:hover {
 	background: none;
 }
 
-.profile-header img:hover {
-	border: 3px dotted #c6d0da;
-}
-
 .profile-header i {
 	height: 50px;
 	border: 1px solid #c6d0da;
-	padding: 10px;
+	padding: 13px;
 	border-radius: 100px;
 	opacity: 1;
 	margin-top: 4px;
-	-webkit-transition: border 0.2s;
-	-moz-transition: border 0.2s;
-	transition: border 0.2s;
-	font-size: 19px;
+	-webkit-transition: background 0.2s;
+	-moz-transition: background 0.2s;
+	transition: background 0.2s;
+	font-size: 18px;
+	background-color: #E0E0E0;
 }
 
 .profile-header i a:hover {
 	background: none;
 }
 
-.profile-header i:hover {
-	border: 3px dotted #c6d0da;
-}
 
 .project-tools {
 	position: relative;
@@ -985,6 +999,8 @@ input.gn-search:focus {
 	background: rgb(143, 143, 143);;
 	cursor: pointer;
 }
+
+.add-project > li { clear: none !important; }
 
 .profile-info{
 	padding-top: 40px;
@@ -1106,18 +1122,15 @@ color: #5f6f81;
 	width: 100%;
 	padding-bottom: 62%;
 	float: left;
-	height: 0;
 }
 
 .dropzone {
+	position: absolute;
 	width: 100%;
 	height: 100%;
-	max-width: 1920px;
-	max-height: 1080px;
-	position: absolute;
-	left: 44%;
+	
 	border: 1px dashed gray;
-	top: 80px;
+	
 	text-align: center;
 	font-size: 28px;
 	font-weight: 300;
@@ -1136,8 +1149,14 @@ color: #5f6f81;
 }
 
 .dropzone img {
-	width: 100%;
-	height: 100%;
+	margin:auto;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	position: absolute;
+	max-width:100%;
+	max-height:100%;
 	border:1px solid #e2e2e2;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, .2); 
 }
@@ -1876,6 +1895,13 @@ iframe {
 	border-radius: 100%;
 	border-radius: 999px;
 	-webkit-border-radius: 999px;
+}
+
+.pagination {
+display: block;
+height: 1.5em;
+margin-left: 2.6875em !important;
+margin-bottom: 4em;
 }
 
 

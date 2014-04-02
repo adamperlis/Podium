@@ -64,13 +64,14 @@ ActiveRecord::Schema.define(:version => 20140213000228) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "project_id"
-    t.integer  "position"
     t.string   "filepicker_url_thumb"
+    t.integer  "position"
     t.integer  "transition"
     t.string   "mimetype"
     t.string   "embed_code"
   end
 
+  add_index "slides", ["filepicker_url_thumb"], :name => "index_slides_on_filepicker_url_thumb"
   add_index "slides", ["project_id"], :name => "index_slides_on_project_id"
 
   create_table "users", :force => true do |t|

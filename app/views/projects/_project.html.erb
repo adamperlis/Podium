@@ -32,7 +32,11 @@
 				</span>
 		
 			<div class="info-box">
-				<%= link_to (filepicker_image_tag project.user.filepicker_url_avatar), project.user, :class => "sample-profile" %>
+				<% if !current_user.filepicker_url_avatar %>
+          <%= link_to "<i class='icon-user'></i>".html_safe, current_user, :class => "sample-profile" %>
+        <% else %>
+					<%= link_to (filepicker_image_tag project.user.filepicker_url_avatar), project.user, :class => "sample-profile" %>
+				<% end %>
 				<h3>
 		    <%= link_to project.description, project %> 
 		    </h3>
