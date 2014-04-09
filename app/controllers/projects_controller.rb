@@ -58,9 +58,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
-   @project = current_user.projects.create
-   redirect_to edit_project_path(@project)
-    
+    if current_user.projects.count < current_user.project_limit
+     @project = current_user.projects.create
+     redirect_to edit_project_path(@project)
+    else 
+      redirect_to projects_path, notice: 'You have hit your project limit, refer a friend to get more.'
+    end
   end
 
   # GET /projects/1/edit

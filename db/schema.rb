@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140213000228) do
+ActiveRecord::Schema.define(:version => 20140409230751) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20140213000228) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "filepicker_url_avatar"
+    t.integer  "project_limit",          :default => 5
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
