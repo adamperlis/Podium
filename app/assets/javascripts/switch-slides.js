@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	var wysiwig = $(".wysiwig");
-
 		/*newly uploaded slides to display in #current-slide- no refresh*/
 
 	$(".slide-organizer ol").on("click", "li.slide", function(e){
@@ -15,15 +13,11 @@ $(document).ready(function(){
 
 	  	if(data.mimetype == "video/mp4"){
 				$("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', data.filepicker_url));
-				$(wysiwig).hide();
 	  	}else{
 	  		if (!data.filepicker_url) { 
 	  				setupEmbed(data.embed_code);
-
-					$(wysiwig).show();
 	  		} else {
-      		$("#current-slide").html("<img src=" + data.filepicker_url + ">");
-      		$(wysiwig).hide();
+      		$("#current-slide").html("<img src=" + data.filepicker_url + ">");      		
     		}
     	}
     });

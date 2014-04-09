@@ -4,21 +4,35 @@ $(document).ready(function(){
 		var code = prompt("Add a YouTube or Vimeo link to your presentation:", $("#current-slide").data("embed_code"));
 		console.log(code);
 
-		var slide_id = parseInt($("#current-slide").data("slide-id"));
+		var project_id = parseInt($("#current-slide").data("project-id"));
+		var main = $('#current-slide');
+		var org = $('.slide-organizer ol');
 
-		if (code != null){
+		$.post("/slides", { project_id: project_id}, function(data){
+		
+			$(main).html('<div class="blank-slide"></div>');
+			$("#current-slide").data("slide-id", data.status.id);
+			$(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><div class="blank"></div></li>');
+	    
+			var slide_id = parseInt($("#current-slide").data("slide-id"));
 
-			$.ajax({
-			  url: '/slides/' + slide_id,
-			  type: 'PUT',
-			  data: { slide: { embed_code: code }},
-			  success: function(data) {
-			  	setupEmbed(data.slide.embed_code);
-			  	generateThumb(data.slide.embed_code, slide_id);
-			   console.log(data)
-			  }
-			});
-		}
+			if (code != null){
+
+				$.ajax({
+				  url: '/slides/' + slide_id,
+				  type: 'PUT',
+				  data: { slide: { embed_code: code }},
+				  success: function(data) {
+				  	setupEmbed(data.slide.embed_code);
+				  	generateThumb(data.slide.embed_code, slide_id);
+				   console.log(data)
+				  }
+				});
+			}
+			
+			
+	    console.log(data);
+	  });
 	});
 });
 
