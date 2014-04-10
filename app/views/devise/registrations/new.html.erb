@@ -27,6 +27,8 @@
 		<%= f.input :password, label: false, :placeholder => "Password"%>
 	</div>
 
+	<%=f.input :referral_code, :as => :hidden, :input_html => { :value => session[:referral] } %>
+
   <div class="large-12 columns">
   	<%= f.submit "REGISTER", class: "button prefix" %>
   </div>
