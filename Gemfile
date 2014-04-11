@@ -20,6 +20,7 @@ source 'http://rubygems.org'
 	gem 'google-analytics-rails'
 	gem 'cloudconvert'
 	gem 'pry'
+	gem 'sendgrid'
 	gem 'pg'
 
 group :development, :test do
