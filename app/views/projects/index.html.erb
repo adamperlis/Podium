@@ -31,7 +31,18 @@
 						</button>
 	        	<% end %>
 	        </div>
-    		</div>					
+    		</div>
+    		<div class="small-11 columns">
+	    		<div class="panel secondary">
+	  				<p>Refer your friends and get an extra project:</p>
+						  <%= form_for "#" do |f| %>
+							  <strong><%= f.label 'Your Referral Link' %></strong>
+							  <%= f.text_field '', :value => request.original_url, disabled: true %>
+							<% end %>
+						<%= social_share_button_tag(current_user.name, :url => request.original_url) %><br />
+						<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
+					</div>		
+				</div>			
 		</div>
 		<!-- TUTORIAL -->
 	
