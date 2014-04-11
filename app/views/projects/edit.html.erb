@@ -24,14 +24,15 @@
 		  <a class="close-reveal-modal">&#215;</a>
 		</div>
 
+
 		<div id="myModal2" class="reveal-modal" data-reveal>
 		  <h2>Share your presentation:</h2>
-		  <%= social_share_button_tag(@project.description, :url => "http://localhost:3000/projects/" + @project.id.to_s) %><br />
+		  <%= social_share_button_tag(@project.description, :url => "http://localhost:3000/projects/" + @project.id.to_s) %><br />			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
 
 		  <%= form_for "#" do |f| %>
 			  <%= f.label 'Link:' %>
 			  <%= f.text_field '', :value => "http://localhost:3000/projects/" + @project.id.to_s, disabled: true %>
-			<% end %>
+			<% end %>			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
 
 			<script> 
 				$(".close").on("click", function () { 
