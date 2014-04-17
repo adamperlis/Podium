@@ -18,7 +18,6 @@ source 'http://rubygems.org'
 	gem 'pdfkit'
 	gem 'rmagick', :require => 'RMagick'
 	gem 'google-analytics-rails'
-	gem 'sendgrid'
 
 
 group :production do

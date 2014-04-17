@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
         user = User.find(match[1].to_i)
         user.project_limit+=1 if user.project_limit <= 10
         user.save!
-        UserMailer.referral_email(current_user).deliver
+        UserMailer.referral_thankyou(user).deliver
       end
     end 
   end
