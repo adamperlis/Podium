@@ -1877,6 +1877,19 @@ margin-left: 2.6875em !important;
 margin-bottom: 4em;
 }
 
+label {
+	color: #5f6f81 !important;
+	cursor: default !important;
+}
+
+.refer p{
+	color: #5f6f81 !important;
+	font-size: 23px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 100;
+}
+
 
 @import "foundation_and_overrides";
 @import "foundation";

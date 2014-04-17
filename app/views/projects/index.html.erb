@@ -21,13 +21,30 @@
 		    	</div>
 				</div> -->
 	      <div class="row collapse">
-    		<div class="panel secondary">
-  				<p>Refer a friend and get an extra project:</p>
+    		<div class="panel secondary refer">
+  				<p>Refer a friend and get an extra project</p>
 					  <%= form_for "#" do |f| %>
 						  <strong><%= f.label 'Your Referral Link' %></strong>
 						  <%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
 						<% end %>
-					<%= social_share_button_tag(current_user.name, :url => root_url(:referral => "podium-#{current_user.id}")) %><br />
+
+						<script>
+						$( document ).ready(function() {
+
+							var referral_url = $( "#mydiv" ).data( "referral" );
+							var encoded_url = encodeURIComponent(referral_url);
+
+							$('#mydiv').share({
+		        		networks: ['facebook','twitter','linkedin'],
+		        		theme: 'square',
+		        		urlToShare: encoded_url
+	        		});
+						});
+        		</script>
+    				
+
+    			<div id="mydiv" data-referral="<%= root_url(:referral => "podium-#{current_user.id}")%>"></div>
+					<!-- #<%= social_share_button_tag(current_user.name, :url => root_url(:referral => "podium-#{current_user.id}")) %><br /> -->
 					<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
 				</div>		
 				 <div class="small-9 columns">
