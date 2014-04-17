@@ -20,30 +20,11 @@
 	<div class='small-6 columns'>
 
 		<div id="myModal" class="reveal-modal large" data-reveal>
-	  	<iframe seamless="seamless" title="preview" width="960" height="540" src="http://localhost:3000/projects/<%= @project.id %>"></iframe>
+	  	<iframe seamless="seamless" title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
 		  <a class="close-reveal-modal">&#215;</a>
 		</div>
 
-
-		<div id="myModal2" class="reveal-modal" data-reveal>
-		  <h2>Share your presentation:</h2>
-		  <%= social_share_button_tag(@project.description, :url => "http://localhost:3000/projects/" + @project.id.to_s) %><br />			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
-
-		  <%= form_for "#" do |f| %>
-			  <%= f.label 'Link:' %>
-			  <%= f.text_field '', :value => "http://localhost:3000/projects/" + @project.id.to_s, disabled: true %>
-			<% end %>			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
-
-			<script> 
-				$(".close").on("click", function () { 
-	      	$(".close-reveal-modal").click();
-	     	});
-			</script>
-
-			<a class="close button medium button prefix preview">CONTINUE EDITING</a> 
-
-		  <a class="close-reveal-modal">&#215;</a>
-		</div>
+		<%= render "shared/share_modal", url: project_url(@project) %>
 
 		<div class="dropzone-container">
 			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here</p></div>
@@ -55,7 +36,7 @@
 		<%= render 'form' %>
 
 		<%= link_to('Preview', '#', class: 'button medium button prefix preview', :'data-reveal-id' => 'myModal') %> 
-		<%= link_to('Share', '#', class: 'share medium button prefix preview success', :'data-reveal-id' => 'myModal2') %> 
+		<%= link_to('Share', '#', class: 'share medium button prefix preview success', :'data-reveal-id' => 'share_modal') %> 
 		<%= link_to 'Present', @project, class: 'button medium button prefix present' %> 
 		</div>
 	</div>

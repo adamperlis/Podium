@@ -1,0 +1,33 @@
+<div id="share_modal" class="reveal-modal" data-reveal>
+  <h2>Share your presentation:</h2>
+
+
+  <script>
+  $( document ).ready(function() {
+
+   var referral_url = $( "#referral" ).data( "referral" );
+
+   $('#referral').share({
+      networks: ['facebook','twitter','linkedin'],
+      theme: 'square',
+      urlToShare: referral_url
+    });
+  });
+  </script>
+
+
+  <div id="referral" data-referral="<%= url %>"></div>
+
+  <%= form_for "#" do |f| %>
+	  <%= f.label 'Link:' %>
+	  <%= f.text_field '', :value => url, disabled: true %>
+	<% end %>			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
+
+	<script> 
+		$(".close").on("click", function () { 
+    	$(".close-reveal-modal").click();
+   	});
+	</script>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
