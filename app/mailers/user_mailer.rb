@@ -1,12 +1,9 @@
 class UserMailer < ActionMailer::Base
-  include SendGrid
-  sendgrid_category :use_subject_lines
-  sendgrid_enable   :ganalytics, :opentrack
-  sendgrid_unique_args :key1 => "value1", :key2 => "value2"
+ 
+	default from: "adam@getpodium.com"
 
-  def welcome_message(user)
-    sendgrid_category "Referral"
-    sendgrid_unique_args :key2 => "newvalue2", :key3 => "value3"
+  def referral_thankyou(user)
+  	@user = user
     mail :to => user.email, :subject => "Thanks #{user.name} :-)"
   end
 end
