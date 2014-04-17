@@ -1890,6 +1890,11 @@ label {
 	font-weight: 100;
 }
 
+#referral a {
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+
 
 @import "foundation_and_overrides";
 @import "foundation";
