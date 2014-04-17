@@ -31,13 +31,12 @@
 						<script>
 						$( document ).ready(function() {
 
-							var referral_url = $( "#mydiv" ).data( "referral" );
-							var encoded_url = encodeURIComponent(referral_url);
+							var referral_url = $( "#referral" ).data( "referral" );
 
 							$('#referral').share({
 		        		networks: ['facebook','twitter','linkedin'],
 		        		theme: 'square',
-		        		urlToShare: encoded_url
+		        		urlToShare: referral_url
 	        		});
 						});
         		</script>
