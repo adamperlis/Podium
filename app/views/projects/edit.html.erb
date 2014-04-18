@@ -1,4 +1,9 @@
 <div class='row'>
+	<div class='small-6 large-offset-3 columns'>
+		<%= render "shared/share_modal", url: project_url(@project) %>
+</div>
+
+<div class='row'>
 	<div class='small-3 columns'>
 		<div class='slide-organizer'>
 			<p>Slides</p>
@@ -23,8 +28,6 @@
 	  	<iframe seamless="seamless" title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
 		  <a class="close-reveal-modal">&#215;</a>
 		</div>
-
-		<%= render "shared/share_modal", url: project_url(@project) %>
 
 		<div class="dropzone-container">
 			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here</p></div>
