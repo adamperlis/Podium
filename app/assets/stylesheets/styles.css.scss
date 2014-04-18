@@ -229,8 +229,20 @@ font-size: 36px;
 	top:20px;
 }
 
-#myModal2 {
-	margin-left: 12%;
+.reveal-modal h2 {
+	color: #5f6f81 !important;
+	font-size: 23px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 100;
+}
+
+#share_modal h2{
+	color: #5f6f81 !important;
+	font-size: 23px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 100;
 }
 
 .button.secondary:focus {

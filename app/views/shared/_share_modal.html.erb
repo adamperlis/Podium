@@ -18,8 +18,7 @@
 
   <div id="referral" data-referral="<%= url %>"></div>
 
-  <%= form_for "#" do |f| %>
-	  <%= f.label 'Link:' %>
+  <%= form_for "#" do |f| %><br>
 	  <%= f.text_field '', :value => url, disabled: true %>
 	<% end %>			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
 

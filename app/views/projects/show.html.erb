@@ -10,20 +10,28 @@
   <div id="status">&nbsp;</div>
 </div>
 	
-	<%= render "shared/share_modal", url: project_url(@project) %>
+	<div class='row'>
+		<div class='small-6 large-offset-3 columns'>
+			<%= render "shared/share_modal", url: project_url(@project) %>
+	</div>
 
-	<div id="myModal" class="reveal-modal" data-reveal>
-	  <h2>Embed your presentation:</h2>
+	<div class='row'>
+		<div class='small-8 large-offset-2 columns'>
+			<div id="myModal" class="reveal-modal" data-reveal>
+			  <h2>Embed your presentation:</h2>
 
-	  <%= form_for "#" do |f| %>
-		  <%= f.label 'Embed Code:' %>
-		  <%= f.text_field '', :value => "<iframe src='" + project_url(@project) + "' height='100%' width='100%' seamless='seamless'></iframe>", disabled: true %>
-		<% end %>
-	  <a class="close-reveal-modal">&#215;</a>
+			  <%= form_for "#" do |f| %>
+				  <%= f.label 'Embed Code:' %>
+				  <%= f.text_field '', :value => "<iframe src='" + project_url(@project) + "' height='100%' width='100%' seamless='seamless'></iframe>", disabled: true %>
+				<% end %>
+			  <a class="close-reveal-modal">&#215;</a>
+			</div>
+		</div>
 	</div>
 
 	<div id="myModal3" class="reveal-modal small" data-reveal>
 	  <!-- GOOGLE HANGOUT SCRIPT -->
+	  <h2>Screenshare your presentation:</h2>
 		<script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
 			<div class="g-hangout" data-render="createhangout"></div>
 	  <a class="close-reveal-modal">&#215;</a>
