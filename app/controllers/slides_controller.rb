@@ -62,6 +62,7 @@ class SlidesController < ApplicationController
   end
 
   def convert
+    
     @slides = Slide.new_from_pdf(params[:pdf_url], params[:project_id])
     render json: {slides: @slides }
   end

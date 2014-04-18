@@ -18,6 +18,8 @@ source 'http://rubygems.org'
 	gem 'pdfkit'
 	gem 'rmagick', :require => 'RMagick'
 	gem 'google-analytics-rails'
+	gem 'cloudconvert'
+	gem 'pry'
 
 
 group :production do
