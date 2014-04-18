@@ -9,7 +9,7 @@
       We have added one extra project to your limit, giving you a total of <%= @user.project_limit %>!<br>
     </p>
     <p>
-      Be sure to refer <a href='http://getpodium.com'>getpodium.com</a> to more of your friends. You can earn up to 10 projects.
+      Be sure to refer <a href='<%= root_url(:referral => "podium-#{@user.id}") %>'><%= root_url(:referral => "podium-#{@user.id}") %></a> to more of your friends. You can earn up to 10 projects.
     </p>
     <p>Thanks for your continued support.</p><br>
     <p>Podium Team</p>

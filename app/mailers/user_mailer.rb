@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
  
-	default from: "adam@getpodium.com"
+	default from: "Podium <adam@getpodium.com>"
 
   def referral_thankyou(user)
   	@user = user
