@@ -10,6 +10,7 @@
    $('#referral').share({
       networks: ['facebook','twitter','linkedin'],
       theme: 'square',
+      text: "Check out Podium! A new way to share your presentations",
       urlToShare: referral_url
     });
   });
@@ -20,7 +21,7 @@
 
   <%= form_for "#" do |f| %><br>
 	  <%= f.text_field '', :value => url, disabled: true %>
-	<% end %>			<!-- DISCUSS ROOT_URL WITH SWIFT!!!! -->
+	<% end %>	
 
 	<script> 
 		$(".close").on("click", function () { 
