@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
   has_many :slides
   before_validation :set_default_description
 
+  has_many :cloud_convert_projects
+
   def image_remote_url=(url_value)
   	self.image = URI.parse(url_value) unless url_value.blank?
   	super
