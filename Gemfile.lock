@@ -42,7 +42,7 @@ GEM
     chunky_png (1.2.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cloudconvert (0.0.2)
+    cloudconvert (0.0.3)
       faraday
       json
     cocaine (0.5.1)
@@ -101,7 +101,7 @@ GEM
     jquery-ui-rails (4.0.3)
       jquery-rails
       railties (>= 3.1.0)
-    json (1.8.0)
+    json (1.8.1)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)

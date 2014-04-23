@@ -21,7 +21,6 @@
 			  <h2>Embed your presentation:</h2>
 
 			  <%= form_for "#" do |f| %>
-				  <%= f.label 'Embed Code:' %>
 				  <%= f.text_field '', :value => "<iframe src='" + project_url(@project) + "' height='100%' width='100%' seamless='seamless'></iframe>", disabled: true %>
 				<% end %>
 			  <a class="close-reveal-modal">&#215;</a>
