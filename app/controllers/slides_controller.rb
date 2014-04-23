@@ -62,8 +62,15 @@ class SlidesController < ApplicationController
   end
 
   def convert
-    
     @slides = Slide.new_from_pdf(params[:pdf_url], params[:project_id])
     render json: {slides: @slides }
+  end
+
+  def cloudconvert
+    url = params[:slide][:filepicker_url]
+    # Cloudconvert.configuration.callback = cloudconvert_slides_url
+    c = Cloudconvert::Conversion.new
+    message = c.convert("ppt", "pdf", url, { filename: 'test.ppt' }) 
+    render json: {status: "OK", message: message }
   end
 end

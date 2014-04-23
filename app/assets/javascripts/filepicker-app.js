@@ -29,6 +29,11 @@ $(function (){
           console.log(data);
         });
 
+      }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
+        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+          $("#current-slide").html($("<img>").attr('src', "http://sereedmedia.com/srmwp/wp-content/uploads/kitten.jpg"));
+        });
+
       }else if(InkBlob.mimetype == "application/pdf"){
         
         var opts = {

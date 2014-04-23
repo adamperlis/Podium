@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options = {})
-  	options.merge!(host: ENV["BASE_URL"]) if ENV["BASE_URL"].present?
+  	options.merge!(host: ENV["BASE_URL"], port: 80) if ENV["BASE_URL"].present?
   	options
   end
 end
