@@ -67,10 +67,16 @@ class SlidesController < ApplicationController
   end
 
   def cloudconvert
+    @project = Project.find(params[:project_id])
     url = params[:slide][:filepicker_url]
     # Cloudconvert.configuration.callback = cloudconvert_slides_url
     c = Cloudconvert::Conversion.new
-    message = c.convert("ppt", "pdf", url, { filename: 'test.ppt' }) 
+    message = c.convert("ppt", "pdf", url, { filename: 'test.ppt' })
+
+    @ccp = @project.cloud_convert_projects.new 
+    @ccp.cc_id = message["id"]
+    @ccp.save
+    
     render json: {status: "OK", message: message }
   end
 end
