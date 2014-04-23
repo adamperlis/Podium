@@ -10,6 +10,7 @@ Omrails::Application.routes.draw do
   resources :slides do 
     collection {post :sort}
     collection {post :convert}
+    collection {post :cloudconvert}
   end
 
   devise_for :users
