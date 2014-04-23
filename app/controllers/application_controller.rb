@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
     sign_out if signed_in?
     redirect_to :root
   end
+
+  def default_url_options(options = {})
+  	options.merge!(host: ENV["BASE_URL"]) if ENV["BASE_URL"].present?
+  	options
+  end
 end
