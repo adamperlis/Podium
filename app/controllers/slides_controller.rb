@@ -73,6 +73,8 @@ class SlidesController < ApplicationController
     c = Cloudconvert::Conversion.new
     message = c.convert("ppt", "pdf", url, { filename: 'test.ppt' })
 
+    status = c.status
+
     @ccp = @project.cloud_convert_projects.new 
     @ccp.cc_id = message["id"]
     @ccp.save
