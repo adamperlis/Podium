@@ -47,6 +47,17 @@ body {
 	overflow-y: scroll;
 }
 
+h2 {
+	letter-spacing: 8px;
+	font-size: 27px;
+	text-transform: uppercase;
+	font-family: "Lato", Arial, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	color: #5f6f81;
+	text-rendering: optimizeLegibility;
+}
+
 #localDragHelp {
   visibility: hidden !important;
 }
@@ -1585,7 +1596,7 @@ iframe {
 	letter-spacing: 8px;
 	margin-top: 90px;
 	width: 400px;
-	font-size: 27px;
+	font-size: 37px;
 }
 
 .sign-up {
@@ -1916,6 +1927,10 @@ label {
 #referral a {
 	-webkit-transition: all .5s;
 	transition: all .5s;
+}
+
+.private {
+	text-align: center;
 }
 
 

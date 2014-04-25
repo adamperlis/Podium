@@ -31,7 +31,19 @@ $(function (){
 
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-          $("#current-slide").html($("<img>").attr('src', "http://sereedmedia.com/srmwp/wp-content/uploads/kitten.jpg"));
+          
+         var percentage = data.status;
+         console.log(percentage);
+
+          $("#current-slide").mambo({
+            percentage: 65,
+            displayValue: true,
+            circleColor: '#495664',
+            circleBorder: '#5f6f81'
+          });
+     
+
+          // $("#current-slide").html($("<img>").attr('src', "http://sereedmedia.com/srmwp/wp-content/uploads/kitten.jpg"));
         });
 
       }else if(InkBlob.mimetype == "application/pdf"){
@@ -120,7 +132,7 @@ $(function (){
   addslide.click(function(e){
     e.preventDefault();
     filepicker.pickMultiple({
-      services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'URL', 'FACEBOOK', 'INSTAGRAM']
+      services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'BOX', 'SKYDRIVE', 'FACEBOOK', 'INSTAGRAM']
     }, filepicker_cb);
   });
 });
