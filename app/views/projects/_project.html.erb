@@ -46,10 +46,10 @@
 	    </div>
 			    <ul class="project-tools">
 			    		<li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-							<span class="delete"><i class="icon-remove"></i></span>
+							<span class="delete"><i class="icon-remove" data-tooltip data-options="disable-for-touch:true" data-tooltip class="has-tip tip-bottom" title="Delete"></i></span>
 							<% end %></li>
 		          <li><%= link_to(edit_project_path(project)) do %>
-							<span class="edit"><i class="icon-pencil"></i></span>
+							<span class="edit"><i class="icon-pencil" data-tooltip data-options="disable-for-touch:true" data-tooltip class="has-tip tip-bottom" title="Edit"></i></span>
 							<% end %></li>
 					</ul>
     	</div>

@@ -79,6 +79,6 @@ class SlidesController < ApplicationController
     @ccp.cc_id = message["id"]
     @ccp.save
     
-    render json: {status: "OK", message: message }
+    render json: {status: status, message: message }
   end
 end

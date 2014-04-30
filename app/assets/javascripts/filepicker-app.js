@@ -31,17 +31,30 @@ $(function (){
 
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-          
-         var percentage = data.status;
-         console.log(percentage);
 
-          $("#current-slide").mambo({
-            percentage: 65,
-            displayValue: true,
-            circleColor: '#495664',
-            circleBorder: '#5f6f81'
-          });
-     
+        var status = data.status
+        var url = data.status.url
+        // var cc_url = data.output[0].url
+        console.log(status);
+
+        (function poll(){
+          $.ajax({ url: url, success: function(data){
+              
+              console.log(data)
+              // console.log(cc_url)
+
+          }, dataType: "json", complete: poll, timeout: 30000 });
+        })(); 
+
+        //   $.post('/slides/convert', {  pdf_url: cc_url, mimetype: InkBlob.mimetype, project_id: project_id}, function(data){  
+        
+        //   for (i=0; i<data.slides.length; i++){
+        //   $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
+
+        //   $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+        //   }
+        // });
+
 
           // $("#current-slide").html($("<img>").attr('src', "http://sereedmedia.com/srmwp/wp-content/uploads/kitten.jpg"));
         });
