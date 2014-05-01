@@ -1,9 +1,29 @@
 <div class='row'>
 	<div class='large-12 columns'>
 		<div class="small-6 large-centered columns">
-			<h2>EDIT USER SETTINGS</h2>
+			<h2>EDIT SETTINGS</h2>
+
+			<div class="panel" id='user-storage' data-projects-count='<%= @user.projects.count %>' data-total-projects='<%= @user.project_limit %>' >
+			
+				<canvas id="myChart" width="200" height="200">
+				</canvas>
+
+				<div class="storage-percentage-wrapper"></div>
+
+				<div class="chart-wrapper">
+					<div class="user-project-count"><strong><%= @user.projects.count %></strong> Uploads used</div>
+					<div class="user-project-limit"><strong><%= @user.project_limit %></strong> Uploads available</div>
+					<div class="refer-wrapper">
+						<p>Refer a friend and get an extra project</p>
+				  	<%= form_for "#" do |f| %>
+					  <strong><%= f.label 'Your Referral Link' %></strong>
+					  <%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
+						<% end %>
+					</div>
+				</div>
 
 
+			</div>
 
 			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { :method => :put, :multipart => true, class: 'form'}) do |f| %>
 
@@ -59,5 +79,69 @@
 		</div>
 	</div>
 </div>
+
+<script>
+		var projectChart = document.getElementById('user-storage');
+    var projectCount = projectChart.getAttribute('data-projects-count');
+    var projectLimit = projectChart.getAttribute('data-total-projects');
+
+    var percentUsage = projectCount/projectLimit*100
+
+    var roundedPercent = Math.round( percentUsage );
+
+    $('.storage-percentage-wrapper').html( roundedPercent + '%<p>usage</p>');
+   
+
+		var data = [
+			{
+				value : projectCount*360,
+				color : "#5f6f81"
+			},
+			{
+				value : projectLimit*360 - projectCount*360,
+				color : "#FFF"
+			}			
+		];
+
+	  var options = {
+		//Boolean - Whether we should show a stroke on each segment
+		segmentShowStroke : false,
+		
+		//String - The colour of each segment stroke
+		segmentStrokeColor : "#fff",
+		
+		//Number - The width of each segment stroke
+		segmentStrokeWidth : 2,
+		
+		//The percentage of the chart that we cut out of the middle.
+		percentageInnerCutout : 65,
+		
+		//Boolean - Whether we should animate the chart	
+		animation : true,
+		
+		//Number - Amount of animation steps
+		animationSteps : 50,
+		
+		//String - Animation easing effect
+		animationEasing : "easeOutSine",
+		
+		//Boolean - Whether we animate the rotation of the Doughnut
+		animateRotate : true,
+
+		//Boolean - Whether we animate scaling the Doughnut from the centre
+		animateScale : false,
+		
+		//Function - Will fire on animation completion.
+		onAnimationComplete : null
+		}
+
+		var c = $('#myChart');
+    var ct = c.get(0).getContext('2d');
+    var ctx = document.getElementById("myChart").getContext("2d");
+    /*************************************************************************/
+    myNewChart = new Chart(ct).Doughnut(data, options);
+
+		
+	</script>
 
 
