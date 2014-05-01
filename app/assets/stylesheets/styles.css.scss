@@ -1933,6 +1933,61 @@ label {
 	text-align: center;
 }
 
+.chart-wrapper {
+	float: left;
+	display: inline;
+	position: absolute;
+	top: 99px;
+	left: 270px;
+}
+
+.refer-wrapper {
+	padding-top:20px;
+	width:85%;
+	height:85%;
+	margin-top: -24px;
+}
+
+.refer-wrapper p{
+	color: #5f6f81 !important;
+	font-size: 17px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 200;
+}
+
+.storage-percentage-wrapper {
+	float: left;
+	display: inline;
+	position: absolute;
+	top: 161px;
+	left: 101px;
+	font-size: 40px;
+	text-align: center;
+}
+
+.storage-percentage-wrapper p {
+	font-size:17px;
+	font-weight: 300;
+}
+
+.user-project-count strong {
+	font-size: 31px;
+	font-weight: 200;
+}
+
+.user-project-limit {
+	border-left: 1px solid lightgrey;
+	position: relative;
+	top: -31px;
+	left: 130px;
+	padding-left: 10px;
+}
+
+.user-project-limit strong {
+	font-size: 31px;
+	font-weight: 200;
+}
 
 @import "foundation_and_overrides";
 @import "foundation";
