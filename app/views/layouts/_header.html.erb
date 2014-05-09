@@ -24,9 +24,9 @@
             <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
             <li class= "current-user">
                 <% if !current_user.filepicker_url_avatar %>
-                <%= link_to "<i class='icon-user'></i>".html_safe, current_user, :class => "profile-header" %>
+                <%= link_to "<i class='icon-user'></i>".html_safe, edit_user_registration_path, :class => "profile-header" %>
               <% else %>
-                <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), current_user, :class => "profile-header" %>
+                <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), edit_user_registration_path, :class => "profile-header" %>
                <% end %>
               <p><%= current_user.name %></p>
             </li>
