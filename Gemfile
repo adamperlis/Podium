@@ -29,6 +29,7 @@ end
 group :development, :test do
 	gem 'sqlite3'
 	gem 'debugger'
+	gem 'dotenv-rails'
 end
 
 group :assets do
