@@ -1,8 +1,7 @@
 
 		
 		<li>
-			<div class="sample-deck">
-				<span>
+			<div class="deck">
 					<% if project.slides.first %>
 						<% if project.slides.first.mimetype == "video/mp4" %>
 							<%= link_to project do %>
@@ -12,7 +11,7 @@
 							<% end %>
 						<% else %>
 							<% unless project.slides.first.filepicker_url.blank? %>
-								<%= link_to (image_tag project.slides.first.filepicker_url_thumb), project, :class => 'sample-img' %> 
+								<%= link_to (image_tag project.slides.first.filepicker_url_thumb), project, :class => 'deck-thumb' %> 
 							<% else %>
 								<%= link_to project do %>
 									<div class="blank" id="empty"></div>
@@ -29,20 +28,12 @@
 					  	<i class="icon-folder-open" id="untitled-icon"></i>
 					  </div>
 					<% end %>
-				</span>
 		
-			<div class="info-box">
-				<% if !current_user.filepicker_url_avatar %>
-          <%= link_to "<i class='icon-user'></i>".html_safe, current_user, :class => "sample-profile" %>
-        <% else %>
-					<%= link_to (filepicker_image_tag project.user.filepicker_url_avatar), project.user, :class => "sample-profile" %>
-				<% end %>
+			<div class="project-description">
 				<h3>
 		    <%= link_to project.description, project %> 
+		    <span class="updated-at">Updated: <%= localize(project.updated_at, :format => :long) %></span>
 		    </h3>
-		    <p>
-		    	<%= link_to project.user.name, project.user %>  <%=  %>
-		    </p>
 	    </div>
 			    <ul class="project-tools">
 			    		<li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
@@ -53,5 +44,4 @@
 							<% end %></li>
 					</ul>
     	</div>
-    	<span class="updated-at">Updated: <%= localize(project.updated_at, :format => :long) %></span>
    	</li>
