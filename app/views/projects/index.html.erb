@@ -22,7 +22,7 @@
 				</div> -->
 	      <div class="row collapse">
     		<div class="panel secondary refer">
-  				<p>Refer a friend and get an extra project</p>
+  				<p>Refer a friend and get an extra presentation</p>
 					  <%= form_for "#" do |f| %>
 						  <strong><%= f.label 'Your Referral Link' %></strong>
 						  <%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>

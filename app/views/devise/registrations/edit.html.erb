@@ -11,10 +11,10 @@
 				<div class="storage-percentage-wrapper"></div>
 
 				<div class="chart-wrapper">
-					<div class="user-project-count"><strong><%= @user.projects.count %></strong> Uploads used</div>
-					<div class="user-project-limit"><strong><%= @user.project_limit %></strong> Uploads available</div>
+					<div class="user-project-count"><strong><%= @user.projects.count %></strong> Presentations used</div>
+					<div class="user-project-limit"><strong><%= @user.project_limit %></strong> Presentations available</div>
 					<div class="refer-wrapper">
-						<p>Refer a friend and get an extra project</p>
+						<p>Refer a friend and get an extra presentation</p>
 				  	<%= form_for "#" do |f| %>
 					  <strong><%= f.label 'Your Referral Link' %></strong>
 					  <%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
@@ -120,7 +120,7 @@
 		animation : true,
 		
 		//Number - Amount of animation steps
-		animationSteps : 50,
+		animationSteps : 30,
 		
 		//String - Animation easing effect
 		animationEasing : "easeOutSine",
