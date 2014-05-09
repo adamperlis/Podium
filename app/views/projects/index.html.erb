@@ -2,13 +2,13 @@
 		<div class="row">
 			<div class="small-9 columns">
 			  <ul class="small-block-grid-3">
-			  	<li>
+			  	<!-- <li>
 			  		<div class="add-project">
 			  	  	<%= link_to new_project_path do %>
 			  	  	<p><i class='icon-plus'></i>Upload</p>
 			  	  	<% end %>
 			  		</div> 
-					</li>
+					</li> -->
 			    	<%= render @projects %>
 				</ul>
 				<%= will_paginate @projects %>
@@ -21,6 +21,7 @@
 		    	</div>
 				</div> -->
 	      <div class="row collapse">
+	     	<%= link_to "Upload", new_project_path, :class => 'button medium button prefix preview success' %>
     		<div class="panel secondary refer">
   				<p>Refer a friend and get an extra presentation</p>
 					  <%= form_for "#" do |f| %>
