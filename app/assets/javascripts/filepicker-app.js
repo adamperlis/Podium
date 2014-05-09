@@ -32,31 +32,20 @@ $(function (){
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
 
-        var status = data.status
-        var url = data.status.url
-        // var cc_url = data.output[0].url
-        console.log(status);
+          $("#current-slide").html($("<p class='percent'><span>0</span>% Complete</p>"));
 
-        (function poll(){
-          $.ajax({ url: url, success: function(data){
-              
-              console.log(data)
-              // console.log(cc_url)
+          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+            $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
+              $(".percent span").html(100);
 
-          }, dataType: "json", complete: poll, timeout: 30000 });
-        })(); 
+              for (i=0; i<data.slides.length; i++){
+                $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
 
-        //   $.post('/slides/convert', {  pdf_url: cc_url, mimetype: InkBlob.mimetype, project_id: project_id}, function(data){  
-        
-        //   for (i=0; i<data.slides.length; i++){
-        //   $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
-
-        //   $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-        //   }
-        // });
-
-
-          // $("#current-slide").html($("<img>").attr('src', "http://sereedmedia.com/srmwp/wp-content/uploads/kitten.jpg"));
+                $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              }
+            });
+          });         
+           
         });
 
       }else if(InkBlob.mimetype == "application/pdf"){
@@ -149,3 +138,19 @@ $(function (){
     }, filepicker_cb);
   });
 });
+
+function waitUntilCloudConvertDone(url, callback){
+  
+  var intervalID = setInterval(function(){
+    $.ajax({ url: url, success: function(data){
+      if(data.percent > 0){
+        $(".percent span").html(data.percent * 0.5);
+      }
+      if (data.step == 'finished'){
+        clearTimeout(intervalID);
+        callback(data.output.url)
+      }
+        
+    }, dataType: "json"});
+  }, 500);
+}
