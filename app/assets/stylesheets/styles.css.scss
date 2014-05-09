@@ -1989,5 +1989,29 @@ label {
 	font-weight: 200;
 }
 
+.target {
+  color: black;
+}
+
+.target.background--dark {
+  color: white;
+}
+
+.target.background--complex {
+  color: gray;
+}
+
+.target.background--light {
+  color: black;
+}
+
+.target.background--dark {
+  color: white;
+}
+
+.target.background--complex {
+  color: gray;
+}
+
 @import "foundation_and_overrides";
 @import "foundation";
