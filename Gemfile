@@ -25,6 +25,7 @@ source 'http://rubygems.org'
 
 group :development, :test do
 	gem 'debugger'
+	gem 'dotenv-rails'
 end
 
 group :assets do
