@@ -32,9 +32,9 @@ $(function (){
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
 
-          $("#current-slide").html($("<p class='percent'><span>0</span>% Complete</p>"));
+          $("#current-slide").html($("<canvas id='myChart' width='200' height='200'></canvas><div class='percentage-wrapper'><span>0</span>%</div>"));
 
-          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+          waitUntilCloudConvertDone(data.status.url, function(pdf_url), data.percent){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
               $(".percent span").html(100);
 
@@ -139,12 +139,12 @@ $(function (){
   });
 });
 
-function waitUntilCloudConvertDone(url, callback){
+function waitUntilCloudConvertDone(url, callback, percent){
   
   var intervalID = setInterval(function(){
     $.ajax({ url: url, success: function(data){
       if(data.percent > 0){
-        $(".percent span").html(data.percent * 0.5);
+        percentChart(percent);
       }
       if (data.step == 'finished'){
         clearTimeout(intervalID);
@@ -154,3 +154,63 @@ function waitUntilCloudConvertDone(url, callback){
     }, dataType: "json"});
   }, 500);
 }
+
+function percentChart(percent){
+
+    var percentDone = percent * 0.5;
+    
+    var roundedPercent = Math.round( percentDone );
+
+    $('.percentage-wrapper span').html( roundedPercent );
+   
+
+    var data = [
+      {
+        value : percentDone*360,
+        color : "#5f6f81"
+      },
+      {
+        value : 100*360 - percentDone*360,
+        color : "#FFF"
+      }     
+    ];
+
+    var options = {
+    //Boolean - Whether we should show a stroke on each segment
+    segmentShowStroke : false,
+    
+    //String - The colour of each segment stroke
+    segmentStrokeColor : "#fff",
+    
+    //Number - The width of each segment stroke
+    segmentStrokeWidth : 2,
+    
+    //The percentage of the chart that we cut out of the middle.
+    percentageInnerCutout : 65,
+    
+    //Boolean - Whether we should animate the chart 
+    animation : true,
+    
+    //Number - Amount of animation steps
+    animationSteps : 30,
+    
+    //String - Animation easing effect
+    animationEasing : "easeOutSine",
+    
+    //Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate : true,
+
+    //Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale : false,
+    
+    //Function - Will fire on animation completion.
+    onAnimationComplete : null
+    }
+
+    var c = $('#myChart');
+    var ct = c.get(0).getContext('2d');
+    var ctx = document.getElementById("myChart").getContext("2d");
+    /*************************************************************************/
+    myNewChart = new Chart(ct).Doughnut(data, options);
+}
+    
