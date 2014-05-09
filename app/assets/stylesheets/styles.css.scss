@@ -838,7 +838,7 @@ input.gn-search:focus {
 }
 
 .project-description a {
-	font-size:18px;
+	font-size:16px;
 }
 
 .untitled-project {
@@ -932,7 +932,7 @@ input.gn-search:focus {
 
 .project-tools {
 	position: relative;
-	top: -53px;
+	top: -33px;
 	float: right;
 }
 
@@ -1573,10 +1573,11 @@ iframe {
 }
 
 .deck {
-	width: 80%;
+	width: 75%;
 	background: white;
 	padding-bottom: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	margin: auto;
 }
 
 .deck-thumb {

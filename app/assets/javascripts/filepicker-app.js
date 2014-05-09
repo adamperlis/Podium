@@ -34,7 +34,7 @@ $(function (){
 
           $("#current-slide").html($("<canvas id='myChart' width='200' height='200'></canvas><div class='percentage-wrapper'><span>0</span>%</div>"));
 
-          waitUntilCloudConvertDone(data.status.url, function(pdf_url), data.percent){
+          waitUntilCloudConvertDone(data.status.url, data.percent, function(pdf_url){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
               $(".percent span").html(100);
 
@@ -139,7 +139,7 @@ $(function (){
   });
 });
 
-function waitUntilCloudConvertDone(url, callback, percent){
+function waitUntilCloudConvertDone(url, percent, callback ){
   
   var intervalID = setInterval(function(){
     $.ajax({ url: url, success: function(data){
