@@ -161,7 +161,7 @@ function percentChart(percent){
     
     var roundedPercent = Math.round( percentDone );
 
-    $('.percentage-wrapper span').html( roundedPercent );
+    $('#current-slide').html( roundedPercent );
    
 
     var data = [
