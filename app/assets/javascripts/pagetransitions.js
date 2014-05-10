@@ -68,15 +68,15 @@ $(document).ready(function() {
 			});
 
 			//LEFT AND RIGHT VISUAL NAVIGATION WITH CONTROLS
-			$(".icon-chevron-right").click(function(e){
-		    if ($(".icon-chevron-right")) { 
+			$(".entypo-right-open-big").click(function(e){
+		    if ($(".entypo-left-open-big")) { 
 					nextPage(transition, false);
 					return false;
 				}
 			});
 
-			$(".icon-chevron-left").click(function(e){
-		    if ($(".icon-chevron-left")) { 
+			$(".entypo-left-open-big").click(function(e){
+		    if ($(".entypo-left-open-big")) { 
 					nextPage(transition + 1, true);
 					return false;
 		    }

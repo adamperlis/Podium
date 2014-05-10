@@ -14,7 +14,7 @@ $(function (){
 
 	if($.support.fullscreen){
 
-		var fullScreenButton = $("<i class='icon-resize-full'></i>").appendTo('.expand');
+		var fullScreenButton = $("<i class='entypo-resize-full'></i>").appendTo('.expand');
 
 		fullScreenButton.click(function(e){
 			e.preventDefault();
