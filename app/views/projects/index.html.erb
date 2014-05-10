@@ -20,44 +20,46 @@
 						<li><i class="icon-group"></i>800 <small>Shares</small></li>
 		    	</div>
 				</div> -->
-	      <div class="row collapse">
-	     	<%= link_to "Upload", new_project_path, :class => 'button medium button prefix preview success' %>
-    		<div class="panel secondary refer">
-  				<p>Refer a friend and get an extra presentation</p>
-					  <%= form_for "#" do |f| %>
-						  <strong><%= f.label 'Your Referral Link' %></strong>
-						  <%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
-						<% end %>
+				<div class="row collapse">
+				
+						<%= link_to "Upload", new_project_path, :class => 'button medium button prefix preview success' %>
+						<div class="panel secondary refer">
+							<p>Refer a friend and get an extra presentation</p>
+							<%= form_for "#" do |f| %>
+							<strong><%= f.label 'Your Referral Link' %></strong>
+							<%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
+							<% end %>
 
-						<script>
-						$( document ).ready(function() {
+							<script>
+							$( document ).ready(function() {
 
-							var referral_url = $( "#referral" ).data( "referral" );
+								var referral_url = $( "#referral" ).data( "referral" );
 
-							$('#referral').share({
-		        		networks: ['facebook','twitter','linkedin'],
-		        		theme: 'square',
-		        		urlToShare: referral_url
-	        		});
-						});
-        		</script>
-    				
-    			<div id="referral" data-referral="<%= root_url(:referral => "podium-#{current_user.id}")%>"></div>
-    			<small>*Projects will only be added if the referred user signs up.</small>
-			
-				</div>		
-				 <div class="small-9 columns">
-	          <%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
-						    <%= text_field_tag :search, params[:search], :placeholder => 'Search Decks' %>
-	        </div>
-	       	<div class="small-3 columns">
-	       		<button class='button prefix' style='width:52px;height:2.9em;'>
-						  <i class='icon-search'></i>
-						</button>
-	        	<% end %>
-	        </div>
-    		</div>	
-		</div>
+								$('#referral').share({
+									networks: ['facebook','twitter','linkedin'],
+									theme: 'square',
+									urlToShare: referral_url
+								});
+							});
+							</script>
+
+							<div id="referral" data-referral="<%= root_url(:referral => "podium-#{current_user.id}")%>"></div>
+							<small>*Projects will only be added if the referred user signs up.</small>
+
+						</div>		
+						<div class="small-9 columns">
+							<%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
+							<%= text_field_tag :search, params[:search], :placeholder => 'Search Decks' %>
+						</div>
+						<div class="small-3 columns">
+							<button class='button prefix' style='width:52px;height:2.9em;'>
+								<i class='icon-search'></i>
+							</button>
+							<% end %>
+						</div>
+					</div>
+
+			</div>
 		<!-- TUTORIAL -->
 	
 		<!-- <ol class="joyride-list" data-joyride>
