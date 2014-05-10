@@ -25,7 +25,7 @@
 						<% end %>
 				  <% else %>
 					  <div class="untitled-project">
-					  	<i class="icon-folder-open" id="untitled-icon"></i>
+					  	<i class="entypo-picture" id="untitled-icon"></i>
 					  </div>
 					<% end %>
 		
@@ -37,10 +37,10 @@
 	    </div>
 			    <ul class="project-tools">
 			    		<li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
-							<span class="delete"><i class="icon-remove" data-tooltip data-options="disable-for-touch:true" data-tooltip class="has-tip tip-bottom" title="Delete"></i></span>
+							<span class="delete"><i class="entypo-cancel" data-tooltip data-options="disable-for-touch:true" data-tooltip class="has-tip tip-bottom" title="Delete"></i></span>
 							<% end %></li>
 		          <li><%= link_to(edit_project_path(project)) do %>
-							<span class="edit"><i class="icon-pencil" data-tooltip data-options="disable-for-touch:true" data-tooltip class="has-tip tip-bottom" title="Edit"></i></span>
+							<span class="edit"><i class="entypo-pencil" data-tooltip data-options="disable-for-touch:true" data-tooltip class="has-tip tip-bottom" title="Edit"></i></span>
 							<% end %></li>
 					</ul>
     	</div>

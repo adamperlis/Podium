@@ -102,14 +102,14 @@ $(function (){
     filepicker.makeDropPane($('#current-slide')[0], {
       multiple: true,
       dragEnter: function() {
-        $("#current-slide").html("Drop to upload").css({
+        $("#current-slide").html("<span class='entypo-down-circled'> Drop to upload</span>").css({
           'backgroundColor': "rgb(111, 111, 111)",
           'border': "",
           'line-height': "403px"
         });
       },
       dragLeave: function() {
-        $("#current-slide").html("Drop files here").css({
+        $("#current-slide").html("<span class='entypo-down-circled'> Drop files here</span>").css({
           'backgroundColor': "#F6F6F6",
           'border': "",
           'line-height': "403px"

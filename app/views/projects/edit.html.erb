@@ -4,7 +4,7 @@
 </div>
 
 <div class='row'>
-	<div class='small-3 columns'>
+<div class="small-2 columns">
 		<div class='slide-organizer'>
 			<p>Slides</p>
 			<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 
-	<div class='small-6 columns'>
+<div class="small-6 large-7 columns">
 
 		<div id="preview" class="reveal-modal large" data-reveal>
 	  	<iframe seamless="seamless" title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
@@ -31,10 +31,10 @@
 		</div>
 
 		<div class="dropzone-container">
-			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p>Drag Files Here</p></div>
+			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p class='entypo-up-circled'> Drag Files Here</p></div>
 		</div>
 	</div>
-	<div class='small-3 columns'>
+	<div class="small-4 large-3 columns">
 		<div class="right-menu">
 
 		<%= render 'form' %>

@@ -58,6 +58,10 @@ h2 {
 	text-rendering: optimizeLegibility;
 }
 
+i {
+	font-style: normal !important;
+}
+
 #localDragHelp {
   visibility: hidden !important;
 }
@@ -636,7 +640,7 @@ input.gn-search:focus {
 		font-weight: normal;
 		font-style: normal;
 		font-variant: normal;
-		font-family: 'ecoicons','FontAwesome', sans-serif; 
+		font-family: 'entypo', 'font-awesome', sans-serif; 
 		line-height: 1;
 		speak: none;
 		-webkit-font-smoothing: antialiased;
@@ -695,7 +699,27 @@ input.gn-search:focus {
 }
 
 .gn-icon-folder-open:before {
-  content: "\f07c";
+  content: "\f304";
+}
+
+.entypo-picture:before {
+ 	content: "\1F304";
+}
+
+.entypo-upload:before {
+ 	content: "\E75B";
+}
+
+.entypo-user:before {
+ 	content: "\1F464";
+}
+
+.entypo-support:before {
+ 	content: "\2753";
+}
+
+.entypo-logout:before {
+ 	content: "\1F513";
 }
 
 .gn-icon-user:before {
@@ -851,8 +875,8 @@ input.gn-search:focus {
 #untitled-icon {
 	font-size: 103px;
 	float: left;
-	margin-left: 87px;
-	margin-top: 44px;
+	margin-left: 67px;
+	margin-top: 4px;
 }
 
 .sample-profile img {
@@ -1089,16 +1113,15 @@ color: #5f6f81;
 	height: 100%;
 	overflow-y: scroll;
 	background: #4b4b4b;
-	float: left;
 	width: 324px;
-	position: fixed;
-	left: -98px;
-	top: 47px;
+	margin-left: -98px;
+	margin-top: -20px;
 	-moz-box-shadow: inset 0 0 10px #000000;
 	-webkit-box-shadow: inset 0 0 10px #000000;
 	box-shadow: inset 0 0 10px #000000;
 	z-index: 9;
 	padding-bottom:50px;
+	height: 1000px;
 }
 
 .slide-organizer p {
@@ -1158,19 +1181,14 @@ color: #5f6f81;
 }
 
 .dropzone-container {
-	position: relative;
 	width: 100%;
 	padding-bottom: 62%;
-	float: left;
 }
 
 .dropzone {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	
-	border: 1px dashed gray;
-	
 	text-align: center;
 	font-size: 28px;
 	font-weight: 300;
@@ -1297,6 +1315,7 @@ color: #5f6f81;
 	padding: 45px;
 	color:white;
 	font-size: 30px;
+	font-style: normal !important;
 	-moz-transition: color .3s;
   -webkit-transition: color .3s;
   -o-transition:  color .3s;
@@ -1329,6 +1348,7 @@ color: #5f6f81;
 	padding: 8px;
 	color: white;
 	font-size: 30px;
+	font-style: normal !important;
 	-moz-transition: color .3s;
 	-webkit-transition: color .3s;
 	-o-transition: color .3s;
@@ -1354,6 +1374,7 @@ color: #5f6f81;
 .top-left i {
 	font-size: 30px;
 	color: white;
+	font-style: normal !important;
 	-moz-transition: color .3s;
 	-webkit-transition: color .3s;
 	-o-transition: color .3s;
