@@ -30,10 +30,10 @@
 					<% end %>
 		
 			<div class="project-description">
-				<h3>
-		    <%= link_to project.description, project %> 
-		    <span class="updated-at">Updated: <%= localize(project.updated_at, :format => :long) %></span>
-		    </h3>
+				<p>
+			    <%= link_to project.description, project %> 
+			    <span class="updated-at">Updated: <%= localize(project.updated_at, :format => :long) %></span>
+		    </p>
 	    </div>
 			    <ul class="project-tools">
 			    		<li><%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>

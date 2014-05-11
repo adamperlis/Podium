@@ -1,7 +1,7 @@
 
 		<div class="row">
 			<div class="small-9 columns">
-			  <ul class="small-block-grid-3">
+			  <ul class="small-block-grid-1 large-block-grid-3 ">
 			  	<!-- <li>
 			  		<div class="add-project">
 			  	  	<%= link_to new_project_path do %>
@@ -21,7 +21,7 @@
 		    	</div>
 				</div> -->
 				<div class="row collapse">
-				
+					<div class="right-home-menu">
 						<%= link_to "Upload", new_project_path, :class => 'button medium button prefix preview success' %>
 						<div class="panel secondary refer">
 							<p>Refer a friend and get an extra presentation</p>
@@ -44,7 +44,7 @@
 							</script>
 
 							<div id="referral" data-referral="<%= root_url(:referral => "podium-#{current_user.id}")%>"></div>
-							<small>*Projects will only be added if the referred user signs up.</small>
+							<small>*Presentations will only be added if the referred user signs up.</small>
 
 						</div>		
 						<div class="small-9 columns">
@@ -58,7 +58,7 @@
 							<% end %>
 						</div>
 					</div>
-
+				</div>
 			</div>
 		<!-- TUTORIAL -->
 	
