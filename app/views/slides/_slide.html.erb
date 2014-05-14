@@ -7,7 +7,7 @@
 				</video>
 			<% else %>
 				<% unless slide.filepicker_url.blank? %>
-					<img src="<%= slide.filepicker_url_thumb -%>" width="234px" height="164px"/> 
+					<img src="<%= slide.filepicker_url_thumb -%>" width="234px" height="164px" data-adaptive-background='1'/> 
 				<% else %>
 					<div class="blank" id="empty"></div>
 					<script> 

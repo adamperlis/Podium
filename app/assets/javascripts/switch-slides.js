@@ -17,7 +17,7 @@ $(document).ready(function(){
 	  		if (!data.filepicker_url) { 
 	  				setupEmbed(data.embed_code);
 	  		} else {
-      		$("#current-slide").html("<img src=" + data.filepicker_url + ">");      		
+      		$("#current-slide").html("<img class='img-responsive' src=" + data.filepicker_url + ">");      		
     		}
     	}
     });
