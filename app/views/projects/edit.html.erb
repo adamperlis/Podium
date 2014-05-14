@@ -1,74 +1,70 @@
-<div class='row'>
-	<div class='small-6 large-offset-3 columns'>
-		<%= render "shared/share_modal", url: project_url(@project) %>
-</div>
 
-<div class='row'>
-<div class="small-2 columns">
-		<div class='slide-organizer'>
-			<p>Slides</p>
-			<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
-				<li class="dropzone2" data-dropdown="drop2" id="1"><i class="icon-plus"></i><p>Add Media</p></li>
-					<ul id="drop2" class="f-dropdown content" data-dropdown-content>
+<%= render "shared/share_modal", project: @project %>
+
+		<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+			<a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+			 <div class="modal-dialog modal-lg">
+				 <div class="browser-small">
+					<div class="browser-bar">
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					</div>
+					<div class="browser-content">
+						<iframe title="preview" width="100%" height="100%" src="<%= project_url(@project) %>"></iframe>
+					  <!-- <img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg"></img> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+<div class"container">
+	<div class='row'>
+		<div class='col-md-2 col-sm-2'>
+			<div class='slide-organizer'>
+				<p>Slides</p>
+				<ol id="slide-sorter" data-update-url="<%= sort_slides_url %>">
+					<li class="dropzone2 dropdown-toggle" data-toggle="dropdown" id="1"><i class="entypo-plus"></i><p>Add Media</p></li>
+					<ul id="drop2" class="dropdown-menu" role="menu">
 						<%= link_to "#" do %>
-			  	  	 <!-- <li class="blank-slide"><i class="icon-file-alt"></i>  Blank Slide</li> -->
-			  	  <% end %>
-			  	  <li><a class="code" id="code" href="#"><i class="icon-code"></i>  Embed a Video</a></li>
-			  	  <li><a class="filepicker" id="filepicker" href="#"><i class="icon-film"></i>  Add a Video</a></li>
-					  <li><a class="filepicker" id="filepicker" href="#"><i class="icon-picture"></i>  Add an Image</a></li>
-					   <li><a class="filepicker" id="filepicker" href="#"><i class="icon-file"></i>  Add a Presentation</a></li>
+						<!-- <li class="blank-slide"><i class="icon-file-alt"></i>  Blank Slide</li> -->
+						<% end %>
+						<li><a class="code" id="code" href="#"><i class="entypo-code"></i>  &nbsp;Embed a Video</a></li>
+						<li><a class="filepicker" id="filepicker" href="#"><i class="entypo-video"></i>  &nbsp;Add a Video</a></li>
+						<li><a class="filepicker" id="filepicker" href="#"><i class="entypo-camera"></i>  &nbsp;Add an Image</a></li>
+						<li><a class="filepicker" id="filepicker" href="#"><i class="entypo-picture"></i> &nbsp;Add a Presentation</a></li>
 					</ul>
-				<%= render partial: "slides/slide", collection: @slides %>
-			</ol>
-		</div>
-	</div>
-
-<div class="small-6 large-7 columns">
-
-		<div id="preview" class="reveal-modal large" data-reveal>
-	  	<iframe seamless="seamless" title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
-		  <a class="close-reveal-modal">&#215;</a>
+					<%= render partial: "slides/slide", collection: @slides %>
+				</ol>
+			</div>
 		</div>
 
-		<div class="dropzone-container">
-			<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p class='entypo-up-circled'> Drag Files Here</p></div>
+		<div class='col-md-7 col-sm-7'>
+	
+			<div class="dropzone-container">
+				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p class='entypo-up-circled'> Drag Files Here</p></div>
+			</div>
 		</div>
-	</div>
-	<div class="small-4 large-3 columns">
-		<div class="right-menu">
+		<div class="col-md-3 col-sm-3">
+			<div class="col-md-12 right-menu">
+				
 
-		<%= render 'form' %>
+					<%= render 'form' %>
+					<br></br>
 
-		<%= link_to('Preview', '#', class: 'button medium button prefix preview', :'data-reveal-id' => 'preview') %> 
-		<%= link_to('Share', '#', class: 'share medium button prefix preview success', :'data-reveal-id' => 'share_modal') %> 
-		<%= link_to 'Present', @project, class: 'button medium button prefix present' %> 
+					<%= link_to('Preview', '#', class: 'btn btn-primary', :'data-toggle' => 'modal', :'data-target' => '#preview') %>  
+					<br></br>
+					<%= link_to('Share', '#', class: 'btn btn-success', :'data-toggle' => 'modal', :'data-target' => "#project-share-modal-#{ @project.id }") %> 
+					<br></br>
+					<%= link_to 'Present', @project, class: 'btn btn-default' %> 
+			</div>
 		</div>
 	</div>
 </div>
 
-<!-- <ol class="joyride-list" data-joyride>
-  <li data-id="1" data-text="NEXT">
-  	<h4>Great!</h4>
-    <p>You created your first deck, now lets add some slides. Go ahead and click <strong>Add New Slide</strong> and choose a PPT, PDF or a collection of JPG's, PNG's or even MP4's.</p>
-  </li>
-  <li data-id="2" data-text="NEXT">
-  	<h4>Nice!</h4>
-    <p>Now that you have added some slides you can organize them by clicking and dragging them into the right order.</p>
-  </li>
-  <li data-id="3" data-button="NEXT" data-options="tipLocation:top;tipAnimation:fade">
-    <h4>Almost Done!</h4>
-    <p>Go ahead and confirm your settings, choose a transition, set autoplay, or protect your presentation from public view.</p>
-  </li>
-  <li data-button="END">
-    <h4>Your Done!</h4>
-    <p>Now click SAVE and then click PREVIEW to see your presentation.</p>
-  </li>
-</ol> -->
-
-
-<script type="text/javascript">
-	$(document).foundation('joyride', 'start');
-</script>
 
 
 

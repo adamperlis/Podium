@@ -1,0 +1,23 @@
+<div class="modal fade" id="embed_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+        <h2>Embed your presentation:</h2>
+      </div>
+      <div class="modal-body">
+        <div class="form-group refer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="entypo-code"></i></span>
+            <%= form_for "#" do |f| %>
+              <%= f.text_field '', :class => 'form-control', :value => "<iframe src='" + project_url(@project) + "' height='100%' width='100%' seamless='seamless'></iframe>", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)" %>
+            <% end %> 
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

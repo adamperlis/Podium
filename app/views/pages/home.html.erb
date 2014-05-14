@@ -1,145 +1,183 @@
-
-
-<div class="row">
-  <div class="large-6 columns">
-		<figure class="hero-right animated fadeInUp">
-<!-- 			<div class="iphone iphone--light">
-      <div class="iphone-camera"></div>
-      <div class="iphone-sensor"></div>
-      <div class="iphone-earpiece"></div>
-      <div class="iphone-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-      <div class="iphone-home"></div>
-    </div>
-
-    <div class="ipad">
-      <div class="ipad-camera"></div>
-      <div class="ipad-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-    	<div class="ipad-home"></div>
-    </div> -->
-
-			<div class="browser">
-        <div class="browser-bar">
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-        </div>
-        <div class="browser-content">
-          <img src="assets/Slide2.jpg"></img>
-      	</div>
-      </div>
-		</figure>
-  </div>
-  <div class="large-6 columns">
-  	<article class="hero-left animated fadeInUp">
+<div class="jumbotron">
+	<div class="row">
+		<article class="col-sm-6 col-xs-12 col-sm-push-6 animated fadeInRight">
 			<!-- <img src="assets/crossscreen.png"> -->
-			<h2>A SIMPLER WAY TO SHARE YOUR PRESENTATIONS</h2>
-			<a href="#" class="upload large button secondary">UPLOAD TO TRY</a>
-    </article>
-  </div>
-</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+						<div class="hero-message">
+							<h2>A SIMPLER WAY TO SHARE YOUR PRESENTATIONS</h2>
+							<div class="btn-group btn-group-justified">
+  							<div class="btn-group">
+									<a href="#" class="upload btn btn-default">UPLOAD TO TRY</a>
+								</div>
+								<div class="btn-group">
+									<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up btn btn-success" %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>	
+	</br>
+		<figure class="col-sm-6 col-xs-12 col-sm-pull-6 animated fadeInLeft">
+	    <div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-sm-offset-1">
+				    <div class="browser" id="browser-small">
+				    	<div class="browser-bar">
+				    		<div class="browser-button"></div>
+				    		<div class="browser-button"></div>
+				    		<div class="browser-button"></div>
+				    	</div>
+				    	<div class="browser-content">
+				    	<!-- 	<a href="#"><img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg" style="
+    width: 672px;
+"></img></a> -->
+								<a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="<%= Project.find(71).slides.order("position").first.filepicker_url %>" ></img></a>
 
-<div class='row'>
-	<div class="small-3 small-centered columns">
-		<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up large button success" %>
+								<div class="button-centered">
+									<div class="live-preview btn btn-danger" data-toggle="modal" data-target="#myModal">LIVE PREVIEW</div>
+								</div>
+				      </div>	
+				    </div>
+				  </div>
+				</div>
+	    </div>
+	  </figure>
 	</div>
 </div>
 
-<div class='row steps'>
-	<div class="small-2 large-4 columns vertical-divider"><span class="show-for-small"></span>
-		<span class="hide-for-small">
-			<span class="entypo-window"></span>
-			<h3>WORKS IN BROWSER</h3>
-			<p>No more large email attachments, no more lengthy downloads from droplinks. Just click a link and view your presentation.</p>
-		</span>
+
+	<div class='row steps'>
+		<div class="col-sm-4">
+			<div class="col-sm-12">
+				<i class="icon icon-basic-webpage"></i>
+				<h4>WORKS IN BROWSER</h4>
+				<p>Podium is 100% browser based, that means no more large email attachments clogging your inbox. Just click a link and view your presentation.</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="col-sm-12">
+				<i class="icon2 icon2-music-play-button"></i>
+				<h4>EMBEDDED VIDEOS</h4>
+				<p class="step">Enhance your presentations with the power of video. Add videos from YouTube and Vimeo into your presentation by just pasting a link. </p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="col-sm-12">
+				<i class="icon2 icon2-music-shuffle-button"></i>
+				<h4>BEAUTIFUL TRANSITIONS</h4>
+				<p>Choose from 30+ slide transitions to present your slides the way they were mean't to be presented, in style. </p>
+			</div>
+		</div>
 	</div>
-	<div class="small-4 large-4 columns vertical-divider">
-		<span class="icon-youtube"></span> <i class="icon-plus"></i> <span class="entypo-vimeo"></span>
-		<h3>EMBEDED VIDEOS</h3>
-		<p>Add videos from YouTube and Vimeo into your presentation by just pasting a link.</p>
-	</div>
-	<div class="small-6 large-4 columns"><span class="show-for-small"></span>
-		<span class="hide-for-small">
-			<span class="entypo-switch"></span>
-			<h3>BEAUTIFUL TRANSITIONS</h3>
-			<p>Choose from 30+ slide transitions to present your slide deck. </p>
-		</span>
-	</div>
-</div>
 
 
-<div class='row'>
-	<div id="first"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
-	<div class='small-11 small-centered columns'>
-		<div id="cbp-so-scroller" class="cbp-so-scroller">
-		<section class="cbp-so-section">
-			<article class="cbp-so-side cbp-so-side-left">
-				<h2>UPLOAD</h2>
-				<p class="scrollTo">
-					Create presentations using the tools you know best, then use Podium to share them. Simply upload a .PPT, .KEY, .PDF, .JPG, .PNG, .MP4 or embed a video from Youtube, Vimeo or an iFrame of a site to Podium. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
-			</article>
-			<figure class="cbp-so-side cbp-so-side-right">
-				<img src="assets/1.png" alt="img01">
-			</figure>
-		</section>
-    <div id="second" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
-    	<section class="cbp-so-section extra-padding2">
-			<article class="cbp-so-side cbp-so-side-left">
-				<h2>SHARE</h2>
-				<p>	Easily share your presentation with clients, friends and colleagues by sending them a link or using social media. Podium gives you the flexibility of making your presentations public or private and you can embed Podium presentations into your blog or website.</p>
-			</article>
-			<figure class="cbp-so-side cbp-so-side-right">
-				<img src="assets/3.png" alt="img01">
-			</figure>
-		</section>
-    <div id="third" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
-    <section class="cbp-so-section extra-padding1">
-					<article class="cbp-so-side cbp-so-side-left">
-				<h2>PRESENT</h2>
-				<p>Choose from 30+ slide transitions to present your slide deck. Podium works cross-platform so you can present it on your computer, tablet or phone. You can even present remotely via our Google Hangouts integration or use it for your next keynote presentation as Podium works with most modern presentation clickers.</p>
-			</article>
-			<figure class="cbp-so-side cbp-so-side-right">
-					<div class="iphone-small">
-      <div class="iphone-camera"></div>
-      <div class="iphone-sensor"></div>
-      <div class="iphone-earpiece"></div>
-      <div class="iphone-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-      <div class="iphone-home"></div>
-    </div>
 
-    <div class="ipad-small">
-      <div class="ipad-camera"></div>
-      <div class="ipad-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-    	<div class="ipad-home"></div>
-    </div> 
+	<div class='row'>
+		<div class="col-sm-4"></div> 
+		<div class="col-sm-4"><i class="center-block carrot entypo-down-open"></i></div>
+		<div class="col-sm-4"></div>
+		<div class="container">
+			<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+				<div id="cbp-so-scroller" class="cbp-so-scroller">
+					<section class="cbp-so-section">
+						<article class="cbp-so-side cbp-so-side-left">
+							<h2>UPLOAD</h2>
+							<p>
+								Create presentations using the tools you know best, then use Podium to share them. Simply upload a .PPT, .KEY, .PDF, .JPG, .PNG, .MP4 or embed a video from Youtube or Vimeo. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
+							</article>
+							<figure class="cbp-so-side cbp-so-side-right">
+								<img class="img-responsive" src="assets/1.png" alt="img01">
+							</figure>
+						</section>
+						<div class="divider"></div>
+						<div class="col-sm-4"></div> 
+						<div class="col-sm-4"><i class="center-block carrot entypo-down-open"></i></div>
+						<div class="col-sm-4"></div>
+						<section class="cbp-so-section extra-padding2">
+							<article class="cbp-so-side cbp-so-side-left">
+								<h2>SHARE</h2>
+								<p>	Easily share your presentation with clients, friends and colleagues by sending them a link or using social media. Podium gives you the flexibility of making your presentations public or private and you can embed Podium presentations into your blog or website.</p>
+							</article>
+							<figure class="cbp-so-side cbp-so-side-right">
+								<img class="img-responsive" src="assets/3.png" alt="img01">
+							</figure>
+						</section>
+						<div class="divider"></div>
+						<div class="col-sm-4"></div> 
+						<div class="col-sm-4"><i class="center-block carrot entypo-down-open"></i></div>
+						<div class="col-sm-4"></div>
+						<section class="cbp-so-section extra-padding1">
+							<article class="cbp-so-side cbp-so-side-left">
+								<h2>PRESENT</h2>
+								<p>Choose from 30+ slide transitions to present your slide deck. Podium works cross-platform so you can present it on your computer, tablet or phone. You can even present remotely via our Google Hangouts integration or use it for your next keynote presentation as Podium works with most modern presentation clickers.</p>
+							</article>
+							<figure class="cbp-so-side cbp-so-side-right">
+								<div class="iphone-small">
+									<div class="iphone-camera"></div>
+									<div class="iphone-sensor"></div>
+									<div class="iphone-earpiece"></div>
+									<div class="iphone-content" style="">
+										<img src="assets/Slide2.jpg"></img>
+									</div>
+									<div class="iphone-home"></div>
+								</div>
 
-			<div class="browser-small">
-        <div class="browser-bar">
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-        </div>
-        <div class="browser-content">
-          <img src="assets/Slide2.jpg"></img>
-      	</div>
-      </div>
-		</figure>
-			</figure>
-		</section>
-    <div class="divider"></div><div class="carrot"><i class="icon-chevron-up"></i></div></a>
-  	</div>
-	<script>
-		new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
-	</script>				
-  </div>
-</div>
+								<div class="ipad-small">
+									<div class="ipad-camera"></div>
+									<div class="ipad-content" style="">
+										<img src="assets/Slide2.jpg"></img>
+									</div>
+									<div class="ipad-home"></div>
+								</div> 
+
+								<div class="browser-small">
+									<div class="browser-bar">
+										<div class="browser-button"></div>
+										<div class="browser-button"></div>
+										<div class="browser-button"></div>
+									</div>
+									<div class="browser-content">
+										<img class="img-responsive" src="assets/Slide2.jpg"></img>
+									</div>
+								</div>
+							</figure>
+						</section>
+								</div>
+						<div class="divider"></div>
+						<div class="col-sm-4"></div> 
+						<div class="col-sm-4"><i class="center-block carrot entypo-up-open"></i></div>
+						<div class="col-sm-4"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- MODAL -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+			<a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+			 <div class="modal-dialog modal-lg">
+				 <div class="browser-small">
+					<div class="browser-bar">
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					</div>
+					<div class="browser-content">
+						<iframe title="preview" width="100%" height="100%" src="<%= Project.find(71) %>"></iframe>
+					  <!-- <img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg"></img> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+			<script>
+			new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
+			</script>		
+
 
 
 

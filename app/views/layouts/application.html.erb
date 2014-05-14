@@ -6,14 +6,11 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
   <head>
   	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Share your presentations in a beautiful way with Podium">
   	<title>Podium</title>
   	<!-- Uncomment to make IE8 render like IE7 -->
   	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
-
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   	<%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= filepicker_js_include_tag %>
@@ -30,7 +27,7 @@
       </script>
 
 <div class='row'>
-  <div class='large-12 columns'>
+  <div class='col-xs-12'>
 			 <% flash.each do |name, msg| %>
         <%= content_tag(:span, content_tag(:span, "&nbsp;&nbsp;".html_safe + msg , class: "entypo-attention"), class: "alert-box secondary-#{name}") %>
       <% end %>
@@ -40,10 +37,9 @@
 			<%= yield %> 
       
     <script src="http://popcornjs.org/code/dist/popcorn-complete.js"></script>
-
     <script>
-      $(document).foundation();
-    </script>
+      $("[data-toggle=tooltip]").tooltip();
+    </script>   
   </body>
   
 </html>
