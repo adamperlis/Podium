@@ -2067,32 +2067,18 @@ label {
 	font-weight: 200;
 }
 
-.target {
-  color: black;
+// Dark text
+.light {
+  color: #000;
 }
 
-.target.background--dark {
-  color: white;
-}
-
-.target.background--complex {
-  color: gray;
-}
-
-.target.background--light {
-  color: black;
-}
-
-.target.background--dark {
-  color: white;
-}
-
-.target.background--complex {
-  color: gray;
+// Light text
+.dark {
+  color: #fff;
 }
 
 .delete {
 	color:white;
 }
-@import "foundation_and_overrides";
-@import "foundation";
+
+@import "bootstrap";

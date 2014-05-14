@@ -18,7 +18,7 @@
 //= require jquery.ui.resizable
 //= require jquery.ui.selectable
 //= require jquery.ui.sortable
-//= require foundation
+//= require bootstrap
 //= require gnmenu.js
 //= require classie.js
 //= require social-share-button
