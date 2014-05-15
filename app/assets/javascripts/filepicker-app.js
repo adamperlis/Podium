@@ -24,6 +24,7 @@ $(function (){
         $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
 
           $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
+          $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
           $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><video src=' + InkBlob.url + ' class="vid"><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
           console.log(data);
@@ -37,6 +38,8 @@ $(function (){
           waitUntilCloudConvertDone(data.status.url, data.percent, function(pdf_url){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
               $(".percent span").html(100);
+
+              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
               for (i=0; i<data.slides.length; i++){
                 $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
@@ -75,6 +78,8 @@ $(function (){
         $.post('/slides/convert', {  pdf_url: InkBlob.url, mimetype: InkBlob.mimetype, project_id: project_id}, function(data){  
          //to do fill in loop of images appending to DOM copy below make loop
 
+         $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+
         for (i=0; i<data.slides.length; i++){
           $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
 
@@ -86,7 +91,8 @@ $(function (){
 
         filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
           $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: new_InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-            
+              
+              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
               $("#current-slide").html($("<img>").attr('src', url));
 
               $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
@@ -95,7 +101,6 @@ $(function (){
         });
       }
     });
-    $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
   };
 
   if($('#current-slide').length) {
