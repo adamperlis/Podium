@@ -37,7 +37,8 @@ class Slide < ActiveRecord::Base
   def self.save_to_s3(filename, image)
     obj = s3_bucket.objects[filename]
     image.format = "JPEG"
-    obj.write(image.to_blob)
+    image.resize_to_fit!(1920)
+    obj.write(image.to_blob) 
     return obj
   end
 
@@ -52,7 +53,9 @@ class Slide < ActiveRecord::Base
   def self.create_imagelist_from_pdf(pdf)
     image = Magick::ImageList.new
     urlpdf = open(pdf)
-    image.from_blob(urlpdf.read)
+    image.from_blob(urlpdf.read) do
+      self.density = '300'
+    end
     return image
   end
 end
