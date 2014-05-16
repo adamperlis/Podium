@@ -32,10 +32,8 @@ $(function (){
 
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-
-          $("#current-slide").html($("<canvas id='myChart' width='200' height='200'></canvas><div class='percentage-wrapper'><span>0</span>%</div>"));
-
-          waitUntilCloudConvertDone(data.status.url, data.percent, function(pdf_url){
+          percentChart(0);
+          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
               $(".percent span").html(100);
 
@@ -144,16 +142,19 @@ $(function (){
   });
 });
 
-function waitUntilCloudConvertDone(url, percent, callback ){
-  
+function waitUntilCloudConvertDone(url, callback ){
+  var timesCalled = 0;
   var intervalID = setInterval(function(){
     $.ajax({ url: url, success: function(data){
       if(data.percent > 0){
-        percentChart(percent);
+        percentChart(data.percent + timesCalled * 10);
+        timesCalled += 1;
+        // $(".percent span").html(data.percent * 0.5);
       }
       if (data.step == 'finished'){
         clearTimeout(intervalID);
         callback(data.output.url)
+        percentChart(200);
       }
         
     }, dataType: "json"});
@@ -166,9 +167,8 @@ function percentChart(percent){
     
     var roundedPercent = Math.round( percentDone );
 
-    $('#current-slide').html( roundedPercent );
+    $("#current-slide").html($("<canvas id='myChart' width='200' height='200'></canvas><div class='percentage-wrapper'><span>" + roundedPercent + "</span>%</div>"));
    
-
     var data = [
       {
         value : percentDone*360,
@@ -194,9 +194,9 @@ function percentChart(percent){
     percentageInnerCutout : 65,
     
     //Boolean - Whether we should animate the chart 
-    animation : true,
+    animation : false,
     
-    //Number - Amount of animation steps
+    //Number - Amount of animation animationSteps
     animationSteps : 30,
     
     //String - Animation easing effect
