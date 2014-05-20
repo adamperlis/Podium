@@ -49,6 +49,44 @@ $(function (){
            
         });
 
+      }else if(InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation"){
+        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+          percentChart(0);
+          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+            $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
+              $(".percent span").html(100);
+
+              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+
+              for (i=0; i<data.slides.length; i++){
+                $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
+
+                $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              }
+            });
+          });         
+           
+        });
+
+      }else if(InkBlob.mimetype == "application/x-iwork-keynote-sffkey"){
+        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+          percentChart(0);
+          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+            $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
+              $(".percent span").html(100);
+
+              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+
+              for (i=0; i<data.slides.length; i++){
+                $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
+
+                $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              }
+            });
+          });         
+           
+        });
+
       }else if(InkBlob.mimetype == "application/pdf"){
         
         var opts = {
