@@ -1,5 +1,85 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/*Bootstrap Override*/
+
+/*Typography*/
+$font-family-sans-serif: 'Lato', sans-serif;
+
+/*Color*/
+$brand-primary:#5f6f81;
+
+/*Buttons*/
+$btn-primary-color: #fff;
+$btn-primary-bg:#5f6f81;
+$btn-primary-border:#546272;
+$btn-success-bg:#5da423;
+$btn-success-border:#457a1a;
+$btn-default-bg:#f2f2f2;
+$btn-default-border:#5f6f81;
+
+
+/*Components*/
+$border-radius-base:0px;
+$border-radius-large:0px;
+$border-radius-small:0px;
+
+/*Panels*/
+$panel-bg:#f2f2f2;
+$panel-default-border:#BDBCBC;
+$panel-primary-border:#BDBCBC;
+$panel-inner-border:#BDBCBC;
+
+
+@import "bootstrap";
 @import 'font-awesome';
 
+
+@media(max-width:767px){
+	.refer p {
+		font-size: 20px !important;
+	}
+
+	.title {
+		font-size: 20px !important;
+	}
+}
+
+@media(min-width:768px){
+	.refer p { 
+		font-size: 17px !important;
+	}
+
+		.title {
+		font-size: 17px !important;
+	}
+}
+
+@media(min-width:992px){
+.refer p { 
+		font-size: 17px !important;
+	}
+
+		.title {
+		font-size: 17px !important;
+	}
+}
+
+@media(min-width:1200px){
+	.refer p {
+		font-size: 20px !important;
+	}
+
+		.title {
+		font-size: 20px !important;
+	}
+}
+
+/* centered columns styles */
+.row-centered {
+   margin:0 auto;
+}
+.col-centered {
+   margin:0 auto;
+}
 
 *,
 *:after,
@@ -19,7 +99,7 @@
 
 /* Icomoon.com */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 @font-face {
 	font-family: 'codropsicons';
 	src:url('../fonts/codropsicons/codropsicons.eot');
@@ -43,8 +123,12 @@
   font-family: 'fontelico', sans-serif;
 }
 
+
+
 body {
 	overflow-y: scroll;
+	overflow-x:hidden;
+	background-color: #e2e2e2 !important;
 }
 
 h2 {
@@ -58,8 +142,38 @@ h2 {
 	text-rendering: optimizeLegibility;
 }
 
+h3 {
+	letter-spacing: 8px;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: "Lato", Arial, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	color: #5f6f81;
+	text-rendering: optimizeLegibility;
+	text-align: center;
+}
+
+a {
+	text-decoration: none !important;
+}
+
 i {
 	font-style: normal !important;
+	text-decoration: none !important;
+}
+
+.step {
+	text-align: center;
+}
+
+.navbar {
+	margin-bottom: 10px !important;
+}
+
+.jumbotron {
+	padding: 0px !important;
+	margin-bottom: 0px !important;
 }
 
 #localDragHelp {
@@ -74,6 +188,20 @@ i {
   background-color: red;
   padding: 5px;
   top: 2px;
+}
+
+.accordion {
+	margin-bottom: -6px !important;
+	top:10px;
+
+}
+
+.panel-heading {
+	padding: 0px 15px;
+}
+
+.panel-title {
+	margin-top: 20px;
 }
 
 #projects-show {
@@ -146,11 +274,16 @@ font-size: 36px;
   animation: none;
 }
 
-.button {
-	letter-spacing: 2px;
-	font-size: 11px;
-	-webkit-box-shadow: 0px 0px 0px 1px rgba(122, 127, 168, 1);
-	box-shadow:  0px 0px 0px 1px rgba(122, 127, 168, 1);
+.btn {
+	font-family: 'lato';
+	font-weight: bold;
+	letter-spacing: 2px  !important;
+	font-size: 11px  !important;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	text-transform: uppercase;
+	width:100%;
 }
 
 .button.prefix {
@@ -627,8 +760,6 @@ input.gn-search:focus {
 	font-family: 'Lato', Arial, sans-serif;
 	font-size: 11px;
 	float: left;
-	margin-left: 4%;
-	margin-top: 20px;
 	letter-spacing: 2px;
 }
 
@@ -870,6 +1001,14 @@ input.gn-search:focus {
 .project-description a {
 	font-size:16px;
 	font-weight: 300;
+	text-decoration: none;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.project-description a:hover {
+	opacity: .5;
 }
 
 .untitled-project {
@@ -932,7 +1071,6 @@ input.gn-search:focus {
 	padding: 2px;
 	border-radius: 100px;
 	opacity: 1;
-	margin-top: 4px;
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	transition: all 0.2s;
@@ -948,7 +1086,6 @@ input.gn-search:focus {
 	padding: 13px;
 	border-radius: 100px;
 	opacity: 1;
-	margin-top: 4px;
 	-webkit-transition: background 0.2s;
 	-moz-transition: background 0.2s;
 	transition: background 0.2s;
@@ -1000,6 +1137,10 @@ input.gn-search:focus {
 
 .slide-tools i {
 	color: white;
+}
+
+.panel {
+	border: 1px solid #BDBCBC !important;
 }
 
 .panel.stats h1 {
@@ -1071,42 +1212,24 @@ input.gn-search:focus {
 
 .add-project > li { clear: none !important; }
 
-.profile-info{
+.profile-info {
 	padding-top: 40px;
 }
 
-.right-home-menu {
-	height: 100%;
-	width: 320px;
-	padding-top: 20px;
-	padding-right: 20px;
-	padding-left: 20px;
-	padding-bottom: 100%;
-	margin-top: -14px;
-	margin-left: 30px;
-	background: lightGrey;
-	-webkit-box-shadow: inset 10px 0px 10px -13px black;
-	-moz-box-shadow:    inset 10px 0px 10px -13px black;
-  box-shadow:         inset 10px 0px 10px -13px black;
-  float: right;
+.sidebar {
 	position: fixed;
 }
 
 .right-menu {
-	height: 100%;
-	width: 320px;
+	height: 1000px;
+	width: 100%;
 	padding-top: 20px;
-	padding-right: 20px;
-	padding-left: 20px;
-	padding-bottom: 100%;
 	margin-top: -14px;
-	margin-left: 30px;
-	background: lightGrey;
+	maring-left:-2px;
+	background: lightgrey;
 	-webkit-box-shadow: inset 10px 0px 10px -13px black;
-	-moz-box-shadow:    inset 10px 0px 10px -13px black;
-  box-shadow:         inset 10px 0px 10px -13px black;
-  float: right;
-	position: fixed;
+	-moz-box-shadow: inset 10px 0px 10px -13px black;
+	box-shadow: inset 10px 0px 10px -13px black;
 }
 
 .right-menu p {
@@ -1601,6 +1724,10 @@ video {
 	padding-left: 1.5em !important;
 }
 
+.edit i:hover {
+	text-decoration: none !important;
+}
+
 iframe {
 	width:95%;
 	height:95%;
@@ -1618,11 +1745,8 @@ iframe {
 }
 
 .deck {
-	width: 75%;
 	background: white;
 	padding-bottom: 10px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-	margin: auto;
 }
 
 .deck-thumb {
@@ -1633,7 +1757,6 @@ iframe {
 
 .deck-thumb img {
 	max-height: 180px;
-	width:100%;
 	opacity:1;
 	-moz-transition: opacity .5s;
 	-webkit-transition: opacity .5s;
@@ -1665,8 +1788,7 @@ iframe {
 }
 
 .hero-left {
-	padding-left: 200px;
-	padding-top: 70px;
+
 }
 
 
@@ -1678,9 +1800,7 @@ iframe {
 }
 
 .sign-up {
-	left: 98px;
-	float: left;
-	top: 30px;
+	margin-top: -24px;
 }
 
 .vertical-divider {
@@ -1774,13 +1894,11 @@ iframe {
 /* Device CSS */
 
 .browser {
-	padding-top: 10px;
-	padding-bottom: 80px;
+	
 }
 
 .browser-small {
-	padding-top: 10px;
-	padding-bottom: 80px;
+
 }
 
 .browser-bar {
@@ -1810,9 +1928,7 @@ iframe {
 }
 
 .browser-content {
-	position: relative;
-	width: 100%;
-	height: 385px;
+
 }
 
 .browser-content iframe {
@@ -1994,6 +2110,10 @@ label {
 	cursor: default !important;
 }
 
+.refer input:hover {
+	cursor: text;
+}
+
 .refer p{
 	color: #5f6f81 !important;
 	font-size: 23px;
@@ -2080,5 +2200,3 @@ label {
 .delete {
 	color:white;
 }
-
-@import "bootstrap";

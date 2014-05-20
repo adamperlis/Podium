@@ -1,33 +1,24 @@
 
+	<div class"container">
 		<div class="row">
-			<div class=".col-xs-12 .col-md-8">
-			  <ul>
-			  	<!-- <li>
-			  		<div class="add-project">
-			  	  	<%= link_to new_project_path do %>
-			  	  	<p><i class='icon-plus'></i>Upload</p>
-			  	  	<% end %>
-			  		</div> 
-					</li> -->
-			    	<%= render @projects %>
-				</ul>
-				<%= will_paginate @projects %>
-			</div>
-			<div class=".col-xs-6 .col-md-4">
+			<div class="col-md-3 col-sm-3 col-sm-push-9 col-lg-push-9">
 				<!-- <div class="panel">
 					<div class="stats">
 						<li><i class="icon-eye-open"></i><%= Project.sum('clicks') %> <small>Views</small></li>
 						<li><i class="icon-group"></i>800 <small>Shares</small></li>
 		    	</div>
 				</div> -->
-				<div class="row collapse">
-					<div class="right-home-menu">
-						<%= link_to "Upload", new_project_path, :class => 'button medium button prefix preview success' %>
-						<div class="panel secondary refer">
+				<div class="col-md-12">
+					<%= link_to "Upload", new_project_path, :class => 'btn btn-success' %>
+					<br></br>
+					<div class="panel secondary refer">
+						<div class="panel-body">
 							<p>Refer a friend and get an extra presentation</p>
 							<%= form_for "#" do |f| %>
 							<strong><%= f.label 'Your Referral Link' %></strong>
-							<%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
+							<div class="form-group">
+								<%= f.text_field '', :class => "form-control", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)", :value => root_url(:referral => "podium-#{current_user.id}")%>
+							</div>
 							<% end %>
 
 							<script>
@@ -46,21 +37,25 @@
 							<div id="referral" data-referral="<%= root_url(:referral => "podium-#{current_user.id}")%>"></div>
 							<small>*Presentations will only be added if the referred user signs up.</small>
 
-						</div>		
-						<div class="small-9 columns">
-							<%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
-							<%= text_field_tag :search, params[:search], :placeholder => 'Search Decks' %>
 						</div>
-						<div class="small-3 columns">
-							<button class='button prefix' style='width:52px;height:2.9em;'>
-								<i class='icon-search'></i>
-							</button>
-							<% end %>
-						</div>
-					</div>
+					</div>		
+					<div class="input-group">
+			      <%= form_tag projects_path, :method => 'get', :id => "projects_search" do %>
+						<%= text_field_tag :search, params[:search], :class=> "form-control", :placeholder => 'Search Presentations' %>
+						<% end %>
+			      <span class="input-group-btn">
+			         <button class="btn btn-primary" type="button"><i class='icon-search'></i></button>
+			      </span>
+			    </div><!-- /input-group -->
+			  </br>
 				</div>
 			</div>
-
+			<div class="col-md-9 col-sm-9 col-sm-pull-3 col-lg-pull-3">
+		    	<%= render @projects %>
+			<%= will_paginate @projects %>
+			</div>
+		</div>
+	</div>
 
 
 

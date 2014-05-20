@@ -1,4 +1,4 @@
-<nav class="top-bar">
+<nav class="navbar">
 <% if user_signed_in? %>
     <div class="container">
         <ul id="gn-menu" class="gn-menu-main">
@@ -11,7 +11,7 @@
                     <%= link_to "Upload", new_project_path, :class => 'gn-icon entypo-upload' %>
                   </li>
                   <li>
-                    <%= link_to "My Decks", root_path, :class =>"gn-icon entypo-picture" %>
+                    <%= link_to "My Presentations", root_path, :class =>"gn-icon entypo-picture" %>
                   </li>
                   <li><%= link_to "Account Settings", edit_user_registration_path, :class => 'gn-icon entypo-user' %></li>
                   <li><%= link_to "Support", faq_path, :class =>"gn-icon entypo-support" %></li>
@@ -22,13 +22,13 @@
             </nav>
           </li>
             <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
-            <li class= "current-user">
+            <li class= "current-user hidden-xs">
                 <% if !current_user.filepicker_url_avatar %>
-                <%= link_to "<i class='icon-user'></i>".html_safe, edit_user_registration_path, :class => "profile-header" %>
+                <%= link_to "<i class='icon-user'></i>".html_safe, edit_user_registration_path, :class => "profile-header hidden-xs" %>
               <% else %>
-                <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), edit_user_registration_path, :class => "profile-header" %>
+                <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), edit_user_registration_path, :class => "profile-header hidden-xs" %>
                <% end %>
-              <p><%= current_user.name %></p>
+              <p class="hidden-xs"><%= current_user.name %></p>
             </li>
         </ul>
     </div>

@@ -1,7 +1,8 @@
 
 		
-		<li>
-			<div class="deck" id="deck">
+
+			<div class="col-md-4 col-sm-4">
+				<div class="thumbnail deck">
 					<% if project.slides.first %>
 						<% if project.slides.first.mimetype == "video/mp4" %>
 							<%= link_to project do %>
@@ -11,7 +12,7 @@
 							<% end %>
 						<% else %>
 							<% unless project.slides.first.filepicker_url.blank? %>
-								<%= link_to (image_tag project.slides.first.filepicker_url_thumb), project, :class => 'deck-thumb' %> 
+								<%= link_to (image_tag project.slides.first.filepicker_url_thumb), project, :class => 'deck-thumb img-responsive' %> 
 							<% else %>
 								<%= link_to project do %>
 									<div class="blank" id="empty"></div>
@@ -29,7 +30,7 @@
 					  </div>
 					<% end %>
 		
-			<div class="project-description">
+			<div class="caption project-description">
 				<p>
 			    <%= link_to project.description, project %> 
 			    <span class="updated-at">Updated: <%= localize(project.updated_at, :format => :long) %></span>
@@ -44,4 +45,5 @@
 							<% end %></li>
 					</ul>
     	</div>
-   	</li>
+   	</div>
+   

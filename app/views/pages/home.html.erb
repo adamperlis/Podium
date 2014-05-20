@@ -1,72 +1,57 @@
-
-
-<div class="row">
-  <div class="large-6 columns">
-		<figure class="hero-right animated fadeInUp">
-<!-- 			<div class="iphone iphone--light">
-      <div class="iphone-camera"></div>
-      <div class="iphone-sensor"></div>
-      <div class="iphone-earpiece"></div>
-      <div class="iphone-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-      <div class="iphone-home"></div>
-    </div>
-
-    <div class="ipad">
-      <div class="ipad-camera"></div>
-      <div class="ipad-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-    	<div class="ipad-home"></div>
-    </div> -->
-
-			<div class="browser">
-        <div class="browser-bar">
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-        </div>
-        <div class="browser-content">
-          <img src="assets/Slide2.jpg"></img>
-      	</div>
-      </div>
-		</figure>
-  </div>
-  <div class="large-6 columns">
-  	<article class="hero-left animated fadeInUp">
-			<!-- <img src="assets/crossscreen.png"> -->
-			<h2>A SIMPLER WAY TO SHARE YOUR PRESENTATIONS</h2>
-			<a href="#" class="upload large button secondary">UPLOAD TO TRY</a>
-    </article>
-  </div>
-</div>
-
-<div class='row'>
-	<div class="small-3 small-centered columns">
-		<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up large button success" %>
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<article class="col-sm-6 col-xs-12 col-sm-push-6 animated fadeInUp">
+				<!-- <img src="assets/crossscreen.png"> -->
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>A SIMPLER WAY TO SHARE YOUR PRESENTATIONS</h2>
+							<a href="#" class="upload btn btn-default">UPLOAD TO TRY</a>
+						</div>
+					</div>
+				</div>
+			</article>	
+	</br>
+		<figure class="col-sm-6 col-xs-12 col-sm-pull-6 animated fadeInUp">
+		    <div class="browser">
+		    	<div class="browser-bar">
+		    		<div class="browser-button"></div>
+		    		<div class="browser-button"></div>
+		    		<div class="browser-button"></div>
+		    	</div>
+		    	<div class="browser-content">
+		    		<img class="img-responsive" src="assets/Slide2.jpg"></img>
+		    	</div>
+		    </div>
+		  </figure>
+		</div>
 	</div>
 </div>
 
-<div class='row steps'>
-	<div class="small-2 large-4 columns vertical-divider"><span class="show-for-small"></span>
-		<span class="hide-for-small">
-			<span class="entypo-window"></span>
-			<h3>WORKS IN BROWSER</h3>
-			<p>No more large email attachments, no more lengthy downloads from droplinks. Just click a link and view your presentation.</p>
-		</span>
-	</div>
-	<div class="small-4 large-4 columns vertical-divider">
-		<span class="icon-youtube"></span> <i class="icon-plus"></i> <span class="entypo-vimeo"></span>
-		<h3>EMBEDED VIDEOS</h3>
-		<p>Add videos from YouTube and Vimeo into your presentation by just pasting a link.</p>
-	</div>
-	<div class="small-6 large-4 columns"><span class="show-for-small"></span>
-		<span class="hide-for-small">
-			<span class="entypo-switch"></span>
+<div class="container">
+	<div class='row'>
+		<div class="col-sm-12">
+			<div class="col-sm-2 col-xs-6 col-sm-push-5 col-xs-push-3">
+				<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up btn btn-success" %>
+			</div>
+		</div>
+		<div class="col-sm-4 vertical-divider">	
+			<p class="entypo-window step"></p>
+				<h3>WORKS IN BROWSER</h3>
+				<p class="step">No more large email attachments, no more lengthy downloads from droplinks. Just click a link and view your presentation.</p>
+			</span>
+		</div>
+		<div class="col-sm-4 vertical-divider">
+			<p class="icon-youtube step"></p><p class="entypo-plus step"></p><p class="entypo-vimeo step"></p>
+			<h3>EMBEDED VIDEOS</h3>
+			<p class="step">Add videos from YouTube and Vimeo into your presentation by just pasting a link.</p>
+		</div>
+		<div class="col-sm-4">
+			<p class="entypo-switch"></p>
 			<h3>BEAUTIFUL TRANSITIONS</h3>
-			<p>Choose from 30+ slide transitions to present your slide deck. </p>
-		</span>
+			<p class="step">Choose from 30+ slide transitions to present your slide deck. </p>
+		</div>
 	</div>
 </div>
 
@@ -75,70 +60,70 @@
 	<div id="first"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
 	<div class='small-11 small-centered columns'>
 		<div id="cbp-so-scroller" class="cbp-so-scroller">
-		<section class="cbp-so-section">
-			<article class="cbp-so-side cbp-so-side-left">
-				<h2>UPLOAD</h2>
-				<p class="scrollTo">
-					Create presentations using the tools you know best, then use Podium to share them. Simply upload a .PPT, .KEY, .PDF, .JPG, .PNG, .MP4 or embed a video from Youtube, Vimeo or an iFrame of a site to Podium. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
-			</article>
-			<figure class="cbp-so-side cbp-so-side-right">
-				<img src="assets/1.png" alt="img01">
-			</figure>
-		</section>
-    <div id="second" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
-    	<section class="cbp-so-section extra-padding2">
-			<article class="cbp-so-side cbp-so-side-left">
-				<h2>SHARE</h2>
-				<p>	Easily share your presentation with clients, friends and colleagues by sending them a link or using social media. Podium gives you the flexibility of making your presentations public or private and you can embed Podium presentations into your blog or website.</p>
-			</article>
-			<figure class="cbp-so-side cbp-so-side-right">
-				<img src="assets/3.png" alt="img01">
-			</figure>
-		</section>
-    <div id="third" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
-    <section class="cbp-so-section extra-padding1">
+			<section class="cbp-so-section">
+				<article class="cbp-so-side cbp-so-side-left">
+					<h2>UPLOAD</h2>
+					<p class="scrollTo">
+						Create presentations using the tools you know best, then use Podium to share them. Simply upload a .PPT, .KEY, .PDF, .JPG, .PNG, .MP4 or embed a video from Youtube, Vimeo or an iFrame of a site to Podium. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
+					</article>
+					<figure class="cbp-so-side cbp-so-side-right">
+						<img src="assets/1.png" alt="img01">
+					</figure>
+				</section>
+				<div id="second" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+				<section class="cbp-so-section extra-padding2">
 					<article class="cbp-so-side cbp-so-side-left">
-				<h2>PRESENT</h2>
-				<p>Choose from 30+ slide transitions to present your slide deck. Podium works cross-platform so you can present it on your computer, tablet or phone. You can even present remotely via our Google Hangouts integration or use it for your next keynote presentation as Podium works with most modern presentation clickers.</p>
-			</article>
-			<figure class="cbp-so-side cbp-so-side-right">
-					<div class="iphone-small">
-      <div class="iphone-camera"></div>
-      <div class="iphone-sensor"></div>
-      <div class="iphone-earpiece"></div>
-      <div class="iphone-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-      <div class="iphone-home"></div>
-    </div>
+						<h2>SHARE</h2>
+						<p>	Easily share your presentation with clients, friends and colleagues by sending them a link or using social media. Podium gives you the flexibility of making your presentations public or private and you can embed Podium presentations into your blog or website.</p>
+					</article>
+					<figure class="cbp-so-side cbp-so-side-right">
+						<img src="assets/3.png" alt="img01">
+					</figure>
+				</section>
+				<div id="third" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+				<section class="cbp-so-section extra-padding1">
+					<article class="cbp-so-side cbp-so-side-left">
+						<h2>PRESENT</h2>
+						<p>Choose from 30+ slide transitions to present your slide deck. Podium works cross-platform so you can present it on your computer, tablet or phone. You can even present remotely via our Google Hangouts integration or use it for your next keynote presentation as Podium works with most modern presentation clickers.</p>
+					</article>
+					<figure class="cbp-so-side cbp-so-side-right">
+						<div class="iphone-small">
+							<div class="iphone-camera"></div>
+							<div class="iphone-sensor"></div>
+							<div class="iphone-earpiece"></div>
+							<div class="iphone-content" style="">
+								<img src="assets/Slide2.jpg"></img>
+							</div>
+							<div class="iphone-home"></div>
+						</div>
 
-    <div class="ipad-small">
-      <div class="ipad-camera"></div>
-      <div class="ipad-content" style="">
-        <img src="assets/Slide2.jpg"></img>
-      </div>
-    	<div class="ipad-home"></div>
-    </div> 
+						<div class="ipad-small">
+							<div class="ipad-camera"></div>
+							<div class="ipad-content" style="">
+								<img src="assets/Slide2.jpg"></img>
+							</div>
+							<div class="ipad-home"></div>
+						</div> 
 
-			<div class="browser-small">
-        <div class="browser-bar">
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-          <div class="browser-button"></div>
-        </div>
-        <div class="browser-content">
-          <img src="assets/Slide2.jpg"></img>
-      	</div>
-      </div>
-		</figure>
-			</figure>
-		</section>
-    <div class="divider"></div><div class="carrot"><i class="icon-chevron-up"></i></div></a>
-  	</div>
-	<script>
+						<div class="browser-small">
+							<div class="browser-bar">
+								<div class="browser-button"></div>
+								<div class="browser-button"></div>
+								<div class="browser-button"></div>
+							</div>
+							<div class="browser-content">
+								<img src="assets/Slide2.jpg"></img>
+							</div>
+						</div>
+					</figure>
+				</figure>
+			</section>
+			<div class="divider"></div><div class="carrot"><i class="icon-chevron-up"></i></div></a>
+		</div>
+		<script>
 		new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
-	</script>				
-  </div>
+		</script>				
+	</div>
 </div>
 
 
