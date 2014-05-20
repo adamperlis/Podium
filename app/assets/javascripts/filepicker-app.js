@@ -183,8 +183,9 @@ function waitUntilCloudConvertDone(url, callback ){
   var timesCalled = 0;
   var intervalID = setInterval(function(){
     $.ajax({ url: url, success: function(data){
+      
       if(data.percent > 0){
-        $('.current-slide').html('<div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div><h3>We are converting your file, please be patient</h3>');
+        $('#current-slide').html('<div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div><h3>We are converting your file, please be patient</h3>');
       }
       if (data.step == 'finished'){
         clearTimeout(intervalID);
