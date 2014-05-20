@@ -67,48 +67,23 @@ class SlidesController < ApplicationController
   end
 
   def cloudconvert
-    @project = Project.find(params[:project_id])
     url = params[:slide][:filepicker_url]
-    mimetype = params[:mimetype]
-  
+
+    mimetype = case params[:slide][:mimetype]
+      when "application/vnd.ms-powerpoint"
+        "ppt"
+      when "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        "pptx"
+      when "application/x-iwork-keynote-sffkey"
+        "key"
+      else 
+        raise "Unknown Filetype"
+      end
+ 
     c = Cloudconvert::Conversion.new
-
-    if mimetype == "application/vnd.ms-powerpoint"
-
-      message = c.convert("ppt", "pdf", url, { filename: 'test.ppt' })
-
-      status = c.status
-
-      @ccp = @project.cloud_convert_projects.new 
-      @ccp.cc_id = message["id"]
-      @ccp.save
-      
-      render json: {status: status, message: message }
-
-    elsif mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-
-      message = c.convert("pptx", "pdf", url, { filename: 'test.pptx' })
-
-      status = c.status
-
-      @ccp = @project.cloud_convert_projects.new 
-      @ccp.cc_id = message["id"]
-      @ccp.save
-      
-      render json: {status: status, message: message }
-
-    elsif mimetype == "application/x-iwork-keynote-sffkey"
-
-      message = c.convert("key", "pdf", url, { filename: 'test.key' })
-
-      status = c.status
-
-      @ccp = @project.cloud_convert_projects.new 
-      @ccp.cc_id = message["id"]
-      @ccp.save
-      
-      render json: {status: status, message: message }
-
-    end
+    filename = "test.#{mimetype}"
+    message = c.convert( mimetype, "pdf", url, { filename: filename })
+    
+    render json: { message: message }
   end
 end
