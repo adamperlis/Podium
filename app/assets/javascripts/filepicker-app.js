@@ -32,8 +32,8 @@ $(function (){
 
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-          percentChart(0);
-          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+         
+          waitUntilCloudConvertDone(data.message.url, function(pdf_url){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
               
               $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
@@ -50,10 +50,10 @@ $(function (){
 
       }else if(InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation"){
         $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-          percentChart(0);
-          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+         
+          waitUntilCloudConvertDone(data.message.url, function(pdf_url){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
-              $(".percent span").html(100);
+              
 
               $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
@@ -67,12 +67,12 @@ $(function (){
            
         });
 
-      }else if(InkBlob.mimetype == "application/x-iwork-keynote-sffkey"){
-        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-          percentChart(0);
-          waitUntilCloudConvertDone(data.status.url, function(pdf_url){
+      }else if(InkBlob.mimetype == "application/x-iwork-keynote-sffkey" || InkBlob.mimetype == "application/pgp-keys"){
+        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: "application/x-iwork-keynote-sffkey" }, project_id: project_id}, function(data){
+          
+          waitUntilCloudConvertDone(data.message.url, function(pdf_url){
             $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
-              $(".percent span").html(100);
+              
 
               $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
