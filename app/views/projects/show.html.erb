@@ -111,7 +111,6 @@
 
 
 		<div id="pt-main" style="display:none;" class="pt-perspective">
-
 			<% @project.slides.order("position").to_enum.with_index(1).each do |slide, index| %>
 				<div class="pt-page" data-transition="<%= @project.transition %>">
 
