@@ -32,8 +32,7 @@
 <div class='row'>
   <div class='large-12 columns'>
 			 <% flash.each do |name, msg| %>
-        <%= content_tag(:span, msg, class: "alert-box secondary-#{name}") %>
-<!--         <%= link_to 'x', '#', { :class => "close" } %> -->
+        <%= content_tag(:span, content_tag(:span, "&nbsp;&nbsp;".html_safe + msg , class: "entypo-attention"), class: "alert-box secondary-#{name}") %>
       <% end %>
   </div>
 </div>
