@@ -31,60 +31,29 @@ $(function (){
         });
 
       }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
-        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+
+        project_id = parseInt($("#current-slide").data("project-id"));
+        mimetype = InkBlob.mimetype
+        url = InkBlob.url
+        org = $('.slide-organizer ol');
+
+        sendToCloudConvert(url, mimetype, project_id, org);
          
-          waitUntilCloudConvertDone(data.message.url, function(pdf_url){
-            $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
-              
-              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
-
-              for (i=0; i<data.slides.length; i++){
-                $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
-
-                $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-              }
-            });
-          });         
-           
-        });
-
       }else if(InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation"){
-        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-         
-          waitUntilCloudConvertDone(data.message.url, function(pdf_url){
-            $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
-              
 
-              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
-
-              for (i=0; i<data.slides.length; i++){
-                $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
-
-                $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-              }
-            });
-          });         
-           
-        });
-
+        project_id = parseInt($("#current-slide").data("project-id"));
+        mimetype = InkBlob.mimetype
+        url = InkBlob.url
+        org = $('.slide-organizer ol');
+        sendToCloudConvert(url, mimetype, project_id, org);
+        
       }else if(InkBlob.mimetype == "application/x-iwork-keynote-sffkey" || InkBlob.mimetype == "application/pgp-keys"){
-        $.post("/slides/cloudconvert", { slide: { filepicker_url: InkBlob.url, mimetype: "application/x-iwork-keynote-sffkey" }, project_id: project_id}, function(data){
-          
-          waitUntilCloudConvertDone(data.message.url, function(pdf_url){
-            $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
-              
 
-              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
-
-              for (i=0; i<data.slides.length; i++){
-                $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
-
-                $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-              }
-            });
-          });         
-           
-        });
+        project_id = parseInt($("#current-slide").data("project-id"));
+        mimetype = "application/x-iwork-keynote-sffkey"
+        url = InkBlob.url
+        org = $('.slide-organizer ol');
+        sendToCloudConvert(url, mimetype, project_id, org);
 
       }else if(InkBlob.mimetype == "application/pdf"){
         
@@ -179,14 +148,33 @@ $(function (){
   });
 });
 
-function waitUntilCloudConvertDone(url, callback ){
+function sendToCloudConvert(url, mimetype, project_id, org){
+
+  $.post("/slides/cloudconvert", { slide: { filepicker_url: url, mimetype: mimetype }, project_id: project_id}, function(data){
+    $('#current-slide').html('<div class="container panel"><div class="row"><div class="small-4 columns"><div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div></div><div class="small-8 columns"><h2 class="convert">Please wait while we convert your presentation</h2></div></div></div>');
+
+
+    waitUntilCloudConvertDone(data.message.url, function(pdf_url){
+      $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
+        
+        $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+
+        for (i=0; i<data.slides.length; i++){
+          $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
+
+          $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+        }
+      });
+    });         
+  });
+}
+
+
+function waitUntilCloudConvertDone(url, callback){
   var timesCalled = 0;
   var intervalID = setInterval(function(){
     $.ajax({ url: url, success: function(data){
       
-      if(data.percent > 0){
-        $('#current-slide').html('<div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div><h3>We are converting your file, please be patient</h3>');
-      }
       if (data.step == 'finished'){
         clearTimeout(intervalID);
         callback(data.output.url)
