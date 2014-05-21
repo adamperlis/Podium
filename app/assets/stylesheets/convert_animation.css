@@ -1,23 +1,21 @@
 .wrapperloading {
-  position: absolute;
   height: 200px;
   width: 200px;
-  top: 50%;
-  margin-top: -100px;
-  left: 50%;
-  margin-left: -100px;
+  margin-left: -20px;
 }
 
 .wrapperloading .loading.up {
-  position: absolute;
+  position: fixed;
   height: 200px;
   width: 200px;
+  margin-left: 50px;
+  margin-top: -50px;
   border-radius: 150px;
   border: 3px solid #fff;
-  border-top-color: #5f6f81;
+  border-top-color: #fff;
   border-left-color: #555;
   border-right-color: #555;
-  border-bottom-color: #5f6f81;
+  border-bottom-color: #fff;
   -webkit-animation: rotation 3s linear infinite;
   -moz-animation: rotation 3s linear infinite;
   -o-animation: rotation 3s linear infinite;
@@ -25,25 +23,28 @@
 }
 
 .wrapperloading .loading.down {
-  position: absolute;
   height: 100px;
   width: 100px;
-  top: 50%;
-  margin-top: -50px;
-  left: 50%;
-  margin-left: -50px;
+  margin-top: 60px;
+  margin-left: auto;
   border-radius: 150px;
   border: 3px solid #fff;
-  border-left-color: #5f6f81;
+  border-left-color: #fff;
   border-top-color: #555;
   border-bottom-color: #555;
-  border-right-color: #5f6f81;
+  border-right-color: #fff;
   -webkit-animation: rotation 1s linear infinite;
   -moz-animation: rotation 1s linear infinite;
   -o-animation: rotation 1s linear infinite;
   animation: rotation 1s linear infinite;
 }
 
+.convert {
+  margin-top: 70px !important;
+  font-size: 19px !important;
+  text-align: left !important;
+  line-height: 31px !important;
+}
 
 @-webkit-keyframes rotation {
   0% {
