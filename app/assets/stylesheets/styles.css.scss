@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 /*Bootstrap Override*/
 
 /*Typography*/
@@ -35,7 +36,6 @@ $input-border-focus:#5f6f81;
 $tooltip-bg:rgba(0, 0, 0, 0.75);
 
 @import "bootstrap";
-@import 'font-awesome';
 
 
 @media(max-width:767px){
@@ -43,7 +43,7 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		font-size: 20px !important;
 	}
 
-	.title {
+	.title h2 {
 		font-size: 20px !important;
 	}
 }
@@ -53,7 +53,7 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		font-size: 17px !important;
 	}
 
-		.title {
+		.title h2 {
 		font-size: 17px !important;
 	}
 }
@@ -63,8 +63,8 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		font-size: 17px !important;
 	}
 
-		.title {
-		font-size: 17px !important;
+		.title h2 {
+		font-size: 28px !important;
 	}
 }
 
@@ -73,8 +73,8 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		font-size: 20px !important;
 	}
 
-		.title {
-		font-size: 20px !important;
+	.title h2{
+	font-size: 28px !important;
 	}
 }
 
@@ -92,28 +92,6 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
-}
-
-@font-face {
-		font-weight: normal;
-		font-style: normal;
-		font-family: 'ecoicons';
-		src: url("/assets/ecoicons.eot");
-		src: url("/assets/ecoicons.eot?#iefix") format("embedded-opentype"), url("/assets/ecoicons.woff") format("woff"), url("/assets/ecoicons.ttf") format("truetype"), url("/assets/ecoicons.svg#ecoicons") format("svg");
-}
-
-/* Icomoon.com */
-
-
-@font-face {
-	font-family: 'codropsicons';
-	src:url('../fonts/codropsicons/codropsicons.eot');
-	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
-		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
-		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 @import url(http://weloveiconfonts.com/api/?family=entypo|fontelico);
@@ -149,6 +127,18 @@ h2 {
 
 h3 {
 	letter-spacing: 8px;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: "Lato", Arial, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	color: #5f6f81;
+	text-rendering: optimizeLegibility;
+	text-align: center;
+}
+
+h4 {
+	letter-spacing: 0px;
 	font-size: 12px;
 	text-transform: uppercase;
 	font-family: "Lato", Arial, sans-serif;
@@ -255,16 +245,20 @@ i {
 }
 
 .steps {
-	background: rgb(209, 209, 209);
+	background: white;
 	box-shadow: inset 0px 0px 0px 1px #B8B8B8;
 	text-align: center;
 	font-size: 50px;
-	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color:#5f6f81;
 }
 
-.steps h3{
-	font-size: 13px;
+.steps h4{
+	font-size: 15px;
+	letter-spacing: 0px !important;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
 }
 
 .steps p{
@@ -272,7 +266,7 @@ i {
 }
 
 .steps i{
-font-size: 36px;
+font-size: 46px;
 }
 
 .already-visible {
@@ -776,7 +770,7 @@ input.gn-search:focus {
 		font-weight: normal;
 		font-style: normal;
 		font-variant: normal;
-		font-family: 'entypo', 'font-awesome', sans-serif; 
+		font-family: 'entypo', sans-serif; 
 		line-height: 1;
 		speak: none;
 		-webkit-font-smoothing: antialiased;
@@ -1062,6 +1056,10 @@ input.gn-search:focus {
 
 .profile-header {
 	float: left;
+}
+
+.upload {
+	border-right: none !important;
 }
 
 .profile-header img {
@@ -1782,7 +1780,10 @@ iframe {
 }
 
 .hero-message{
-	margin-top:90px;
+	margin-top: 192px;
+}
+
+.hero-message h2{
 }
 
 .hero-right {
@@ -1806,7 +1807,7 @@ iframe {
 }
 
 .sign-up {
-	margin-top: -24px;
+
 }
 
 .vertical-divider {
@@ -1900,7 +1901,7 @@ iframe {
 /* Device CSS */
 
 .browser {
-	
+	margin-top: 60px;
 }
 
 .browser-small {

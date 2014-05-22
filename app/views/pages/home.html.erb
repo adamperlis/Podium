@@ -5,9 +5,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<div class="hero-message">
+						<div class="hero-message title">
 							<h2>A SIMPLER WAY TO SHARE YOUR PRESENTATIONS</h2>
-							<a href="#" class="upload btn btn-default">UPLOAD TO TRY</a>
+							<div class="btn-group btn-group-justified">
+  							<div class="btn-group">
+									<a href="#" class="upload btn btn-default">UPLOAD TO TRY</a>
+								</div>
+								<div class="btn-group">
+									<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up btn btn-success" %>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -25,7 +32,9 @@
 				    		<div class="browser-button"></div>
 				    	</div>
 				    	<div class="browser-content">
-				    		<img class="img-responsive" src="assets/Slide2.jpg"></img>
+				    		<img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg" style="
+    width: 672px;
+"></img>
 				      </div>	
 				    </div>
 				  </div>
@@ -35,48 +44,48 @@
 	</div>
 </div>
 
-<div class="container">
-	<div class='row'>
-		<div class="col-sm-12">
-			<div class="col-sm-2 col-xs-6 col-sm-push-5 col-xs-push-3">
-				<%= link_to "SIGN UP", new_user_registration_path, class: "sign-up btn btn-success" %>
+
+	<div class='row steps'>
+		<div class="col-sm-4">
+			<div class="col-sm-12">
+				<i class="icon icon-basic-webpage"></i>
+				<h4>WORKS IN BROWSER</h4>
+				<p>No more large email attachments, no more lengthy downloads from droplinks. Just click a link and view your presentation.</p>
 			</div>
 		</div>
-		<div class="col-sm-4 vertical-divider">	
-			<p class="entypo-window step"></p>
-				<h3>WORKS IN BROWSER</h3>
-				<p class="step">No more large email attachments, no more lengthy downloads from droplinks. Just click a link and view your presentation.</p>
-			</span>
-		</div>
-		<div class="col-sm-4 vertical-divider">
-			<p class="icon-youtube step"></p><p class="entypo-plus step"></p><p class="entypo-vimeo step"></p>
-			<h3>EMBEDED VIDEOS</h3>
-			<p class="step">Add videos from YouTube and Vimeo into your presentation by just pasting a link.</p>
+		<div class="col-sm-4">
+			<div class="col-sm-12">
+				<i class="icon2 icon2-music-play-button"></i>
+				<h4>EMBEDDED VIDEOS</h4>
+				<p class="step">Add videos from YouTube and Vimeo into your presentation by just pasting a link.</p>
+			</div>
 		</div>
 		<div class="col-sm-4">
-			<p class="entypo-switch"></p>
-			<h3>BEAUTIFUL TRANSITIONS</h3>
-			<p class="step">Choose from 30+ slide transitions to present your slide deck. </p>
+			<div class="col-sm-12">
+				<i class="icon2 icon2-music-shuffle-button"></i>
+				<h4>BEAUTIFUL TRANSITIONS</h4>
+				<p>Choose from 30+ slide transitions to present your slide deck. </p>
+			</div>
 		</div>
 	</div>
-</div>
+
 
 
 <div class='row'>
-	<div id="first"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a></span>
+	<div id="first"></div><div class="carrot"><i class="entypo-down-open"></i></div></a></span>
 	<div class='small-11 small-centered columns'>
 		<div id="cbp-so-scroller" class="cbp-so-scroller">
 			<section class="cbp-so-section">
 				<article class="cbp-so-side cbp-so-side-left">
 					<h2>UPLOAD</h2>
 					<p class="scrollTo">
-						Create presentations using the tools you know best, then use Podium to share them. Simply upload a .PPT, .KEY, .PDF, .JPG, .PNG, .MP4 or embed a video from Youtube, Vimeo or an iFrame of a site to Podium. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
+						Create presentations using the tools you know best, then use Podium to share them. Simply upload a .PPT, .KEY, .PDF, .JPG, .PNG, .MP4 or embed a video from Youtube or Vimeo. We do some magic, and tada! You have yourself a slide presentation you can organize, choose transitions for and share with your friends.</p>
 					</article>
 					<figure class="cbp-so-side cbp-so-side-right">
 						<img src="assets/1.png" alt="img01">
 					</figure>
 				</section>
-				<div id="second" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+				<div id="second" class="divider"></div><div class="carrot"><i class="entypo-down-open"></i></div></a>
 				<section class="cbp-so-section extra-padding2">
 					<article class="cbp-so-side cbp-so-side-left">
 						<h2>SHARE</h2>
@@ -86,7 +95,7 @@
 						<img src="assets/3.png" alt="img01">
 					</figure>
 				</section>
-				<div id="third" class="divider"></div><div class="carrot"><i class="icon-chevron-down"></i></div></a>
+				<div id="third" class="divider"></div><div class="carrot"><i class="entypo-down-open"></i></div></a>
 				<section class="cbp-so-section extra-padding1">
 					<article class="cbp-so-side cbp-so-side-left">
 						<h2>PRESENT</h2>
@@ -124,7 +133,7 @@
 					</figure>
 				</figure>
 			</section>
-			<div class="divider"></div><div class="carrot"><i class="icon-chevron-up"></i></div></a>
+			<div class="divider"></div><div class="carrot"><i class="entypo-up-open"></i></div></a>
 		</div>
 		<script>
 			new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
