@@ -28,6 +28,11 @@ $panel-default-border:#BDBCBC;
 $panel-primary-border:#BDBCBC;
 $panel-inner-border:#BDBCBC;
 
+/*Input*/
+$input-border-focus:#5f6f81;
+
+/*Tooltips*/
+$tooltip-bg:rgba(0, 0, 0, 0.75);
 
 @import "bootstrap";
 @import 'font-awesome';
@@ -990,12 +995,6 @@ input.gn-search:focus {
 
 .project-description{
 	display:block;
-	padding-left: 16px;
-	position: relative;
-	top:-7px;
-	padding-left: 21px;
-	padding-top: 21px;
-
 }
 
 .project-description a {
@@ -1099,19 +1098,16 @@ input.gn-search:focus {
 
 
 .project-tools {
-	position: relative;
-	top: -33px;
-	float: right;
+	margin-top:60px;
 }
 
-.project-tools li {
-	display: inline;
-	float: right;
-	padding: 10px;
+.project-tools a {
+	padding: 8px;
 }
 
 .project-tools i {
 	color: #ACACAC;
+	font-size: 17px;
 }
 
 .project-tools i:hover {
@@ -1747,16 +1743,18 @@ iframe {
 .deck {
 	background: white;
 	padding-bottom: 10px;
+	height:280px;
 }
 
 .deck-thumb {
 	display: block;
 	overflow: hidden;
 	position: relative;
+	height:180px !important;
 }
 
 .deck-thumb img {
-	max-height: 180px;
+	max-height: 250px;;
 	opacity:1;
 	-moz-transition: opacity .5s;
 	-webkit-transition: opacity .5s;
@@ -1765,7 +1763,7 @@ iframe {
 }
 
 .deck-thumb img:hover{
-	opacity:.5;
+	opacity:.5 !important;
 }
 
 
@@ -1783,12 +1781,20 @@ iframe {
 	cursor: pointer;
 }
 
+.hero-message{
+	margin-top:90px;
+}
+
 .hero-right {
 
 }
 
 .hero-left {
 
+}
+
+.padding-top {
+	padding-top: 30px;
 }
 
 
