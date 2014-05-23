@@ -9,22 +9,23 @@
 		<%= f.error_notification :class => "error" %>
 
 		<div class="row">
-			<div class="col-sm-1"><span class="prefix"><span class="icon-envelope"></div>
-			<div class="col-sm-11">
-					<%= f.input :email, label: false, :placeholder => "E-mail"%>
+
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="entypo-mail"></i></span>
+			  <%= f.input :email, label: false, :class => "form-control", :placeholder => "E-mail"%>
 			</div>
 
-			<div class="col-sm-1"><span class="prefix"><span class="icon-lock"></div>
-				<div class="col-sm-11">
-				<%= f.input :password, label: false, :placeholder => "Password"%>
+			<div class="input-group">
+			  <span class="input-group-addon"><i class="entypo-lock"></i></span>
+			  <%= f.input :password, label: false, :class => "form-control", :placeholder => "Password"%>
 			</div>
 
-			<div class="col-sm-12">
+			<div class="col-sm-8">
 				<%= f.input :remember_me, as: :boolean %>
 			</div>
 
-			<div class="col-sm-12">
-		  	<%= f.submit "SIGN IN", class: "button prefix" %>
+			<div class="col-sm-8">
+		  	<%= f.submit "SIGN IN", class: "button prefix btn btn-primary" %>
 		  	<%= link_to "Forgot your password?", new_password_path(resource_name) %>
 		  </div>
 		</div>
