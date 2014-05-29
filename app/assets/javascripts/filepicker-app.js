@@ -19,6 +19,7 @@ $(function (){
       var project_id = parseInt($("#current-slide").data("project-id"));
       var url = InkBlob.url;
       var org = $('.slide-organizer ol');
+      var mimetype = InkBlob.mimetype;
 
       if(InkBlob.mimetype == "video/mp4"){
         $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
@@ -30,29 +31,8 @@ $(function (){
           console.log(data);
         });
 
-      }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint"){
+      }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint" || InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation" || InkBlob.mimetype == "application/x-iwork-keynote-sffkey" || InkBlob.mimetype == "application/pgp-keys"){
 
-        project_id = parseInt($("#current-slide").data("project-id"));
-        mimetype = InkBlob.mimetype
-        url = InkBlob.url
-        org = $('.slide-organizer ol');
-
-        sendToCloudConvert(url, mimetype, project_id, org);
-         
-      }else if(InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation"){
-
-        project_id = parseInt($("#current-slide").data("project-id"));
-        mimetype = InkBlob.mimetype
-        url = InkBlob.url
-        org = $('.slide-organizer ol');
-        sendToCloudConvert(url, mimetype, project_id, org);
-        
-      }else if(InkBlob.mimetype == "application/x-iwork-keynote-sffkey" || InkBlob.mimetype == "application/pgp-keys"){
-
-        project_id = parseInt($("#current-slide").data("project-id"));
-        mimetype = "application/x-iwork-keynote-sffkey"
-        url = InkBlob.url
-        org = $('.slide-organizer ol');
         sendToCloudConvert(url, mimetype, project_id, org);
 
       }else if(InkBlob.mimetype == "application/pdf"){
