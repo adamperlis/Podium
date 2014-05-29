@@ -7,13 +7,11 @@
 <div class="panel-group" id="accordion">
   <div class="bar"></div>
   <div class="panel panel-default accordion">
-   <div class="panel-heading">
-    <h4 class="panel-title">
+    <p class="panel-title">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
         <p class="title"><i class="entypo-cog"></i><span>Settings</span></p>
       </a>
-    </h4>
-  </div>
+    </p>
   <div id="collapseOne" class="panel-collapse collapse">
     <div class="panel-body">
       <div class="form-group">
@@ -23,13 +21,11 @@
   </div>
 </div> 
 <div class="panel panel-default accordion">
-  <div class="panel-heading">
-    <h4 class="panel-title">
+    <p class="panel-title">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
        <p class="title"><i class="entypo-switch"></i><span>Slide Transitions<span></p>
      </a>
-   </h4>
- </div>
+   </p>
  <div id="collapseTwo" class="panel-collapse collapse">
   <div class="panel-body">
     <div id="example-slide">
@@ -110,13 +106,11 @@
           </div>
         </div>     
         <div class="panel panel-default accordion">
-          <div class="panel-heading">
-            <h4 class="panel-title">
+            <p class="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-               <p class="title"><i class="icon-unlock-alt"></i><span>Make Private</span><!-- <span class="pro">PRO</span> --></p>
+               <p class="title"><i class="entypo-lock"></i><span>Make Private</span><!-- <span class="pro">PRO</span> --></p>
              </a>
-           </h4>
-         </div>
+           </p>
          <div id="collapseThree" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="row">
@@ -140,8 +134,9 @@
 
   </br>
 
-  <%= f.button :submit, "Save", class: "btn btn-default" %>
+  <%= f.button :submit, "Save", class: "btn btn-info" %>
   <% end %>
+
   
 
 

@@ -16,6 +16,10 @@ $btn-success-bg:#5da423;
 $btn-success-border:#457a1a;
 $btn-default-bg:#f2f2f2;
 $btn-default-border:#5f6f81;
+$btn-info-bg:#f2f2f2;
+$btn-info-border:white;
+$btn-info-color:black;
+$btn-danger-bg:#c9302c;
 
 
 /*Components*/
@@ -35,6 +39,14 @@ $input-border-focus:#5f6f81;
 /*Tooltips*/
 $tooltip-bg:rgba(0, 0, 0, 0.75);
 
+/*Form*/
+$input-border-focus:rgba(51, 51, 51, 0);
+
+/*Alert*/
+$state-info-bg:white;
+$state-info-border:#546272;
+$state-info-text:#5f6f81;
+
 @import "bootstrap";
 
 
@@ -43,16 +55,21 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		font-size: 20px !important;
 	}
 
-	.title h2 {
-		font-size: 20px !important;
-	}
-
 	.hero-message {
-		margin-top: 100px;
+		margin-top: 72px;
 	}
 
 	.hero-message h2 {
-		font-size:39px !important;
+		font-size: 20px !important;
+		line-height: 30px !important;
+	}
+
+	.welcome-message {
+		padding-bottom: 200px;
+	}
+
+	.referral {
+		margin-top: -42px;
 	}
 }
 
@@ -61,9 +78,17 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 		font-size: 17px !important;
 	}
 
-		.title h2 {
+	.hero-message {
+		margin-top: 142px !important;
+	}
+
+	.hero-message h2 {
 		font-size: 20px !important;
-		line-height: 40px;
+		line-height: 30px !important;
+	}
+
+.referral {
+		margin-top: -42px;
 	}
 }
 
@@ -84,6 +109,10 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 
 	.title h2{
 	font-size: 28px !important;
+	}
+
+	.referral {
+		margin-top: 0px;
 	}
 }
 
@@ -119,8 +148,20 @@ $tooltip-bg:rgba(0, 0, 0, 0.75);
 
 body {
 	overflow-y: scroll;
-	overflow-x:hidden;
+	overflow-x: hidden;
 	background-color: #e2e2e2 !important;
+}
+
+h1 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: bold;
+	font-size: 13px;
+	font-family: "Lato", Arial, sans-serif;
+	font-style: normal;
+	color: #5f6f81;
+	text-rendering: optimizeLegibility;
+	margin:0;
 }
 
 h2 {
@@ -166,6 +207,10 @@ i {
 	font-style: normal !important;
 	text-decoration: none !important;
 }
+
+.login a {
+			padding: 21px 12px 21px 137px !important;
+	}
 
 .step {
 	text-align: center;
@@ -546,6 +591,14 @@ font-size: 46px;
 
 }
 
+.logo li a {
+	border-right: 1px solid #c6d0da !important;
+}
+
+.logo a {
+	border-right: 1px solid #c6d0da !important;
+}
+
 .logo img {
 	height: 50px;
 	margin: 5px;
@@ -600,8 +653,8 @@ font-size: 46px;
 		display: block;
 		float: left;
 		height: 100%;
-		border-right: 1px solid #c6d0da;
 		text-align: center;
+		border-left: 1px solid #c6d0da;
 }
 
 /* icon-only trigger (menu item) */
@@ -1090,6 +1143,7 @@ input.gn-search:focus {
 	height: 50px;
 	border: 1px solid #c6d0da;
 	padding: 13px;
+	padding-left: 16px;
 	border-radius: 100px;
 	opacity: 1;
 	-webkit-transition: background 0.2s;
@@ -1106,6 +1160,7 @@ input.gn-search:focus {
 
 .project-tools {
 	margin-top:60px;
+	float: right;
 }
 
 .project-tools a {
@@ -1236,12 +1291,13 @@ input.gn-search:focus {
 }
 
 .right-menu p {
-line-height: 1.6;
+line-height: 1.0;
 margin-bottom: 1.25em;
 text-rendering: optimizeLegibility;
 font-weight: 300;
 font-family: 'Lato', Arial, sans-serif;
 font-size: 20px;
+margin-left: 14px;
 
 }
 
@@ -1333,6 +1389,7 @@ color: #5f6f81;
 .dropzone-container {
 	width: 100%;
 	padding-bottom: 62%;
+	margin-top: 40px;
 }
 
 .dropzone {
@@ -1363,7 +1420,7 @@ color: #5f6f81;
 	right:0;
 	left:0;
 	position: absolute;
-	max-width:100%;
+	max-width:90%;
 	max-height:100%;
 	border:1px solid #e2e2e2;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, .2); 
@@ -1785,12 +1842,6 @@ iframe {
 	cursor: pointer;
 }
 
-.hero-message{
-	margin-top: 192px;
-}
-
-.hero-message h2{
-}
 
 .hero-right {
 
@@ -2123,6 +2174,14 @@ label {
 	cursor: default !important;
 }
 
+.refer {
+	background-color: white !important;
+	 box-shadow: inset 0px 0px 0px 0px #000000 !important; 
+	-moz-box-shadow: inset 0px 0px 0px 0px #000000 !important;
+ 	-webkit-box-shadow: inset 0px 0px 0px 0px #000000 !important; 
+ 	box-shadow: inset 0px 0px 0px 0px #000000 !important; 
+}
+
 .refer input:hover {
 	cursor: text;
 }
@@ -2213,3 +2272,45 @@ label {
 .delete {
 	color:white;
 }
+
+.panel-body {
+	background: rgb(230, 230, 230);
+	box-shadow: inset 0px 2px 19px -11px #000000;
+	-moz-box-shadow:  inset 0px 2px 19px -11px #000000;
+	-webkit-box-shadow:  inset 0px 2px 19px -11px #000000;
+	box-shadow: inset 0px 2px 19px -11px #000000;
+}
+
+.welcome-message {
+
+}
+
+.welcome-message span {
+	letter-spacing: 2px;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: "Lato", Arial, sans-serif;
+	font-weight: 800;
+	font-style: normal;
+	color: #5f6f81;
+	text-rendering: optimizeLegibility;
+}
+
+.welcome-message h2 {
+	color: #5f6f81;
+	font-size:23px;
+	color: #5f6f81 !important;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 200;
+}
+
+.close:focus {
+  outline: none !important;
+}
+
+.btn-info:focus{
+	outline: none !important;
+}
+

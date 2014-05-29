@@ -1,7 +1,6 @@
 
-<!-- <div class='col-md-3 col-sm-3'>
-	<%= render "shared/share_modal", url: project_url(@project) %>
-</div> -->
+<%= render "shared/share_modal", url: project_url(@project) %>
+
 
 <div class"container">
 	<div class='row'>
@@ -26,10 +25,18 @@
 
 		<div class='col-md-7 col-sm-7'>
 
-			<!-- <div id="preview" class="reveal-modal large" data-reveal>
-				<iframe seamless="seamless" title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
-				<a class="close-reveal-modal">&#215;</a>
-			</div> -->
+			<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			      </div>
+			      <div class="modal-body">
+			      	<iframe title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 
 			<div class="dropzone-container">
 				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p class='entypo-up-circled'> Drag Files Here</p></div>
@@ -40,10 +47,13 @@
 				
 
 					<%= render 'form' %>
+					<br></br>
 
-					<%= link_to('Preview', '#', class: 'btn btn-danger', :'data-reveal-id' => 'preview') %> 
-					<%= link_to('Share', '#', class: 'btn btn-success', :'data-reveal-id' => 'share_modal') %> 
-					<%= link_to 'Present', @project, class: 'btn btn-primary' %> 
+					<%= link_to('Preview', '#', class: 'btn btn-primary', :'data-toggle' => 'modal', :'data-target' => '#preview') %>  
+					<br></br>
+					<%= link_to('Share', '#', class: 'btn btn-success', :'data-toggle' => 'modal', :'data-target' => '#share_modal') %> 
+					<br></br>
+					<%= link_to 'Present', @project, class: 'btn btn-default' %> 
 			</div>
 		</div>
 	</div>

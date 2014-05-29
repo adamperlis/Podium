@@ -21,10 +21,10 @@
               </div><!-- /gn-scroller -->
             </nav>
           </li>
-            <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
+            <li class="logo"><%= link_to image_tag("podium_logo_black.png"), root_path %></li>
             <li class= "current-user hidden-xs">
                 <% if !current_user.filepicker_url_avatar %>
-                <%= link_to "<i class='icon-user'></i>".html_safe, edit_user_registration_path, :class => "profile-header hidden-xs" %>
+                <%= link_to "<i class='entypo-user'></i>".html_safe, edit_user_registration_path, :class => "profile-header hidden-xs" %>
               <% else %>
                 <%= link_to (filepicker_image_tag current_user.filepicker_url_avatar), edit_user_registration_path, :class => "profile-header hidden-xs" %>
                <% end %>
@@ -37,12 +37,24 @@
 <% else %>
 
     <div class="container">
-        <ul id="gn-menu" class="gn-menu-main">
-          <li><%= link_to image_tag("podium_logo_black.png"), root_path, class: "logo" %></li>
+        <ul id="gn-menu" class="gn-menu-main logo">
+          <li><%= link_to image_tag("podium_logo_black.png"), root_path %></li>
        <!--    <li class="homepage-nav"><a href="#">features</a></li>
           <li class="homepage-nav"><a href="#">browse</a></li>
           <li class="homepage-nav"><%= link_to "pricing", pricing_path %></li> -->
-          <li class= "current-user"><%= link_to "Login", new_user_session_path %></li>
+          <li class= "current-user hidden-xs pull-right"><%= link_to "Login", new_user_session_path %></li>
+          <li class="gn-trigger gn-menu-main  hidden-sm hidden-md hidden-lg">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+              <div class="gn-scroller">
+                <ul class="gn-menu">
+                    <li>
+                      <h1 class="login"><%= link_to "Login", new_user_session_path %></h1>
+                    </li>
+                </ul>
+              </div><!-- /gn-scroller -->
+            </nav>
+          </li>
         </ul>
     </div>
 

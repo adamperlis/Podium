@@ -1,33 +1,41 @@
-<div id="share_modal" class="reveal-modal" data-reveal>
-  <h2>Share your presentation:</h2>
+<!-- Modal -->
+<div class="modal fade" id="share_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2>Share your presentation:</h2>
+      </div>
+      <div class="modal-body">
+        <script>
+        $( document ).ready(function() {
+
+         var referral_url = $( "#referral" ).data( "referral" );
+
+         $('#referral').share({
+            networks: ['facebook','twitter','linkedin'],
+            theme: 'square',
+            text: "Check out Podium! A simpler way to share your presentations",
+            urlToShare: referral_url
+          });
+        });
+        </script>
 
 
-  <script>
-  $( document ).ready(function() {
+        <div id="referral" data-referral="<%= url %>"></div>
+        <%= form_for "#" do |f| %>
+          <strong><%= f.label 'Presentation Link:' %></strong>
+        <% end %> 
+        <div class="form-group refer">
 
-   var referral_url = $( "#referral" ).data( "referral" );
-
-   $('#referral').share({
-      networks: ['facebook','twitter','linkedin'],
-      theme: 'square',
-      text: "Check out Podium! A new way to share your presentations",
-      urlToShare: referral_url
-    });
-  });
-  </script>
+        <%= form_for "#" do |f| %>
+          <%= f.text_field '', :class => "form-control", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)", :value => url %>
+        <% end %> 
+        </div>
 
 
-  <div id="referral" data-referral="<%= url %>"></div>
 
-  <%= form_for "#" do |f| %><br>
-	  <%= f.text_field '', :value => url, disabled: true %>
-	<% end %>	
-
-	<script> 
-		$(".close").on("click", function () { 
-    	$(".close-reveal-modal").click();
-   	});
-	</script>
-
-  <a class="close-reveal-modal">&#215;</a>
+      </div>
+    </div>
+  </div>
 </div>
