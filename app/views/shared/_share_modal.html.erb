@@ -1,5 +1,5 @@
-<!-- Modal -->
-<div class="modal fade" id="share_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal --> 
+<div class="modal fade" id="project-share-modal-<%= project.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,26 +10,26 @@
         <script>
         $( document ).ready(function() {
 
-         var referral_url = $( "#referral" ).data( "referral" );
+         var share_url = $( "#project-share-<%= project.id -%>" ).data( "share" );
 
-         $('#referral').share({
+         $('#project-share-<%= project.id -%>').share({
             networks: ['facebook','twitter','linkedin'],
             theme: 'square',
             text: "Check out Podium! A simpler way to share your presentations",
-            urlToShare: referral_url
+            urlToShare: share_url
           });
         });
         </script>
 
 
-        <div id="referral" data-referral="<%= url %>"></div>
+        <div id="project-share-<%= project.id -%>" data-share="<%= project_url(project) -%>"></div>
         <%= form_for "#" do |f| %>
           <strong><%= f.label 'Presentation Link:' %></strong>
         <% end %> 
         <div class="form-group refer">
 
         <%= form_for "#" do |f| %>
-          <%= f.text_field '', :class => "form-control", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)", :value => url %>
+          <%= f.text_field '', :class => "form-control", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)", :value => project_url(project) %>
         <% end %> 
         </div>
 

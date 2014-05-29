@@ -1,5 +1,5 @@
 
-<%= render "shared/share_modal", url: project_url(@project) %>
+<%= render "shared/share_modal", project: @project %>
 
 
 <div class"container">
@@ -51,7 +51,7 @@
 
 					<%= link_to('Preview', '#', class: 'btn btn-primary', :'data-toggle' => 'modal', :'data-target' => '#preview') %>  
 					<br></br>
-					<%= link_to('Share', '#', class: 'btn btn-success', :'data-toggle' => 'modal', :'data-target' => '#share_modal') %> 
+					<%= link_to('Share', '#', class: 'btn btn-success', :'data-toggle' => 'modal', :'data-target' => "#project-share-modal-#{ @project.id }") %> 
 					<br></br>
 					<%= link_to 'Present', @project, class: 'btn btn-default' %> 
 			</div>

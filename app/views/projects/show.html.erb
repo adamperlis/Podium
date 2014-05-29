@@ -12,7 +12,7 @@
 	
 	<div class='row'>
 		<div class='small-6 large-offset-3 columns'>
-			<%= render "shared/share_modal", url: project_url(@project) %>
+			<%= render "shared/share_modal", project: @project %>
 	</div>
 
 	<div class='row'>
@@ -41,7 +41,7 @@
 
 			<a href="#" data-reveal-id="myModal"><i class='entypo-code'></i></a>
 	<!-- 	<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %> -->
-			<a href="#" data-reveal-id="share_modal"><i class='entypo-share'></i></a>
+			<%= link_to('Share', '#', class: 'btn btn-success', :'data-toggle' => 'modal', :'data-target' => "#project-share-modal-#{ @project.id }") %> 
 				<a href="#" data-reveal-id="myModal3"><i class='entypo-mic'></i></a>
 			<!-- <a href="#" class="slider"><i class='icon-th'></i></a> -->
 
