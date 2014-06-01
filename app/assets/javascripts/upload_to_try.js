@@ -3,6 +3,9 @@ $(document).ready(function(){
 	var filepicker_trial_cb = function(InkBlobs){
     InkBlobs.forEach(function(InkBlob){
       console.log(JSON.stringify(InkBlobs));
+      $.post("/projects", { pdf_url: InkBlob.url }, function(data){
+        console.log(data)
+      });
     });
   };
 

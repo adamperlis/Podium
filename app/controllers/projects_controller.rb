@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :redirect_if_not_signed_in, except: [:show,:authorize]
+  before_filter :redirect_if_not_signed_in, except: [:show,:authorize,:create]
 
   # GET /projects
   # GET /projects.json
@@ -63,6 +63,17 @@ class ProjectsController < ApplicationController
      redirect_to edit_project_path(@project)
     else 
       redirect_to projects_path, notice: 'You have hit your project limit, refer a friend to get more.'
+    end
+  end
+
+  def create
+    if !signed_in?
+      @superuser = User.where(admin:true).first
+      @project = @superuser.projects.create
+      Slide.new_from_pdf(params[:pdf_url], @project.id)
+      render json: {status: "Ok", url: project_path(@project)}
+    else 
+       render json: {status: "Error", message: "You are not authorized to do that."}
     end
   end
 
