@@ -71,6 +71,12 @@ $state-info-text:#5f6f81;
 	.referral {
 		margin-top: -42px;
 	}
+
+	.live-preview {
+		opacity: 1 !important;
+		left: 27% !important;
+		margin-top: 11px !important;
+	}
 }
 
 @media(min-width:768px){
@@ -1959,6 +1965,8 @@ iframe {
 	background:black;
 	-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
 	transition: all .75s;
+	width: 100%;
+
 }
 
 

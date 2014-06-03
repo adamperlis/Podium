@@ -1,6 +1,6 @@
 <div class="jumbotron">
 	<div class="row">
-		<article class="col-sm-6 col-xs-12 col-sm-push-6 animated fadeInUp">
+		<article class="col-sm-6 col-xs-12 col-sm-push-6 animated fadeInRight">
 			<!-- <img src="assets/crossscreen.png"> -->
 			<div class="container">
 				<div class="row">
@@ -21,7 +21,7 @@
 			</div>
 		</article>	
 	</br>
-		<figure class="col-sm-6 col-xs-12 col-sm-pull-6 animated fadeInUp">
+		<figure class="col-sm-6 col-xs-12 col-sm-pull-6 animated fadeInLeft">
 	    <div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-sm-offset-1">
@@ -32,13 +32,14 @@
 				    		<div class="browser-button"></div>
 				    	</div>
 				    	<div class="browser-content">
-				    		<a href="#"><img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg" style="
+				    	<!-- 	<a href="#"><img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg" style="
     width: 672px;
-"></img></a>
+"></img></a> -->
+								<a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="<%= Project.find(71).slides.order("position").first.filepicker_url %>" ></img></a>
 
-									<div class="button-centered">
-										<div class="live-preview btn btn-danger">LIVE PREVIEW</div>
-									</div>
+								<div class="button-centered">
+									<div class="live-preview btn btn-danger" data-toggle="modal" data-target="#myModal">LIVE PREVIEW</div>
+								</div>
 				      </div>	
 				    </div>
 				  </div>
@@ -154,17 +155,29 @@
 				</div>
 			</div>
 
+			<!-- MODAL -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+			<a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+			 <div class="modal-dialog modal-lg">
+				 <div class="browser-small">
+					<div class="browser-bar">
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					</div>
+					<div class="browser-content">
+						<iframe title="preview" width="100%" height="100%" src="<%= Project.find(71) %>"></iframe>
+					  <!-- <img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg"></img> -->
+					</div>
+				</div>
+			</div>
+		</div>
 
 			<script>
 			new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );
 			</script>		
 
-			// <script>
-			// 	$(".browser-content").click(function () {
-			// 	    $("#browser-small").toggleClass("browser-small-anim");
-			// 	    $(".live-preview").toggleClass("hide");
-			// 	});
-			// </script>
 
 
 
