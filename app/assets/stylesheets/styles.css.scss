@@ -144,7 +144,9 @@ $state-info-text:#5f6f81;
   font-family: 'fontelico', sans-serif;
 }
 
-
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+  margin-right: 0 !important;
+}
 
 body {
 	overflow-y: scroll;
@@ -1504,22 +1506,11 @@ color: #5f6f81;
 }
 
 .controls {
-	width: 100%;
-}
-
-.player {
-	width: 100%;
-	float: left;
-	z-index: 999999999;
+	z-index: 100000;
 	position: fixed;
-	left: 42%;
-	top: 87%;
 }
 
-.player i {
-	display:inline;
-	padding:5px;
-	padding: 45px;
+.controls i {
 	color:white;
 	font-size: 30px;
 	font-style: normal !important;
@@ -1529,68 +1520,31 @@ color: #5f6f81;
   transition: color .3s;
 }
 
-.player i:hover {
+.controls i:hover {
 	color: #5f6f81;
 	cursor: pointer;
+}
+
+.right-controls {
+	text-align: center;
+}
+
+.right-controls a {
+	display: block;
+	
+}
+
+.center-controls {
+	text-align: center;
+	padding-top: 680px;
+}
+
+.center-controls i {
+	padding:20px;
 }
 
 .expand {
-	margin-left: 712px;
- 	margin-top: -28px;
-}
-
-.vertical-menu {
-	display: block;
-	float: left;
-	z-index: 999999999;
-	position: fixed;
-	left: 94%;
-	top: 4%;
-	width: 80px;
-	height: 110px
-}
-
-.vertical-menu i {
-	display: block;
-	padding: 8px;
-	color: white;
-	font-size: 30px;
-	font-style: normal !important;
-	-moz-transition: color .3s;
-	-webkit-transition: color .3s;
-	-o-transition: color .3s;
-	transition: color .3s;
- }
-
- .vertical-menu i:hover {
-	color: #5f6f81;
-	cursor: pointer;
-}
-
-.top-left {
-	display: block;
-	float: left;
-	z-index: 999999999;
-	position: fixed;
-	left: 4%;
-	top: 4%;
-	width: 80px;
-	height: 110px;
-}
-
-.top-left i {
-	font-size: 30px;
-	color: white;
-	font-style: normal !important;
-	-moz-transition: color .3s;
-	-webkit-transition: color .3s;
-	-o-transition: color .3s;
-	transition: color .3s;
- }
-
- .top-left i:hover {
-	color: #5f6f81;
-	cursor: pointer;
+	padding-top: 560px;
 }
 
 .social-share-button-twitter {
@@ -1961,8 +1915,13 @@ iframe {
 	margin-top: 60px;
 }
 
-.browser-small {
-
+#browser-small {
+   -webkit-transition: all .5s ease-in-out;
+   -webkit-transform-origin: top left !important;
+}
+.browser-small-anim {
+   -webkit-transform: scale(1.95) !important;
+   z-index: 10000;
 }
 
 .browser-bar {
@@ -1992,7 +1951,20 @@ iframe {
 }
 
 .browser-content {
+	background:black;
+}
 
+.browser-content img {
+	opacity:1;
+	background:black;
+	-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+	transition: all .75s;
+}
+
+
+.browser-content img:hover {
+	opacity:.5;
+	cursor: pointer;
 }
 
 .browser-content iframe {
@@ -2000,6 +1972,13 @@ iframe {
 	width: 100%;
 	height: auto;
 	display: block;
+}
+
+.live-preview  {
+	position: fixed;
+	top: 250px;
+	z-index: 1000;
+	width: 150px;
 }
 
 .marketing-tour figure .iphone:not(:only-child) {

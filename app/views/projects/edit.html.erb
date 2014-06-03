@@ -1,6 +1,25 @@
 
 <%= render "shared/share_modal", project: @project %>
 
+		<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+			<a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+			 <div class="modal-dialog modal-lg">
+				 <div class="browser-small">
+					<div class="browser-bar">
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					  <div class="browser-button"></div>
+					</div>
+					<div class="browser-content">
+						<iframe title="preview" width="100%" height="100%" src="<%= project_url(@project) %>"></iframe>
+					  <!-- <img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg"></img> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 
 <div class"container">
 	<div class='row'>
@@ -24,20 +43,7 @@
 		</div>
 
 		<div class='col-md-7 col-sm-7'>
-
-			<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			      </div>
-			      <div class="modal-body">
-			      	<iframe title="preview" width="960" height="540" src="<%= project_url(@project) %>"></iframe>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-
+	
 			<div class="dropzone-container">
 				<div class="dropzone" id="current-slide" data-project-id="<%= @project.id %>" ><p class='entypo-up-circled'> Drag Files Here</p></div>
 			</div>

@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
         <h2>Share your presentation:</h2>
       </div>
       <div class="modal-body">
@@ -27,14 +27,13 @@
           <strong><%= f.label 'Presentation Link:' %></strong>
         <% end %> 
         <div class="form-group refer">
-
-        <%= form_for "#" do |f| %>
-          <%= f.text_field '', :class => "form-control", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)", :value => project_url(project) %>
-        <% end %> 
+           <div class="input-group">
+            <span class="input-group-addon"><i class="entypo-link"></i></span>
+            <%= form_for "#" do |f| %>
+              <%= f.text_field '', :class => "form-control", :readonly => "readonly", :onClick =>"this.setSelectionRange(0, this.value.length)", :value => project_url(project) %>
+            <% end %> 
+          </div>
         </div>
-
-
-
       </div>
     </div>
   </div>
