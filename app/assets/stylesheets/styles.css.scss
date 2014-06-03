@@ -1967,19 +1967,29 @@ iframe {
 	cursor: pointer;
 }
 
-.browser-content iframe {
-	max-width: 100%;
-	width: 100%;
-	height: auto;
-	display: block;
+.live-preview {
+	opacity:0;
+	position: absolute;
+	width: 150px;
+	left: 40%;
+	margin-top: 26px;
+
 }
 
-.live-preview  {
-	position: fixed;
-	top: 250px;
-	z-index: 1000;
-	width: 150px;
+.browser-content:hover .live-preview {
+	opacity:1;
+	z-index: 100000;
 }
+
+.button-centered {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	margin-top: -15px;
+}
+
 
 .marketing-tour figure .iphone:not(:only-child) {
 	position: absolute;
