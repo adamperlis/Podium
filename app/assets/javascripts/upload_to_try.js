@@ -4,7 +4,7 @@ $(document).ready(function(){
     InkBlobs.forEach(function(InkBlob){
       console.log(JSON.stringify(InkBlobs));
       $.post("/projects", { pdf_url: InkBlob.url }, function(data){
-        console.log(data)
+        alert("Success")
       });
     });
   };
@@ -12,7 +12,8 @@ $(document).ready(function(){
   $(".upload").click(function(e){
     e.preventDefault();
     filepicker.pickMultiple({
-      services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'BOX', 'SKYDRIVE', 'FACEBOOK', 'INSTAGRAM']
+      services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'BOX', 'SKYDRIVE', 'FACEBOOK', 'INSTAGRAM'],
+      openTo:"welcome"
     }, filepicker_trial_cb);
   });
 });
