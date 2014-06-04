@@ -46,6 +46,9 @@ $input-border-focus:rgba(51, 51, 51, 0);
 $state-info-bg:white;
 $state-info-border:#546272;
 $state-info-text:#5f6f81;
+$state-success-bg:#5f6f81;
+$state-success-border:#546272;
+$state-success-text:#FFFFFF;
 
 @import "bootstrap";
 
@@ -1174,7 +1177,7 @@ input.gn-search:focus {
 }
 
 .project-tools a {
-	padding: 8px;
+	padding-right: 8px;
 }
 
 .project-tools i {
@@ -2314,11 +2317,27 @@ label {
 }
 
 #live-preview-modal {
+
   margin-top:5%;
 
   .browser-bar {
-  	background: #AFAFAF;
+  	background: #DDD;
   }
+
+  .spinner-wrapper {
+  	margin-top: 18%;
+	}
+
+	.spinner-wrapper .convert {
+  	color: white !important;
+	}
+
+  .browser-button:before {
+		content: "\25cf";
+		font-size: 9px;
+		line-height: 20px;
+		color: #474747;
+	}
 
   .browser-content {
   	min-height: 600px;
