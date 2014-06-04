@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140529225539) do
+ActiveRecord::Schema.define(:version => 20140603234327) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20140529225539) do
     t.boolean  "private",            :default => false
     t.string   "accesskey"
     t.integer  "clicks"
-    t.integer  "transition"
+    t.integer  "transition",         :default => 1
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
