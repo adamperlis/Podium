@@ -28,11 +28,15 @@
 
 <div class='row'>
   <div class='col-xs-12'>
-			 <% flash.each do |name, msg| %>
-        <%= content_tag(:span, content_tag(:span, "&nbsp;&nbsp;".html_safe + msg , class: "entypo-attention"), class: "alert-box secondary-#{name}") %>
+			<% flash.each do |name, msg| %>
+        <%= content_tag(:div, class: "alert alert-success fade in secondary-#{name}") do %>
+          <i class="entypo-attention"></i>&nbsp;&nbsp;<%=msg%>
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <% end %>
       <% end %>
   </div>
 </div>
+
 
 			<%= yield %> 
       
