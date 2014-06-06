@@ -12,63 +12,68 @@
         <p class="title"><i class="entypo-cog"></i><span>Settings</span></p>
       </a>
     </p>
-  <div id="collapseOne" class="panel-collapse collapse">
-    <div class="panel-body">
-      <div class="form-group">
-        <%= f.input :description, :class => "form-control", :placeholder => "Search", label: "Title" %>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div row="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <%= f.input :description, input_html: { class: 'form-control' }, :placeholder => "Search", label: "Title" %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div> 
-<div class="panel panel-default accordion">
+  </div> 
+  <div class="panel panel-default accordion">
     <p class="panel-title">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
        <p class="title"><i class="entypo-switch"></i><span>Slide Transitions<span></p>
      </a>
-   </p>
- <div id="collapseTwo" class="panel-collapse collapse">
-  <div class="panel-body">
-    <div id="example-slide">
-    </div>
-    <select name="project[transition]" id="customDropdown1" class="medium">
-      <option DISABLED>Select a Transition</option>
-      <option value="69">None</option>
-      <option DISABLED>MOVE</option>
-      <option value="1">Move to left/ from right</option>
-      <!-- <option value="2">Move to right/ from left</option> -->
-      <option value="3">Move to top/ from bottom</option>
-      <!-- <option value="4">Move to bottom/ from top</option> -->
-      <option DISABLED>FADE</option>
-      <option value="71">Fade</option>
-      <option value="5">Fade / from right</option>
-      <!-- <option value="6">Fade / from left</option> -->
-      <option value="7">Fade / from bottom</option>
-      <!-- <option value="8">Fade / from top</option> -->
-      <option value="9">Fade left / Fade right</option>
-      <!-- <option value="10">Fade right / Fade left</option> -->
-      <option value="11">Fade top / Fade bottom</option>
-      <!-- <option value="12">Fade bottom / Fade top</option> -->
-      <option DISABLED>SCALE</option>
-      <option value="17">Scale down / from right</option>
-      <!-- <option value="18">Scale down / from left</option> -->
-      <option value="19">Scale down / from bottom</option>
-      <!-- <option value="20">Scale down / from top</option> -->
-      <option value="21">Scale down / scale down</option>
-      <!-- <option value="22">Scale up / scale up</option> -->
-      <option value="23">Move to left / scale up</option>
-      <!-- <option value="24">Move to right / scale up</option> -->
-      <option value="25">Move to top / scale up</option>
-      <!-- <option value="26">Move to bottom / scale up</option> -->
-      <option value="27">Scale down / scale up</option>
-      <option DISABLED>ROTATE</option>
-      <option value="28">Glue left / from right</option>
-      <!-- <option value="29">Glue right / from left</option> -->
-      <option value="30">Glue bottom / from top</option>
-      <!-- <option value="31">Glue top / from bottom</option> -->
-      <option value="32">Flip right</option>
-      <!-- <option value="33">Flip left</option> -->
-      <option value="34">Flip top</option>
-      <!-- <option value="35">Flip bottom</option> -->
+    </p>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12">
+            <div id="example-slide"></div>
+              <select name="project[transition]" id="customDropdown1" class="medium form-control">
+                <option DISABLED>Select a Transition</option>
+                <option value="69">None</option>
+                <option DISABLED>MOVE</option>
+                <option value="1">Move to left/ from right</option>
+                <!-- <option value="2">Move to right/ from left</option> -->
+                <option value="3">Move to top/ from bottom</option>
+                <!-- <option value="4">Move to bottom/ from top</option> -->
+                <option DISABLED>FADE</option>
+                <option value="71">Fade</option>
+                <option value="5">Fade / from right</option>
+                <!-- <option value="6">Fade / from left</option> -->
+                <option value="7">Fade / from bottom</option>
+                <!-- <option value="8">Fade / from top</option> -->
+                <option value="9">Fade left / Fade right</option>
+                <!-- <option value="10">Fade right / Fade left</option> -->
+                <option value="11">Fade top / Fade bottom</option>
+                <!-- <option value="12">Fade bottom / Fade top</option> -->
+                <option DISABLED>SCALE</option>
+                <option value="17">Scale down / from right</option>
+                <!-- <option value="18">Scale down / from left</option> -->
+                <option value="19">Scale down / from bottom</option>
+                <!-- <option value="20">Scale down / from top</option> -->
+                <option value="21">Scale down / scale down</option>
+                <!-- <option value="22">Scale up / scale up</option> -->
+                <option value="23">Move to left / scale up</option>
+                <!-- <option value="24">Move to right / scale up</option> -->
+                <option value="25">Move to top / scale up</option>
+                <!-- <option value="26">Move to bottom / scale up</option> -->
+                <option value="27">Scale down / scale up</option>
+                <option DISABLED>ROTATE</option>
+                <option value="28">Glue left / from right</option>
+                <!-- <option value="29">Glue right / from left</option> -->
+                <option value="30">Glue bottom / from top</option>
+                <!-- <option value="31">Glue top / from bottom</option> -->
+                <option value="32">Flip right</option>
+                <!-- <option value="33">Flip left</option> -->
+                <option value="34">Flip top</option>
+                <!-- <option value="35">Flip bottom</option> -->
                 <!-- <option value="36">Fall</option>
                 <option value="37">Newspaper</option> -->
                 <option value="38">Push left / from right</option>
@@ -101,42 +106,58 @@
                 <!-- <option value="65">Carousel to bottom</option> -->
                 <!-- <option value="66">Sides</option> -->
                 <option value="67">Slide</option>
-              </select>      
+              </select>   
             </div>
-          </div>
-        </div>     
-        <div class="panel panel-default accordion">
-            <p class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-               <p class="title"><i class="entypo-lock"></i><span>Make Private</span><!-- <span class="pro">PRO</span> --></p>
-             </a>
-           </p>
-         <div id="collapseThree" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-lg-3">
+          </div>   
+        </div>
+      </div>
+    </div>    
+
+    <div class="panel panel-default accordion">
+      <p class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          <p class="title"><i class="entypo-lock"></i><span>Make Private</span><!-- <span class="pro">PRO</span> --></p>
+        </a>
+      </p>
+      <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12 col-xs-12">
               <div class="input-group">
-                <span class="input-group-addon">
-                 <%= f.input :private, :type => "checkbox", label: false %>
-               </span>
-               <%= f.input :accesskey, label: false, :class => "form-control", :placeholder => "Password" %>
-             </div><!-- /input-group -->
-           </div>
-         </div>
-       </div>
-     </div>
-     <script> 
-     $(document).ready(function(){
-      $("#customDropdown1 option[value='<%= @project.transition %>']").attr("selected", "selected")
-    })
-     </script> 
-   </div>
+                <span class="input-group-addon private-btn-2">
+                  <div class="checkbox private-btn">
+                    <%= f.input :private, :type => "checkbox", label: false %>
+                  </div>
+                </span>
+                <%= f.input :accesskey, label: false, input_html: { class: 'form-control' }, :placeholder => "Password" %>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div>
+        </div>
+      </div>
+    </div>
 
-  </br>
+ <script> 
+ $(document).ready(function(){
+  $("#customDropdown1 option[value='<%= @project.transition %>']").attr("selected", "selected")
+})
+ </script> 
+</div>
 
-  <%= f.button :submit, "Save", class: "btn btn-info" %>
-  <% end %>
+</br>
 
-  
+<%= f.button :submit, "Save", class: "btn btn-info" %>
+<% end %>
+
+<script>
+//   // Calls the selectBoxIt method on your HTML select box
+//   $("select").selectBoxIt({
+
+//     // Uses the Twitter Bootstrap theme for the drop down
+//     theme: "native"
+
+//   });
+// </script>
+
 
 
