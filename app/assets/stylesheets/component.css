@@ -232,7 +232,7 @@ html, body { height: 100%; }
 	float: left;
 	margin: 0;
 	padding: 3em 4%;
-	overflow: hidden;
+	overflow: visible;
 	min-height: 12em;
 	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
 	-moz-transition: -moz-transform 0.5s, opacity 0.5s;
