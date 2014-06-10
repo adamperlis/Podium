@@ -463,16 +463,6 @@ font-size: 46px;
 	font-weight: 200;
 }
 
-#preview {
-	padding: 0px !important;
-	border:none;
-}
-
-#preview iframe {
-	width: 100%;
-	height: 100%;
-	left: 0% !important;
-}
 
 .button.secondary:focus {
 	outline:none;
@@ -2376,4 +2366,42 @@ label {
 	padding: 0px 11px !important;
 }
 
+#preview {
+
+  margin-top:5%;
+
+ 
+  .spinner-wrapper {
+  	margin-top: 18%;
+	}
+
+	.spinner-wrapper .convert {
+  	color: white !important;
+	}
+
+	 .browser-bar {
+  	background: #DDD;
+  }
+
+  .browser-button:before {
+		content: "\25cf";
+		font-size: 9px;
+		line-height: 20px;
+		color: #474747;
+	}
+
+  .browser-content {
+  	min-height: 600px;
+  	overflow: hidden;
+  }
+
+  iframe {
+  	overflow: hidden !important;
+  	height:100%;
+  	width:100%;
+  	left:0;
+  	min-height:600px;
+  	display: none;
+  }
+}
 
