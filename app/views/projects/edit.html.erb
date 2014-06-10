@@ -1,7 +1,7 @@
 
 <%= render "shared/share_modal", project: @project %>
 
-		<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade in" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 			<a class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
 			 <div class="modal-dialog modal-lg">
@@ -12,13 +12,12 @@
 					  <div class="browser-button"></div>
 					</div>
 					<div class="browser-content">
-						<iframe title="preview" width="100%" height="100%" src="<%= project_url(@project) %>"></iframe>
+						<iframe class="iframe-wrapper" title="preview" width="100%" height="100%" src="<%= project_url(@project) %>"></iframe>
 					  <!-- <img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg"></img> -->
 					</div>
 				</div>
 			</div>
 		</div>
-
 
 
 <div class"container">
