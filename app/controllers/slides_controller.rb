@@ -26,12 +26,18 @@ class SlidesController < ApplicationController
 
 	def create
 		@project = Project.find(params[:project_id])
-		@slide = @project.slides.new(params[:slide])
-		if @slide.save
-			render json: {status: @slide }
-		else
-			render json: {status:"error"}
-		end
+
+    if params[:slide][:mimetype].present? && params[:slide][:mimetype] == "application/pdf"
+      @slides = Slide.new_from_pdf(params[:slide][:filepicker_url], @project.id)
+      render json: {status: "ok", slides: @slides }
+    else
+      @slide = @project.slides.new(params[:slide])
+      if @slide.save
+        render json: {status: "ok", slide: @slide }
+      else
+        render json: {status:"error"}
+      end
+    end
 	end
 
   def update
@@ -59,11 +65,6 @@ class SlidesController < ApplicationController
       Slide.update_all({position: index+1}, {id: id})
     end
     render nothing: true
-  end
-
-  def convert
-    @slides = Slide.new_from_pdf(params[:pdf_url], params[:project_id])
-    render json: {slides: @slides }
   end
 
   def cloudconvert
