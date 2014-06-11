@@ -27,7 +27,7 @@ $(function (){
           $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
           $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
-          $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><video src=' + InkBlob.url + ' class="vid"><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+          $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><video src=' + InkBlob.url + ' class="vid"><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
           console.log(data);
         });
 
@@ -59,7 +59,7 @@ $(function (){
         var target = document.getElementById('current-slide');
         var spinner = new Spinner(opts).spin(target);
 
-        $.post('/slides/convert', {  pdf_url: InkBlob.url, mimetype: InkBlob.mimetype, project_id: project_id}, function(data){  
+        $.post('/slides', { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){  
          //to do fill in loop of images appending to DOM copy below make loop
 
          $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
@@ -79,7 +79,7 @@ $(function (){
               $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
               $("#current-slide").html($("<img>").attr('src', url));
 
-              $(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.status.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
               console.log(data);
           });
         });
@@ -130,12 +130,12 @@ $(function (){
 
 function sendToCloudConvert(url, mimetype, project_id, org){
 
-  $.post("/slides/cloudconvert", { slide: { filepicker_url: url, mimetype: mimetype }, project_id: project_id}, function(data){
+  $.post("/slides/cloudconvert", { slide: { filepicker_url: url, mimetype: mimetype }}, function(data){
     $('#current-slide').html('<div class="container panel"><div class="row"><div class="col-sm-4"><div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div></div><div class="col-sm-8 columns"><h2 class="convert">Please wait while we convert your presentation</h2></div></div></div>');
 
 
     waitUntilCloudConvertDone(data.message.url, function(pdf_url){
-      $.post('/slides/convert', {  pdf_url: pdf_url, mimetype: 'application/pdf', project_id: project_id}, function(data){  
+      $.post('/slides', { slide: { filepicker_url: pdf_url, mimetype: 'application/pdf' }, project_id: project_id}, function(data){  
         
         $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
@@ -164,6 +164,3 @@ function waitUntilCloudConvertDone(url, callback){
     }, dataType: "json"});
   }, 500);
 }
-
-
-    

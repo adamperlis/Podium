@@ -70,8 +70,8 @@ class ProjectsController < ApplicationController
     if !signed_in?
       @superuser = User.where(admin:true).first
       @project = @superuser.projects.create
-      Slide.new_from_pdf(params[:pdf_url], @project.id)
-      render json: {status: "Ok", url: project_path(@project)}
+      
+      render json: {status: "Ok", url: project_path(@project), id: @project.id}
     else 
        render json: {status: "Error", message: "You are not authorized to do that."}
     end
