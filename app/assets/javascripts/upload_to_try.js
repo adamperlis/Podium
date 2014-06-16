@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#live-preview-modal").modal('show');
     $("#live-preview-modal").find(".spinner-wrapper").show();
   
-  	$.post("/projects", { }, function(data){
+  	$.post("/projects",{ project: { original_file_url: InkBlobs[0].url } }, function(data){
   		project_id = data.id;
   		project_url = data.url;
 

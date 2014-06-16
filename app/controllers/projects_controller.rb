@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
   def create
     if !signed_in?
       @superuser = User.where(admin:true).first
-      @project = @superuser.projects.create
+      @project = @superuser.projects.create(params[:project])
       
       render json: {status: "Ok", url: project_path(@project), id: @project.id}
     else 
