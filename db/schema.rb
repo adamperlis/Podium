@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140603234327) do
+ActiveRecord::Schema.define(:version => 20140616173553) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20140603234327) do
 
   create_table "projects", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -58,10 +58,12 @@ ActiveRecord::Schema.define(:version => 20140603234327) do
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
     t.string   "image"
-    t.boolean  "private",            :default => false
+    t.boolean  "private",               :default => false
     t.string   "accesskey"
     t.integer  "clicks"
-    t.integer  "transition",         :default => 1
+    t.integer  "transition",            :default => 1
+    t.string   "original_download_url"
+    t.boolean  "download",              :default => true
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
