@@ -8,29 +8,17 @@ $(document).ready(function(){
 		var main = $('#current-slide');
 		var org = $('.slide-organizer ol');
 
-		$.post("/slides", { project_id: project_id}, function(data){
+		$.post("/slides", { project_id: project_id, slide: { embed_code: code}}, function(data){
 		
 			$(main).html('<div class="blank-slide"></div>');
-			$("#current-slide").data("slide-id", data.status.id);
-			$(org).append('<li class="slide" data-id=' + data.status.id + ' id="slide_' + data.status.id +'"><div class="blank"></div></li>');
+			$("#current-slide").data("slide-id", data.slide.id);
+			$(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><div class="blank"></div></li>');
 	    
 			var slide_id = parseInt($("#current-slide").data("slide-id"));
-
-			if (code != null){
-
-				$.ajax({
-				  url: '/slides/' + slide_id,
-				  type: 'PUT',
-				  data: { slide: { embed_code: code }},
-				  success: function(data) {
-				  	setupEmbed(data.slide.embed_code);
-				  	generateThumb(data.slide.embed_code, slide_id);
-				   console.log(data)
-				  }
-				});
-			}
 			
-			
+			setupEmbed(data.slide.embed_code);
+			generateThumb(data.slide.embed_code, slide_id);
+				
 	    console.log(data);
 	  });
 	});
