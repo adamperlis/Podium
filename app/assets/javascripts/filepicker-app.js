@@ -14,76 +14,82 @@ $(function (){
   //END
 
   var filepicker_cb = function(InkBlobs){
-    InkBlobs.forEach(function(InkBlob){
-      console.log(JSON.stringify(InkBlobs));
-      var project_id = parseInt($("#current-slide").data("project-id"));
-      var url = InkBlob.url;
-      var org = $('.slide-organizer ol');
-      var mimetype = InkBlob.mimetype;
 
-      if(InkBlob.mimetype == "video/mp4"){
-        $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+    $.post("/projects",{ project: { original_download_url: InkBlobs[0].url } }, function(data){
+      project_id = data.id;
+      project_url = data.url;
 
-          $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
-          $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+      InkBlobs.forEach(function(InkBlob){
+        console.log(JSON.stringify(InkBlobs));
+        var project_id = parseInt($("#current-slide").data("project-id"));
+        var url = InkBlob.url;
+        var org = $('.slide-organizer ol');
+        var mimetype = InkBlob.mimetype;
 
-          $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><video src=' + InkBlob.url + ' class="vid"><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-          console.log(data);
-        });
+        if(InkBlob.mimetype == "video/mp4"){
+          $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
 
-      }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint" || InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation" || InkBlob.mimetype == "application/x-iwork-keynote-sffkey" || InkBlob.mimetype == "application/pgp-keys"){
+            $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
+            $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
-        sendToCloudConvert(url, mimetype, project_id, org);
-
-      }else if(InkBlob.mimetype == "application/pdf"){
-        
-        var opts = {
-        lines: 13, // The number of lines to draw
-        length: 1, // The length of each line
-        width: 5, // The line thickness
-        radius: 13, // The radius of the inner circle
-        corners: 1, // Corner roundness (0..1)
-        rotate: 0, // The rotation offset
-        direction: 1, // 1: clockwise, -1: counterclockwise
-        color: 'gray', // #rgb or #rrggbb or array of colors
-        speed: 1, // Rounds per second
-        trail: 60, // Afterglow percentage
-        shadow: false, // Whether to render a shadow
-        hwaccel: false, // Whether to use hardware acceleration
-        className: 'spinner', // The CSS class to assign to the spinner
-        zIndex: 2e9, // The z-index (defaults to 2000000000)
-        top: 'auto', // Top position relative to parent in px
-        left: 'auto' // Left position relative to parent in px
-        };
-        $("#current-slide p").hide();
-        var target = document.getElementById('current-slide');
-        var spinner = new Spinner(opts).spin(target);
-
-        $.post('/slides', { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){  
-         //to do fill in loop of images appending to DOM copy below make loop
-
-         $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
-
-        for (i=0; i<data.slides.length; i++){
-          $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
-
-          $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-          }
-        });
-
-      }else{
-
-        filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
-          $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: new_InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
-              
-              $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
-              $("#current-slide").html($("<img>").attr('src', url));
-
-              $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
-              console.log(data);
+            $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><video src=' + InkBlob.url + ' class="vid"><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+            console.log(data);
           });
-        });
-      }
+
+        }else if(InkBlob.mimetype == "application/vnd.ms-powerpoint" || InkBlob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation" || InkBlob.mimetype == "application/x-iwork-keynote-sffkey" || InkBlob.mimetype == "application/pgp-keys"){
+
+          sendToCloudConvert(url, mimetype, project_id, org);
+
+        }else if(InkBlob.mimetype == "application/pdf"){
+          
+          var opts = {
+          lines: 13, // The number of lines to draw
+          length: 1, // The length of each line
+          width: 5, // The line thickness
+          radius: 13, // The radius of the inner circle
+          corners: 1, // Corner roundness (0..1)
+          rotate: 0, // The rotation offset
+          direction: 1, // 1: clockwise, -1: counterclockwise
+          color: 'gray', // #rgb or #rrggbb or array of colors
+          speed: 1, // Rounds per second
+          trail: 60, // Afterglow percentage
+          shadow: false, // Whether to render a shadow
+          hwaccel: false, // Whether to use hardware acceleration
+          className: 'spinner', // The CSS class to assign to the spinner
+          zIndex: 2e9, // The z-index (defaults to 2000000000)
+          top: 'auto', // Top position relative to parent in px
+          left: 'auto' // Left position relative to parent in px
+          };
+          $("#current-slide p").hide();
+          var target = document.getElementById('current-slide');
+          var spinner = new Spinner(opts).spin(target);
+
+          $.post('/slides', { slide: { filepicker_url: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){  
+           //to do fill in loop of images appending to DOM copy below make loop
+
+           $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+
+          for (i=0; i<data.slides.length; i++){
+            $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
+
+            $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+            }
+          });
+
+        }else{
+
+          filepicker.convert(InkBlob, {width: 234, height: 176, fit: 'scale'}, function(new_InkBlob){
+            $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: new_InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
+                
+                $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+                $("#current-slide").html($("<img>").attr('src', url));
+
+                $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+                console.log(data);
+            });
+          });
+        }
+      });
     });
   };
 

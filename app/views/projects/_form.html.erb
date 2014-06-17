@@ -137,6 +137,27 @@
       </div>
     </div>
 
+    <div class="panel panel-default accordion">
+      <p class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          <p class="title"><i class="entypo-down-circled"></i><span>Download</span><!-- <span class="pro">PRO</span> --></p>
+        </a>
+      </p>
+      <div id="collapseFour" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12 col-xs-12">
+              <div class="checkbox">
+                <label>
+                  <%= f.input :download, :type => "checkbox", label: "Allow people to download the original presentation?" %>
+                </label>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div>
+        </div>
+      </div>
+    </div>
+
  <script> 
  $(document).ready(function(){
   $("#customDropdown1 option[value='<%= @project.transition %>']").attr("selected", "selected")

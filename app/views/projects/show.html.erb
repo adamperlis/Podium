@@ -49,6 +49,9 @@
 	<!-- 	<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %> -->
 			<a href='#' data-toggle='modal' data-target='#project-share-modal-<%= @project.id %>'><i class='entypo-share'></i></a>
 			<a href="#" data-toggle='modal' data-target="#screenshare_modal"><i class='entypo-mic'></i></a>
+			<% if @project.download == true %>
+				<a href="<%= @project.original_download_url %>"><i class='entypo-down-circled'></i></a>
+			<% end %>
 			<!-- <a href="#" class="slider"><i class='icon-th'></i></a> -->
 			<a href="#" class="expand"></a>
 		</div>
