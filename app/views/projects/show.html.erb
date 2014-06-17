@@ -31,34 +31,6 @@
 		</div>
 	</div>
 
-<div class='row controls'>
-
-		<div class='col-sm-6 col-xs-6'>
-			<div class="col-sm-offset-1 col-xs-offset-1">
-			<% if current_user.present? %>
-				<i class='entypo-left'></i>
-			<% end %>
-			</div>
-		</div>
-
-
-		<div class="col-sm-6 col-xs-6 right-controls">
-			<div class="col-sm-offset-11 col-xs-offset-11">
-
-			<a href="#" data-toggle='modal' data-target="#embed_modal"><i class='entypo-code'></i></a>
-	<!-- 	<%= link_to "<i class='icon-download'></i>".html_safe, project_path(@project, :format => "pdf") %> -->
-			<a href='#' data-toggle='modal' data-target='#project-share-modal-<%= @project.id %>'><i class='entypo-share'></i></a>
-			<a href="#" data-toggle='modal' data-target="#screenshare_modal"><i class='entypo-mic'></i></a>
-			<% if @project.download == true %>
-				<a href="<%= @project.original_download_url %>"><i class='entypo-down-circled'></i></a>
-			<% end %>
-			<!-- <a href="#" class="slider"><i class='icon-th'></i></a> -->
-			<a href="#" class="expand"></a>
-		</div>
-	</div>
-</div>
-
-
 <div class='row center-block'>
 		<script>
 			$(function(){
@@ -157,16 +129,36 @@
 		</div>
 	</div>
 
+<div class='row controls'>
 
-<div class='row'>
-	<div class="col-sm-12 controls">
-		<div class='center-controls'>
-			<i class='entypo-left-open-big target'></i>
-			<i class='entypo-right-open-big'></i>
+		<div class='col-sm-6 col-xs-6'>
+			<div class="col-sm-offset-1 col-xs-offset-1">
+			<% if current_user.present? %>
+				<i class='entypo-left'></i>
+			<% end %>
+			</div>
 		</div>
-	</div>
-</div>
 
+
+		<div class="col-sm-6 col-xs-6 right-controls">
+			<div class="col-sm-offset-11 col-xs-offset-11">
+				<a href="#" data-toggle='modal' data-target="#embed_modal"><i class='entypo-code'></i></a>
+				<a href='#' data-toggle='modal' data-target='#project-share-modal-<%= @project.id %>'><i class='entypo-paper-plane'></i></a>
+				<a href="#" data-toggle='modal' data-target="#screenshare_modal"><i class='entypo-mic'></i></a>
+				<% if @project.download == true %>
+					<a href="<%= @project.original_download_url %>"><i class='entypo-down-circled'></i></a>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-xs-12">
+			<div class='center-controls'>
+				<i class='entypo-left-open-big target'></i>
+				<i class='entypo-right-open-big'></i>
+				<a href="#" class="expand"><i class='entypo-resize-full'></i></a>
+			</div>
+		</div>
+</div>
 
 		<script>
 			var slide = document.getElementById('slide-number');
