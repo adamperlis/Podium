@@ -136,7 +136,7 @@ $(function (){
 function sendToCloudConvert(url, mimetype, project_id, org){
 
   $.post("/slides/cloudconvert", { slide: { filepicker_url: url, mimetype: mimetype }}, function(data){
-    $('#current-slide').html('<div class="container panel"><div class="row"><div class="col-sm-4"><div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div></div><div class="col-sm-8 columns"><h2 class="convert">Please wait while we convert your presentation</h2></div></div></div>');
+    $('#current-slide').html('<div class="panel"><div class="row"><div class="col-sm-4"><div class="wrapperloading"><div class="loading up"></div><div class="loading down"></div></div></div><div class="col-sm-8"><h2 class="convert">Please wait while we convert your presentation</h2></div></div></div>');
 
 
     waitUntilCloudConvertDone(data.message.url, function(pdf_url){
