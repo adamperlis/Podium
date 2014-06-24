@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @show = true
 
     if @project.private && !is_owner?(@project)
       return redirect_to authorize_project_path(@project)
@@ -33,7 +34,8 @@ class ProjectsController < ApplicationController
 
   def authorize
     @project = Project.find(params[:id])
-
+    @show = true
+    
     if !@project.private || is_owner?(@project)
       return redirect_to project_path(@project)
     end

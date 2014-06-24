@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
   </head>
 
-  <body id="<%= html_class -%>" onload="loaded()">
+  <body class="<%= @show ? 'show' : ''%>" onload="loaded()">
 
 		<%= render 'layouts/header'%>
       <script>

@@ -42,10 +42,10 @@
     		<div class="col-md-4 col-sm-5 col-xs-4">
 			    <div class="project-tools">
 			    		<a href='#' data-toggle='modal' data-target='#project-share-modal-<%= project.id %>'> 
-				 				<span class="share"><i class="entypo-share" data-toggle="tooltip" data-placement="top" title="Share"></i></span>
+				 				<span class="share"><i class="entypo-paper-plane" data-toggle="tooltip" data-placement="top" title="Share"></i></span>
 				 			</a>
 			    	 	<%= link_to(edit_project_path(project)) do %>
-							<span class="edit  hidden-xs hidden-sm"><i class="entypo-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
+							<span class="edit hidden-xs hidden-sm"><i class="entypo-pencil" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
 							<% end %>
 			    		<%= link_to(project, method: :delete, data: { confirm: 'Are you sure?' }) do %>
 							<span class="delete"><i class="entypo-cancel" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>
