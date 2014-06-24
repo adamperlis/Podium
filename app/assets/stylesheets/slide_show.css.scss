@@ -1,0 +1,71 @@
+
+@media(max-width:767px){
+	.controls-column-center {
+		bottom: 30% !important;
+	}
+
+	.pt-page-current img {
+		max-height: 80% !important;
+	}
+}
+
+@media(min-width:768px){
+
+}
+
+@media(min-width:992px){
+
+}
+
+@media(min-width:1200px){
+
+}
+
+
+.presentation-wrapper {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+
+	.control {
+		color:white;
+		font-size: 30px;
+		font-style: normal !important;
+		-moz-transition: color .3s;
+	  -webkit-transition: color .3s;
+	  -o-transition:  color .3s;
+	  transition: color .3s;
+	  display: block;
+	  text-align: center;
+	}
+
+	.control:hover {
+		color: #5f6f81;
+		cursor: pointer;
+	}
+
+	.control-inline {
+		display:inline-block;
+		padding:20px;
+	}
+
+	.row-center {
+		position: relative;
+		height: 100%;
+	}
+
+	.column-center {
+		position: relative;
+		height: 100%;
+	}
+
+	.controls-column-center {
+		bottom: 14%;
+		left: 0;
+		right: 0;
+		position: absolute;
+		height: 100%;
+		margin-left: 38px;
+	}
+}
+
