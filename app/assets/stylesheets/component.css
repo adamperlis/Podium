@@ -30,7 +30,7 @@ html, body { height: 100%; }
 .pt-page {
 	/* Set rules to fill background */
   min-height: 100%;
-  min-width: 1024px;
+  min-width: 100% ;
 	
   /* Set up proportionate scaling */
   width: 100%;
@@ -63,14 +63,6 @@ html, body { height: 100%; }
 	position: absolute;
 	max-width:100%;
 	max-height:90%;
-	height: 100%;
-}
-
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
- .pt-page {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
 }
 
 .pt-page-current,

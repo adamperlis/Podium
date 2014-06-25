@@ -106,7 +106,9 @@
 								<% unless slide.filepicker_url.blank? %>
 									<img class="scale" data-scale="best-fit" data-align="center" data-adaptive-background='1' cross-origin="anonymous" src="<%= slide.filepicker_url %>">
 								<% else %>
-									<div class="blank" id="slide-<%= slide.id -%>"></div>
+									<div class="blank" id="slide-<%= slide.id -%>">
+										<div id="iframe-swiper"></div>
+									</div>
 
 									<% if slide.embed_code =~ /^#{URI::regexp}$/%>
 								
@@ -258,6 +260,15 @@
 	    });
 
 	    var swiperight = Hammer(element).on("swiperight", function(event) {
+	        $(".entypo-left-open-big").click();
+	    });
+
+	    var element2 = document.getElementById('iframe-swiper');
+	    var iswipeleft = Hammer(element).on("swipeleft", function(event) {
+	        $(".entypo-right-open-big").click();
+	    });
+
+	    var iswiperight = Hammer(element).on("swiperight", function(event) {
 	        $(".entypo-left-open-big").click();
 	    });
 
