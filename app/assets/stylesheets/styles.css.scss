@@ -1847,7 +1847,7 @@ iframe {
 	border-right: 1px solid rgb(190, 190, 190);
 }
 
-#wrapper {
+.slide-nav {
 	margin: 0;
 	padding: 0;
 	white-space: nowrap;
@@ -1862,17 +1862,18 @@ iframe {
 	box-shadow: inset 0px -1px 15px #000000;
 	cursor: -webkit-grab;
 	border-bottom: 1px solid rgb(71, 71, 71);
+	display:none;
 }
 
-#wrapper img {
+.slide-nav  img {
 	width: 116px;
 }
 
-#wrapper ul {
+.slide-nav  ul {
 	padding:10px;
 }
 
-#wrapper ul li { 
+.slide-nav  ul li { 
 	display: inline;
 }
 
