@@ -33,11 +33,11 @@
 		</div>
 	</div>
 
-<div id="wrapper" class="">
+<div class="slide-nav">
 	<!-- 		Slide Navigator -->
   <ul>
-		<% @project.slides.order("position").each do |slide| %>
-		 	<li>
+		<% @project.slides.order("position").each_with_index do |slide, i| %>
+		 	<li data-position="<%= i %>">
 				<% if slide.mimetype == "video/mp4" %>
 					<video width='101px' height='57px'>
 						<source src="<%= slide.filepicker_url %>">
@@ -56,7 +56,7 @@
 		<% if current_user.present? %>
 			<a href="javascript:history.back()" class="control"><i class='entypo-left'></i></a>
 		<% end %>
-		<a href="#" class="control slide-nav"><i class='entypo-layout'></i></a>
+		<a href="#" class="control slide-nav-open"><i class='entypo-layout'></i></a>
 		<canvas id="myChart" width="50" height="50"></canvas>
 	</div>
 
@@ -251,10 +251,8 @@
   </script>
 
   <script>
-  $('#wrapper').hide();
-
-	$('.slide-nav').on('click', function(e) {
-      $('#wrapper').slideToggle('fast'); //you can list several class names
+	$('.slide-nav-open').on('click', function(e) {
+      $('.slide-nav').slideToggle('fast'); //you can list several class names
 
       e.preventDefault();
     });	

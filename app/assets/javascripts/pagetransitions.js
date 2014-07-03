@@ -3,8 +3,6 @@ $(document).ready(function() {
 
 		var $main = $( '#pt-main' ),
 			$pages = $main.children( 'div.pt-page' ),
-			$iterate = $( '#iterateEffects' ),
-			animcursor = 1,
 			pagesCount = $pages.length,
 			current = 0,
 			isAnimating = false,
@@ -29,17 +27,6 @@ $(document).ready(function() {
 			} );
 
 			$pages.eq( current ).addClass( 'pt-page-current' );
-
-			$iterate.on( 'click', function() {
-					if( isAnimating ) {
-						return false;
-					}
-					if( animcursor > 72 ) {
-						animcursor = 1;
-					}
-					nextPage( animcursor );
-					++animcursor;
-				} );
 
 			var transition = parseInt($(".pt-page").data('transition'));
 
@@ -81,7 +68,28 @@ $(document).ready(function() {
 					return false;
 		    }
 			});
-	
+			
+			$(".slide-nav li").click(showPage);
+
+			updateSelectedSlide();
+		}
+
+		function updateSelectedSlide() {
+			$(".selected").removeClass("selected");
+			$(".slide-nav li[data-position=" + current + "] img").addClass("selected");
+		}
+
+		function showPage(e) {
+			e.preventDefault();
+			$(".pt-page-current").removeClass("pt-page-current");
+
+			current = $(this).data("position");
+			var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' );
+
+			if ($("video", $nextPage).length == 1){
+				$("video", $nextPage)[0].play()
+			}
+			updateSelectedSlide();
 		}
 
 		function nextPage( animation, backwards ) {
@@ -114,6 +122,8 @@ $(document).ready(function() {
 					--current;
 				}
 			}
+
+			updateSelectedSlide();
 
 			var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
 				outClass = '', inClass = '';
@@ -452,9 +462,7 @@ $(document).ready(function() {
 		}
 
 		init();
-
-		window.nextPage = nextPage;
-
+		
 		return { init : init };
 
 	})();
