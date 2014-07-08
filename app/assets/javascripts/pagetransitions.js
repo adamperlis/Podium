@@ -69,7 +69,11 @@ $(document).ready(function() {
 		    }
 			});
 			
-			$(".slide-nav li").click(showPage);
+			if(Modernizr.touch) {
+				$(".slide-nav li").bind('touchstart', showPage);
+			} else {
+				$(".slide-nav li").click(showPage);
+			}
 
 			updateSelectedSlide();
 		}
@@ -80,7 +84,6 @@ $(document).ready(function() {
 		}
 
 		function showPage(e) {
-			e.preventDefault();
 			$(".pt-page-current").removeClass("pt-page-current");
 
 			current = $(this).data("position");
@@ -462,7 +465,7 @@ $(document).ready(function() {
 		}
 
 		init();
-		
+
 		return { init : init };
 
 	})();
