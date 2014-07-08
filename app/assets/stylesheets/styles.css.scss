@@ -1404,6 +1404,9 @@ color: #5f6f81;
   opacity: .60;
 }
 
+.ui-selecting { border: 2px solid yellow !important; }
+.ui-selected { border: 2px solid yellow !important; }
+
 .selected {
   border: 2px solid yellow !important;
 }
