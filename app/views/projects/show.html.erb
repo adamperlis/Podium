@@ -33,7 +33,8 @@
 		</div>
 	</div>
 
-<div class="slide-nav">
+<div class="slide-nav" id="slide-nav">
+	<div class="scroller" style="position: absolute;">
 	<!-- 		Slide Navigator -->
   <ul>
 		<% @project.slides.order("position").each_with_index do |slide, i| %>
@@ -48,6 +49,7 @@
 			</li>
 		<% end %>					 
 	</ul>
+  </div>
 </div>
 
 <div class="row presentation-wrapper">
@@ -139,6 +141,7 @@
 
 
 	<script>
+	$(document).ready(function(){
 		var slide = document.getElementById('slide-number');
 	  var slidenumber = slide.getAttribute('data-slidenumber');
 	  var slidecount = slide.getAttribute('data-slidecount');
@@ -190,7 +193,7 @@
 		var ctx = document.getElementById("myChart").getContext("2d");
 		var myNewChart = new Chart(ctx).Doughnut(data, options);
 
-		
+	});
 	</script>
 		
 	        <!-- Preloader -->
@@ -228,6 +231,7 @@
 	</script>
 
 	<script>
+	 $(document).ready(function(){
 		 	var element = document.getElementById('pt-main');
 	    var swipeleft = Hammer(element).on("swipeleft", function(event) {
 	        $(".entypo-right-open-big").click();
@@ -246,17 +250,30 @@
 
 	    var iswiperight = Hammer(element).on("swiperight", function(event) {
 	        $(".entypo-left-open-big").click();
-	    });
+	    }); 
+	  });
 
   </script>
 
   <script>
-	$('.slide-nav-open').on('click', function(e) {
-      $('.slide-nav').slideToggle('fast'); //you can list several class names
+	  $(document).ready(function(){
+	  	var myScroll = new IScroll('#slide-nav', {scrollX: true, scrollY:false, mouseWheel:true, scrollbars: true, preventDefault: true});
 
-      e.preventDefault();
-    });	
+			$('.slide-nav-open').on('click', function(e) {
+		      $('.slide-nav').slideToggle('fast'); //you can list several class names
+
+		      var widths = $('.slide-nav li').map(function() { return $(this).width() }).toArray();
+		      var finalWidth = widths.reduce(function(sum, i) { return sum + i; });
+
+		      $(".scroller").width(finalWidth);
+		      myScroll.refresh();
+		  });	
+		  
+		});
 	</script>
+
+
+
 
   
 
