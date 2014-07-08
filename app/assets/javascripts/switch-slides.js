@@ -1,5 +1,19 @@
 $(document).ready(function(){
 
+	 /*
+     * this swallows backspace keys on any non-input element.
+     * stops backspace -> back
+     */
+    var rx = /INPUT|SELECT|TEXTAREA/i;
+
+    $(document).bind("keydown keypress", function(e){
+        if( e.which == 8 ){ // 8 == backspace
+            if(!rx.test(e.target.tagName) || e.target.disabled || e.target.readOnly ){
+                e.preventDefault();
+            }
+        }
+    });
+
 		/*newly uploaded slides to display in #current-slide- no refresh*/
 
 	$(".slide-organizer ol").on("click", "li.slide img, li.slide video, #empty ", function(e){
@@ -39,9 +53,11 @@ $(document).ready(function(){
       	scrollToCurrentSlide();
     	}
 
-    	if (e.keyCode == DEL_KEY && current_slide.length) { 
-    		//foreach current_slide
-        	//delete stuff and next
+    	if (e.keyCode == 8 && current_slide.length) { 
+    		
+  					e.preventDefault();
+        		deleteSlide($(".slide img.selected").parent(".slide").data("id"));
+        		next_slide;
     	}
 		});
 	}
@@ -80,6 +96,8 @@ $(document).ready(function(){
     }).done(function(data){
       console.log(data);
       //remove slide here
+      $($(".slide img.selected").parent()).remove();
+      $($(".slide img.selected").parent()).empty();
     });
 	}
 });
