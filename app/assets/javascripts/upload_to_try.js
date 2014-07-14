@@ -16,6 +16,7 @@ $(document).ready(function(){
 	      fetchAssetUrl(InkBlob, function(asset_url, mimetype){
 		      $.post('/slides', { slide: {  filepicker_url: asset_url, mimetype: mimetype }, project_id: project_id}, function(data){  
 		        displayModal($("#live-preview-modal"), project_url);
+            $("#project-share-modal-" + project_id).modal('show');
 		      });
 		    });
 	    });

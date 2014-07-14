@@ -53,11 +53,14 @@ $(document).ready(function(){
       	scrollToCurrentSlide();
     	}
 
-    	if (e.keyCode == 8 && current_slide.length) { 
+    	if (e.keyCode == 8 && current_slide.length && confirm("Are you sure you want to delete this slide?")) { 
     		
   					e.preventDefault();
-        		deleteSlide($(".slide img.selected").parent(".slide").data("id"));
-        		next_slide;
+        		deleteSlide($(".slide img.selected").parent(".slide").data("id"), function(){
+              next_slide.find("img").addClass("selected");
+              displayCurrentSlide();
+            });
+            
     	}
 		});
 	}
@@ -88,7 +91,7 @@ $(document).ready(function(){
     });
 	}
 
-	function deleteSlide(slide_id){
+	function deleteSlide(slide_id, callback){
 		$.ajax({
       url: "/slides/" + slide_id,
       type: "DELETE",
@@ -98,6 +101,10 @@ $(document).ready(function(){
       //remove slide here
       $($(".slide img.selected").parent()).remove();
       $($(".slide img.selected").parent()).empty();
+     
+      if (callback) {
+        callback();
+      }
     });
 	}
 });
