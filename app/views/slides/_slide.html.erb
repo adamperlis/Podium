@@ -7,7 +7,10 @@
 				</video>
 			<% else %>
 				<% unless slide.filepicker_url.blank? %>
-					<img src="<%= slide.filepicker_url_thumb -%>" width="234px" height="164px" data-adaptive-background='1'/> 
+					<div class="img-wrap">
+						<img src="<%= slide.filepicker_url_thumb -%>" width="234px" height="164px" data-adaptive-background='1'/> 
+						<a href="#" class="handle">H</a>
+					</div>
 				<% else %>
 					<div class="blank" id="empty"></div>
 					<script> 
@@ -20,5 +23,6 @@
 		  <%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
 				<span class="delete"><i class="entypo-cancel"></i></span>
 			<% end %>
+
 	  <% end %>
 	<!--  		</li> -->
