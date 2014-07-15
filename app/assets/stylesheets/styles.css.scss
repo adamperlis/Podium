@@ -1406,9 +1406,34 @@ color: #5f6f81;
 
 .ui-selecting { border: 2px solid yellow !important; }
 .ui-selected { border: 2px solid yellow !important; }
+.ui-selectable-helper { 
+	display:none !important;
+	top:0 !important;
+	left:0 !important;
+	right:0 !important;
+	bottom:0 !important;
+	height:0 !important;
+	width:0 !important;
+}
 
 .selected {
   border: 2px solid yellow !important;
+}
+
+.handle {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	color: red;
+	display:none;
+}
+
+.slide:hover .handle{
+	display:block;
+}
+
+.img-wrap{
+	position: relative;
 }
 
 .slide img:focus {
