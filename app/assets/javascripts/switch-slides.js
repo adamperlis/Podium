@@ -16,7 +16,42 @@ $(document).ready(function(){
 
   var slideSorter = $('#slide-sorter');
 
-  slideSorter.selectable({
+  slideSorter.mousedown(function(e)
+    {
+        //Enable multiselect with shift key
+        if(e.shiftKey)
+        {
+            var oTarget = jQuery(e.target);
+            if(!oTarget.is('.ui-selectee')) oTarget = oTarget.parents('.ui-selectee');
+
+            var iNew = jQuery(e.currentTarget).find('.ui-selectee').index(oTarget);
+            var iCurrent = jQuery(e.currentTarget).find('.ui-selectee').index(jQuery(e.currentTarget).find('.ui-selected'));
+            // debugger
+            if (iCurrent < iNew) {
+                iHold = iNew;
+                iNew = iCurrent;
+                iCurrent = iHold;
+            }
+
+            // var selectedIds = $.map(jQuery(e.currentTarget).find('.ui-selectee'), function(el, index) { 
+            //   if($(el).hasClass('ui-selected')) {
+            //     return index; 
+            //   }
+            // });
+
+            if(iNew != '-1')
+            {
+                jQuery(e.currentTarget).find('.ui-selected').removeClass('ui-selected');
+                for (i=iNew;i<=iCurrent;i++) {
+                    jQuery(e.currentTarget).find('.ui-selectee').eq(i).addClass('ui-selected');
+                }
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            }
+        }
+  }).selectable({
     filter: 'img',
     cancel: ".handle",
     selected: function(event, ui){
