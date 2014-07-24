@@ -59,7 +59,6 @@
 			<a href="javascript:history.back()" class="control"><i class='entypo-left'></i></a>
 		<% end %>
 		<a href="#" class="control slide-nav-open"><i class='entypo-layout'></i></a>
-		<canvas id="myChart" width="50" height="50"></canvas>
 	</div>
 
 	<div class="col-sm-10 col-xs-8 center-block column-center">
@@ -121,7 +120,8 @@
 
 		<div class="row row-center">
 			<div class="col-sm-12 col-xs-12 controls-column-center center-block text-center">
-				<a href="#" class="control control-inline"><i class='entypo-left-open-big target'></i></a>
+				<a href="#" class="control control-inline"><i class='entypo-left-open-big'></i></a>
+				<span class="slidecounter"><span class="slidenumber"></span><span>/</span><span class="slidecount"></span></span>
 				<a href="#" class="control control-inline"><i class='entypo-right-open-big'></i></a>
 				<a href="#" class="control control-inline expand"></a>
 			</div>
@@ -138,62 +138,14 @@
 	</div>	
 </div>	
 
-
-
 	<script>
-	$(document).ready(function(){
 		var slide = document.getElementById('slide-number');
 	  var slidenumber = slide.getAttribute('data-slidenumber');
 	  var slidecount = slide.getAttribute('data-slidecount');
 
-		var data = [
-			{
-				value : slidenumber*360,
-				color : "#5f6f81"
-			},
-			{
-				value : slidecount*360 - slidenumber*360,
-				color : "#FFF"
-			}			
-		];
+	  $(".slidenumber").html(slidenumber);
+	  $(".slidecount").html(slidecount);
 
-	  var options = {
-		//Boolean - Whether we should show a stroke on each segment
-		segmentShowStroke : false,
-		
-		//String - The colour of each segment stroke
-		segmentStrokeColor : "#fff",
-		
-		//Number - The width of each segment stroke
-		segmentStrokeWidth : 2,
-		
-		//The percentage of the chart that we cut out of the middle.
-		percentageInnerCutout : 75,
-		
-		//Boolean - Whether we should animate the chart	
-		animation : true,
-		
-		//Number - Amount of animation steps
-		animationSteps : 50,
-		
-		//String - Animation easing effect
-		animationEasing : "easeOutSine",
-		
-		//Boolean - Whether we animate the rotation of the Doughnut
-		animateRotate : true,
-
-		//Boolean - Whether we animate scaling the Doughnut from the centre
-		animateScale : false,
-		
-		//Function - Will fire on animation completion.
-		onAnimationComplete : null
-		}
-
-		//Get the context of the canvas element we want to select
-		var ctx = document.getElementById("myChart").getContext("2d");
-		var myNewChart = new Chart(ctx).Doughnut(data, options);
-
-	});
 	</script>
 		
 	        <!-- Preloader -->
