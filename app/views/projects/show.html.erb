@@ -138,17 +138,31 @@
 	</div>	
 </div>	
 
-	<script>
-		var slide = document.getElementById('slide-number');
-	  var slidenumber = slide.getAttribute('data-slidenumber');
-	  var slidecount = slide.getAttribute('data-slidecount');
+ 	<script>
 
-	  $(".slidenumber").html(slidenumber);
-	  $(".slidecount").html(slidecount);
+		$('.slide-nav-open').on('click', function(e) {
+		  $('.slide-nav').animate({
+            height: "toggle",
+            opacity: "toggle"
+        }, "fast");
+		});
+	</script>
 
+ <script>
+	  $(document).ready(function(){
+	  	var myScroll = new IScroll('#slide-nav', {scrollX: true, scrollY:false, mouseWheel:true, scrollbars: true, preventDefault: true});
+
+		      var widths = $('.slide-nav li').map(function() { return $(this).width() }).toArray();
+		      var finalWidth = widths.reduce(function(sum, i) { return sum + i; });
+
+		      $(".scroller").width(finalWidth);
+		      myScroll.refresh();
+		  });	
+		  
+		});
 	</script>
 		
-	        <!-- Preloader -->
+	<!-- Preloader -->
 	<script type="text/javascript">
 	//<![CDATA[
 	  $(window).load(function() { // makes sure the whole site is loaded
@@ -207,22 +221,7 @@
 
   </script>
 
-  <script>
-	  $(document).ready(function(){
-	  	var myScroll = new IScroll('#slide-nav', {scrollX: true, scrollY:false, mouseWheel:true, scrollbars: true, preventDefault: true});
-
-			$('.slide-nav-open').on('click', function(e) {
-		      $('.slide-nav').slideToggle('fast'); //you can list several class names
-
-		      var widths = $('.slide-nav li').map(function() { return $(this).width() }).toArray();
-		      var finalWidth = widths.reduce(function(sum, i) { return sum + i; });
-
-		      $(".scroller").width(finalWidth);
-		      myScroll.refresh();
-		  });	
-		  
-		});
-	</script>
+ 
 
 
 

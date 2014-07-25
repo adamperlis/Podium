@@ -18,6 +18,10 @@ $(document).ready(function() {
 			animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
 			// support css animations
 			support = Modernizr.cssanimations;
+
+			//set page numbers
+			$(".slidecount").html(pagesCount);
+			$(".slidenumber").html(1);
 		
 		function init() {
 
@@ -127,6 +131,10 @@ $(document).ready(function() {
 			}
 
 			updateSelectedSlide();
+
+			// update page numbers
+			$(".slidenumber").html(current + 1);
+
 
 			var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
 				outClass = '', inClass = '';
