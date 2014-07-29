@@ -26,25 +26,33 @@ $(document).ready(function(){
 
             var iNew = jQuery(e.currentTarget).find('.ui-selectee').index(oTarget);
             var iCurrent = jQuery(e.currentTarget).find('.ui-selectee').index(jQuery(e.currentTarget).find('.ui-selected'));
-            // debugger
-            if (iCurrent < iNew) {
-                iHold = iNew;
-                iNew = iCurrent;
-                iCurrent = iHold;
-            }
 
-            // var selectedIds = $.map(jQuery(e.currentTarget).find('.ui-selectee'), function(el, index) { 
-            //   if($(el).hasClass('ui-selected')) {
-            //     return index; 
-            //   }
-            // });
+            var selectedIds = $.map(jQuery(e.currentTarget).find('.ui-selectee'), function(el, index) { 
+              if($(el).hasClass('ui-selected')) {
+                return index; 
+              }
+            }).sort();
+
+            if (iNew < selectedIds[0]){
+              iCurrent = selectedIds[0];
+              for(; iCurrent > iNew; iCurrent--){
+                selectedIds.push(iCurrent-1);
+              }
+            } else if (iNew > selectedIds[selectedIds.length - 1]) {
+              iCurrent = selectedIds[selectedIds.length - 1];
+              for(; iCurrent < iNew; iCurrent++){
+                selectedIds.push(iCurrent+1);
+              }
+            } else {
+              selectedIds.push(iNew);
+            }
 
             if(iNew != '-1')
             {
                 jQuery(e.currentTarget).find('.ui-selected').removeClass('ui-selected');
-                for (i=iNew;i<=iCurrent;i++) {
+                selectedIds.forEach(function(i) {
                     jQuery(e.currentTarget).find('.ui-selectee').eq(i).addClass('ui-selected');
-                }
+                });
                 e.stopImmediatePropagation();
                 e.stopPropagation();
                 e.preventDefault();
