@@ -34,7 +34,6 @@
 	</div>
 
 <div class="slide-nav" id="slide-nav">
-	<div class="scroller" style="position: absolute;">
 	<!-- 		Slide Navigator -->
   <ul>
 		<% @project.slides.order("position").each_with_index do |slide, i| %>
@@ -49,7 +48,6 @@
 			</li>
 		<% end %>					 
 	</ul>
-  </div>
 </div>
 
 <div class="row presentation-wrapper">
@@ -147,20 +145,6 @@
         }, "fast");
 		});
 	</script>
-
- <script>
-	  $(document).ready(function(){
-	  	var myScroll = new IScroll('#slide-nav', {scrollX: true, scrollY:false, mouseWheel:true, scrollbars: true, preventDefault: true});
-
-		      var widths = $('.slide-nav li').map(function() { return $(this).width() }).toArray();
-		      var finalWidth = widths.reduce(function(sum, i) { return sum + i; });
-
-		      $(".scroller").width(finalWidth);
-		      myScroll.refresh();
-		  });	
-		  
-		});
-	</script>
 		
 	<!-- Preloader -->
 	<script type="text/javascript">
@@ -191,37 +175,25 @@
 			$("#preloader").delay(350).fadeOut("slow"); // will fade out the white DIV that covers the website.
 			$("#pt-main").fadeIn('slow');
 
-	  })
+			var res = $(".pt-page").swipe({ 
+		 		swipeLeft:function(event, direction, distance, duration, fingerCount){ 
+					$(".entypo-right-open-big").click();
+				},
+				swipeRight:function(event, direction, distance, duration, fingerCount){ 
+					$(".entypo-left-open-big").click();
+				} 
+			});
+
+			//Scroll navigator
+			$(".slide-nav").swipe({ 
+				swipeLeft: function(event, dir, distance) { $(".slide-nav").animate({scrollLeft: "+=" + distance + "px"}, 300); },
+				swipeRight: function(event, dir, distance) { $(".slide-nav").animate({scrollLeft: "-=" +distance + "px"}, 300); } 
+			});
+
+	  });
 	//]]>
 	$(".navbar").hide();
 	</script>
-
-	<script>
-	 $(document).ready(function(){
-		 	var element = document.getElementById('pt-main');
-	    var swipeleft = Hammer(element).on("swipeleft", function(event) {
-	        $(".entypo-right-open-big").click();
-	        console.log("swipe left");
-	    });
-
-	    var swiperight = Hammer(element).on("swiperight", function(event) {
-	        $(".entypo-left-open-big").click();
-	        console.log("swipe left");
-	    });
-
-	    var element2 = document.getElementById('iframe-swiper');
-	    var iswipeleft = Hammer(element).on("swipeleft", function(event) {
-	        $(".entypo-right-open-big").click();
-	    });
-
-	    var iswiperight = Hammer(element).on("swiperight", function(event) {
-	        $(".entypo-left-open-big").click();
-	    }); 
-	  });
-
-  </script>
-
- 
 
 
 
