@@ -37,7 +37,7 @@
 	<!-- 		Slide Navigator -->
   <ul>
 		<% @project.slides.order("position").each_with_index do |slide, i| %>
-		 	<li data-position="<%= i %>">
+		 	<li>
 				<% if slide.mimetype == "video/mp4" %>
 					<video width='101px' height='57px'>
 						<source src="<%= slide.filepicker_url %>">
@@ -67,10 +67,6 @@
 					<% @project.slides.order("position").to_enum.with_index(1).each do |slide, index| %>
 						<div class="pt-page" data-transition="<%= @project.transition %>">
 
-							<!-- Slide Numbers -->
-						 <div id='slide-number' data-slidenumber='<%= index %>' data-slidecount='<%= @project.slides.count %>'><%= index %></div> 
-						  
-							
 							<% if slide.mimetype == "video/mp4" %>
 								<video width='100%' height='100%' autoplay="autoplay">
 									<source src="<%= slide.filepicker_url %>">
@@ -118,10 +114,20 @@
 
 		<div class="row row-center">
 			<div class="col-sm-12 col-xs-12 controls-column-center center-block text-center">
-				<a href="#" class="control control-inline"><i class='entypo-left-open-big'></i></a>
-				<span class="slidecounter"><span class="slidenumber"></span><span>/</span><span class="slidecount"></span></span>
-				<a href="#" class="control control-inline"><i class='entypo-right-open-big'></i></a>
-				<a href="#" class="control control-inline expand"></a>
+				<div class="row">
+					<div class="col-xs-3 col-sm-1 col-sm-offset-4">
+						<a href="#" class="control control-inline"><i class='entypo-left-open-big'></i></a>
+					</div>
+					<div class="col-xs-3 col-sm-1">
+						<span class="slidecounter"><span class="slidenumber"></span><span>/</span><span class="slidecount"></span></span>
+					</div>
+					<div class="col-xs-3 col-sm-1">
+						<a href="#" class="control control-inline"><i class='entypo-right-open-big'></i></a>
+					</div>
+					<div class="col-xs-3 col-sm-1">
+						<a href="#" class="control control-inline expand"></a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>	
@@ -186,8 +192,9 @@
 
 			//Scroll navigator
 			$(".slide-nav").swipe({ 
-				swipeLeft: function(event, dir, distance) { $(".slide-nav").animate({scrollLeft: "+=" + distance + "px"}, 300); },
-				swipeRight: function(event, dir, distance) { $(".slide-nav").animate({scrollLeft: "-=" +distance + "px"}, 300); } 
+				swipeLeft: function(event, dir, distance, easing) { $(".slide-nav").animate({scrollLeft: "+=" + distance*2 + "px"}, 700, 'easeOutCirc'); },
+				swipeRight: function(event, dir, distance, easing) { $(".slide-nav").animate({scrollLeft: "-=" +distance*2 + "px"}, 700, 'easeOutCirc'); }, 
+				tap: function(event, target) {$(target).click(); }
 			});
 
 	  });
