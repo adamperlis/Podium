@@ -1422,14 +1422,23 @@ color: #5f6f81;
 
 .handle {
 	position: absolute;
-	top: 0;
+	top: 18px;
 	left: 10px;
-	color: red;
-	display:none;
+	color: white;
+	display: none;
+	font-size: 60px;
 }
 
 .slide:hover .handle{
 	display:block;
+}
+
+.handle:hover{
+	color: lightGray;
+	cursor:hand;
+  cursor:grab;
+  cursor:-moz-grab;
+  cursor:-webkit-grab;
 }
 
 .img-wrap{
