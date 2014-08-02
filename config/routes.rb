@@ -17,6 +17,7 @@ Omrails::Application.routes.draw do
 
   get 'faq' => 'pages#faq'
   get 'pricing' => 'pages#pricing'
+  get 'dashboard' => 'pages#dashboard'
 
   authenticated :user do
     root :to => "projects#index"
