@@ -34,14 +34,14 @@ class ProjectsController < ApplicationController
 
   def authorize
     @project = Project.find(params[:id])
-    @show = true
     
     if !@project.private || is_owner?(@project)
       return redirect_to project_path(@project)
     end
 
     if params[:accesskey] == @project.accesskey
-
+      @show = true
+      
       @project.increment! :clicks
       @project.save
 
