@@ -1,24 +1,23 @@
-<ul class="users">
-	<%= Signup.chart_data %>
-	<%= @users.count(:group => "date_trunc('month', created_at)") %>
+<div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>User Sign Up's per Month</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-sm-offset-2">
+                <canvas id="myChart" width="800" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.email, user %>
-      <%= link_to user.created_at.strftime("%b."), user %>
-      
-    </li>
-  <% end %>
-</ul>
-
-<h1>User Sign Up's per Month</h1>
-<canvas id="myChart" width="800" height="400"></canvas>
 
 <script>
 
 	var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: <%=raw User.order(created_at: :asc).group_by { |m| m.created_at.beginning_of_month }.map { |k,v| "#{k.month}/#{k.year}" } %>,
     datasets: [
         {
             label: "My First dataset",
@@ -28,17 +27,8 @@
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(95, 111, 129, 0.5)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
+            showTooltips: true,
+            data: <%=raw User.order(created_at: :asc).group_by { |m| m.created_at.beginning_of_month }.map { |k,v| v.count } %>
         }
     ]
 	};
