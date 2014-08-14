@@ -287,6 +287,10 @@ input {
 	margin-top: 20px;
 }
 
+.panel {
+	padding: 30px;
+}
+
 #projects-show {
 	background-color: #3A3A3A !important;
 	overflow: hidden;
@@ -1926,7 +1930,9 @@ iframe {
 
 /* Device CSS */
 
-.browser {
+.browser-wrap {
+	height: 380px;
+	width: 700px;
 	margin-top: 60px;
 }
 
@@ -2211,21 +2217,6 @@ label {
 	text-align: center;
 }
 
-.chart-wrapper {
-	float: left;
-	display: inline;
-	position: absolute;
-	top: 99px;
-	left: 270px;
-}
-
-.refer-wrapper {
-	padding-top:20px;
-	width:85%;
-	height:85%;
-	margin-top: -24px;
-}
-
 .refer-wrapper p{
 	color: #5f6f81 !important;
 	font-size: 17px;
@@ -2238,8 +2229,8 @@ label {
 	float: left;
 	display: inline;
 	position: absolute;
-	top: 161px;
-	left: 101px;
+	top: 150px;
+	left: 108px;
 	font-size: 40px;
 	text-align: center;
 }
@@ -2248,6 +2239,12 @@ label {
 	font-size:17px;
 	font-weight: 300;
 }
+.user-project-count {
+	padding-bottom: 30px;
+	display: inline-block;
+	padding-right:10px;
+}
+
 
 .user-project-count strong {
 	font-size: 31px;
@@ -2256,10 +2253,8 @@ label {
 
 .user-project-limit {
 	border-left: 1px solid lightgrey;
-	position: relative;
-	top: -31px;
-	left: 170px;
-	padding-left: 10px;
+	display: inline-block;
+	padding-left:10px;
 }
 
 .user-project-limit strong {
@@ -2367,6 +2362,7 @@ label {
 
 .input-group-addon {
 	border-left:1px solid #cccccc !important;
+	line-height: 1.4;
 }
 
 .private-btn {
@@ -2426,6 +2422,10 @@ label {
 	font-style: italic;
 	padding: 5px;
 	line-height: 80px;
+}
+
+.cancel {
+	text-align: left !important;
 }
 
 

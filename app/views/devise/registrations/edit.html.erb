@@ -1,136 +1,166 @@
 <div class"container">
 	<div class='row'>
 		<div class='col-md-6 col-sm-6 col-md-offset-3'>
-		
-				<h2>EDIT SETTINGS</h2>
 
-				<div class="panel" id='user-storage' data-projects-count='<%= @user.projects.count %>' data-total-projects='<%= @user.project_limit %>' >
-				
-					<canvas id="myChart" width="200" height="200">
-					</canvas>
+			<h2>EDIT SETTINGS</h2>
+			<div class="panel" id='user-storage' data-projects-count='<%= @user.projects.count %>' data-total-projects='<%= @user.project_limit %>' >
+				<div class="row">
+
+					<div class="col-sm-4">
+						<canvas id="myChart" width="200" height="200">
+						</canvas>
+					</div>
 
 					<div class="storage-percentage-wrapper"></div>
 
-					<div class="chart-wrapper">
-						<div class="user-project-count"><strong><%= @user.projects.count %></strong> Presentations used</div>
-						<div class="user-project-limit"><strong><%= @user.project_limit %></strong> Presentations available</div>
-						<div class="refer-wrapper">
-							<p>Refer a friend and get an extra presentation</p>
-					  	<%= form_for "#" do |f| %>
-						  <strong><%= f.label 'Your Referral Link' %></strong>
-						  <%= f.text_field '', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
-							<% end %>
+					<div class="col-sm-8">
+						<div class="chart-wrapper">
+							<div class="user-project-count"><strong><%= @user.projects.count %></strong> Presentations used</div>
+							<div class="user-project-limit"><strong><%= @user.project_limit %></strong> Presentations available</div>
+							<div class="refer-wrapper">
+								<p>Refer a friend and get an extra presentation</p>
+								<%= form_for "#" do |f| %>
+								<strong><%= f.label 'Your Referral Link' %></strong>
+								<%= f.text_field '', :size => '40', :value => root_url(:referral => "podium-#{current_user.id}"), disabled: true %>
+								<% end %>
+							</div>
 						</div>
 					</div>
 
-
 				</div>
+			</div>
 
-				<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { :method => :put, :multipart => true, class: 'form'}) do |f| %>
+			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { :method => :put, :multipart => true, class: 'form'}) do |f| %>
 
-				<div class="row">
-				 	<div class="col-sm-8 avatar-container">
-				 	<% if @user.filepicker_url_avatar %>
-						<%= filepicker_image_tag @user.filepicker_url_avatar, w: 55, h: 55, fit: 'clip', :class => "avatar" %>
+			<div class="row" style="padding-bottom:10px">
+				<div class="col-sm-1 avatar-container">
+					<% if @user.filepicker_url_avatar %>
+					<%= filepicker_image_tag @user.filepicker_url_avatar, w: 55, h: 55, fit: 'clip', :class => "avatar" %>
 					<% else %>
-						<i class="icon-camera"></i>
-					<% end %>	
-							<button class="avatar-button button btn btn-success">Upload a Picture</button>
-							<input id="avatar-url" type="hidden" name="user[filepicker_url_avatar]" data-user-id="<%= @user.id %>" value="<%= @user.filepicker_url_avatar %>"/>
+					<i class="icon-camera"></i>
+					<% end %>
+				</div>
+				<div class="col-sm-6">	
+					<button class="avatar-button button btn btn-success">Upload a Picture</button>
+					<input id="avatar-url" type="hidden" name="user[filepicker_url_avatar]" data-user-id="<%= @user.id %>" value="<%= @user.filepicker_url_avatar %>"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">	
+					<div class="form-group">
+						<div class="input-group">
+							<div class="col-sm-2 col-xs-2 sign-in">
+								<span class="input-group-addon"><i class="entypo-user"></i></span>
+							</div>
+							<div class="col-sm-10 col-xs-10 sign-in">
+								<%= f.input :name, label: false, :input_html => { :class => "form-control" }, :placeholder => "Name", :size => 16, :maxlength => 15 %>
+							</div>
+						</div>
 					</div>
 				</div>
-
-					<div class="row">
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
 					<div class="form-group">
 						<div class="input-group">
 							<div class="col-sm-2 col-xs-2 sign-in">
-						  	<span class="input-group-addon"><i class="entypo-user"></i></span>
-						  </div>
-						  <div class="col-sm-10 col-xs-10 sign-in">
-						  	<%= f.input :name, label: false, :class => "form-control", :placeholder => "Name", :size => 16, :maxlength => 15 %>
+								<span class="input-group-addon"><i class="entypo-mail"></i></span>
+							</div>
+							<div class="col-sm-10 col-xs-10 sign-in"> 
+								<%= f.input :email, label: false, :input_html => { :class => "form-control" }, :placeholder => "E-mail" %>
 							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="col-sm-2 col-xs-2 sign-in">
-						  	<span class="input-group-addon"><i class="entypo-mail"></i></span>
-						  </div>
-						  <div class="col-sm-10 col-xs-10 sign-in"> 
-						  	<%= f.input :email, label: false, :class => "form-control", :placeholder => "E-mail" %>
-						  </div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="col-sm-2 col-xs-2 sign-in">
-						  	<span class="input-group-addon"><i class="entypo-lock"></i></span>
-							</div>
-						  <div class="col-sm-10 col-xs-10 sign-in">
-						  	<%= f.input :password, label: false, :class => "form-control", :placeholder => "Password" %>
-						  </div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="col-sm-2 col-xs-2 sign-in">
-						  	<span class="input-group-addon"><i class="entypo-lock"></i></span>
-							</div>
-						  <div class="col-sm-10 col-xs-10 sign-in">
-						  	<%= f.input :password, label: false, :class => "form-control", :placeholder => "New Password Confirmation", autocomplete: "off" %>
-						  </div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group">
-							<div class="col-sm-2 col-xs-2 sign-in">
-						  	<span class="input-group-addon"><i class="entypo-lock"></i></span>
-							</div>
-						  <div class="col-sm-10 col-xs-10 sign-in">
-						  	<%= f.input :current_password, label: false, :class => "form-control", :placeholder => "Current Password" %>
-						  </div>
-						</div>
-					</div>
-
-				  <div class="form-group">
-					  <div class="col-sm-10 col-xs-10 sign-in">
-					  	<%= f.submit "UPDATE", class: "button prefix btn btn-primary" %>
-					 	</div>
-				<% end %>
 					</div>
 				</div>
-
-				<div class="row">
-						<h3>Cancel my account</h3>
-						<p>Unhappy? <%= button_to "CANCEL MY ACCOUNT", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button prefix btn btn-danger" %></p>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="col-sm-2 col-xs-2 sign-in">
+								<span class="input-group-addon"><i class="entypo-lock"></i></span>
+							</div>
+							<div class="col-sm-10 col-xs-10 sign-in">
+								<%= f.input :password, label: false, :input_html => { :class => "form-control" }, :placeholder => "Password" %>
+							</div>
+						</div>
+					</div>
 				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="col-sm-2 col-xs-2 sign-in">
+								<span class="input-group-addon"><i class="entypo-lock"></i></span>
+							</div>
+							<div class="col-sm-10 col-xs-10 sign-in">
+								<%= f.input :password, label: false, :input_html => { :class => "form-control" }, :placeholder => "New Password Confirmation", autocomplete: "off" %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="col-sm-2 col-xs-2 sign-in">
+								<span class="input-group-addon"><i class="entypo-lock"></i></span>
+							</div>
+							<div class="col-sm-10 col-xs-10 sign-in">
+								<%= f.input :current_password, label: false, :input_html => { :class => "form-control" }, :placeholder => "Current Password" %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<div class="sign-in">
+							<%= f.submit "UPDATE", class: "button prefix btn btn-primary" %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		
+
+		<div class="row" style="padding-bottom:100px">
+			<div class="col-sm-12">
+				<h3 class="cancel">Cancel my account</h3>
+				<%= button_to "CANCEL MY ACCOUNT", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button prefix btn btn-danger" %>
+			</div>
 		</div>
 	</div>
 </div>
+</div>
 <script>
-		var projectChart = document.getElementById('user-storage');
-    var projectCount = projectChart.getAttribute('data-projects-count');
-    var projectLimit = projectChart.getAttribute('data-total-projects');
+var projectChart = document.getElementById('user-storage');
+var projectCount = projectChart.getAttribute('data-projects-count');
+var projectLimit = projectChart.getAttribute('data-total-projects');
 
-    var percentUsage = projectCount/projectLimit*100
+var percentUsage = projectCount/projectLimit*100
 
-    var roundedPercent = Math.round( percentUsage );
+var roundedPercent = Math.round( percentUsage );
 
-    $('.storage-percentage-wrapper').html( roundedPercent + '%<p>usage</p>');
-   
+$('.storage-percentage-wrapper').html( roundedPercent + '%<p>usage</p>');
 
-		var data = [
-			{
-				value : projectCount*360,
-				color : "#5f6f81"
-			},
-			{
-				value : projectLimit*360 - projectCount*360,
-				color : "#FFF"
-			}			
-		];
 
-	  var options = {
+var data = [
+{
+	value : projectCount*360,
+	color : "#5f6f81"
+},
+{
+	value : projectLimit*360 - projectCount*360,
+	color : "#FFF"
+}			
+];
+
+var options = {
 		//Boolean - Whether we should show a stroke on each segment
 		segmentShowStroke : false,
 		
@@ -160,15 +190,15 @@
 		
 		//Function - Will fire on animation completion.
 		onAnimationComplete : null
-		}
+	}
 
-		var c = $('#myChart');
-    var ct = c.get(0).getContext('2d');
-    var ctx = document.getElementById("myChart").getContext("2d");
-    /*************************************************************************/
-    myNewChart = new Chart(ct).Doughnut(data, options);
+	var c = $('#myChart');
+	var ct = c.get(0).getContext('2d');
+	var ctx = document.getElementById("myChart").getContext("2d");
+	/*************************************************************************/
+	myNewChart = new Chart(ct).Doughnut(data, options);
 
-		
+
 	</script>
 
 

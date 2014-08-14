@@ -19,34 +19,18 @@
 					</div>
 				</div>
 			</div>
-		</article>	
-	</br>
-		<figure class="col-sm-6 col-xs-12 col-sm-pull-6 animated fadeInLeft">
-	    <div class="container">
-				<div class="row">
-					<div class="col-sm-12 col-sm-offset-1">
-				    <div class="browser" id="browser-small">
-				    	<div class="browser-bar">
-				    		<div class="browser-button"></div>
-				    		<div class="browser-button"></div>
-				    		<div class="browser-button"></div>
-				    	</div>
-				    	<div class="browser-content">
-				    	<!-- 	<a href="#"><img class="img-responsive" src="https://m1.behance.net/rendition/modules/77583303/hd/bde9f10ae609e1400180c98a1293518b.jpg" style="
-    width: 672px;
-"></img></a> -->
-								<a href="#" class="modal-trigger" data-url="<%= project_url(71) %>" data-target="#live-preview-modal"><img class="img-responsive" src="<%= Project.find(71).slides.order("position").first.filepicker_url %>" ></img></a>
-
-								<div class="button-centered">
-									<div class="live-preview btn btn-danger modal-trigger" data-url="<%= project_url(71) %>" data-target="#live-preview-modal">LIVE PREVIEW</div>
-								</div>
-				      </div>	
-				    </div>
-				  </div>
+		</article>
+		<figure class="col-sm-6 col-xs-12 col-sm-pull-6">
+			<div class="row">	
+				<div class="col-sm-12 col-sm-offset-1">
+					<div class="browser-wrap">
+						<%= render "shared/example_presentation", project_id: 71 %>
+						<%= render "shared/example_presentation", project_id: 26 %>
+						<%= render "shared/example_presentation", project_id: 107 %>
+					</div>
 				</div>
-	    </div>
-	  </figure>
-	</div>
+			</div>
+		</figure>
 </div>
 
 
