@@ -1,0 +1,17 @@
+		<div class="browser animated fadeInLeft" id="browser-small" style="display:none">
+			<div class="browser-bar">
+				<div class="browser-button"></div>
+				<div class="browser-button"></div>
+				<div class="browser-button"></div>
+			</div>
+			<div class="browser-content">
+
+				<a href="#" class="modal-trigger" data-url="<%= project_url(project_id) %>" data-target="#live-preview-modal"><img class="img-responsive" src="<%= Project.find(project_id).slides.order("position").first.filepicker_url %>" ></img></a>
+
+
+				<div class="button-centered">
+					<div class="live-preview btn btn-danger modal-trigger" data-url="<%= project_url(project_id) %>" data-target="#live-preview-modal">LIVE PREVIEW</div>
+
+				</div>	
+			</div>
+		</div>
