@@ -28,7 +28,7 @@ $border-radius-large:0px;
 $border-radius-small:0px;
 
 /*Panels*/
-$panel-bg:#f2f2f2;
+$panel-bg:#F7F7F7;
 $panel-default-border:#BDBCBC;
 $panel-primary-border:#BDBCBC;
 $panel-inner-border:#BDBCBC;
@@ -85,6 +85,21 @@ $state-success-text:#FFFFFF;
 		font-size: 20px;
 	}
 
+	.storage-percentage-wrapper{
+		top: 132px !important;
+	}
+
+	.user-project-count {
+		padding-bottom: 0px !important;
+		display: inline-block !important;
+		padding-right:0px !important;
+	}
+
+	.user-project-limit {
+		border-left: 0px solid lightgrey !important;
+		display: inline-block !important;
+		padding-left:0px !important;
+	}
 }
 
 @media(min-width:768px){
@@ -103,6 +118,21 @@ $state-success-text:#FFFFFF;
 
 	.referral {
 		margin-top: -42px;
+	}
+
+	#myChart{
+		width: 150px !important;
+		height: 150px !important;
+	}
+
+	.storage-percentage-wrapper{
+		top: 132px !important;
+		left: 94px !important;
+		font-size: 30px !important;
+	}
+
+	.chart-wrapper{
+		font-size: 13px !important;
 	}
 
 }
@@ -2239,6 +2269,7 @@ label {
 	font-size:17px;
 	font-weight: 300;
 }
+
 .user-project-count {
 	padding-bottom: 30px;
 	display: inline-block;
