@@ -18,14 +18,11 @@ source 'http://rubygems.org'
 	gem 'pdfkit'
 	gem 'rmagick', :require => 'RMagick'
 	gem 'google-analytics-rails'
-
-
-group :production do
+	gem 'cloudconvert'
+	gem 'pry'
 	gem 'pg'
-end
 
 group :development, :test do
-	gem 'sqlite3'
 	gem 'debugger'
 end
 
