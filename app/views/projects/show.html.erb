@@ -37,7 +37,7 @@
 	<!-- 		Slide Navigator -->
   <ul>
 		<% @project.slides.order("position").each_with_index do |slide, i| %>
-		 	<li>
+		 	<li data-position="<%= i %>">
 				<% if slide.mimetype == "video/mp4" %>
 					<video width='101px' height='57px'>
 						<source src="<%= slide.filepicker_url %>">

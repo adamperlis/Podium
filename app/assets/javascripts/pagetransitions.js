@@ -72,7 +72,7 @@ $(document).ready(function() {
 					return false;
 		    }
 			});
-			
+
 			if(Modernizr.touch) {
 				$(".slide-nav li").bind('touchstart', showPage);
 			} else {
