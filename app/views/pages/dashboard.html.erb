@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 col-sm-offset-2">
+            <div class="col-sm-12">
                 <canvas id="myChart" width="800" height="400"></canvas>
             </div>
         </div>
@@ -17,7 +17,7 @@
 <script>
 
 	var data = {
-    labels: <%=raw User.order(created_at: :asc).group_by { |m| m.created_at.beginning_of_month }.map { |k,v| "#{k.month}/#{k.year}" } %>,
+    labels: <%=raw User.order("created_at ASC").group_by { |m| m.created_at.beginning_of_month }.map { |k,v| "#{k.month}/#{k.year}" } %>,
     datasets: [
         {
             label: "My First dataset",
@@ -28,7 +28,7 @@
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
             showTooltips: true,
-            data: <%=raw User.order(created_at: :asc).group_by { |m| m.created_at.beginning_of_month }.map { |k,v| v.count } %>
+            data: <%=raw User.order("created_at ASC").group_by { |m| m.created_at.beginning_of_month }.map { |k,v| v.count } %>
         }
     ]
 	};

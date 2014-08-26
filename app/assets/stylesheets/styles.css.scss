@@ -100,6 +100,7 @@ $state-success-text:#FFFFFF;
 		display: inline-block !important;
 		padding-left:0px !important;
 	}
+
 }
 
 @media(min-width:768px){
@@ -118,11 +119,6 @@ $state-success-text:#FFFFFF;
 
 	.referral {
 		margin-top: -42px;
-	}
-
-	#myChart{
-		width: 150px !important;
-		height: 150px !important;
 	}
 
 	.storage-percentage-wrapper{
@@ -2457,6 +2453,11 @@ label {
 
 .cancel {
 	text-align: left !important;
+}
+
+#myChart{
+	width: 100% !important;
+	height: 60% !important;
 }
 
 
