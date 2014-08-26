@@ -4,6 +4,8 @@ $(document).ready(function(){
     var project_id;
     var project_url;
 
+    ga("send", "event", "trial", "upload-success");
+
     $("#live-preview-modal").modal('show');
     $("#live-preview-modal").find(".spinner-wrapper").show();
   
