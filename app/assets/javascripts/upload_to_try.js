@@ -1,8 +1,21 @@
 $(document).ready(function(){
 
+  var hasClickedTrial = false;
+
+  window.onbeforeunload = prePageExit;
+  function prePageExit(){
+    if (hasClickedTrial){
+      ga("send", "event", "trial", "upload-fail");
+    }
+  }
+
 	var filepicker_trial_cb = function(InkBlobs){
     var project_id;
     var project_url;
+
+    ga("send", "event", "trial", "upload-success");
+
+    hasClickedTrial = false;
 
     $("#live-preview-modal").modal('show');
     $("#live-preview-modal").find(".spinner-wrapper").show();
@@ -29,6 +42,8 @@ $(document).ready(function(){
       services:['COMPUTER', 'DROPBOX', 'GOOGLE_DRIVE', 'BOX', 'SKYDRIVE', 'FACEBOOK', 'INSTAGRAM'],
       openTo:"welcome"
     }, filepicker_trial_cb);
+
+    hasClickedTrial = true;
   });
 
   $(".modal-trigger").click(function(e) {
