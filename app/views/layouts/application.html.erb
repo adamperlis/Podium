@@ -32,7 +32,7 @@
         function ga(){}
       </script>
     <% end %>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <%= favicon_link_tag 'favicon.png' %>
   </head>
 
   <body class="<%= @show ? 'show' : ''%>" onload="loaded()">
