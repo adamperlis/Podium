@@ -21,6 +21,7 @@ source 'http://rubygems.org'
 	gem 'pry'
 	gem 'sendgrid'
 	gem 'pg'
+	gem "oink"
 
 group :development, :test do
 	gem 'debugger'
