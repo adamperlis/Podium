@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/pandurang90/cloudconvert.git
+  revision: e5445178628cda3cad89a2133b6ee0e51ed56157
+  ref: e5445178628cda3cad89a2133b6ee0e51ed56157
+  specs:
+    cloudconvert (0.0.3)
+      faraday
+      json
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -44,9 +53,6 @@ GEM
     chunky_png (1.2.8)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cloudconvert (0.0.3)
-      faraday
-      json
     cocaine (0.5.1)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
@@ -202,7 +208,7 @@ DEPENDENCIES
   aws-sdk
   bootstrap-sass (~> 3.1.1)
   bootstrap-will_paginate (= 0.0.6)
-  cloudconvert
+  cloudconvert!
   coffee-rails (~> 3.2.1)
   compass-52-plugin
   compass-rails
