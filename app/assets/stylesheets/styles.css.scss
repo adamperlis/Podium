@@ -164,6 +164,19 @@ $state-success-text:#FFFFFF;
 
 }
 
+@media(min-width:1500px){
+
+	.presentation-wrapper .controls-column-center .bg-overlay {
+	width: 620px;
+	height: 80px;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.5);
+	left: 50%;
+	margin-left: -304px;
+	border-radius: 10px;
+	}
+}
+
 /* centered columns styles */
 .row-centered {
    margin:0 auto;
