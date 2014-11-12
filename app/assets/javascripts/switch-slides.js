@@ -157,6 +157,17 @@ $(document).ready(function(){
     });
 	}
 
+  $('.delete').click(function(e) {
+     // Get ID
+    var result = confirm("Are you sure you want to delete this slide?");
+
+    if (result==true) {
+      //Logic to delete the item
+      deleteSlide($(this).parents('li').data("id")); 
+    }
+     
+  });
+
 	function deleteSlide(slide_id, callback){
 		$.ajax({
       url: "/slides/" + slide_id,
