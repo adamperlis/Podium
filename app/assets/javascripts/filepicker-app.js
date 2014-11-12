@@ -32,7 +32,7 @@ $(function (){
           $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
           $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
 
-          $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><video src=' + InkBlob.url + ' class="vid"><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+          $(org).append(renderSlide(data.slides[i].id, data.slides[i].filepicker_url_thumb));          
           console.log(data);
         });
 
@@ -72,7 +72,7 @@ $(function (){
         for (i=0; i<data.slides.length; i++){
           $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
 
-          $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+          $(org).append(renderSlide(data.slides[i].id, data.slides[i].filepicker_url_thumb));
           }
         });
 
@@ -84,7 +84,7 @@ $(function (){
               $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
               $("#current-slide").html($("<img>").attr('src', url));
 
-              $(org).append('<li class="slide" data-id=' + data.slide.id + ' id="slide_' + data.slide.id +'"><img src=' + new_InkBlob.url + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slide.id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+              $(org).append(renderSlide(data.slides[i].id, data.slides[i].filepicker_url_thumb));
               console.log(data);
           });
         });
@@ -147,7 +147,7 @@ function sendToCloudConvert(url, mimetype, project_id, org){
         for (i=0; i<data.slides.length; i++){
           $("#current-slide").html($("<img>").attr('src', data.slides[0].filepicker_url));
 
-          $(org).append('<li class="slide" data-id=' + data.slides[i].id + ' id="slide_' + data.slides[i].id +'"><img src=' + data.slides[i].filepicker_url_thumb + ' class=><ul class="slide-tools"><li><a href="/slides/' + data.slides[i].id + '" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><span class="delete"><i class="icon-remove"></i></span></a></li></ul></li>');
+          $(org).append(renderSlide(data.slides[i].id, data.slides[i].filepicker_url_thumb));
         }
       });
     });         
@@ -184,4 +184,17 @@ function updateProject(projectId, url){
 
 function isPresentation(inkblob){
   return inkblob.mimetype == "application/vnd.ms-powerpoint" || inkblob.mimetype == "application/vnd.openxmlformats-officedocument.presentationml.presentation" || inkblob.mimetype == "application/x-iwork-keynote-sffkey" || inkblob.mimetype == "application/pgp-keys"
+}
+
+function renderSlide (id, fp_url){
+
+  return '<li class="slide" data-id="'+ id +'" data-mimetype="image/jpg" id="slide_'+ id +'"> ' +
+          '<div class="img-wrap">' +
+            '<img src="'+ fp_url +'" width="234px" height="164px" data-adaptive-background="1" class="ui-selectee">' + 
+            '<a href="#" class="handle entypo-arrow-combo"></a>' +
+          '</div>' +
+          '<a href="/slides/'+ id +'" data-confirm="Are you sure?" data-method="delete" rel="nofollow">'+
+            '<span class="delete"><i class="entypo-cancel"></i></span>' +
+          '</a>'+
+        '</li>';
 }
