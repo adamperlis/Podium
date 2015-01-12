@@ -22,6 +22,7 @@ source 'http://rubygems.org'
 	gem 'sendgrid'
 	gem 'pg'
 	gem "oink"
+        gem 'streamio-ffmpeg'
 
 group :development, :test do
 	gem 'debugger'
