@@ -29,11 +29,11 @@ $(function (){
       if(InkBlob.mimetype == "video/mp4"){
         $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
 
-          $("#current-slide").html($("<video width='100%' height='100%' controls>").attr('src', url));
-          $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
-
-          $(org).append(renderSlide(data.slides[i].id, data.slides[i].filepicker_url_thumb));          
-          console.log(data);
+          renderVideo(url, function(image) {
+            $(org).append(renderSlide(data.slide.id, image));          
+            console.log(data);
+            $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
+          });
         });
 
       }else if(isPresentation(InkBlob)){
@@ -190,11 +190,42 @@ function renderSlide (id, fp_url){
 
   return '<li class="slide" data-id="'+ id +'" data-mimetype="image/jpg" id="slide_'+ id +'"> ' +
           '<div class="img-wrap">' +
-            '<img src="'+ fp_url +'" width="234px" height="164px" data-adaptive-background="1" class="ui-selectee">' + 
+            '<img src="'+ fp_url +'" width="234px" height="164px" crossOrigin="anonymous" data-adaptive-background="1" class="ui-selectee">' + 
             '<a href="#" class="handle entypo-arrow-combo"></a>' +
           '</div>' +
           '<a href="/slides/'+ id +'" data-confirm="Are you sure?" data-method="delete" rel="nofollow">'+
             '<span class="delete"><i class="entypo-cancel"></i></span>' +
           '</a>'+
         '</li>';
+}
+
+function renderVideo(url, callback) {
+  $("#current-slide").
+    html($("<video id='main-video' width='100%' height='100%' controls></video>").attr('src', url)).
+    append($("<canvas></canvas>"));
+
+  var video = document.querySelector('#main-video');
+  var canvas = document.querySelector('canvas');
+  var context = canvas.getContext('2d');
+  var w, h, ratio;
+
+  video.setAttribute('crossOrigin','anonymous');
+
+  video.addEventListener('loadedmetadata', function() {
+    // Calculate the ratio of the video's width to height
+    ratio = video.videoWidth / video.videoHeight;
+    // Define the required width as 100 pixels smaller than the actual video's width
+    w = 167;
+    // Calculate the height based on the video's width and the ratio
+    h = 165;
+    // Set the canvas width and height to the values just calculated
+    canvas.width = w;
+    canvas.height = h;  
+  }, false);
+
+ video.addEventListener('loadeddata', function() {
+    context.fillRect(0, 0, w, h);
+    context.drawImage(video, 0, 0, w, h);
+    callback(canvas.toDataURL('image/png')); 
+ });
 }
