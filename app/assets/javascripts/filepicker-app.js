@@ -29,9 +29,11 @@ $(function (){
       if(InkBlob.mimetype == "video/mp4"){
         $.post("/slides", { slide: { filepicker_url: InkBlob.url, filepicker_url_thumb: InkBlob.url, mimetype: InkBlob.mimetype }, project_id: project_id}, function(data){
 
-          renderVideo(url, function(image) {
+          renderVideo(url, data.slide.id, function(image) {
             $(org).append(renderSlide(data.slide.id, image));          
             console.log(data);
+
+
             $(".share").click(); //CLICKS SHARE AFTER UPLOAD TO PROMPT USER TO SHARE IMMEDIATELY OR CONTINUE EDITING
           });
         });
@@ -199,7 +201,7 @@ function renderSlide (id, fp_url){
         '</li>';
 }
 
-function renderVideo(url, callback) {
+function renderVideo(url, id, callback) {
   $("#current-slide").
     html($("<video id='main-video' width='100%' height='100%' controls></video>").attr('src', url)).
     append($("<canvas></canvas>"));
@@ -228,4 +230,14 @@ function renderVideo(url, callback) {
     context.drawImage(video, 0, 0, w, h);
     callback(canvas.toDataURL('image/png')); 
  });
+
+  var b64 = $("#slide_" + id + "img").attr("src").split(',', 2)[1];
+
+  filepicker.store(b64, {mimetype: 'image/png', base64decode: true}, function(FPBlob) { console.log(FPBlob);});
+
+  $.ajax({ url: "/slides/"+ id,
+    type: "PUT",
+    data: { slide: {filepicker_url_thumb: InkBlob.url }},
+    dataType: "json"
+  })
 }
