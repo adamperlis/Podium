@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: podium_development
+  database: koushik
   pool: 5
   timeout: 5000
 
