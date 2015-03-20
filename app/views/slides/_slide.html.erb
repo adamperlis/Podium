@@ -20,9 +20,12 @@
 					</script>
 				<% end %>
 			<% end %>  
+		<!--	
 		  <%= link_to(slide, method: :delete, data: { confirm: 'Are you sure?' }) do %>
 				<span class="delete"><i class="entypo-cancel"></i></span>
-			<% end %>
+			<% end %> -->
+
+			<a href="" id="delete_slide" data-slide-number="<%= slide.id %>"><span class="delete"><i class="entypo-cancel"></i></span></a>
 
 	  <% end %>
 	<!--  		</li> -->

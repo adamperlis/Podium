@@ -4,7 +4,6 @@ Omrails::Application.routes.draw do
   get 'browse', :on => :collection
   post 'authorize', :on => :member # POST /projects/:id/authorize
   get 'authorize', :on => :member # GET /projects/:id/authorize
-  
   end
   
   resources :slides do 

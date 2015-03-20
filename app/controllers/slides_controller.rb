@@ -52,10 +52,10 @@ class SlidesController < ApplicationController
 	def destroy
     @slide = Slide.find(params[:id])
     @project = @slide.project
-    @slide.destroy
+    @slide.delete
 
     respond_to do |format|
-      format.html { redirect_to edit_project_url(@project) }
+      format.html { redirect_to edit_project_path(@project) }
       format.json { head :no_content }
     end
   end
